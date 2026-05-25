@@ -12,7 +12,7 @@ const meta: Meta<typeof Button> = {
         component: `
 A button triggers an action or event. Use buttons to let users know what will happen next, and choose a variant that matches the weight of the action.
 
-### Variants
+## Variants
 
 **Primary (\`default\`)** — Use a primary button for the most important action on a page or within a section — typically a form submission or the single key call to action.
 
@@ -26,7 +26,7 @@ A button triggers an action or event. Use buttons to let users know what will ha
 
 **Link** — Use a link button when an action navigates the user somewhere and inline text styling is preferred. It behaves like a button semantically but looks like a hyperlink.
 
-### States
+## States
 
 **Default** — The resting, interactive state. The button is ready to receive focus and click events.
 
@@ -34,7 +34,7 @@ A button triggers an action or event. Use buttons to let users know what will ha
 
 **Loading** — Replaces the label with a spinner to communicate that an async operation is in progress. Use this to prevent double submissions and reassure users that their action was received.
 
-### Sizes
+## Sizes
 
 **\`xs\`** — Use in dense UIs like table rows, inline chips, or compact toolbars.
 
@@ -44,7 +44,7 @@ A button triggers an action or event. Use buttons to let users know what will ha
 
 **\`lg\`** — Use for prominent hero or onboarding calls to action that need extra visual weight.
 
-### Icon variants
+## Icon variants
 
 **With leading icon** — Reinforces the label with a visual cue. Use for common actions (send, download, create) where the icon improves scannability.
 
@@ -52,11 +52,11 @@ A button triggers an action or event. Use buttons to let users know what will ha
 
 **Icon only** — Use when space is very constrained and the icon is universally understood. Always include an \`aria-label\` for screen-reader accessibility.
 
-### Full width
+## Full width
 
 Stretches the button to fill its container. Use in mobile layouts, card footers, or any context where a full-bleed action feels natural.
 
-### Button group
+## Button group
 
 Combines multiple outline buttons into a connected control (e.g. a segmented filter or view toggle). Remove the shared border and border-radius on inner buttons so they read as a single unit.
         `,

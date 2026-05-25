@@ -7,7 +7,7 @@ const preview: Preview = {
   parameters: {
     docs: {
       toc: {
-        headingSelector: "h2, h3",
+        headingSelector: "h2",
         title: "Contents",
       },
     },
