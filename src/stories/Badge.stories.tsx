@@ -4,7 +4,6 @@ import { Badge } from "../../components/ui/badge"
 const meta: Meta<typeof Badge> = {
   title: "Data display/Badge",
   component: Badge,
-  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
@@ -29,6 +28,49 @@ const meta: Meta<typeof Badge> = {
 
 export default meta
 type Story = StoryObj<typeof Badge>
+
+export const Variants: Story = {
+  name: "Variants",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-6">
+      {[
+        { label: "Default",     props: { variant: "default"     as const, children: "Default" } },
+        { label: "Secondary",   props: { variant: "secondary"   as const, children: "Secondary" } },
+        { label: "Outline",     props: { variant: "outline"     as const, children: "Outline" } },
+        { label: "Destructive", props: { variant: "destructive" as const, children: "Destructive" } },
+        { label: "Success",     props: { variant: "success"     as const, children: "Success" } },
+        { label: "Info",        props: { variant: "info"        as const, children: "Info" } },
+        { label: "Warning",     props: { variant: "warning"     as const, children: "Warning" } },
+        { label: "Error",       props: { variant: "error"       as const, children: "Error" } },
+        { label: "Brand",       props: { variant: "brand"       as const, children: "Brand" } },
+      ].map(({ label, props }) => (
+        <div key={label} className="flex flex-col items-center gap-2">
+          <Badge {...props} />
+          <span className="text-xs text-muted-foreground">{label}</span>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
+export const WithDotAll: Story = {
+  name: "With dot indicator",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-6">
+      {[
+        { label: "Success", props: { variant: "success" as const, dot: true, children: "Active" } },
+        { label: "Info",    props: { variant: "info"    as const, dot: true, children: "Processing" } },
+        { label: "Warning", props: { variant: "warning" as const, dot: true, children: "Degraded" } },
+        { label: "Error",   props: { variant: "error"   as const, dot: true, children: "Incident" } },
+      ].map(({ label, props }) => (
+        <div key={label} className="flex flex-col items-center gap-2">
+          <Badge {...props} />
+          <span className="text-xs text-muted-foreground">{label}</span>
+        </div>
+      ))}
+    </div>
+  ),
+}
 
 // Core variants
 export const Default: Story = {

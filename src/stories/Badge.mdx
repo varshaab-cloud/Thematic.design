@@ -1,0 +1,50 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as BadgeStories from "./Badge.stories"
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+<Canvas of={BadgeStories.Variants} withToolbar={false} />
+
+A badge communicates a status, category, or count. It is always decorative and never interactive on its own. Use badges to help users quickly identify the state or type of an item without reading full text.
+
+## Variants
+
+**Default** — Use the default badge for general labels or categories that don't carry a specific semantic meaning — for example, feature tags or content types.
+
+**Secondary** — A lower-emphasis label for supplementary metadata. Use when the badge needs to be present but should not draw strong attention.
+
+**Outline** — Use an outline badge for neutral states like "Draft" or "Archived" where no colour is needed and the label alone is sufficient.
+
+**Destructive** — Use sparingly to flag items that require immediate attention or are in a critical failure state. Prefer the error semantic variant for most failure states.
+
+**Success** — Communicates a healthy, completed, or active state — for example "Deployed", "Active", or "Verified".
+
+**Info** — Communicates a neutral informational state in progress — for example "Building", "Processing", or "Syncing".
+
+**Warning** — Communicates a degraded or attention-required state — for example "Degraded", "Expiring soon", or "Pending approval".
+
+**Error** — Communicates a failed or broken state — for example "Incident", "Failed", or "Rejected".
+
+**Brand** — Use to highlight new features, promoted items, or branded labels. Use sparingly so it retains its attention-grabbing quality.
+
+## With dot indicator
+
+<Canvas of={BadgeStories.WithDotAll} withToolbar={false} />
+
+Add a status dot before the label when the badge is being used specifically as a real-time status indicator. The dot reinforces the semantic colour with an additional visual signal, useful in dashboards and monitoring tables where scanning speed matters.
+
+## Sizes
+
+<Canvas of={BadgeStories.Sizes} withToolbar={false} />
+
+**`sm`** — Use in compact table cells, tag lists, or inline within a sentence.
+
+**`md` (default)** — Use in most contexts: cards, list items, filter chips.
+
+**`lg`** — Use when the badge is a prominent piece of information that needs to stand on its own, such as a status pill on a detail page header.
+
+## Playground
+
+<Controls of={BadgeStories.Default} />
