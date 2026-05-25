@@ -41,7 +41,7 @@ function PaginationDemo({
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 
 const meta: Meta<typeof Pagination> = {
-  title: "Thematic/Components/Pagination",
+  title: "Navigation/Pagination",
   component: Pagination,
   tags: ["autodocs"],
   parameters: {

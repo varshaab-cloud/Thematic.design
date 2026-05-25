@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/Dialog",
+  title: "Overlays/Dialog",
   parameters: { layout: "centered" },
 }
 export default meta

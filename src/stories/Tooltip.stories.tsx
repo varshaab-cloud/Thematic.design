@@ -4,7 +4,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Button } from "@/components/ui/button"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/Tooltip",
+  title: "Overlays/Tooltip",
   parameters: { layout: "centered" },
 }
 export default meta

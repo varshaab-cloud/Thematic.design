@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { RadioGroup, RadioGroupItem, RadioGroupLabel } from "@/components/ui/radio-group"
 
 const meta: Meta<typeof RadioGroup> = {
-  title: "Thematic/Controls/RadioGroup",
+  title: "Forms and input/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

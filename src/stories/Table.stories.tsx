@@ -4,7 +4,7 @@ import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
 
 const meta: Meta<typeof Table> = {
-  title: "Thematic/Components/Table",
+  title: "Data display/Table",
   component: Table,
   tags: ["autodocs"],
 }

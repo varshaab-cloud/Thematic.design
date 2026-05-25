@@ -16,7 +16,7 @@ import { Slider } from "@/components/ui/slider"
 import { Toaster } from "@/components/ui/sonner"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/Form",
+  title: "Forms and input/Form",
   parameters: { layout: "padded" },
   decorators: [
     (Story) => (

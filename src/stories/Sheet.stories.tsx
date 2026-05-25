@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
 
 const meta: Meta<typeof Sheet> = {
-  title: "Thematic/Components/Sheet",
+  title: "Overlays/Sheet",
   component: Sheet,
   tags: ["autodocs"],
 }

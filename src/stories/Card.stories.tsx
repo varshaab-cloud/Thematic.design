@@ -5,7 +5,7 @@ import { Badge } from "../../components/ui/badge"
 import { Users, DollarSign, TrendingUp, ShoppingCart, Activity } from "lucide-react"
 
 const meta: Meta<typeof Card> = {
-  title: "Thematic/Components/Card",
+  title: "Data display/Card",
   component: Card,
   tags: ["autodocs"],
 }

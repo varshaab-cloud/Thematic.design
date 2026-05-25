@@ -22,7 +22,7 @@ import { SidebarNav } from "@/components/ui/sidebar-nav"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 const meta: Meta<typeof SidebarNav> = {
-  title: "Thematic/Components/SidebarNav",
+  title: "Navigation/SidebarNav",
   component: SidebarNav,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },

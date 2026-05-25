@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { Button } from "@/components/ui/button"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/DropdownMenu",
+  title: "Overlays/DropdownMenu",
   parameters: { layout: "centered" },
 }
 export default meta

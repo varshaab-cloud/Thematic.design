@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { SelectField, SelectItem, SelectGroup, SelectLabel, SelectSeparator } from "../../components/ui/select"
 
 const meta: Meta<typeof SelectField> = {
-  title: "Thematic/Controls/Select",
+  title: "Forms and input/Select",
   component: SelectField,
   tags: ["autodocs"],
   argTypes: {

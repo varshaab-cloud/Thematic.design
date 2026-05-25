@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Filter } from "lucide-react"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/Popover",
+  title: "Overlays/Popover",
   parameters: { layout: "centered" },
 }
 export default meta

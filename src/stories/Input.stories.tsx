@@ -3,7 +3,7 @@ import { Input } from "../../components/ui/input"
 import { Search, Mail, Eye, EyeOff, Lock, User } from "lucide-react"
 
 const meta: Meta<typeof Input> = {
-  title: "Thematic/Controls/Input",
+  title: "Forms and input/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {

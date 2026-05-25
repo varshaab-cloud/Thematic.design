@@ -3,7 +3,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Button } from "@/components/ui/button"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/AlertDialog",
+  title: "Messaging/AlertDialog",
   parameters: { layout: "centered" },
 }
 export default meta

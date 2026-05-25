@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/ta
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
 
 const meta: Meta<typeof Tabs> = {
-  title: "Thematic/Components/Tabs",
+  title: "Navigation/Tabs",
   component: Tabs,
   tags: ["autodocs"],
 }

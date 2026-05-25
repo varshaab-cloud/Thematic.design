@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { Button } from "@/components/ui/button"
 
 const meta: Meta = {
-  title: "Thematic/Patterns/Toast",
+  title: "Messaging/Toast",
   parameters: { layout: "centered" },
   decorators: [
     (Story) => (

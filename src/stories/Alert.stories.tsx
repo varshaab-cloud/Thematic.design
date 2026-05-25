@@ -8,7 +8,7 @@ import { Button } from "../../components/ui/button"
 // Copy follows the three-part rule: diagnose / explain / recover.
 
 const meta: Meta<typeof Alert> = {
-  title: "Thematic/Components/Alert",
+  title: "Messaging/Alert",
   component: Alert,
   tags: ["autodocs"],
   argTypes: {
