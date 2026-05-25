@@ -1,0 +1,191 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Thematic Design System/Guides/Destructive Actions" />
+
+<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 800, margin: "0 auto", padding: "48px 24px" }}>
+
+<h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Destructive Actions</h1>
+<p style={{ fontSize: 15, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 8px", lineHeight: 1.6 }}>
+  Patterns for actions that permanently remove data, revoke access, or cannot be undone.
+  The goal is to give users enough information to make a confident decision — without creating alarm or friction for experienced users who know exactly what they're doing.
+</p>
+<div style={{ display: "inline-block", background: "var(--alias-color-feedback-info-bg, #E0F2FE)", border: "1px solid var(--alias-color-border-info, #0369A1)", borderRadius: 8, padding: "8px 14px", marginBottom: 48 }}>
+  <p style={{ fontSize: 12, color: "var(--alias-color-feedback-info-fg, #0369A1)", margin: 0, lineHeight: 1.5 }}>
+    <strong>Vocabulary note:</strong> In Thematic, <code>destructive</code> describes an <strong>action</strong> (irreversible, removes data).
+    <code>error</code> describes a <strong>state</strong> (something failed). A delete button is destructive. A failed save is an error. These are not interchangeable.
+  </p>
+</div>
+
+## The graduated severity model
+
+Not all destructive actions are equal. Match the friction level to the consequence.
+
+<div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 48 }}>
+  {[
+    {
+      level: "Level 1",
+      label: "Low risk",
+      colour: "#E0F2FE",
+      borderColour: "#0369A1",
+      textColour: "#0369A1",
+      examples: "Archive, hide, mute, unfollow",
+      pattern: "No confirmation. Toast with Undo action (5s window).",
+      component: "Toast + undo",
+    },
+    {
+      level: "Level 2",
+      label: "Moderate",
+      colour: "#FEF9C3",
+      borderColour: "#F7D307",
+      textColour: "#92650A",
+      examples: "Remove from list, clear history, reset to defaults",
+      pattern: "Inline warning (Alert, warning variant) before the action. No modal.",
+      component: "Alert (warning)",
+    },
+    {
+      level: "Level 3",
+      label: "High risk",
+      colour: "#FFE9E5",
+      borderColour: "#FF4E2A",
+      textColour: "#D21A26",
+      examples: "Remove team member, delete project, revoke API key",
+      pattern: "AlertDialog with specific copy. Confirm button names the exact thing being removed.",
+      component: "AlertDialog",
+    },
+    {
+      level: "Level 4",
+      label: "Catastrophic",
+      colour: "#222",
+      borderColour: "#111",
+      textColour: "white",
+      examples: "Delete workspace, cancel subscription, purge all data",
+      pattern: "AlertDialog + typed confirmation (type workspace name to confirm). Two-step friction is appropriate here.",
+      component: "AlertDialog + type to confirm",
+    },
+  ].map(({ level, label, colour, borderColour, textColour, examples, pattern, component }) => (
+    <div key={level} style={{ background: colour, border: `1px solid ${borderColour}`, borderRadius: 10, padding: "14px" }}>
+      <p style={{ fontSize: 10, fontWeight: 700, color: textColour, margin: "0 0 2px", textTransform: "uppercase", letterSpacing: "0.1em" }}>{level}</p>
+      <p style={{ fontSize: 13, fontWeight: 700, color: textColour, margin: "0 0 8px" }}>{label}</p>
+      <p style={{ fontSize: 11, color: textColour, opacity: 0.8, fontStyle: "italic", margin: "0 0 8px", lineHeight: 1.4 }}>{examples}</p>
+      <p style={{ fontSize: 11, color: textColour, margin: "0 0 8px", lineHeight: 1.5 }}>{pattern}</p>
+      <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, fontFamily: "monospace", padding: "2px 6px", borderRadius: 4, background: typeof colour === 'string' && colour === '#222' ? '#444' : 'rgba(0,0,0,0.08)', color: textColour }}>{component}</span>
+    </div>
+  ))}
+</div>
+
+## AlertDialog copy — the three-register rule
+
+The copy in a confirmation dialog determines whether users feel in control or manipulated. There is one right register for enterprise software.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14, marginBottom: 48 }}>
+  {[
+    {
+      label: "✗ Too clinical",
+      labelColour: "#D21A26",
+      bg: "#FFF8F8",
+      border: "#FFB9BB",
+      title: "Confirm deletion?",
+      body: "Are you sure you want to delete this item? This action cannot be undone.",
+      cancel: "Cancel",
+      confirm: "Delete",
+      note: "No specificity. 'This item' tells the user nothing. 'Cannot be undone' is the right signal but buried in a generic sentence.",
+    },
+    {
+      label: "✗ Too alarming",
+      labelColour: "#92650A",
+      bg: "#FFFDE7",
+      border: "#FDE047",
+      title: "⚠ PERMANENT DELETION WARNING",
+      body: "This action is IRREVERSIBLE. You will PERMANENTLY lose access to ALL your data. This CANNOT be recovered under any circumstances.",
+      cancel: "No, go back",
+      confirm: "Yes, I understand and want to proceed",
+      note: "ALL CAPS and excessive emphasis read as panic. Enterprise users are professionals. Alarm makes them second-guess routine operations.",
+    },
+    {
+      label: "✓ Right register",
+      labelColour: "#166534",
+      bg: "#F0FDF4",
+      border: "#BBF7D0",
+      title: "Remove Priya Sharma from this workspace?",
+      body: "She'll lose access to all 12 projects immediately. This can't be undone.",
+      cancel: "Cancel",
+      confirm: "Remove member",
+      note: "Specific: names the person, the count of projects, the immediacy. Direct: no hedging. Respectful: trusts the user to read one sentence.",
+    },
+  ].map(({ label, labelColour, bg, border, title, body, cancel, confirm, note }) => (
+    <div key={label} style={{ background: bg, border: `1px solid ${border}`, borderRadius: 10, padding: "20px 24px" }}>
+      <p style={{ fontSize: 11, fontWeight: 700, color: labelColour, margin: "0 0 12px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</p>
+      <div style={{ background: "white", borderRadius: 8, padding: "20px 24px", border: "1px solid #E3E3E0", marginBottom: 12 }}>
+        <p style={{ fontSize: 15, fontWeight: 600, color: "#222", margin: "0 0 8px" }}>{title}</p>
+        <p style={{ fontSize: 13, color: "#6D6D6D", margin: "0 0 20px", lineHeight: 1.6 }}>{body}</p>
+        <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+          <span style={{ fontSize: 13, padding: "7px 14px", borderRadius: 8, border: "1px solid #E3E3E0", color: "#464646", cursor: "default" }}>{cancel}</span>
+          <span style={{ fontSize: 13, padding: "7px 14px", borderRadius: 8, background: "#FF4E2A", color: "white", cursor: "default" }}>{confirm}</span>
+        </div>
+      </div>
+      <p style={{ fontSize: 12, color: labelColour, margin: 0, lineHeight: 1.5, fontStyle: "italic" }}>{note}</p>
+    </div>
+  ))}
+</div>
+
+## Copy rules
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden", marginBottom: 48 }}>
+  <div style={{ display: "grid", gridTemplateColumns: "140px 1fr 1fr", background: "var(--base-color-gray-100, #EEEEEC)", padding: "10px 20px", borderBottom: "1px solid var(--base-color-gray-200, #E3E3E0)" }}>
+    {["Element", "Rule", "Example"].map(h => <span key={h} style={{ fontSize: 11, fontWeight: 600, color: "#909090", textTransform: "uppercase", letterSpacing: "0.06em" }}>{h}</span>)}
+  </div>
+  {[
+    { el: "Title", rule: "Name the specific thing being acted on, not the action itself. Ask 'what?' not 'do what?'", example: "\"Remove Priya Sharma?\" not \"Confirm removal?\"" },
+    { el: "Body", rule: "State the exact consequence in one sentence. Add 'This can't be undone.' as a second sentence if and only if it's true.", example: "\"She'll lose access to all 12 projects immediately. This can't be undone.\"" },
+    { el: "Confirm button", rule: "Specific verb + specific noun. Never just 'Delete', 'Confirm', or 'Yes'. The button is the last thing they read before acting.", example: "\"Remove member\" / \"Delete workspace\" / \"Cancel subscription\"" },
+    { el: "Cancel button", rule: "Always 'Cancel'. Nothing else. Not 'No', not 'Go back', not 'Keep it'.", example: "\"Cancel\"" },
+    { el: "Tone", rule: "No exclamation marks. No ALL CAPS. No words like 'permanently', 'forever', 'irreversible' — say the consequence instead.", example: "\"can't be undone\" not \"PERMANENT AND IRREVERSIBLE\"" },
+  ].map(({ el, rule, example }, i) => (
+    <div key={el} style={{ display: "grid", gridTemplateColumns: "140px 1fr 1fr", padding: "12px 20px", borderBottom: i < 4 ? "1px solid var(--base-color-gray-200, #E3E3E0)" : "none", background: i % 2 === 0 ? "white" : "var(--base-color-gray-75)", alignItems: "start" }}>
+      <span style={{ fontSize: 13, fontWeight: 600, color: "#222" }}>{el}</span>
+      <span style={{ fontSize: 13, color: "#464646", lineHeight: 1.5, paddingRight: 16 }}>{rule}</span>
+      <span style={{ fontSize: 12, color: "#1518A6", lineHeight: 1.5, fontStyle: "italic" }}>{example}</span>
+    </div>
+  ))}
+</div>
+
+## Destructive button — when and where
+
+The `destructive` variant of Button exists for a specific job: the final confirm action inside an AlertDialog, or an inline action that initiates a destructive flow. It is not for general warnings.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
+<div style={{ padding: "16px", border: "1px solid var(--base-color-green-200, #BBF7D0)", borderRadius: 10, background: "#F0FDF4" }}>
+  <p style={{ fontSize: 12, fontWeight: 600, color: "#166534", margin: "0 0 8px" }}>✓ Correct uses</p>
+  {[
+    "The confirm action inside an AlertDialog for Level 3–4 actions",
+    "An inline 'Remove' action in a table row — because clicking it opens an AlertDialog",
+    "A standalone 'Delete account' button on an account settings page — it initiates the confirmation flow",
+  ].map(r => <p key={r} style={{ fontSize: 12, color: "#166534", margin: "0 0 5px", lineHeight: 1.5 }}>→ {r}</p>)}
+</div>
+<div style={{ padding: "16px", border: "1px solid var(--base-color-red-200, #FFB9BB)", borderRadius: 10, background: "#FFF8F8" }}>
+  <p style={{ fontSize: 12, fontWeight: 600, color: "#D21A26", margin: "0 0 8px" }}>✗ Incorrect uses</p>
+  {[
+    "A 'Clear filters' button — that's reversible, use ghost or outline",
+    "A 'Cancel subscription' button that acts immediately without confirmation",
+    "Error state styling — use Alert (error variant), not a destructive button",
+    "Any action the user can undo in the same session",
+  ].map(r => <p key={r} style={{ fontSize: 12, color: "#D21A26", margin: "0 0 5px", lineHeight: 1.5 }}>→ {r}</p>)}
+</div>
+</div>
+
+## Undo as an alternative to confirmation
+
+For Level 1 actions, a Toast with an undo action is always better than a confirmation dialog. Confirmation dialogs add friction before the action. Undo removes friction and lets users act fast — with a safety net.
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "20px 24px", marginBottom: 12 }}>
+  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "#222", borderRadius: 8, padding: "12px 16px", marginBottom: 12 }}>
+    <span style={{ fontSize: 13, color: "white" }}>Priya Sharma removed from workspace.</span>
+    <span style={{ fontSize: 12, fontWeight: 600, color: "#A5B4FC", cursor: "pointer", marginLeft: 16 }}>Undo</span>
+  </div>
+  <p style={{ fontSize: 12, color: "var(--base-color-gray-500, #909090)", margin: 0, lineHeight: 1.5 }}>
+    Example: <code>toast("Priya Sharma removed.", {"{ action: { label: 'Undo', onClick: handleUndo }, duration: 6000 }"})</code>
+    — The toast persists for 6 seconds (enough time to react), then auto-dismisses. If the user clicks Undo, the action is reversed and a success toast confirms it.
+  </p>
+</div>
+
+</div>

@@ -1,0 +1,186 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Thematic Design System/Guides/Feedback & Notifications" />
+
+<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 800, margin: "0 auto", padding: "48px 24px" }}>
+
+<h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Feedback & Notifications</h1>
+<p style={{ fontSize: 15, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 48px", lineHeight: 1.6 }}>
+  Thematic has three components for communicating system feedback: <strong>Alert</strong>, <strong>Toast</strong>, and <strong>AlertDialog</strong>.
+  Each serves a distinct job. Using the wrong one erodes trust — a toast for a destructive confirmation, or an alert for a transient success, both feel wrong even if users can't articulate why.
+</p>
+
+## Which component to use
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden", marginBottom: 48 }}>
+  <div style={{ display: "grid", gridTemplateColumns: "120px 1fr 1fr 1fr", background: "var(--base-color-gray-100, #EEEEEC)", padding: "10px 20px", borderBottom: "1px solid var(--base-color-gray-200, #E3E3E0)" }}>
+    {["Component", "Job", "Use when", "Don't use when"].map(h => (
+      <span key={h} style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-500, #909090)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{h}</span>
+    ))}
+  </div>
+  {[
+    {
+      component: "Alert",
+      job: "Persistent contextual message embedded in the page",
+      use: "The user needs to know something before or during an action. The message is relevant to the current view and should stay visible.",
+      avoid: "Async operation results — use Toast. Irreversible action confirmation — use AlertDialog.",
+    },
+    {
+      component: "Toast",
+      job: "Transient confirmation of a completed async action",
+      use: "An action finished in the background (save, publish, invite sent). The result is low-stakes enough that auto-dismissal is appropriate.",
+      avoid: "Errors that require user action — use Alert. Anything the user must read before proceeding — use Alert or AlertDialog.",
+    },
+    {
+      component: "AlertDialog",
+      job: "Modal confirmation gate for irreversible or high-consequence actions",
+      use: "The action permanently removes data, revokes access, or cannot be undone. The user must explicitly confirm before proceeding.",
+      avoid: "Informational messages — use Alert. Async confirmations — use Toast. Any action that can be undone.",
+    },
+  ].map(({ component, job, use, avoid }, i) => (
+    <div key={component} style={{ display: "grid", gridTemplateColumns: "120px 1fr 1fr 1fr", padding: "14px 20px", borderBottom: i < 2 ? "1px solid var(--base-color-gray-200, #E3E3E0)" : "none", background: i % 2 === 0 ? "white" : "var(--base-color-gray-75, #F5F5F3)", alignItems: "start" }}>
+      <span style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", fontFamily: "monospace" }}>{component}</span>
+      <span style={{ fontSize: 13, color: "var(--base-color-gray-700, #464646)", lineHeight: 1.5, paddingRight: 16 }}>{job}</span>
+      <span style={{ fontSize: 13, color: "var(--base-color-gray-700, #464646)", lineHeight: 1.5, paddingRight: 16 }}>{use}</span>
+      <span style={{ fontSize: 13, color: "var(--base-color-gray-500, #909090)", lineHeight: 1.5 }}>{avoid}</span>
+    </div>
+  ))}
+</div>
+
+## Alert — severity variants
+
+Alert has five variants. Each maps to a specific situation. The variant controls colour, border, and icon colour — all via alias tokens.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 48 }}>
+  {[
+    { variant: "error", bg: "var(--alias-color-feedback-error-bg, #FFE9E5)", border: "var(--alias-color-border-error, #FF4E2A)", fg: "var(--alias-color-feedback-error-fg, #FF4E2A)", label: "error", situation: "Something failed — API error, failed save, broken connection. Copy must diagnose + explain + recover.", icon: "✕" },
+    { variant: "warning", bg: "var(--alias-color-feedback-warning-bg, #FFFADE)", border: "var(--alias-color-border-warning, #F7D307)", fg: "#92650A", label: "warning", situation: "Attention required, nothing has failed yet — quota approaching, irreversible side-effect, unusual config.", icon: "⚠" },
+    { variant: "success", bg: "var(--alias-color-feedback-success-bg, #DCFCE7)", border: "var(--alias-color-border-success, #16A34A)", fg: "var(--alias-color-feedback-success-fg, #16A34A)", label: "success", situation: "Persistent confirmation needed on the page — settings saved, feature enabled. For async results prefer Toast.", icon: "✓" },
+    { variant: "info", bg: "var(--alias-color-feedback-info-bg, #E0F2FE)", border: "var(--alias-color-border-info, #0369A1)", fg: "var(--alias-color-feedback-info-fg, #0369A1)", label: "info", situation: "Neutral context — feature explanation, onboarding hint, non-urgent notice. No action required.", icon: "ℹ" },
+    { variant: "default", bg: "white", border: "var(--base-color-gray-200, #E3E3E0)", fg: "var(--base-color-gray-700, #464646)", label: "default", situation: "Maintenance windows, scheduled downtime, neutral system notices with no semantic colour implication.", icon: "•" },
+  ].map(({ variant, bg, border, fg, label, situation, icon }) => (
+    <div key={variant} style={{ background: bg, border: `1px solid ${border}`, borderRadius: 10, padding: "14px 16px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+        <span style={{ fontSize: 14, color: fg }}>{icon}</span>
+        <span style={{ fontSize: 12, fontWeight: 700, color: fg, fontFamily: "monospace" }}>variant="{label}"</span>
+      </div>
+      <p style={{ fontSize: 12, color: "var(--base-color-gray-700, #464646)", lineHeight: 1.5, margin: 0 }}>{situation}</p>
+    </div>
+  ))}
+</div>
+
+## Toast — variant and timing rules
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
+<div>
+
+### When to use which variant
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden" }}>
+  {[
+    { call: "toast.success()", when: "Action completed — saved, published, invited, uploaded." },
+    { call: "toast.error()", when: "Async action failed — network error, permission denied." },
+    { call: "toast.warning()", when: "Action completed but with a caveat — saved with warnings, partial success." },
+    { call: "toast.info()", when: "Background process update — sync started, new version available." },
+    { call: "toast.loading()", when: "Long async operation in progress. Replace with success/error on completion." },
+    { call: "toast()", when: "Neutral confirmation with no strong semantic meaning." },
+  ].map(({ call, when }, i) => (
+    <div key={call} style={{ display: "grid", gridTemplateColumns: "160px 1fr", padding: "10px 14px", borderBottom: i < 5 ? "1px solid var(--base-color-gray-200, #E3E3E0)" : "none", background: i % 2 === 0 ? "white" : "var(--base-color-gray-75)" }}>
+      <span style={{ fontFamily: "monospace", fontSize: 11, color: "var(--base-color-blue-800, #1518A6)" }}>{call}</span>
+      <span style={{ fontSize: 12, color: "var(--base-color-gray-700, #464646)", lineHeight: 1.5 }}>{when}</span>
+    </div>
+  ))}
+</div>
+
+</div>
+<div>
+
+### Timing and persistence
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden" }}>
+  {[
+    { rule: "Default duration", value: "4 seconds. Enough to read a short sentence." },
+    { rule: "Error toasts", value: "Persist until dismissed. Errors need acknowledgement." },
+    { rule: "Loading toasts", value: "Persist until replaced with success or error." },
+    { rule: "Undo actions", value: "Match the undo window — typically 5–8 seconds." },
+    { rule: "Position", value: "bottom-right. Never cover primary content or form actions." },
+  ].map(({ rule, value }, i) => (
+    <div key={rule} style={{ display: "grid", gridTemplateColumns: "140px 1fr", padding: "10px 14px", borderBottom: i < 4 ? "1px solid var(--base-color-gray-200, #E3E3E0)" : "none", background: i % 2 === 0 ? "white" : "var(--base-color-gray-75)" }}>
+      <span style={{ fontSize: 12, fontWeight: 600, color: "var(--base-color-gray-900, #222)" }}>{rule}</span>
+      <span style={{ fontSize: 12, color: "var(--base-color-gray-700, #464646)", lineHeight: 1.5 }}>{value}</span>
+    </div>
+  ))}
+</div>
+
+</div>
+</div>
+
+### Toast copy patterns
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
+<div style={{ padding: "18px 18px 14px", border: "1px solid var(--base-color-red-200, #FFB9BB)", borderRadius: 10, background: "var(--base-color-red-100, #FFE2E2)" }}>
+  <p style={{ fontSize: 13, fontWeight: 600, color: "#D21A26", margin: "0 0 10px" }}>✗ Don't</p>
+  {[
+    { variant: "success", title: "Success!", desc: "—" },
+    { variant: "error", title: "Error", desc: "Something went wrong." },
+    { variant: "info", title: "FYI", desc: "Something happened." },
+  ].map(({ variant, title, desc }) => (
+    <div key={variant} style={{ background: "white", borderRadius: 6, padding: "8px 10px", marginBottom: 6, border: "1px solid #FFB9BB" }}>
+      <p style={{ fontSize: 12, fontWeight: 600, color: "#222", margin: "0 0 2px" }}>{title}</p>
+      <p style={{ fontSize: 11, color: "#909090", margin: 0 }}>{desc}</p>
+    </div>
+  ))}
+  <p style={{ fontSize: 11, color: "#D21A26", margin: "8px 0 0", lineHeight: 1.5 }}>Toasts are tiny — one chance to be useful. Vague titles waste it.</p>
+</div>
+<div style={{ padding: "18px 18px 14px", border: "1px solid var(--base-color-green-200, #BBF7D0)", borderRadius: 10, background: "var(--base-color-green-100, #DCFCE7)" }}>
+  <p style={{ fontSize: 13, fontWeight: 600, color: "#166534", margin: "0 0 10px" }}>✓ Do</p>
+  {[
+    { variant: "success", title: "Settings saved", desc: "Changes are live for all team members." },
+    { variant: "error", title: "Couldn't save changes", desc: "Connection issue — check your network." },
+    { variant: "info", title: "Version 2.4.1 is live", desc: "Deployed 30 seconds ago." },
+  ].map(({ variant, title, desc }) => (
+    <div key={variant} style={{ background: "white", borderRadius: 6, padding: "8px 10px", marginBottom: 6, border: "1px solid #BBF7D0" }}>
+      <p style={{ fontSize: 12, fontWeight: 600, color: "#222", margin: "0 0 2px" }}>{title}</p>
+      <p style={{ fontSize: 11, color: "#909090", margin: 0 }}>{desc}</p>
+    </div>
+  ))}
+  <p style={{ fontSize: 11, color: "#166534", margin: "8px 0 0", lineHeight: 1.5 }}>Title = what happened. Description = what it means or what to do.</p>
+</div>
+</div>
+
+## AlertDialog — confirmation gates
+
+Use `AlertDialog` only when an action is **irreversible or removes data permanently**. It blocks all other interaction until the user responds — which is why it should be rare.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
+<div style={{ padding: "18px", border: "1px solid var(--base-color-green-200, #BBF7D0)", borderRadius: 10, background: "#F0FDF4" }}>
+  <p style={{ fontSize: 12, fontWeight: 700, color: "#166534", margin: "0 0 10px", textTransform: "uppercase", letterSpacing: "0.06em" }}>✓ Use AlertDialog for</p>
+  {["Deleting a workspace or account", "Removing a team member permanently", "Cancelling a paid subscription", "Overwriting data that can't be recovered", "Revoking API keys or credentials"].map(item => (
+    <p key={item} style={{ fontSize: 12, color: "#166534", margin: "0 0 4px", lineHeight: 1.5 }}>→ {item}</p>
+  ))}
+</div>
+<div style={{ padding: "18px", border: "1px solid var(--base-color-red-200, #FFB9BB)", borderRadius: 10, background: "#FFF8F8" }}>
+  <p style={{ fontSize: 12, fontWeight: 700, color: "#D21A26", margin: "0 0 10px", textTransform: "uppercase", letterSpacing: "0.06em" }}>✗ Don't use AlertDialog for</p>
+  {["Saving or publishing (use Toast)", "Undoable actions (use Toast with undo)", "Warning before a reversible action (use Alert)", "Any action where Cancel = no consequence"].map(item => (
+    <p key={item} style={{ fontSize: 12, color: "#D21A26", margin: "0 0 4px", lineHeight: 1.5 }}>→ {item}</p>
+  ))}
+</div>
+</div>
+
+<p style={{ fontSize: 13, color: "var(--base-color-gray-600, #6D6D6D)", marginBottom: 12, lineHeight: 1.6 }}>
+  For copy patterns inside AlertDialog — title structure, button labelling, and the three register examples (clinical / alarming / right) — see <strong>Guides / Destructive Actions</strong>.
+</p>
+
+## Decision flowchart
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 28px", marginBottom: 12, fontFamily: "var(--font-sans)", fontSize: 13, lineHeight: 2.2 }}>
+  <p style={{ margin: "0 0 4px", fontWeight: 600, color: "#222" }}>Is the feedback about an async operation that just finished?</p>
+  <p style={{ margin: "0 0 4px", paddingLeft: 20, color: "#464646" }}>→ Yes → <strong style={{ color: "#1518A6" }}>Toast</strong></p>
+  <p style={{ margin: "0 0 4px", color: "#222", fontWeight: 600 }}>Is the user about to do something irreversible?</p>
+  <p style={{ margin: "0 0 4px", paddingLeft: 20, color: "#464646" }}>→ Yes → <strong style={{ color: "#1518A6" }}>AlertDialog</strong></p>
+  <p style={{ margin: "0 0 4px", color: "#222", fontWeight: 600 }}>Is the message relevant to the current view and needs to stay visible?</p>
+  <p style={{ margin: "0 0 4px", paddingLeft: 20, color: "#464646" }}>→ Yes → <strong style={{ color: "#1518A6" }}>Alert</strong> (pick the right severity variant)</p>
+  <p style={{ margin: "0 0 4px", color: "#909090", paddingLeft: 20, fontStyle: "italic" }}>→ None of the above → reconsider whether feedback is needed at all</p>
+</div>
+
+</div>
