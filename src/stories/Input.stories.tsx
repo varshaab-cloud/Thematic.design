@@ -26,6 +26,25 @@ const meta: Meta<typeof Input> = {
 export default meta
 type Story = StoryObj<typeof Input>
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-6">
+      {[
+        { label: "Default",  props: { label: "Email address", placeholder: "you@example.com" } },
+        { label: "Disabled", props: { label: "Email address", placeholder: "you@example.com", disabled: true, helperText: "This field is locked" } },
+        { label: "Error",    props: { label: "Email address", defaultValue: "notanemail", errorMessage: "Invalid email address" } },
+        { label: "Success",  props: { label: "Username",      defaultValue: "varsha_bhide", successMessage: "Username is available!" } },
+      ].map(({ label, props }) => (
+        <div key={label} className="flex flex-col items-start gap-2 w-52">
+          <Input {...props} />
+          <span className="text-xs text-muted-foreground">{label}</span>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const Default: Story = {
   args: { placeholder: "Enter text..." },
 }

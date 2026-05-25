@@ -10,6 +10,25 @@ const meta: Meta<typeof Textarea> = {
 export default meta
 type Story = StoryObj<typeof Textarea>
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-6">
+      {[
+        { label: "Default",  props: { label: "Notes",       placeholder: "Write something…" } },
+        { label: "Disabled", props: { label: "Notes",       defaultValue: "This field is locked.", disabled: true } },
+        { label: "Error",    props: { label: "Description", defaultValue: "",  errorMessage: "Description is required." } },
+        { label: "Success",  props: { label: "Description", defaultValue: "A clear, concise description.", successMessage: "Looks good!" } },
+      ].map(({ label, props }) => (
+        <div key={label} className="flex flex-col items-start gap-2 w-56">
+          <Textarea {...props} />
+          <span className="text-xs text-muted-foreground">{label}</span>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const Default: Story = {
   render: () => (
     <div className="w-80">

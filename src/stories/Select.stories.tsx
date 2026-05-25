@@ -24,6 +24,42 @@ const meta: Meta<typeof SelectField> = {
 export default meta
 type Story = StoryObj<typeof SelectField>
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-6">
+      <div className="flex flex-col items-start gap-2 w-52">
+        <SelectField label="Department" placeholder="Select department">
+          <SelectItem value="design">Design</SelectItem>
+          <SelectItem value="engineering">Engineering</SelectItem>
+          <SelectItem value="product">Product</SelectItem>
+        </SelectField>
+        <span className="text-xs text-muted-foreground">Default</span>
+      </div>
+      <div className="flex flex-col items-start gap-2 w-52">
+        <SelectField label="Department" placeholder="Select department" errorMessage="This field is required">
+          <SelectItem value="design">Design</SelectItem>
+          <SelectItem value="engineering">Engineering</SelectItem>
+        </SelectField>
+        <span className="text-xs text-muted-foreground">Error</span>
+      </div>
+      <div className="flex flex-col items-start gap-2 w-52">
+        <SelectField label="Plan" placeholder="Select plan" successMessage="Great choice!">
+          <SelectItem value="starter">Starter</SelectItem>
+          <SelectItem value="pro">Pro</SelectItem>
+        </SelectField>
+        <span className="text-xs text-muted-foreground">Success</span>
+      </div>
+      <div className="flex flex-col items-start gap-2 w-52">
+        <SelectField label="Region" placeholder="Not available" disabled helperText="Region is locked">
+          <SelectItem value="us">United States</SelectItem>
+        </SelectField>
+        <span className="text-xs text-muted-foreground">Disabled</span>
+      </div>
+    </div>
+  ),
+}
+
 export const Default: Story = {
   render: () => (
     <SelectField placeholder="Select an option" className="w-56">

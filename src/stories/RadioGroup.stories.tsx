@@ -10,6 +10,41 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta
 type Story = StoryObj
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-10">
+      <div className="flex flex-col items-start gap-2">
+        <RadioGroup defaultValue="member">
+          <RadioGroupLabel>Access level</RadioGroupLabel>
+          <RadioGroupItem value="viewer" label="Viewer" />
+          <RadioGroupItem value="member" label="Member" />
+          <RadioGroupItem value="admin"  label="Admin" />
+        </RadioGroup>
+        <span className="text-xs text-muted-foreground">Default</span>
+      </div>
+      <div className="flex flex-col items-start gap-2">
+        <RadioGroup defaultValue="monthly">
+          <RadioGroupLabel>Billing</RadioGroupLabel>
+          <RadioGroupItem value="monthly"    label="Monthly" />
+          <RadioGroupItem value="annual"     label="Annual" />
+          <RadioGroupItem value="enterprise" label="Enterprise" disabled />
+        </RadioGroup>
+        <span className="text-xs text-muted-foreground">With disabled item</span>
+      </div>
+      <div className="flex flex-col items-start gap-2">
+        <RadioGroup>
+          <RadioGroupLabel>Billing</RadioGroupLabel>
+          <RadioGroupItem value="monthly"    label="Monthly"    disabled />
+          <RadioGroupItem value="annual"     label="Annual"     disabled />
+          <RadioGroupItem value="enterprise" label="Enterprise" disabled />
+        </RadioGroup>
+        <span className="text-xs text-muted-foreground">All disabled</span>
+      </div>
+    </div>
+  ),
+}
+
 export const Default: Story = {
   render: () => (
     <RadioGroup defaultValue="designer">

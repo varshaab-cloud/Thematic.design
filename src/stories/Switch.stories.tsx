@@ -14,6 +14,25 @@ const meta: Meta<typeof Switch> = {
 export default meta
 type Story = StoryObj<typeof Switch>
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex items-start gap-8">
+      {[
+        { label: "Default",            props: {} },
+        { label: "Checked",            props: { checked: true,  onCheckedChange: () => {} } },
+        { label: "Disabled",           props: { disabled: true } },
+        { label: "Checked + disabled", props: { checked: true,  onCheckedChange: () => {}, disabled: true } },
+      ].map(({ label, props }) => (
+        <div key={label} className="flex flex-col items-center gap-2">
+          <Switch {...props} />
+          <span className="text-xs text-muted-foreground">{label}</span>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const Default: Story = {}
 
 export const Checked: Story = {

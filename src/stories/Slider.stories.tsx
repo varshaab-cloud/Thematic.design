@@ -10,6 +10,26 @@ const meta: Meta<typeof Slider> = {
 export default meta
 type Story = StoryObj
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-8">
+      <div className="flex flex-col items-start gap-2 w-72">
+        <Slider defaultValue={[40]} max={100} step={1} label="Volume" showValue />
+        <span className="text-xs text-muted-foreground">Default</span>
+      </div>
+      <div className="flex flex-col items-start gap-2 w-72">
+        <Slider defaultValue={[60]} max={100} step={1} label="Storage used" showValue formatValue={(v) => `${v}%`} disabled />
+        <span className="text-xs text-muted-foreground">Disabled</span>
+      </div>
+      <div className="flex flex-col items-start gap-2 w-72">
+        <Slider defaultValue={[20, 80]} max={100} step={1} label="Price range" showValue formatValue={(v) => `$${v}`} />
+        <span className="text-xs text-muted-foreground">Range</span>
+      </div>
+    </div>
+  ),
+}
+
 export const Default: Story = {
   render: () => (
     <div className="w-72">
