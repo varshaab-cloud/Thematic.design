@@ -195,7 +195,6 @@ Use `AlertDialog` for any action that is irreversible or removes data permanentl
 The right register for enterprise: **direct**, **specific**, and **respectful of the user's intelligence**. State exactly what will be deleted or lost. Don't soften ("remove" not "delete"), don't alarm, don't use vague warnings.
 
 <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16, marginTop: 24, marginBottom: 24 }}>
-
 {[
   { label: "✗ Too clinical", color: "#FFE2E2", textColor: "#D21A26", borderColor: "#FFB9BB",
     title: "Confirm deletion?",
@@ -210,7 +209,7 @@ The right register for enterprise: **direct**, **specific**, and **respectful of
     body: "She'll lose access to all 12 projects immediately. This can't be undone.",
     cancel: "Cancel", confirm: "Remove member" },
 ].map(({ label, color, textColor, borderColor, title, body, cancel, confirm }) => (
-  <div key={label} style={{ border: `1px solid ${borderColor}`, borderRadius: 10, padding: "20px 24px", background: color }}>
+  <div key={label} style={{ border: "1px solid " + borderColor, borderRadius: 10, padding: "20px 24px", background: color }}>
     <p style={{ fontSize: 12, fontWeight: 700, color: textColor, margin: "0 0 12px", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</p>
     <div style={{ background: "white", borderRadius: 8, padding: "16px 20px", border: "1px solid #E3E3E0" }}>
       <p style={{ fontSize: 14, fontWeight: 600, color: "#222", margin: "0 0 6px" }}>{title}</p>
@@ -242,10 +241,9 @@ Every data-driven surface — tables, lists, search results, dashboards — need
 - **Optional CTA** — only when there's a clear next action from this page
 
 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginTop: 24, marginBottom: 48 }}>
-
 {[
   { icon: "👥", heading: "No team members yet", body: "Invite your first teammate to start collaborating on projects.", cta: "Invite member" },
-  { icon: "🔍", heading: "No results for "priya"", body: "Try a different name or email address.", cta: null },
+  { icon: "🔍", heading: "No results for 'priya'", body: "Try a different name or email address.", cta: null },
   { icon: "📄", heading: "No reports yet", body: "Reports you generate will appear here. Run your first report to get started.", cta: "Create report" },
 ].map(({ icon, heading, body, cta }) => (
   <div key={heading} style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "32px 20px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 8 }}>
