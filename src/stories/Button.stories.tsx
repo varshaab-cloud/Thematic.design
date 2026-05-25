@@ -96,6 +96,27 @@ Combines multiple outline buttons into a connected control (e.g. a segmented fil
 export default meta
 type Story = StoryObj<typeof Button>
 
+export const Variants: Story = {
+  name: "Variants",
+  render: () => (
+    <div className="flex flex-wrap items-start gap-6">
+      {[
+        { label: "Primary",     props: { variant: "default"     as const, children: "Button" } },
+        { label: "Secondary",   props: { variant: "secondary"   as const, children: "Button" } },
+        { label: "Outline",     props: { variant: "outline"     as const, children: "Button" } },
+        { label: "Ghost",       props: { variant: "ghost"       as const, children: "Button" } },
+        { label: "Destructive", props: { variant: "destructive" as const, children: "Button" } },
+        { label: "Link",        props: { variant: "link"        as const, children: "Button" } },
+      ].map(({ label, props }) => (
+        <div key={label} className="flex flex-col items-center gap-2">
+          <Button {...props} />
+          <span className="text-xs text-muted-foreground">{label}</span>
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const States: Story = {
   name: "States",
   render: () => (
