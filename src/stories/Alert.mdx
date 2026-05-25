@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as AlertStories from "./Alert.stories"
+
+<Meta of={AlertStories} />
+
+# Alert
+
+<Canvas of={AlertStories.Variants} withToolbar={false} />
+
+An alert communicates a system-level message that the user should notice but doesn't require an immediate response. Use alerts to inform, warn, or confirm — not to prompt decisions (use a Dialog for that).
+
+Write alert copy following the three-part rule: **diagnose → explain → recover**. Tell users what happened, why it matters, and what they can do next.
+
+## Variants
+
+**Default** — Use for neutral, low-urgency system notices that don't map to a specific success/failure state — for example, scheduled maintenance or policy updates. No colour emphasis is applied.
+
+**Info** — Use to provide helpful context or explanations that are not urgent — for example, permanent constraints ("workspace URL can't be changed"), onboarding hints, or feature explanations. Does not signal a problem.
+
+**Success** — Use to confirm that a user-initiated action completed successfully — for example, settings saved or an invite sent. Set expectations by telling users what will happen next.
+
+**Warning** — Use when an action has significant, hard-to-reverse consequences, or when a resource is approaching a limit. State what will happen, what the user should know, and offer an optional path forward.
+
+**Error** — Use when something has failed and the user may need to take action to recover — for example, a failed API call, connection loss, or form submission error. Always give users a clear recovery path.
+
+**Destructive** — Use when the warning is specifically about an irreversible action the user is about to take. Similar in tone to Warning but with higher visual urgency.
+
+## With dismiss action
+
+<Canvas of={AlertStories.WithAction} withToolbar={false} />
+
+Add a dismiss button when the alert is informational and the user may want to clear it from view — for example, a trial expiry notice or a one-time upgrade prompt. Do not make error or critical warning alerts dismissible without resolution.
+
+## Playground
+
+<Controls of={AlertStories.Default} />

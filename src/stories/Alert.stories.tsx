@@ -10,7 +10,6 @@ import { Button } from "../../components/ui/button"
 const meta: Meta<typeof Alert> = {
   title: "Messaging/Alert",
   component: Alert,
-  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
@@ -23,6 +22,56 @@ const meta: Meta<typeof Alert> = {
 
 export default meta
 type Story = StoryObj<typeof Alert>
+
+export const Variants: Story = {
+  name: "Variants",
+  render: () => (
+    <div className="flex flex-col gap-3 max-w-lg">
+      <Alert>
+        <InfoIcon className="h-4 w-4" />
+        <AlertTitle>Maintenance scheduled</AlertTitle>
+        <AlertDescription>
+          Thematic will be unavailable on Sunday 1 June from 02:00–04:00 UTC for a planned infrastructure upgrade.
+        </AlertDescription>
+      </Alert>
+      <Alert variant="info">
+        <InfoIcon className="h-4 w-4" />
+        <AlertTitle>Workspace URL can't be changed after setup</AlertTitle>
+        <AlertDescription>
+          Choose a URL that reflects your team or company name. It's permanent and will appear in all shared links.
+        </AlertDescription>
+      </Alert>
+      <Alert variant="success">
+        <CheckCircle2 className="h-4 w-4" />
+        <AlertTitle>Workspace settings saved</AlertTitle>
+        <AlertDescription>
+          Your changes are live. Team members will see the updated settings the next time they sign in.
+        </AlertDescription>
+      </Alert>
+      <Alert variant="warning">
+        <AlertTriangle className="h-4 w-4" />
+        <AlertTitle>Removing a member can't be undone</AlertTitle>
+        <AlertDescription>
+          They'll lose access to all 12 projects immediately. Download their activity log first if you need a record.
+        </AlertDescription>
+      </Alert>
+      <Alert variant="error">
+        <AlertCircle className="h-4 w-4" />
+        <AlertTitle>Changes couldn't be saved</AlertTitle>
+        <AlertDescription>
+          The workspace settings failed to update because of a connection issue. Check your connection and try again.
+        </AlertDescription>
+      </Alert>
+      <Alert variant="destructive">
+        <AlertTriangle className="h-4 w-4" />
+        <AlertTitle>This will permanently delete your workspace</AlertTitle>
+        <AlertDescription>
+          All projects, members, and data will be removed and cannot be recovered. This action cannot be undone.
+        </AlertDescription>
+      </Alert>
+    </div>
+  ),
+}
 
 // ─── Error — something has failed ────────────────────────────────────────────
 // Use when: API error, form submission failed, connection lost.
@@ -102,6 +151,21 @@ export const Default: Story = {
       <AlertDescription>
         Thematic will be unavailable on Sunday 1 June from 02:00–04:00 UTC for
         a planned infrastructure upgrade.
+      </AlertDescription>
+    </Alert>
+  ),
+}
+
+// ─── Destructive — irreversible-action warning ────────────────────────────────
+
+export const Destructive: Story = {
+  render: () => (
+    <Alert variant="destructive" className="max-w-lg">
+      <AlertTriangle className="h-4 w-4" />
+      <AlertTitle>This will permanently delete your workspace</AlertTitle>
+      <AlertDescription>
+        All projects, members, and data will be removed and cannot be recovered.
+        This action cannot be undone.
       </AlertDescription>
     </Alert>
   ),
