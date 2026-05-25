@@ -2,20 +2,12 @@ import type { Preview } from "@storybook/nextjs-vite"
 import React from "react"
 import "../app/globals.css"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { Title, Primary, Controls, Description, Stories } from "@storybook/blocks"
+import { DocsPage } from "./DocsPage"
 
 const preview: Preview = {
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Primary />
-          <Controls />
-          <Description />
-          <Stories />
-        </>
-      ),
+      page: DocsPage,
     },
     layout: "centered",
     controls: {
