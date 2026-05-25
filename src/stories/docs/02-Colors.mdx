@@ -1,0 +1,153 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+import { Chip, SwatchGrid, SectionLabel } from "./colors-helpers"
+
+<Meta title="Thematic Design System/Foundation/Colour" />
+
+<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 800, margin: "0 auto", padding: "48px 24px" }}>
+
+<h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Colour</h1>
+<p style={{ fontSize: 15, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 40px", lineHeight: 1.6 }}>
+  The Thematic palette uses a single trust anchor — blue — carried through a warm neutral scale.
+  Semantic colours signal meaning without alarming. Every colour has a token; no raw hex values in components.
+</p>
+
+---
+
+## Colour System
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 12, padding: "24px 28px", marginBottom: 40 }}>
+  <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--base-color-gray-500, #909090)", margin: "0 0 16px" }}>Interactive States</p>
+  <div style={{ display: "flex", gap: 24, alignItems: "flex-end" }}>
+    {[
+      { label: "Default", bg: "var(--base-color-blue-200, #AAACF0)", text: "var(--base-color-blue-800, #1518A6)" },
+      { label: "Hover / Keyboard Focus", bg: "var(--base-color-blue-600, #1C21DC)", text: "white", outline: true },
+      { label: "Pressed", bg: "var(--base-color-blue-800, #1518A6)", text: "white" },
+    ].map(({ label, bg, text, outline }) => (
+      <div key={label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+        <div style={{ width: 64, height: 64, borderRadius: 10, background: bg, outline: outline ? "2px solid var(--base-color-blue-800, #1518A6)" : "none", outlineOffset: 2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: 20, height: 20, borderRadius: 4, background: text === "white" ? "rgba(255,255,255,0.3)" : "rgba(21,24,166,0.2)" }} />
+        </div>
+        <span style={{ fontSize: 11, color: "var(--base-color-gray-600, #6D6D6D)", textAlign: "center" }}>{label}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+---
+
+## Colour Palette
+
+<SectionLabel>Primary — Blue</SectionLabel>
+<SwatchGrid swatches={[
+  { token: "blue-900", hex: "#111487", name: "Blue 900" },
+  { token: "blue-800", hex: "#1518A6", name: "Blue 800" },
+  { token: "blue-700", hex: "#171CBE", name: "Blue 700" },
+  { token: "blue-600", hex: "#1C21DC", name: "Blue 600" },
+  { token: "blue-400", hex: "#6E71E6", name: "Blue 400" },
+  { token: "blue-300", hex: "#9194EB", name: "Blue 300" },
+  { token: "blue-200", hex: "#AAACF0", name: "Blue 200" },
+  { token: "blue-100", hex: "#C4C5F4", name: "Blue 100" },
+]} />
+
+<SectionLabel>Accent Red</SectionLabel>
+<SwatchGrid swatches={[
+  { token: "red-900", hex: "#640204", name: "Red 900" },
+  { token: "red-800", hex: "#81070D", name: "Red 800" },
+  { token: "red-700", hex: "#AB121B", name: "Red 700" },
+  { token: "red-600", hex: "#D21A26", name: "Red 600" },
+  { token: "red-400", hex: "#F55658", name: "Red 400" },
+  { token: "red-300", hex: "#FF999C", name: "Red 300" },
+  { token: "red-200", hex: "#FFB9BB", name: "Red 200" },
+  { token: "red-100", hex: "#FFE2E2", name: "Red 100" },
+]} />
+
+<SectionLabel>Accent Green</SectionLabel>
+<SwatchGrid swatches={[
+  { token: "green-900", hex: "#14532D", name: "Green 900" },
+  { token: "green-800", hex: "#166534", name: "Green 800" },
+  { token: "green-700", hex: "#15803D", name: "Green 700" },
+  { token: "green-600", hex: "#16A34A", name: "Green 600" },
+  { token: "green-400", hex: "#4ADE80", name: "Green 400" },
+  { token: "green-200", hex: "#BBF7D0", name: "Green 200" },
+  { token: "green-100", hex: "#DCFCE7", name: "Green 100" },
+]} />
+
+<SectionLabel>Grays — Warm Neutral</SectionLabel>
+<SwatchGrid swatches={[
+  { token: "gray-900", hex: "#222222", name: "Gray 900" },
+  { token: "gray-700", hex: "#464646", name: "Gray 700" },
+  { token: "gray-600", hex: "#6D6D6D", name: "Gray 600" },
+  { token: "gray-500", hex: "#909090", name: "Gray 500" },
+  { token: "gray-400", hex: "#B1B1B1", name: "Gray 400" },
+  { token: "gray-300", hex: "#D5D5D5", name: "Gray 300" },
+  { token: "gray-200", hex: "#E3E3E0", name: "Gray 200" },
+  { token: "gray-100", hex: "#EEEEEC", name: "Gray 100" },
+  { token: "gray-75", hex: "#F5F5F3", name: "Gray 75", border: true },
+]} />
+
+<SectionLabel>System Colours</SectionLabel>
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, marginBottom: 40 }}>
+  {[
+    { label: "Success", fg: "green-800", bg: "green-100", fgHex: "#166534", bgHex: "#DCFCE7" },
+    { label: "Info", fg: "info-700", bg: "info-600", fgHex: "#0369A1", bgHex: "#E0F2FE" },
+    { label: "Warning", fg: "warning-100", bg: "warning-50", fgHex: "#F7D307", bgHex: "#FFFADE" },
+    { label: "Error", fg: "error-300", bg: "error-200", fgHex: "#FF4E2A", bgHex: "#FFE9E5" },
+  ].map(({ label, fg, bg, fgHex, bgHex }) => (
+    <div key={label}>
+      <div style={{ display: "flex", height: 48, borderRadius: 8, overflow: "hidden", marginBottom: 8 }}>
+        <div style={{ flex: 1, background: "var(--base-color-" + fg + ", " + fgHex + ")" }} />
+        <div style={{ flex: 1, background: "var(--base-color-" + bg + ", " + bgHex + ")", border: "1px solid var(--base-color-gray-200)" }} />
+      </div>
+      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--base-color-gray-900, #222)" }}>{label}</div>
+      <div style={{ fontSize: 10, fontFamily: "monospace", color: "var(--base-color-gray-500, #909090)" }}>–{fg} / –{bg}</div>
+    </div>
+  ))}
+</div>
+
+---
+
+## Colour Usage
+
+<p style={{ fontSize: 14, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 24px", lineHeight: 1.6 }}>
+  Every token has a specific role. Refer to this table before using any colour in a component.
+</p>
+
+<SectionLabel>Backgrounds</SectionLabel>
+<div>
+  <Chip token="gray-75" hex="#F5F5F3" name="Gray 75" usage="Page / canvas background" border />
+  <Chip token="gray-100" hex="#EEEEEC" name="Gray 100" usage="Secondary surface, disabled input background" border />
+  <Chip token="gray-200" hex="#E3E3E0" name="Gray 200" usage="Hover state background, component framing" border />
+  <Chip token="blue-100" hex="#C4C5F4" name="Blue 100" usage="Active nav item background, selected state" />
+</div>
+
+<SectionLabel>Borders</SectionLabel>
+<div>
+  <Chip token="gray-200" hex="#E3E3E0" name="Default Border" usage="All default component borders" border />
+  <Chip token="gray-300" hex="#D5D5D5" name="Strong Border" usage="Field borders, dividers" border />
+  <Chip token="blue-800" hex="#1518A6" name="Active / Semantic Border" usage="Focus ring, selected input border" />
+  <Chip token="green-800" hex="#166534" name="Success Border" usage="Valid input border" />
+  <Chip token="info-700" hex="#0369A1" name="Info Border" usage="Informational component border" />
+  <Chip token="error-300" hex="#FF4E2A" name="Error Border" usage="Invalid input border, destructive state" />
+  <Chip token="warning-100" hex="#F7D307" name="Warning Border" usage="Warning banner border" />
+</div>
+
+<SectionLabel>Text</SectionLabel>
+<div>
+  <Chip token="gray-900" hex="#222222" name="Gray 900" usage="Primary text, headings" />
+  <Chip token="gray-700" hex="#464646" name="Gray 700" usage="Body text" />
+  <Chip token="gray-600" hex="#6D6D6D" name="Gray 600" usage="Secondary / helper text" />
+  <Chip token="gray-500" hex="#909090" name="Gray 500" usage="Muted text, placeholder, timestamps" />
+  <Chip token="blue-800" hex="#1518A6" name="Blue 800" usage="Links, active nav label, primary action label" />
+  <Chip token="green-600" hex="#16A34A" name="Green 600" usage="Success text, positive delta" />
+  <Chip token="error-300" hex="#FF4E2A" name="Error text" usage="Validation error message" />
+</div>
+
+<SectionLabel>Icons</SectionLabel>
+<div>
+  <Chip token="gray-500" hex="#909090" name="Gray 500" usage="Default / inactive icon" />
+  <Chip token="gray-700" hex="#464646" name="Gray 700" usage="Hover icon, emphasis" />
+  <Chip token="blue-800" hex="#1518A6" name="Blue 800" usage="Active / selected icon" />
+  <Chip token="gray-400" hex="#B1B1B1" name="Gray 400" usage="Disabled icon" />
+</div>
+
+</div>

@@ -1,0 +1,121 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+import { SpacingRow } from "./spacing-helpers"
+
+<Meta title="Thematic Design System/Foundation/Spacing" />
+
+<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 800, margin: "0 auto", padding: "48px 24px" }}>
+
+<h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Spacing</h1>
+<p style={{ fontSize: 15, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 8px", lineHeight: 1.6 }}>
+  Thematic uses a <strong>4px base grid</strong>. Every spacing value is a multiple of 4, creating a consistent
+  visual rhythm across all components. Spacing tokens control padding, margin, and gap values — never use arbitrary px values in components.
+</p>
+<p style={{ fontSize: 13, color: "var(--base-color-gray-500, #909090)", margin: "0 0 40px" }}>
+  CSS variable pattern: <code>var(--base-spacing-{"{n}"})</code> · Values defined in <code>tokens/tokens.json</code> → compiled to <code>src/styles/tokens.css</code>
+</p>
+
+---
+
+## Spacing Scale
+
+<div style={{ marginBottom: 48 }}>
+
+<div style={{ display: "grid", gridTemplateColumns: "60px 80px 80px 140px 1fr", gap: 16, padding: "8px 0 10px", borderBottom: "2px solid var(--base-color-gray-200, #E3E3E0)", marginBottom: 4 }}>
+  {["px", "rem", "Multiplier", "Token", "Visual"].map(h => (
+    <span key={h} style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--base-color-gray-500)" }}>{h}</span>
+  ))}
+</div>
+
+<SpacingRow px="0px"  rem="0"      multiplier="0×"    cssVar="--base-spacing-0"  />
+<SpacingRow px="4px"  rem="0.25rem" multiplier="0.5×" cssVar="--base-spacing-1"  />
+<SpacingRow px="8px"  rem="0.5rem"  multiplier="1×"   cssVar="--base-spacing-2"  />
+<SpacingRow px="12px" rem="0.75rem" multiplier="1.5×" cssVar="--base-spacing-3"  />
+<SpacingRow px="16px" rem="1rem"    multiplier="2×"   cssVar="--base-spacing-4"  />
+<SpacingRow px="24px" rem="1.5rem"  multiplier="3×"   cssVar="--base-spacing-5"  />
+<SpacingRow px="32px" rem="2rem"    multiplier="4×"   cssVar="--base-spacing-6"  />
+<SpacingRow px="40px" rem="2.5rem"  multiplier="5×"   cssVar="--base-spacing-7"  />
+<SpacingRow px="48px" rem="3rem"    multiplier="6×"   cssVar="--base-spacing-8"  />
+<SpacingRow px="64px" rem="4rem"    multiplier="8×"   cssVar="--base-spacing-9"  />
+<SpacingRow px="80px" rem="5rem"    multiplier="10×"  cssVar="--base-spacing-10" />
+
+</div>
+
+---
+
+## Spacing in practice
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden" }}>
+  <div style={{ padding: "10px 14px", background: "var(--base-color-gray-100, #EEEEEC)", borderBottom: "1px solid var(--base-color-gray-200)" }}>
+    <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-500)" }}>Component densities</span>
+  </div>
+  <div style={{ padding: "20px" }}>
+    {[
+      { label: "Nav item height", value: "32px (2rem)", token: "--base-spacing-4 × 2", note: "compact" },
+      { label: "Input height", value: "36px", token: "9px top + bottom", note: "comfortable" },
+      { label: "Button padding", value: "px-3 py-1.5", token: "12px / 6px", note: "" },
+      { label: "Card padding", value: "20px / 24px", token: "--base-spacing-5 / 6", note: "" },
+      { label: "Section gap", value: "24px", token: "--base-spacing-5", note: "" },
+      { label: "Page padding", value: "32px", token: "--base-spacing-6", note: "" },
+    ].map(({ label, value, token, note }) => (
+      <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "8px 0", borderBottom: "1px solid var(--base-color-gray-100, #EEEEEC)" }}>
+        <span style={{ fontSize: 13, color: "var(--base-color-gray-700, #464646)" }}>{label}</span>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 12, fontWeight: 500, color: "var(--base-color-gray-900)" }}>{value}</div>
+          <div style={{ fontSize: 10, fontFamily: "monospace", color: "var(--base-color-gray-400)" }}>{token}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden" }}>
+  <div style={{ padding: "10px 14px", background: "var(--base-color-gray-100, #EEEEEC)", borderBottom: "1px solid var(--base-color-gray-200)" }}>
+    <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-500)" }}>Spacing principle</span>
+  </div>
+  <div style={{ padding: "20px" }}>
+    <p style={{ fontSize: 13, lineHeight: 1.7, color: "var(--base-color-gray-700, #464646)", margin: "0 0 16px" }}>
+      <strong>Density earns trust.</strong> Enterprise users are professionals. Every spacing value should be questioned — is this space earning its place?
+    </p>
+    <p style={{ fontSize: 13, lineHeight: 1.7, color: "var(--base-color-gray-700, #464646)", margin: "0 0 16px" }}>
+      Thematic defaults lean compact: <strong>32px nav items</strong>, <strong>20px card padding</strong>, <strong>5px gaps in form rows</strong>. More can always be added contextually; the default should be efficient.
+    </p>
+    <div style={{ background: "var(--base-color-blue-100, #C4C5F4)", borderRadius: 8, padding: "12px 14px" }}>
+      <p style={{ fontSize: 12, color: "var(--base-color-blue-800, #1518A6)", margin: 0, lineHeight: 1.5 }}>
+        <strong>Rule:</strong> Use Tailwind's spacing scale (p-2, p-4, p-6…) which maps to our token values. Never use arbitrary pixel values like <code>p-[17px]</code>.
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+---
+
+## Tailwind ↔ Token mapping
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "20px 24px", overflow: "auto" }}>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(11, 1fr)", gap: 8, minWidth: 600 }}>
+    {[
+      { tw: "p-1", px: "4px" },
+      { tw: "p-2", px: "8px" },
+      { tw: "p-3", px: "12px" },
+      { tw: "p-4", px: "16px" },
+      { tw: "p-5", px: "20px" },
+      { tw: "p-6", px: "24px" },
+      { tw: "p-8", px: "32px" },
+      { tw: "p-10", px: "40px" },
+      { tw: "p-12", px: "48px" },
+      { tw: "p-16", px: "64px" },
+      { tw: "p-20", px: "80px" },
+    ].map(({ tw, px }) => (
+      <div key={tw} style={{ textAlign: "center" }}>
+        <div style={{ fontFamily: "monospace", fontSize: 11, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", marginBottom: 4 }}>{tw}</div>
+        <div style={{ fontSize: 10, color: "var(--base-color-gray-500, #909090)" }}>{px}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+</div>

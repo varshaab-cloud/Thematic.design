@@ -1,6 +1,7 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "radix-ui"
+import { Loader2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -9,16 +10,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
-        outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
-        ghost:
-          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
-        destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
+        // Taste profile: blue anchors only — primary is the ONE blue thing
+        default:     "bg-primary text-primary-foreground hover:bg-[var(--base-color-blue-700)] active:bg-[var(--base-color-blue-900)]",
+        // Taste profile: outline hover uses gray-100 — warm neutral, not blue
+        outline:     "border-border bg-card hover:bg-[var(--base-color-gray-100)] hover:text-foreground aria-expanded:bg-[var(--base-color-gray-100)] dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        // Taste profile: secondary is a muted surface — gray-100 base
+        secondary:   "bg-secondary text-secondary-foreground hover:bg-[var(--base-color-gray-200)] aria-expanded:bg-secondary",
+        // Taste profile: ghost is invisible until interaction
+        ghost:       "hover:bg-[var(--base-color-gray-100)] hover:text-foreground aria-expanded:bg-[var(--base-color-gray-100)] dark:hover:bg-muted/50",
+        // Taste profile: destructive uses error token
+        destructive: "bg-[var(--base-color-error-200)] text-[var(--base-color-error-300)] hover:bg-[var(--base-color-error-300)] hover:text-white focus-visible:ring-destructive/20",
+        link:        "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default:
@@ -46,10 +48,15 @@ function Button({
   variant = "default",
   size = "default",
   asChild = false,
+  isLoading = false,
+  fullWidth = false,
+  children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    isLoading?: boolean
+    fullWidth?: boolean
   }) {
   const Comp = asChild ? Slot.Root : "button"
 
@@ -58,9 +65,22 @@ function Button({
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      disabled={isLoading || props.disabled}
+      className={cn(
+        buttonVariants({ variant, size, className }),
+        fullWidth && "w-full"
+      )}
       {...props}
-    />
+    >
+      {isLoading ? (
+        <>
+          <Loader2 className="animate-spin" />
+          {children}
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
   )
 }
 

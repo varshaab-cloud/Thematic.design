@@ -1,0 +1,152 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Thematic Design System/Guides/Form Patterns" />
+
+<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 800, margin: "0 auto", padding: "48px 24px" }}>
+
+<h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Form Patterns</h1>
+<p style={{ fontSize: 15, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 48px", lineHeight: 1.6 }}>
+  Forms in Thematic use <strong>React Hook Form</strong> + <strong>Zod v4</strong> for validation, wired through a thin composition layer in
+  <code>components/ui/form.tsx</code>. This guide covers which input to use when, how to structure forms spatially, and validation patterns.
+</p>
+
+## Input selection guide
+
+<div style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, overflow: "hidden", marginBottom: 48 }}>
+  <div style={{ display: "grid", gridTemplateColumns: "140px 1fr 1fr", background: "var(--base-color-gray-100, #EEEEEC)", padding: "10px 20px", borderBottom: "1px solid var(--base-color-gray-200, #E3E3E0)" }}>
+    <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-500, #909090)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Component</span>
+    <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-500, #909090)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Use when</span>
+    <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-500, #909090)", textTransform: "uppercase", letterSpacing: "0.06em" }}>Don't use when</span>
+  </div>
+  {[
+    { component: "Input", use: "Single-line text, email, URL, numbers. The default for most fields.", avoid: "Long text — use Textarea. Controlled lists — use Select or Combobox." },
+    { component: "Textarea", use: "Multi-line text: messages, bios, descriptions, notes. Auto-resizes.", avoid: "Short single-line values. Fields that shouldn't accept free text." },
+    { component: "Select", use: "5–20 options where the user must pick exactly one. Static list known upfront.", avoid: "Fewer than 4 options — use RadioGroup. Searchable lists — use Combobox." },
+    { component: "Combobox", use: "Searchable dropdown: roles, tags, assignees, long option lists.", avoid: "Small static lists — Select is simpler. Multi-select (use a dedicated tag input)." },
+    { component: "RadioGroup", use: "2–4 mutually exclusive options where all choices should be visible at once.", avoid: "More than 5 options — use Select. Binary on/off — use Switch." },
+    { component: "Checkbox", use: "Agree to terms, opt-in to notifications. Any independently toggleable boolean.", avoid: "Mutually exclusive choices — use RadioGroup. Single on/off action — use Switch." },
+    { component: "Switch", use: "Immediate toggle effect (settings, notifications). Binary state with real-time impact.", avoid: "Form submissions where change isn't instant. Grouped selections — use Checkboxes." },
+    { component: "Slider", use: "Continuous range values: density, volume, budget range, threshold.", avoid: "Precise numeric input where users need to type exact values — use Input." },
+  ].map(({ component, use, avoid }, i) => (
+    <div key={component} style={{ display: "grid", gridTemplateColumns: "140px 1fr 1fr", padding: "14px 20px", borderBottom: i < 7 ? "1px solid var(--base-color-gray-200, #E3E3E0)" : "none", background: i % 2 === 0 ? "white" : "var(--base-color-gray-75, #F5F5F3)" }}>
+      <span style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", fontFamily: "monospace" }}>{component}</span>
+      <span style={{ fontSize: 13, color: "var(--base-color-gray-700, #464646)", lineHeight: 1.5, paddingRight: 20 }}>{use}</span>
+      <span style={{ fontSize: 13, color: "var(--base-color-gray-500, #909090)", lineHeight: 1.5 }}>{avoid}</span>
+    </div>
+  ))}
+</div>
+
+## Anatomy of a Thematic form
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 28px", marginBottom: 12, fontFamily: "monospace", fontSize: 12, lineHeight: 2 }}>
+  <div><span style={{ color: "var(--base-color-blue-700)" }}>&lt;Form&gt;</span>  <span style={{ color: "var(--base-color-gray-400)" }}>← react-hook-form FormProvider</span></div>
+  <div style={{ paddingLeft: 24 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormSection title="..." description="..."&gt;</span>  <span style={{ color: "var(--base-color-gray-400)" }}>← groups related fields</span></div>
+  <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormRow&gt;</span>  <span style={{ color: "var(--base-color-gray-400)" }}>← 2-column grid</span></div>
+  <div style={{ paddingLeft: 72 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormField control={"{form.control}"} name="..." render={"{...}"} /&gt;</span></div>
+  <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;/FormRow&gt;</span></div>
+  <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormField control={"{form.control}"} name="..." render={"{...}"} /&gt;</span>  <span style={{ color: "var(--base-color-gray-400)" }}>← full-width field</span></div>
+  <div style={{ paddingLeft: 24 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;/FormSection&gt;</span></div>
+  <div style={{ paddingLeft: 24 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormActions&gt;</span>  <span style={{ color: "var(--base-color-gray-400)" }}>← Cancel + Submit, always last</span></div>
+  <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;Button variant="outline"&gt;</span>Cancel<span style={{ color: "var(--base-color-blue-700)" }}>&lt;/Button&gt;</span></div>
+  <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;Button type="submit"&gt;</span>Save<span style={{ color: "var(--base-color-blue-700)" }}>&lt;/Button&gt;</span></div>
+  <div style={{ paddingLeft: 24 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;/FormActions&gt;</span></div>
+  <div><span style={{ color: "var(--base-color-blue-700)" }}>&lt;/Form&gt;</span></div>
+</div>
+<p style={{ fontSize: 12, color: "var(--base-color-gray-500, #909090)", margin: "0 0 48px" }}>
+  See live examples → <strong>Components/Form</strong> → Invite Member Form + Profile Settings Form
+</p>
+
+## Validation patterns
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
+
+<div>
+  <h3 style={{ fontSize: 14, fontWeight: 600, margin: "0 0 12px", color: "var(--base-color-gray-900, #222)" }}>Schema setup (Zod v4)</h3>
+  <div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 8, padding: "14px 16px", fontFamily: "monospace", fontSize: 12, lineHeight: 1.8 }}>
+    <div><span style={{ color: "var(--base-color-blue-700)" }}>const</span> schema = z.<span style={{ color: "var(--base-color-green-700)" }}>object</span>({"{"}</div>
+    <div style={{ paddingLeft: 16 }}>email: z.<span style={{ color: "var(--base-color-green-700)" }}>string</span>().<span style={{ color: "var(--base-color-green-700)" }}>email</span>(),</div>
+    <div style={{ paddingLeft: 16 }}>name: z.<span style={{ color: "var(--base-color-green-700)" }}>string</span>().<span style={{ color: "var(--base-color-green-700)" }}>min</span>(2),</div>
+    <div style={{ paddingLeft: 16 }}>role: z.<span style={{ color: "var(--base-color-green-700)" }}>string</span>().<span style={{ color: "var(--base-color-green-700)" }}>min</span>(1),</div>
+    <div>{"}"}</div>
+    <div style={{ marginTop: 8 }}><span style={{ color: "var(--base-color-blue-700)" }}>const</span> form = <span style={{ color: "var(--base-color-green-700)" }}>useForm</span>({"{"}</div>
+    <div style={{ paddingLeft: 16 }}>resolver: <span style={{ color: "var(--base-color-green-700)" }}>zodResolver</span>(schema),</div>
+    <div style={{ paddingLeft: 16 }}>mode: <span style={{ color: "var(--base-color-red-600)" }}>"onBlur"</span>,</div>
+    <div>{"}"}</div>
+  </div>
+</div>
+
+<div>
+  <h3 style={{ fontSize: 14, fontWeight: 600, margin: "0 0 12px", color: "var(--base-color-gray-900, #222)" }}>Wiring to inputs</h3>
+  <div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 8, padding: "14px 16px", fontFamily: "monospace", fontSize: 12, lineHeight: 1.8 }}>
+    <div><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormField</span></div>
+    <div style={{ paddingLeft: 16 }}>control={"{form.control}"}</div>
+    <div style={{ paddingLeft: 16 }}>name=<span style={{ color: "var(--base-color-red-600)" }}>"email"</span></div>
+    <div style={{ paddingLeft: 16 }}>render={"{({ field, fieldState }) => ("}</div>
+    <div style={{ paddingLeft: 32 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;FormItem&gt;</span></div>
+    <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;Input</span></div>
+    <div style={{ paddingLeft: 64 }}>label=<span style={{ color: "var(--base-color-red-600)" }}>"Email"</span></div>
+    <div style={{ paddingLeft: 64 }}>errorMessage={"{fieldState.error?.message}"}</div>
+    <div style={{ paddingLeft: 64 }}>{"{"}<span style={{ color: "var(--base-color-green-700)" }}>...field</span>{"}"}</div>
+    <div style={{ paddingLeft: 48 }}><span style={{ color: "var(--base-color-blue-700)" }}>/&gt;</span></div>
+    <div style={{ paddingLeft: 32 }}><span style={{ color: "var(--base-color-blue-700)" }}>&lt;/FormItem&gt;</span></div>
+    <div style={{ paddingLeft: 16 }}>{")}"}
+    </div>
+    <div><span style={{ color: "var(--base-color-blue-700)" }}>/&gt;</span></div>
+  </div>
+</div>
+
+</div>
+
+## Validation timing
+
+<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 48 }}>
+  {[
+    { mode: "onBlur", label: "onBlur (default)", desc: "Validates when user leaves the field. Feels least intrusive. Use for most forms.", recommended: true },
+    { mode: "onChange", label: "onChange", desc: "Validates on every keystroke. Only use for passwords and search with immediate feedback." },
+    { mode: "onSubmit", label: "onSubmit", desc: "Validates only on submit. Good for very short forms (login). Error appears late." },
+  ].map(({ mode, label, desc, recommended }) => (
+    <div key={mode} style={{
+      border: `1px solid ${recommended ? "var(--base-color-blue-200, #AAACF0)" : "var(--base-color-gray-200, #E3E3E0)"}`,
+      background: recommended ? "var(--base-color-blue-100, #C4C5F4)" + "44" : "var(--base-color-gray-75, #F5F5F3)",
+      borderRadius: 10, padding: "18px 18px 14px",
+      position: "relative"
+    }}>
+      {recommended && <div style={{ position: "absolute", top: 10, right: 10, fontSize: 10, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", background: "var(--base-color-blue-100, #C4C5F4)", padding: "2px 6px", borderRadius: 99 }}>Recommended</div>}
+      <div style={{ fontFamily: "monospace", fontSize: 12, color: "var(--base-color-blue-800, #1518A6)", marginBottom: 6 }}>{mode}</div>
+      <div style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-gray-900, #222)", marginBottom: 6 }}>{label}</div>
+      <div style={{ fontSize: 12, color: "var(--base-color-gray-600, #6D6D6D)", lineHeight: 1.5 }}>{desc}</div>
+    </div>
+  ))}
+</div>
+
+## Spatial layout rules
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+
+<div style={{ padding: "20px 20px 16px", border: "1px solid var(--base-color-green-200, #BBF7D0)", borderRadius: 10, background: "var(--base-color-green-100, #DCFCE7)" }}>
+  <p style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-green-800, #166534)", margin: "0 0 10px" }}>✓ Do</p>
+  <ul style={{ fontSize: 13, lineHeight: 1.8, color: "var(--base-color-green-800, #166534)", margin: 0, paddingLeft: 18 }}>
+    <li>Group related fields inside <code>FormSection</code> with a title</li>
+    <li>Use <code>FormRow</code> for pairs: first name + last name, city + postcode</li>
+    <li>Keep each section to 3–5 fields max before starting a new section</li>
+    <li>Put <code>FormActions</code> at the very end, never mid-form</li>
+    <li>Always include a cancel action alongside submit</li>
+    <li>Label every field — no placeholder-only inputs in enterprise forms</li>
+  </ul>
+</div>
+
+<div style={{ padding: "20px 20px 16px", border: "1px solid var(--base-color-red-200, #FFB9BB)", borderRadius: 10, background: "var(--base-color-red-100, #FFE2E2)" }}>
+  <p style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-red-600, #D21A26)", margin: "0 0 10px" }}>✗ Don't</p>
+  <ul style={{ fontSize: 13, lineHeight: 1.8, color: "var(--base-color-red-600, #D21A26)", margin: 0, paddingLeft: 18 }}>
+    <li>Don't put more than 2 fields in a <code>FormRow</code></li>
+    <li>Don't mix wide and narrow fields in the same row</li>
+    <li>Don't skip <code>FormItem</code> wrapper — it carries the a11y context</li>
+    <li>Don't suppress error messages — always surface <code>fieldState.error?.message</code></li>
+    <li>Don't use required asterisk without also communicating it in the schema</li>
+    <li>Don't nest <code>FormSection</code> components</li>
+  </ul>
+</div>
+
+</div>
+
+</div>

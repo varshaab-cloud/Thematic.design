@@ -1,0 +1,150 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Thematic Design System/Foundation/Elevation" />
+
+<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 800, margin: "0 auto", padding: "48px 24px" }}>
+
+<h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Elevation</h1>
+<p style={{ fontSize: 15, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 40px", lineHeight: 1.6 }}>
+  Thematic shadows are dual-layer and diffuse — never harsh. The first layer is a tight contact shadow;
+  the second is a soft ambient spread. Together they create depth without drama.
+  Elevation signals intent: a modal sits higher than a card, a dropdown higher than a modal content area.
+</p>
+
+---
+
+## Shadow levels
+
+<div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 48 }}>
+
+{[
+  {
+    token: "--base-shadow-01",
+    name: "Shadow 01",
+    value: "0px 1px 2px 0px rgba(0,0,0,0.05)",
+    use: "Hairline lift. Subtle hover state on flat elements.",
+    level: 1,
+  },
+  {
+    token: "--base-shadow-02",
+    name: "Shadow 02",
+    value: "0px 1px 3px rgba(0,0,0,0.06), 0px 4px 16px rgba(0,0,0,0.05)",
+    use: "Default card, input field on focus, list items.",
+    level: 2,
+  },
+  {
+    token: "--base-shadow-03",
+    name: "Shadow 03",
+    value: "0px 2px 4px rgba(0,0,0,0.07), 0px 6px 20px rgba(0,0,0,0.06)",
+    use: "Raised card, sidebar panel, sticky headers.",
+    level: 3,
+  },
+  {
+    token: "--base-shadow-04",
+    name: "Shadow 04",
+    value: "0px 4px 6px rgba(0,0,0,0.07), 0px 10px 30px rgba(0,0,0,0.08)",
+    use: "Dropdown menus, popovers, command palette.",
+    level: 4,
+  },
+  {
+    token: "--base-shadow-05",
+    name: "Shadow 05",
+    value: "0px 8px 16px rgba(0,0,0,0.10), 0px 20px 48px rgba(0,0,0,0.10)",
+    use: "Dialogs, modals, sheets — topmost layer.",
+    level: 5,
+  },
+].map(({ token, name, value, use, level }) => (
+  <div key={token} style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "center" }}>
+    <div style={{
+      height: 80,
+      borderRadius: 10,
+      background: "white",
+      boxShadow: value,
+      border: "1px solid var(--base-color-gray-100, #EEEEEC)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
+      <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-gray-400, #B1B1B1)" }}>0{level}</span>
+    </div>
+    <div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+        <span style={{ fontSize: 14, fontWeight: 600, color: "var(--base-color-gray-900, #222)" }}>{name}</span>
+        <span style={{ fontSize: 10, fontFamily: "monospace", color: "var(--base-color-blue-800, #1518A6)", background: "var(--base-color-blue-100, #C4C5F4)", padding: "2px 6px", borderRadius: 4 }}>var({token})</span>
+      </div>
+      <div style={{ fontFamily: "monospace", fontSize: 11, color: "var(--base-color-gray-500, #909090)", marginBottom: 6, lineHeight: 1.5 }}>{value}</div>
+      <div style={{ fontSize: 13, color: "var(--base-color-gray-600, #6D6D6D)" }}>{use}</div>
+    </div>
+  </div>
+))}
+
+</div>
+
+---
+
+## Border & Radius
+
+<h2 style={{ fontSize: 20, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Semantic Borders</h2>
+<p style={{ fontSize: 14, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 24px", lineHeight: 1.6 }}>
+  Borders communicate structural separation and semantic state. Use the correct semantic token — never a raw colour — so that dark mode and theming work automatically.
+</p>
+
+<div style={{ marginBottom: 48 }}>
+  <div style={{ display: "grid", gridTemplateColumns: "48px 160px 200px 1fr", gap: 16, padding: "8px 0 10px", borderBottom: "2px solid var(--base-color-gray-200, #E3E3E0)", marginBottom: 4 }}>
+    {["", "Name", "Token", "Usage"].map((h, i) => (
+      <span key={i} style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--base-color-gray-500)" }}>{h}</span>
+    ))}
+  </div>
+
+  {[
+    { color: "var(--base-color-blue-800, #1518A6)", name: "Active Border", token: "border-active", use: "Focus ring, selected state, interactive highlight" },
+    { color: "var(--base-color-gray-200, #E3E3E0)", name: "Default Border", token: "border-default", use: "All default component borders — cards, inputs, dividers" },
+    { color: "var(--base-color-green-600, #16A34A)", name: "Success Border", token: "border-success", use: "Valid input, positive confirmation state" },
+    { color: "var(--base-color-info-700, #0369A1)", name: "Info Border", token: "border-info", use: "Informational callout, neutral notice" },
+    { color: "var(--base-color-error-300, #FF4E2A)", name: "Error Border", token: "border-error", use: "Invalid input, destructive warning, form error" },
+    { color: "var(--base-color-warning-100, #F7D307)", name: "Warning Border", token: "border-warning", use: "Caution state, degraded or at-risk condition" },
+  ].map(({ color, name, token, use }) => (
+    <div key={token} style={{ display: "grid", gridTemplateColumns: "48px 160px 200px 1fr", gap: 16, alignItems: "center", padding: "12px 0", borderBottom: "1px solid var(--base-color-gray-200, #E3E3E0)" }}>
+      <div style={{ width: 36, height: 36, borderRadius: 6, border: `2px solid ${color}`, background: "var(--base-color-gray-75, #F5F5F3)" }} />
+      <span style={{ fontSize: 13, fontWeight: 500, color: "var(--base-color-gray-900, #222)" }}>{name}</span>
+      <span style={{ fontFamily: "monospace", fontSize: 11, color: "var(--base-color-blue-800, #1518A6)" }}>{token}-s</span>
+      <span style={{ fontSize: 13, color: "var(--base-color-gray-600, #6D6D6D)" }}>{use}</span>
+    </div>
+  ))}
+</div>
+
+<h2 style={{ fontSize: 20, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222)" }}>Border Radius</h2>
+<p style={{ fontSize: 14, color: "var(--base-color-gray-600, #6D6D6D)", margin: "0 0 24px", lineHeight: 1.6 }}>
+  Radius defines the curvature of corners. Consistent radius creates visual cohesion.
+  The default for all interactive components is <strong>md (12px)</strong>. Use sm for compact elements, lg/xl for large surfaces.
+</p>
+
+<div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 16, marginBottom: 48 }}>
+  {[
+    { name: "XS", px: "4px", token: "--base-radius-xs", r: 4 },
+    { name: "SM", px: "8px", token: "--base-radius-sm", r: 8 },
+    { name: "MD", px: "12px", token: "--base-radius-md", r: 12, default: true },
+    { name: "LG", px: "14px", token: "--base-radius-lg", r: 14 },
+    { name: "XL", px: "16px", token: "--base-radius-xl", r: 16 },
+    { name: "XXL", px: "20px", token: "--base-radius-xxl", r: 20 },
+  ].map(({ name, px, token, r, default: isDefault }) => (
+    <div key={name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+      <div style={{
+        width: 64, height: 64,
+        background: isDefault ? "var(--base-color-blue-100, #C4C5F4)" : "var(--base-color-gray-200, #E3E3E0)",
+        borderRadius: r,
+        border: isDefault ? "2px solid var(--base-color-blue-800, #1518A6)" : "none",
+        position: "relative",
+      }}>
+        {isDefault && <div style={{ position: "absolute", top: -8, right: -8, background: "var(--base-color-blue-800, #1518A6)", color: "white", fontSize: 9, fontWeight: 700, padding: "2px 5px", borderRadius: 99 }}>Default</div>}
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-gray-900, #222)" }}>{name}</div>
+        <div style={{ fontSize: 12, color: "var(--base-color-gray-500, #909090)" }}>{px}</div>
+        <div style={{ fontSize: 10, fontFamily: "monospace", color: "var(--base-color-blue-800, #1518A6)", marginTop: 2 }}>{token}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+</div>
