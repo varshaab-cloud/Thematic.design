@@ -39,6 +39,63 @@ const meta: Meta<typeof Button> = {
 export default meta
 type Story = StoryObj<typeof Button>
 
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-col gap-8">
+      <div>
+        <p className="text-xs text-muted-foreground mb-4">Variants</p>
+        <div className="flex flex-wrap items-start gap-6">
+          {[
+            { label: "Primary",     props: { variant: "default"     as const, children: "Button" } },
+            { label: "Secondary",   props: { variant: "secondary"   as const, children: "Button" } },
+            { label: "Outline",     props: { variant: "outline"     as const, children: "Button" } },
+            { label: "Ghost",       props: { variant: "ghost"       as const, children: "Button" } },
+            { label: "Destructive", props: { variant: "destructive" as const, children: "Button" } },
+            { label: "Link",        props: { variant: "link"        as const, children: "Button" } },
+          ].map(({ label, props }) => (
+            <div key={label} className="flex flex-col items-center gap-2">
+              <Button {...props} />
+              <span className="text-xs text-muted-foreground">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p className="text-xs text-muted-foreground mb-4">States</p>
+        <div className="flex flex-wrap items-start gap-6">
+          {[
+            { label: "Default",  props: { children: "Button" } },
+            { label: "Disabled", props: { children: "Button", disabled: true } },
+            { label: "Loading",  props: { children: "Saving…", isLoading: true } },
+          ].map(({ label, props }) => (
+            <div key={label} className="flex flex-col items-center gap-2">
+              <Button {...props} />
+              <span className="text-xs text-muted-foreground">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p className="text-xs text-muted-foreground mb-4">Sizes</p>
+        <div className="flex flex-wrap items-end gap-6">
+          {[
+            { label: "xs",      props: { size: "xs"      as const, children: "Button" } },
+            { label: "sm",      props: { size: "sm"      as const, children: "Button" } },
+            { label: "Default", props: { size: "default" as const, children: "Button" } },
+            { label: "lg",      props: { size: "lg"      as const, children: "Button" } },
+          ].map(({ label, props }) => (
+            <div key={label} className="flex flex-col items-center gap-2">
+              <Button {...props} />
+              <span className="text-xs text-muted-foreground">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  ),
+}
+
 // Core variants
 export const Primary: Story = {
   args: { children: "Primary Button", variant: "default" },
