@@ -49,20 +49,20 @@ function ControlledCombobox({ options, label, helperText }: { options: typeof ro
 export const States: Story = {
   name: "States",
   render: () => (
-    <div className="flex flex-wrap items-start gap-6">
-      <div className="flex flex-col items-start gap-2 w-56">
-        <ControlledCombobox options={roles} label="Role" />
+    <div className="flex flex-nowrap items-start gap-4">
+      <div className="flex flex-col items-start gap-2 w-44">
+        <Combobox options={roles} label="Role" />
         <span className="text-xs text-muted-foreground">Default</span>
       </div>
-      <div className="flex flex-col items-start gap-2 w-56">
+      <div className="flex flex-col items-start gap-2 w-44">
         <Combobox options={roles} value="engineer" onValueChange={() => {}} label="Role" />
         <span className="text-xs text-muted-foreground">Filled</span>
       </div>
-      <div className="flex flex-col items-start gap-2 w-56">
+      <div className="flex flex-col items-start gap-2 w-44">
         <Combobox options={roles} label="Role" required errorMessage="Please select a role." />
         <span className="text-xs text-muted-foreground">Error</span>
       </div>
-      <div className="flex flex-col items-start gap-2 w-56">
+      <div className="flex flex-col items-start gap-2 w-44">
         <Combobox options={roles} value="engineer" onValueChange={() => {}} label="Role" disabled helperText="Contact admin to change." />
         <span className="text-xs text-muted-foreground">Disabled</span>
       </div>

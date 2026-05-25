@@ -13,7 +13,7 @@ type Story = StoryObj
 export const States: Story = {
   name: "States",
   render: () => (
-    <div className="flex flex-wrap items-start gap-10">
+    <div className="flex flex-wrap items-start gap-16">
       <div className="flex flex-col items-start gap-2">
         <RadioGroup defaultValue="member">
           <RadioGroupLabel>Access level</RadioGroupLabel>

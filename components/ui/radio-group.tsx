@@ -84,7 +84,7 @@ function RadioGroupItem({
   const id = React.useId()
 
   return (
-    <div className="flex items-start gap-2.5">
+    <div className="flex items-start gap-2.5 has-[[data-disabled]]:opacity-50 has-[[data-disabled]]:pointer-events-none">
       <RadioGroupPrimitive.Item
         id={id}
         data-slot="radio-group-item"
@@ -98,8 +98,8 @@ function RadioGroupItem({
           "focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:border-ring",
           // Checked
           "data-[state=checked]:border-[var(--base-color-blue-800)] data-[state=checked]:bg-[var(--base-color-blue-800)]",
-          // Disabled
-          "disabled:pointer-events-none disabled:opacity-50",
+          // Disabled (pointer-events handled by wrapper; opacity too so no double-dim)
+          "disabled:pointer-events-none",
           className
         )}
         {...props}
