@@ -106,7 +106,7 @@ import { Meta } from "@storybook/addon-docs/blocks"
     { mode: "onSubmit", label: "onSubmit", desc: "Validates only on submit. Good for very short forms (login). Error appears late." },
   ].map(({ mode, label, desc, recommended }) => (
     <div key={mode} style={{
-      border: `1px solid ${recommended ? "var(--base-color-blue-200, #AAACF0)" : "var(--base-color-gray-200, #E3E3E0)"}`,
+      border: "1px solid " + (recommended ? "var(--base-color-blue-200, #AAACF0)" : "var(--base-color-gray-200, #E3E3E0)"),
       background: recommended ? "var(--base-color-blue-100, #C4C5F4)" + "44" : "var(--base-color-gray-75, #F5F5F3)",
       borderRadius: 10, padding: "18px 18px 14px",
       position: "relative"
