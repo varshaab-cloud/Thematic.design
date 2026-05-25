@@ -4,7 +4,6 @@ import { Switch } from "../../components/ui/switch"
 const meta: Meta<typeof Switch> = {
   title: "Forms and input/Switch",
   component: Switch,
-  tags: ["autodocs"],
   argTypes: {
     disabled: { control: "boolean", description: "Disables the switch" },
     checked: { control: "boolean", description: "Controlled checked state" },

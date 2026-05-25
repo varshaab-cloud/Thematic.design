@@ -4,7 +4,6 @@ import { SelectField, SelectItem, SelectGroup, SelectLabel, SelectSeparator } fr
 const meta: Meta<typeof SelectField> = {
   title: "Forms and input/Select",
   component: SelectField,
-  tags: ["autodocs"],
   argTypes: {
     label: { control: "text", description: "Label above the select" },
     placeholder: { control: "text", description: "Placeholder text" },

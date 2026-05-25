@@ -5,7 +5,6 @@ import { Search, Mail, Eye, EyeOff, Lock, User } from "lucide-react"
 const meta: Meta<typeof Input> = {
   title: "Forms and input/Input",
   component: Input,
-  tags: ["autodocs"],
   argTypes: {
     label: { control: "text", description: "Label above the input" },
     placeholder: { control: "text", description: "Placeholder text" },
