@@ -1,13 +1,21 @@
 import React from "react"
-import { Title, Primary, Controls, Description, Stories } from "@storybook/addon-docs/blocks"
+import {
+  Title,
+  Subtitle,
+  Primary,
+  Controls,
+  Description,
+  Stories,
+} from "@storybook/addon-docs/blocks"
 
 export function DocsPage() {
   return (
     <>
       <Title />
+      <Subtitle />
       <Primary />
       <Controls />
-      <Description />
+      <Description of="meta" />
       <Stories />
     </>
   )
