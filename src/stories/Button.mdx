@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as ButtonStories from "./Button.stories"
+
+<Meta of={ButtonStories} />
+
+<Canvas of={ButtonStories.Variants} withToolbar={false} />
+
+A button triggers an action or event. Use buttons to let users know what will happen next, and choose a variant that matches the weight of the action.
+
+## Variants
+
+**Primary (`default`)** — Use a primary button for the most important action on a page or within a section — typically a form submission or the single key call to action.
+
+**Secondary** — Use a secondary button alongside a primary button when a supporting action is needed. It carries less visual weight than primary, making the hierarchy clear at a glance.
+
+**Outline** — Use an outline button for actions that are important but should not compete with a primary button. Common in toolbars, filter panels, and card footers where a lower-emphasis bordered style reads clearly against a white or subtle background.
+
+**Ghost** — Use a ghost button in spaces where context already signals interactivity — toolbars, inline action menus, or groups of sibling buttons. Avoid using ghost buttons in isolation because they are not as obviously clickable as outlined or filled styles.
+
+**Destructive** — Use a destructive button for irreversible or high-risk actions such as deleting data or revoking access. Pair it with a confirmation dialog to prevent accidental triggers.
+
+**Link** — Use a link button when an action navigates the user somewhere and inline text styling is preferred. It behaves like a button semantically but looks like a hyperlink.
+
+## States
+
+<Canvas of={ButtonStories.States} withToolbar={false} />
+
+**Default** — The resting, interactive state. The button is ready to receive focus and click events.
+
+**Disabled** — Prevents interaction and signals that the action is not currently available. Always pair a disabled button with context explaining why — either nearby helper text or a tooltip.
+
+**Loading** — Replaces the label with a spinner to communicate that an async operation is in progress. Use this to prevent double submissions and reassure users that their action was received.
+
+## Sizes
+
+<Canvas of={ButtonStories.Sizes} withToolbar={false} />
+
+**`xs`** — Use in dense UIs like table rows, inline chips, or compact toolbars.
+
+**`sm`** — Use in sidebars, filter panels, or alongside small form inputs.
+
+**Default** — The standard size. Use in most dialogs, forms, and page-level actions.
+
+**`lg`** — Use for prominent hero or onboarding calls to action that need extra visual weight.
+
+## Icon variants
+
+<Canvas of={ButtonStories.IconOnly} withToolbar={false} />
+
+**With leading icon** — Reinforces the label with a visual cue. Use for common actions (send, download, create) where the icon improves scannability.
+
+**With trailing icon** — Signals navigation or progression (e.g. a right-arrow on a "Continue" button). Use sparingly so it doesn't compete with the label.
+
+**Icon only** — Use when space is very constrained and the icon is universally understood. Always include an `aria-label` for screen-reader accessibility.
+
+## Full width
+
+<Canvas of={ButtonStories.FullWidth} withToolbar={false} />
+
+Stretches the button to fill its container. Use in mobile layouts, card footers, or any context where a full-bleed action feels natural.
+
+## Button group
+
+<Canvas of={ButtonStories.ButtonGroup} withToolbar={false} />
+
+Combines multiple outline buttons into a connected control (e.g. a segmented filter or view toggle). Remove the shared border and border-radius on inner buttons so they read as a single unit.
+
+## Playground
+
+<Controls of={ButtonStories.Primary} />
