@@ -149,4 +149,121 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 </div>
 
+## Error message copy
+
+Error messages are the most-read copy in a form. They must follow three rules: **diagnose** what happened, **explain** why, and **recover** — tell the user what to do next.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 24, marginBottom: 48 }}>
+
+<div style={{ padding: "20px 20px 16px", border: "1px solid var(--base-color-red-200, #FFB9BB)", borderRadius: 10, background: "var(--base-color-red-100, #FFE2E2)" }}>
+  <p style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-red-600, #D21A26)", margin: "0 0 12px" }}>✗ Fails the three-part rule</p>
+  {[
+    { field: "Email", msg: "Invalid email" },
+    { field: "Password", msg: "Too short" },
+    { field: "Workspace URL", msg: "Already taken" },
+    { field: "Save failed", msg: "Something went wrong. Please try again." },
+  ].map(({ field, msg }) => (
+    <div key={field} style={{ marginBottom: 8, paddingBottom: 8, borderBottom: "1px solid var(--base-color-red-200, #FFB9BB)" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-red-600)", fontFamily: "monospace" }}>{field}:</span>
+      <span style={{ fontSize: 12, color: "var(--base-color-red-600)", marginLeft: 8 }}>"{msg}"</span>
+    </div>
+  ))}
+  <p style={{ fontSize: 12, color: "var(--base-color-red-600)", margin: "8px 0 0", lineHeight: 1.5 }}>These diagnose nothing, explain nothing, recover nothing. Enterprise users are professionals — they can handle specificity.</p>
+</div>
+
+<div style={{ padding: "20px 20px 16px", border: "1px solid var(--base-color-green-200, #BBF7D0)", borderRadius: 10, background: "var(--base-color-green-100, #DCFCE7)" }}>
+  <p style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-green-800, #166534)", margin: "0 0 12px" }}>✓ Follows the three-part rule</p>
+  {[
+    { field: "Email", msg: "Enter a valid email address — for example, you@company.com" },
+    { field: "Password", msg: "Use at least 8 characters. Try mixing letters and numbers." },
+    { field: "Workspace URL", msg: "That URL is already taken. Try adding your team name or a number." },
+    { field: "Save failed", msg: "Settings couldn't be saved — connection issue. Check your connection and try again." },
+  ].map(({ field, msg }) => (
+    <div key={field} style={{ marginBottom: 8, paddingBottom: 8, borderBottom: "1px solid var(--base-color-green-200, #BBF7D0)" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, color: "var(--base-color-green-800)", fontFamily: "monospace" }}>{field}:</span>
+      <span style={{ fontSize: 12, color: "var(--base-color-green-800)", marginLeft: 8 }}>"{msg}"</span>
+    </div>
+  ))}
+</div>
+
+</div>
+
+## Destructive action confirmations
+
+Use `AlertDialog` for any action that is irreversible or removes data permanently. The copy pattern determines whether users feel in control or alarmed.
+
+The right register for enterprise: **direct**, **specific**, and **respectful of the user's intelligence**. State exactly what will be deleted or lost. Don't soften ("remove" not "delete"), don't alarm, don't use vague warnings.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16, marginTop: 24, marginBottom: 24 }}>
+
+{[
+  { label: "✗ Too clinical", color: "#FFE2E2", textColor: "#D21A26", borderColor: "#FFB9BB",
+    title: "Confirm deletion?",
+    body: "Are you sure you want to delete this item? This cannot be undone.",
+    cancel: "Cancel", confirm: "Delete" },
+  { label: "✗ Too alarming", color: "#FEF9C3", textColor: "#A16207", borderColor: "#FDE047",
+    title: "⚠ WARNING",
+    body: "This action is PERMANENT and CANNOT be reversed! All data will be lost forever!",
+    cancel: "Cancel", confirm: "I understand, delete it" },
+  { label: "✓ Right register", color: "#DCFCE7", textColor: "#166534", borderColor: "#BBF7D0",
+    title: "Remove Priya Sharma from this workspace?",
+    body: "She'll lose access to all 12 projects immediately. This can't be undone.",
+    cancel: "Cancel", confirm: "Remove member" },
+].map(({ label, color, textColor, borderColor, title, body, cancel, confirm }) => (
+  <div key={label} style={{ border: `1px solid ${borderColor}`, borderRadius: 10, padding: "20px 24px", background: color }}>
+    <p style={{ fontSize: 12, fontWeight: 700, color: textColor, margin: "0 0 12px", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</p>
+    <div style={{ background: "white", borderRadius: 8, padding: "16px 20px", border: "1px solid #E3E3E0" }}>
+      <p style={{ fontSize: 14, fontWeight: 600, color: "#222", margin: "0 0 6px" }}>{title}</p>
+      <p style={{ fontSize: 13, color: "#6D6D6D", margin: "0 0 16px", lineHeight: 1.5 }}>{body}</p>
+      <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+        <span style={{ fontSize: 12, padding: "6px 12px", borderRadius: 6, border: "1px solid #E3E3E0", color: "#464646" }}>{cancel}</span>
+        <span style={{ fontSize: 12, padding: "6px 12px", borderRadius: 6, background: "#FF4E2A", color: "white" }}>{confirm}</span>
+      </div>
+    </div>
+  </div>
+))}
+
+</div>
+
+**Copy rules for destructive confirmations:**
+- **Title**: name the specific thing being removed, not the action — "Remove Priya Sharma?" not "Confirm removal"
+- **Body**: state the exact consequence + "can't be undone" — no exclamation marks, no ALL CAPS
+- **Confirm button**: specific verb + noun — "Remove member", "Delete workspace", "Cancel subscription" — never just "Delete" or "Confirm"
+- **Cancel button**: always "Cancel" — nothing more
+
+## Empty states
+
+Every data-driven surface — tables, lists, search results, dashboards — needs a defined empty state. Without one, each engineer builds their own.
+
+**Anatomy of an empty state:**
+- **48px icon** — outlined, single colour (gray-500 at rest, blue-800 for CTA-bearing states)
+- **Heading** — what's missing, in plain language. Not "No data found."
+- **Supporting sentence** — why it's empty or what the user can do about it
+- **Optional CTA** — only when there's a clear next action from this page
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginTop: 24, marginBottom: 48 }}>
+
+{[
+  { icon: "👥", heading: "No team members yet", body: "Invite your first teammate to start collaborating on projects.", cta: "Invite member" },
+  { icon: "🔍", heading: "No results for "priya"", body: "Try a different name or email address.", cta: null },
+  { icon: "📄", heading: "No reports yet", body: "Reports you generate will appear here. Run your first report to get started.", cta: "Create report" },
+].map(({ icon, heading, body, cta }) => (
+  <div key={heading} style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "32px 20px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 8 }}>
+    <span style={{ fontSize: 36, lineHeight: 1, marginBottom: 4 }}>{icon}</span>
+    <p style={{ fontSize: 14, fontWeight: 600, color: "#222", margin: 0 }}>{heading}</p>
+    <p style={{ fontSize: 12, color: "#6D6D6D", margin: 0, lineHeight: 1.5 }}>{body}</p>
+    {cta && <span style={{ marginTop: 8, fontSize: 12, padding: "6px 14px", borderRadius: 8, background: "#1518A6", color: "white" }}>{cta}</span>}
+  </div>
+))}
+
+</div>
+
+**Copy rules for empty states:**
+- **Heading**: specific — name what's missing. "No team members yet", not "Nothing here."
+- **Body**: explain why it's empty or what action creates data here.
+- **CTA**: only include if there's a direct action. "No results" empty states don't need a CTA.
+- Never say "No data found" — it's system language, not user language.
+
+</div>
+
 </div>

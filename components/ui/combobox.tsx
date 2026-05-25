@@ -77,7 +77,7 @@ function Combobox({
             aria-invalid={hasError || undefined}
             disabled={disabled}
             className={cn(
-              "flex h-8 w-full items-center justify-between gap-1.5 rounded-lg",
+              "flex h-8 w-full items-center justify-between gap-1.5 rounded-[var(--base-radius-md)]",
               "border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)]",
               "px-2.5 text-sm transition-colors outline-none",
               "hover:border-[var(--base-color-gray-400)]",

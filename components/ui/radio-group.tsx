@@ -15,6 +15,52 @@ export interface RadioGroupItemProps
   description?: string
 }
 
+// RadioGroupField — enterprise wrapper matching Input/Select/Textarea pattern
+export interface RadioGroupFieldProps {
+  label?: string
+  helperText?: string
+  errorMessage?: string
+  required?: boolean
+  className?: string
+  children: React.ReactNode
+  value?: string
+  onValueChange?: (value: string) => void
+  defaultValue?: string
+  disabled?: boolean
+}
+
+function RadioGroupField({
+  label,
+  helperText,
+  errorMessage,
+  required,
+  className,
+  children,
+  ...rootProps
+}: RadioGroupFieldProps) {
+  const hasError = !!errorMessage
+  return (
+    <div className={cn("flex flex-col gap-1.5", className)}>
+      {label && (
+        <p className="text-sm font-medium text-foreground">
+          {label}
+          {required && <span className="text-destructive ml-1">*</span>}
+        </p>
+      )}
+      <RadioGroupPrimitive.Root
+        data-slot="radio-group"
+        aria-invalid={hasError || undefined}
+        className="flex flex-col gap-2"
+        {...rootProps}
+      >
+        {children}
+      </RadioGroupPrimitive.Root>
+      {hasError && <p className="text-xs text-destructive">{errorMessage}</p>}
+      {helperText && !hasError && <p className="text-xs text-muted-foreground">{helperText}</p>}
+    </div>
+  )
+}
+
 function RadioGroup({
   className,
   ...props
@@ -99,4 +145,4 @@ function RadioGroupLabel({
   )
 }
 
-export { RadioGroup, RadioGroupItem, RadioGroupLabel }
+export { RadioGroup, RadioGroupField, RadioGroupItem, RadioGroupLabel }

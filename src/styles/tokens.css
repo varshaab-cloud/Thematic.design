@@ -193,7 +193,7 @@
   --component-button-primary-text: #ffffff;
   --component-button-primary-text-disabled: #909090;
   --component-button-primary-border: rgba(0, 0, 0, 0);
-  --component-button-primary-border-radius: 8px;
+  --component-button-primary-border-radius: 12px;
   --component-button-primary-padding-x: 1.5rem;
   --component-button-primary-padding-y: 0.75rem;
   --component-button-primary-font-size: 0.875rem;
@@ -205,7 +205,7 @@
   --component-button-secondary-text: #111487;
   --component-button-secondary-text-disabled: #909090;
   --component-button-secondary-border: #1c21dc;
-  --component-button-secondary-border-radius: 8px;
+  --component-button-secondary-border-radius: 12px;
   --component-button-secondary-padding-x: 1.5rem;
   --component-button-secondary-padding-y: 0.75rem;
   --component-button-secondary-font-size: 0.875rem;
@@ -215,7 +215,7 @@
   --component-button-ghost-text: #111487;
   --component-button-ghost-text-disabled: #909090;
   --component-button-ghost-border: rgba(0, 0, 0, 0);
-  --component-button-ghost-border-radius: 8px;
+  --component-button-ghost-border-radius: 12px;
   --component-button-ghost-padding-x: 1.5rem;
   --component-button-ghost-padding-y: 0.75rem;
   --component-button-ghost-font-size: 0.875rem;
@@ -224,7 +224,7 @@
   --component-button-destructive-background-hover: #d21a26;
   --component-button-destructive-text: #ffffff;
   --component-button-destructive-border: rgba(0, 0, 0, 0);
-  --component-button-destructive-border-radius: 8px;
+  --component-button-destructive-border-radius: 12px;
   --component-button-destructive-padding-x: 1.5rem;
   --component-button-destructive-padding-y: 0.75rem;
   --component-button-destructive-font-size: 0.875rem;
@@ -238,7 +238,7 @@
   --component-input-text: #000000;
   --component-input-text-placeholder: #909090;
   --component-input-text-disabled: #909090;
-  --component-input-border-radius: 4px;
+  --component-input-border-radius: 12px;
   --component-input-padding-x: 1rem;
   --component-input-padding-y: 0.75rem;
   --component-input-font-size: 0.875rem;
