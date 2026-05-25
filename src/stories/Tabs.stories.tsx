@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/ca
 const meta: Meta<typeof Tabs> = {
   title: "Navigation/Tabs",
   component: Tabs,
-  tags: ["autodocs"],
 }
 
 export default meta

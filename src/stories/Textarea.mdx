@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as TextareaStories from "./Textarea.stories"
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+<Canvas of={TextareaStories.States} withToolbar={false} />
+
+A textarea lets users enter longer, multi-line text. Use it for descriptions, notes, comments, and any free-form content where a single line would be insufficient.
+
+## States
+
+**Default** — The resting state. The textarea is ready for input.
+
+**Disabled** — The field cannot be edited. Use when content is read-only in the current context — for example, a record locked by an admin. Provide helper text or a tooltip explaining the reason.
+
+**Error** — Triggered by validation failure. Use a specific error message so users know exactly what to fix — for example, "Description is required" rather than "Required field".
+
+**Success** — Triggered when content passes validation. Use when confirming well-formed content provides meaningful reassurance — for example, a correctly formatted code snippet.
+
+## Additional features
+
+<Canvas of={TextareaStories.WithHelperText} withToolbar={false} />
+
+**With helper text** — Use to set expectations about the content: tone, format, or audience. For example, "Visible to all team members."
+
+<Canvas of={TextareaStories.WithCharCount} withToolbar={false} />
+
+**With character count** — Shows remaining characters when there is a maximum limit. Useful for bios, tweet-style summaries, or SMS copy.
+
+<Canvas of={TextareaStories.Required} withToolbar={false} />
+
+**Required** — Marks the field as mandatory. Pair with clear placeholder text so users know what kind of content is expected.
+
+<Canvas of={TextareaStories.AutoResize} withToolbar={false} />
+
+**Auto-resize** — The textarea grows in height as the user types, removing the need to scroll within a fixed box. Use for open-ended content where the length is unpredictable.
+
+## Playground
+
+<Controls of={TextareaStories.Default} />

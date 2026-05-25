@@ -1,0 +1,30 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as AvatarStories from "./Avatar.stories"
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+<Canvas of={AvatarStories.WithImage} withToolbar={false} />
+
+An avatar represents a person or entity — typically a user profile picture or their initials. Use avatars in headers, comment threads, assignee fields, and anywhere a face or identity marker adds useful context.
+
+## With image
+
+Displays the user's profile photo. Always provide a fallback in case the image fails to load.
+
+## With fallback
+
+<Canvas of={AvatarStories.WithFallback} withToolbar={false} />
+
+Displays the user's initials when no image is available or the image fails to load. Use two characters (first and last initial) for the best legibility at small sizes.
+
+## Avatar group
+
+<Canvas of={AvatarStories.AvatarGroup} withToolbar={false} />
+
+Stacks multiple avatars with a slight overlap to represent a group — for example, members of a project or participants in a conversation. Use a "+N" overflow avatar to indicate additional members that don't fit in the display.
+
+## Playground
+
+<Controls of={AvatarStories.WithFallback} />

@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as SelectStories from "./Select.stories"
+
+<Meta of={SelectStories} />
+
+# Select
+
+<Canvas of={SelectStories.States} withToolbar={false} />
+
+A select lets users choose one option from a predefined list. Use a select when there are more than four options and the choices are known in advance. For fewer options, consider a radio group. For free-text with suggestions, consider a combobox.
+
+## States
+
+**Default** — The resting state. The trigger shows the placeholder until a value is chosen.
+
+**Error** — Triggered when no value has been selected but one is required, or when the selected value is no longer valid. The error message appears below the trigger.
+
+**Success** — Signals that the selected value is valid — useful when the selection has side effects that can be confirmed immediately (e.g. a plan selection that shows pricing feedback).
+
+**Disabled** — The select cannot be opened. Use when the options are unavailable in the current context. Always provide helper text explaining the constraint.
+
+## Additional features
+
+<Canvas of={SelectStories.WithGroups} withToolbar={false} />
+
+**With groups** — Use `SelectGroup` and `SelectLabel` to visually organise a long list into labelled sections — for example, grouping team members by department or assets by category.
+
+<Canvas of={SelectStories.Required} withToolbar={false} />
+
+**Required** — Marks the field as mandatory in a form. Pair with helper text to set expectations.
+
+## Sizes
+
+<Canvas of={SelectStories.Sizes} withToolbar={false} />
+
+**`sm`** — Use in compact form layouts or as an inline control within a table row or toolbar.
+
+**Default** — Use in standard forms, settings panels, and dialogs.
+
+## Playground
+
+<Controls of={SelectStories.Default} />

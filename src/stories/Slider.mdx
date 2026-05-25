@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as SliderStories from "./Slider.stories"
+
+<Meta of={SliderStories} />
+
+# Slider
+
+<Canvas of={SliderStories.States} withToolbar={false} />
+
+A slider lets users select a value or range by dragging a thumb along a track. Use sliders for continuous or step-based values where approximate input is acceptable — for example, volume, opacity, price range, or a confidence threshold.
+
+For precise numeric input, use an Input field instead of or alongside a slider.
+
+## Default
+
+<Canvas of={SliderStories.Default} withToolbar={false} />
+
+A single-thumb slider for selecting one value within a defined range. Display the current value next to the label so users always know what they have selected.
+
+## Range
+
+<Canvas of={SliderStories.Range} withToolbar={false} />
+
+A two-thumb slider for selecting a minimum and maximum value — for example, a price range or a date window. Both thumbs are independently draggable. Display both current values.
+
+## With steps
+
+<Canvas of={SliderStories.Steps} withToolbar={false} />
+
+Snaps to discrete values along the track — for example, priority levels (Low, Medium, High) or specific percentages (0, 25, 50, 75, 100). Format the displayed value to match the step labels.
+
+## Disabled
+
+<Canvas of={SliderStories.Disabled} withToolbar={false} />
+
+The thumb cannot be moved. Use when the value is determined by the system or another setting — for example, a storage usage indicator on a read-only plan summary.
+
+## With helper text
+
+<Canvas of={SliderStories.WithHelperText} withToolbar={false} />
+
+Use helper text to explain the effect of the slider value — for example, "Predictions below this score will be flagged for review." This is especially useful for non-obvious settings like confidence thresholds or compression levels.
+
+## Playground
+
+<Controls of={SliderStories.Default} />

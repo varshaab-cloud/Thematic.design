@@ -1,0 +1,24 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as ProgressStories from "./Progress.stories"
+
+<Meta of={ProgressStories} />
+
+# Progress
+
+<Canvas of={ProgressStories.States} withToolbar={false} />
+
+A progress bar communicates how far through a multi-step process or timed operation the user is. Use it for uploads, installs, onboarding completions, or any measurable operation where showing percentage adds meaningful feedback.
+
+Do not use a progress bar for indeterminate operations — use a spinner or skeleton instead.
+
+## States
+
+**0%** — The operation has not started. Consider only showing the bar once progress begins so it doesn't look stuck.
+
+**In progress** — The bar fills proportionally as the operation advances. Pair with a label showing the numeric percentage or a status message like "Uploading… 45%".
+
+**100%** — The operation is complete. Follow immediately with a success state or transition to the next step so users know they can proceed.
+
+## Playground
+
+<Controls of={ProgressStories.Default} />

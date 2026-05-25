@@ -4,7 +4,6 @@ import { Progress } from "../../components/ui/progress"
 const meta: Meta<typeof Progress> = {
   title: "Loading/Progress",
   component: Progress,
-  tags: ["autodocs"],
   argTypes: {
     value: {
       control: { type: "range", min: 0, max: 100, step: 1 },
@@ -15,6 +14,26 @@ const meta: Meta<typeof Progress> = {
 
 export default meta
 type Story = StoryObj<typeof Progress>
+
+export const States: Story = {
+  name: "States",
+  render: () => (
+    <div className="flex flex-col gap-6 w-64">
+      <div className="flex flex-col gap-2">
+        <Progress value={0} />
+        <span className="text-xs text-muted-foreground">0% — Not started</span>
+      </div>
+      <div className="flex flex-col gap-2">
+        <Progress value={45} />
+        <span className="text-xs text-muted-foreground">45% — In progress</span>
+      </div>
+      <div className="flex flex-col gap-2">
+        <Progress value={100} />
+        <span className="text-xs text-muted-foreground">100% — Complete</span>
+      </div>
+    </div>
+  ),
+}
 
 export const Default: Story = {
   args: { value: 50 },

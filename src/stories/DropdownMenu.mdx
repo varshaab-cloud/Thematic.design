@@ -1,0 +1,26 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as DropdownMenuStories from "./DropdownMenu.stories"
+
+<Meta of={DropdownMenuStories} />
+
+# Dropdown Menu
+
+<Canvas of={DropdownMenuStories.Default} withToolbar={false} />
+
+A dropdown menu reveals a list of actions or navigation items from a trigger element. Use dropdown menus for contextual actions that don't all need to be visible at once — for example, row actions in a table or a user account menu.
+
+Keep menus concise. If the list has more than seven or eight items, consider grouping or filtering.
+
+## Default
+
+Use for contextual object actions — edit, duplicate, delete. Group related actions with separators and place destructive actions (delete, remove) at the bottom of the list, visually separated from safe actions.
+
+## User menu
+
+<Canvas of={DropdownMenuStories.UserMenu} withToolbar={false} />
+
+Use for account-level actions accessible from a persistent header or sidebar — profile, settings, log out. Include the user's name and email as a non-interactive label at the top to orient the user before they choose an action. Keyboard shortcuts can be shown alongside items for power users.
+
+## Playground
+
+<Controls of={DropdownMenuStories.Default} />

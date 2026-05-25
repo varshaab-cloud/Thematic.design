@@ -1,0 +1,26 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as AccordionStories from "./Accordion.stories"
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+<Canvas of={AccordionStories.Single} withToolbar={false} />
+
+An accordion reveals or hides sections of content on demand. Use it to present a long list of items where most users will only need a subset — for example, FAQs, settings categories, or feature details.
+
+Avoid using accordion when all sections are equally important and users are likely to read them in sequence — flat content is easier to scan.
+
+## Single
+
+Only one item can be open at a time. Expanding a new item automatically collapses the previous one. Use single-type accordions when sections are mutually exclusive or when vertical space is constrained.
+
+## Multiple
+
+<Canvas of={AccordionStories.Multiple} withToolbar={false} />
+
+Multiple items can be open simultaneously. Use when sections are independent and users are likely to compare or reference content from several sections at once — for example, a settings panel with unrelated categories.
+
+## Playground
+
+<Controls of={AccordionStories.Single} />

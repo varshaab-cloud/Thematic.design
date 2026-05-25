@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as ToastStories from "./Toast.stories"
+
+<Meta of={ToastStories} />
+
+# Toast
+
+<Canvas of={ToastStories.AllVariants} withToolbar={false} />
+
+A toast is a brief, non-blocking notification that appears in response to a user action or system event. It disappears automatically after a short delay and does not require the user to dismiss it. Use toasts for confirmations, status updates, and low-urgency alerts.
+
+Do not use toasts for critical errors that require user action — use an Alert or Dialog instead.
+
+## Variants
+
+Click each button to trigger the corresponding toast.
+
+**Default** — Use for neutral, informational confirmations — for example, "Changes saved." Keep the message short and factual.
+
+**Success** — Use to confirm that an action completed successfully — for example, "Project published" or "Deployment complete." Optionally pair with a description for more detail.
+
+**Error** — Use when an action failed and the user should be aware — for example, "Failed to save changes." Keep the message actionable if recovery is possible.
+
+**Warning** — Use for time-sensitive notices that may affect the user's session — for example, "Your session expires in 5 minutes."
+
+**Info** — Use for neutral system updates that are helpful but not urgent — for example, "New version available."
+
+**Loading** — Use when an async operation starts and the outcome will be communicated in a follow-up toast — for example, "Uploading file…". Replace with a success or error toast when the operation finishes.
+
+## With action
+
+<Canvas of={ToastStories.WithAction} withToolbar={false} />
+
+Add an action button (typically "Undo" or "View") when a quick reversal or follow-up is likely. Keep the action label very short — no more than two words.
+
+## With description
+
+<Canvas of={ToastStories.WithDescription} withToolbar={false} />
+
+Add a description when the title alone doesn't give enough context — for example, "Version 2.4.1 is now live on production" under a "Deployment complete" title.
+
+## Playground
+
+<Controls of={ToastStories.Default} />

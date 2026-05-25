@@ -1,0 +1,32 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as DialogStories from "./Dialog.stories"
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+<Canvas of={DialogStories.Default} withToolbar={false} />
+
+A dialog interrupts the user's flow to surface an action or information that requires their immediate attention. Use dialogs for confirmations, short forms, and destructive action gates.
+
+Keep dialogs focused — one topic, one decision. If the content requires scrolling or contains multiple steps, consider a Sheet or a dedicated page instead.
+
+## Default
+
+Use for simple confirmations where the user must explicitly acknowledge or proceed with an action. State the consequence clearly in the description.
+
+## With form
+
+<Canvas of={DialogStories.WithForm} withToolbar={false} />
+
+Use when a task requires input before it can be completed — for example, inviting a team member or creating a resource. Keep the form short; if more than 3–4 fields are needed, use a dedicated page or Sheet.
+
+## Destructive
+
+<Canvas of={DialogStories.Destructive} withToolbar={false} />
+
+Use when the action being confirmed is irreversible — for example, permanently deleting a project or revoking access. Use a destructive variant button in the footer to visually reinforce the risk.
+
+## Playground
+
+<Controls of={DialogStories.Default} />

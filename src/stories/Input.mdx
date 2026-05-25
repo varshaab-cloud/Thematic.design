@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as InputStories from "./Input.stories"
+
+<Meta of={InputStories} />
+
+# Input
+
+<Canvas of={InputStories.States} withToolbar={false} />
+
+An input lets users enter short, free-form text. Use inputs for single-line data entry like names, email addresses, search queries, or configuration values.
+
+## States
+
+**Default** — The resting state. The input is ready to receive focus and keyboard input.
+
+**Disabled** — The input cannot be interacted with. Use when the field exists in the layout but the current context or permissions prevent editing. Always provide helper text explaining why it is locked.
+
+**Error** — Triggered by failed validation. The error message replaces or supplements the helper text and appears immediately below the input. Write error messages that are specific and actionable — "Please enter a valid email address" rather than "Invalid input".
+
+**Success** — Triggered when validation passes on a field where confirmation adds value — for example, checking that a username is available. Use success state deliberately; not every valid input needs a success indicator.
+
+## Labels and helper text
+
+<Canvas of={InputStories.WithHelperText} withToolbar={false} />
+
+**With label** — Always include a visible label for accessibility. Do not rely on placeholder text alone.
+
+**Required** — Add a required indicator when the field must be completed before a form can be submitted. Pair with helper text to communicate the expectation clearly.
+
+**With helper text** — Use helper text beneath the input to provide format guidance, constraints, or context — for example, "Must be 3–20 characters".
+
+## Icons
+
+<Canvas of={InputStories.WithBothIcons} withToolbar={false} />
+
+**With prefix icon** — Use a leading icon to reinforce the purpose of the field (e.g. a search icon in a search input, a lock icon in a password field). Icons should add clarity, not decoration.
+
+**With suffix icon** — Use a trailing icon for toggleable or supplementary actions — for example, a show/hide toggle on a password field.
+
+**With both icons** — Use when both a contextual prefix and an interactive suffix are needed. Avoid overloading an input with icons if it adds visual noise without functional value.
+
+## Character count
+
+<Canvas of={InputStories.WithCharacterCount} withToolbar={false} />
+
+Shows a live counter of characters remaining. Use on fields with a strict character limit — for example, a bio or short description. The counter turns to an error state when the limit is reached.
+
+## Sizes
+
+<Canvas of={InputStories.Sizes} withToolbar={false} />
+
+**`sm`** — Use in compact forms, table inline-editing, or dense filter panels.
+
+**`md` (default)** — The standard input size for most forms and dialogs.
+
+**`lg`** — Use on focused, single-action pages such as a prominent search bar or an onboarding step.
+
+## Playground
+
+<Controls of={InputStories.Default} />

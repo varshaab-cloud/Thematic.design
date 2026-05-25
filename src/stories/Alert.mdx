@@ -31,6 +31,10 @@ Write alert copy following the three-part rule: **diagnose → explain → recov
 
 Add a dismiss button when the alert is informational and the user may want to clear it from view — for example, a trial expiry notice or a one-time upgrade prompt. Do not make error or critical warning alerts dismissible without resolution.
 
+Use the **icon button** (×) when screen space is tight or the alert sits alongside dense UI. Use the **link button** when there is enough breathing room and a labelled action reads more clearly.
+
+<Canvas of={AlertStories.WithLinkAction} withToolbar={false} />
+
 ## Playground
 
 <Controls of={AlertStories.Default} />

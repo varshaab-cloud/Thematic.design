@@ -1,0 +1,30 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as CheckboxStories from "./Checkbox.stories"
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+<Canvas of={CheckboxStories.States} withToolbar={false} />
+
+A checkbox lets users select or deselect a single option independently. Use checkboxes in forms, settings, and list selections where multiple items can be chosen simultaneously.
+
+## States
+
+**Default (unchecked)** — The resting, unselected state. The checkbox is ready for interaction.
+
+**Checked** — The user has selected this option. The check icon confirms the selection visually.
+
+**Disabled** — The checkbox cannot be interacted with. Use when an option is unavailable in the current context. If the option is checked and disabled, it shows a confirmed but locked selection — for example, a required permission that cannot be removed.
+
+**Checked + disabled** — Represents a selection that is confirmed but cannot be changed — for example, an always-on feature or a plan constraint.
+
+## With label
+
+<Canvas of={CheckboxStories.WithLabel} withToolbar={false} />
+
+Always associate a visible text label with a checkbox using a `<label>` element. The label extends the click target, improves accessibility, and explains what the user is agreeing to or selecting.
+
+## Playground
+
+<Controls of={CheckboxStories.Default} />

@@ -1,0 +1,26 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as TabsStories from "./Tabs.stories"
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+<Canvas of={TabsStories.Default} withToolbar={false} />
+
+Tabs organise related content into distinct views, allowing users to switch between them without leaving the page. Use tabs when content can be cleanly grouped into mutually exclusive sections and users are likely to visit multiple sections.
+
+Do not use tabs to guide users through a sequence — use a stepper for that. Avoid tabs when there are fewer than two or more than seven items.
+
+## Default
+
+The standard horizontal tab strip. The active tab is visually distinguished from inactive tabs. All tab panels share the same container.
+
+## With a disabled tab
+
+<Canvas of={TabsStories.SimpleTabs} withToolbar={false} />
+
+Use a disabled tab to indicate that a section exists but is currently unavailable — for example, content the user does not have permission to view, or a feature that is coming soon. Pair with a tooltip to explain the reason.
+
+## Playground
+
+<Controls of={TabsStories.Default} />

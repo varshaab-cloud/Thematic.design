@@ -171,7 +171,7 @@ export const Destructive: Story = {
   ),
 }
 
-// ─── With dismiss action ──────────────────────────────────────────────────────
+// ─── With dismiss action (icon) ───────────────────────────────────────────────
 
 export const WithAction: Story = {
   name: "With dismiss action",
@@ -186,6 +186,27 @@ export const WithAction: Story = {
       <AlertAction>
         <Button variant="ghost" size="icon-sm" aria-label="Dismiss">
           <X className="h-4 w-4" />
+        </Button>
+      </AlertAction>
+    </Alert>
+  ),
+}
+
+// ─── With link dismiss action ─────────────────────────────────────────────────
+
+export const WithLinkAction: Story = {
+  name: "With link dismiss action",
+  render: () => (
+    <Alert variant="info" className="max-w-lg">
+      <InfoIcon className="h-4 w-4" />
+      <AlertTitle>Your trial ends in 3 days</AlertTitle>
+      <AlertDescription>
+        Add a payment method to keep access to your projects and team members
+        after the trial expires.
+      </AlertDescription>
+      <AlertAction>
+        <Button variant="link" size="sm" className="h-auto p-0 text-current underline-offset-3 hover:text-current">
+          Dismiss
         </Button>
       </AlertAction>
     </Alert>

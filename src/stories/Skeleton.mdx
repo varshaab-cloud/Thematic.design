@@ -1,0 +1,40 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as SkeletonStories from "./Skeleton.stories"
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+<Canvas of={SkeletonStories.ProfileSkeleton} withToolbar={false} />
+
+A skeleton screen is a low-fidelity placeholder that mimics the layout of content while it loads. It reduces perceived wait time by showing structure immediately, rather than an empty space or a spinner.
+
+Use skeleton screens for any content that loads asynchronously — cards, tables, profiles, lists. Match the skeleton shape as closely as possible to the real content.
+
+## Default
+
+<Canvas of={SkeletonStories.Default} withToolbar={false} />
+
+A single-line skeleton for a text snippet, label, or short value.
+
+## Card skeleton
+
+<Canvas of={SkeletonStories.CardSkeleton} withToolbar={false} />
+
+Mimics a card layout with a title placeholder and several lines of body text. Use while a card's data is being fetched — for example, a project summary card or a settings panel.
+
+## Table skeleton
+
+<Canvas of={SkeletonStories.TableSkeleton} withToolbar={false} />
+
+Mimics a table header and rows. Use while paginated or filtered table data is loading. Match the number of skeleton rows to the expected page size so the layout doesn't jump when real data arrives.
+
+## Profile skeleton
+
+<Canvas of={SkeletonStories.ProfileSkeleton} withToolbar={false} />
+
+Mimics a user row with a circular avatar and two lines of text (name + email or role). Use in assignee lists, member directories, and comment threads.
+
+## Playground
+
+<Controls of={SkeletonStories.Default} />

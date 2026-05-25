@@ -1,0 +1,32 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as SwitchStories from "./Switch.stories"
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+<Canvas of={SwitchStories.States} withToolbar={false} />
+
+A switch toggles a single setting between an on and off state. Use a switch when the change takes effect immediately without requiring a form submission — for example, enabling notifications or activating dark mode.
+
+If the setting requires a save action to take effect, use a checkbox instead.
+
+## States
+
+**Default (off)** — The resting, inactive state. The setting is currently disabled.
+
+**Checked (on)** — The setting is active. The thumb moves to the right and the track changes colour to communicate the active state.
+
+**Disabled** — The switch cannot be toggled. Use when the setting is locked in the current context — for example, a plan feature that requires an upgrade.
+
+**Checked + disabled** — The setting is active but cannot be changed — for example, a security policy enforced at the workspace level.
+
+## With label
+
+<Canvas of={SwitchStories.WithLabel} withToolbar={false} />
+
+Always pair a switch with a visible label that describes what will happen when it is toggled. The label should describe the on-state of the feature ("Enable notifications", "Dark mode") so users understand the outcome before they interact.
+
+## Playground
+
+<Controls of={SwitchStories.Default} />
