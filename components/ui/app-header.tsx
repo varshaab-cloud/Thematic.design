@@ -24,7 +24,7 @@ export function AppHeader({
     <header
       data-slot="app-header"
       className={cn(
-        "flex items-center w-full bg-white px-4 gap-3",
+        "flex items-center w-full bg-card px-4 gap-3",
         sticky && "sticky top-0 z-50",
         bordered && "border-b border-[var(--base-color-gray-200)]",
         className
@@ -181,7 +181,7 @@ export function AppHeaderSearch({
           "flex items-center gap-2 h-8 px-3 rounded-[var(--base-radius-md)]",
           "border border-[var(--base-color-gray-200)] bg-[var(--base-color-gray-50)]",
           "text-sm text-[var(--base-color-gray-400)]",
-          "hover:border-[var(--base-color-gray-300)] hover:bg-white transition-colors",
+          "hover:border-[var(--base-color-gray-300)] hover:bg-card transition-colors",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-400)]",
           className
         )}
@@ -201,7 +201,7 @@ export function AppHeaderSearch({
       className={cn(
         "flex items-center gap-2 h-8 px-3 rounded-[var(--base-radius-md)]",
         "border border-[var(--base-color-gray-200)] bg-[var(--base-color-gray-50)]",
-        "focus-within:border-[var(--base-color-blue-400)] focus-within:bg-white focus-within:ring-2 focus-within:ring-[var(--base-color-blue-100)]",
+        "focus-within:border-[var(--base-color-blue-400)] focus-within:bg-card focus-within:ring-2 focus-within:ring-[var(--base-color-blue-100)]",
         "transition-all",
         className
       )}
@@ -353,7 +353,7 @@ export function AppHeaderUser({
           sideOffset={6}
           className={cn(
             "z-50 min-w-[180px] rounded-[var(--base-radius-md)]",
-            "border border-[var(--base-color-gray-200)] bg-white",
+            "border border-[var(--base-color-gray-200)] bg-popover",
             "shadow-[var(--base-shadow-04)] p-1",
             "text-sm text-[var(--base-color-gray-900)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",

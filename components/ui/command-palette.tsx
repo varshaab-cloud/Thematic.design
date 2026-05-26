@@ -125,7 +125,7 @@ export function CommandPalette({
       >
           <div
             className={cn(
-              "bg-white border border-[var(--base-color-gray-200)]",
+              "bg-popover border border-[var(--base-color-gray-200)]",
               "rounded-[var(--base-radius-lg)] shadow-xl",
               "max-h-[400px] overflow-hidden flex flex-col"
             )}

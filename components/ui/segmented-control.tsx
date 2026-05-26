@@ -74,7 +74,7 @@ function SegmentedControl({
               sizes.segment,
               fullWidth && "flex-1",
               isSelected
-                ? "bg-white text-[var(--base-color-gray-900)] shadow-sm"
+                ? "bg-card text-[var(--base-color-gray-900)] shadow-sm"
                 : "text-[var(--base-color-gray-500)] hover:text-[var(--base-color-gray-700)]"
             )}
           >

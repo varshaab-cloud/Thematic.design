@@ -307,7 +307,7 @@ export function DateRangePicker({
           data-slot="date-range-picker-trigger"
           className={cn(
             "flex items-center gap-2 h-9 px-3 rounded-[var(--base-radius-md)]",
-            "border border-[var(--base-color-gray-200)] bg-white",
+            "border border-[var(--base-color-gray-200)] bg-card",
             "text-sm transition-colors",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-400)]",
             range.from
@@ -333,7 +333,7 @@ export function DateRangePicker({
           sideOffset={6}
           className={cn(
             "z-50 flex rounded-[var(--base-radius-lg)]",
-            "border border-[var(--base-color-gray-200)] bg-white",
+            "border border-[var(--base-color-gray-200)] bg-popover",
             "shadow-[var(--base-shadow-05)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
