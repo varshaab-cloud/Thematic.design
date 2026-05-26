@@ -48,3 +48,14 @@ Add a status dot before the label when the badge is being used specifically as a
 ## Playground
 
 <Controls of={BadgeStories.Default} />
+
+## Accessibility
+
+Badge is a purely decorative, non-interactive element. It has no interactive role and does not receive focus.
+
+**Developer responsibilities**
+
+- **Do not rely on colour alone** — status badges use colour to communicate meaning (green = success, red = error). Always pair the colour with a text label. Users with colour vision deficiency cannot distinguish status from colour alone.
+- **Status dots** — the dot indicator is decorative and should be hidden from assistive technology with `aria-hidden="true"`. The badge label already carries the semantic information.
+- **Counts in nav badges** — when a badge appears on a navigation item (e.g. "Inbox · 4"), ensure the parent nav item's label includes the count for screen readers (e.g. `aria-label="Inbox, 4 unread"`). Visually placing the count inside the badge does not automatically expose it to screen readers in all contexts.
+- **Badge as status only** — badges should never be the sole indicator of a critical state. If an item is in error, the error must also be surfaced in context (e.g. an inline message, an error border, or a page-level alert) — not just through a red badge.

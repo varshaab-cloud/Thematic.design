@@ -26,3 +26,27 @@ The most common pattern: a small info or help icon placed inline with a label or
 <Canvas of={TooltipStories.Positions} withToolbar={false} />
 
 Tooltips can be positioned on any side of their trigger — top, right, bottom, or left. The default is `top`. Use `right` or `left` when vertical space is constrained — for example, in a narrow sidebar. Use `bottom` when the tooltip would otherwise be obscured by a sticky header or the viewport edge.
+
+## Accessibility
+
+Tooltip is built on Radix UI's `TooltipPrimitive`, which wires up `aria-describedby` between the trigger and the tooltip content automatically.
+
+**Built-in behaviour**
+
+- The tooltip content is linked to its trigger via `aria-describedby`, so screen readers announce it after the trigger's label.
+- The tooltip opens on hover and on keyboard focus — keyboard users receive the same information as pointer users without any extra work.
+- Pressing `Escape` dismisses the tooltip.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` | Focuses the trigger, opening the tooltip |
+| `Escape` | Dismisses the tooltip |
+
+**Developer responsibilities**
+
+- **Never put critical information only in a tooltip** — tooltip content is not accessible on touch-only devices, and users must hover or focus to see it. Any information required to complete a task must also appear inline.
+- **Icon-only triggers** — always add a visible or screen-reader label (`aria-label` or `<span className="sr-only">`) to the trigger element itself. The tooltip supplements the label but does not replace it.
+- **Do not put interactive elements inside a tooltip** — links, buttons, and form controls belong in a Popover. Tooltip content is announced as supplementary text, not as a focusable region.
+- **Delay** — the default open delay (400ms) helps avoid accidental triggers on hover. Do not reduce it to zero for permanent tooltips, as this causes tooltips to fire on every mouse pass-through.

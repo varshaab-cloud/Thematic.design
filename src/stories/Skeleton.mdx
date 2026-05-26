@@ -38,3 +38,14 @@ Mimics a user row with a circular avatar and two lines of text (name + email or 
 ## Playground
 
 <Controls of={SkeletonStories.Default} />
+
+## Accessibility
+
+Skeleton screens are purely visual placeholders. They must be invisible to assistive technology so screen readers are not distracted by placeholder shapes.
+
+**Developer responsibilities**
+
+- **Hide from screen readers** — apply `aria-hidden="true"` to skeleton elements so they are skipped by screen readers entirely.
+- **Announce the loading state** — the container that holds the skeleton should carry `aria-busy="true"` while loading and switch to `aria-busy="false"` when real content replaces it. Optionally add `aria-label="Loading…"` to the container so screen readers can announce the in-progress state.
+- **Live region on completion** — when skeletons are replaced by real content, a screen reader user may not notice unless the update is announced. Wrap the container in `aria-live="polite"` so the new content is read when it appears.
+- **Do not animate indefinitely** — the pulsing animation should respect `prefers-reduced-motion`. Users who are sensitive to motion should see a static placeholder. Tailwind's `animate-pulse` class does not automatically honour this; add a `@media (prefers-reduced-motion: reduce)` override to remove the animation.

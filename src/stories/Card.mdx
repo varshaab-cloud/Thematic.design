@@ -66,3 +66,14 @@ The trend indicator (arrow + percentage) communicates direction relative to the 
 <Canvas of={CardStories.MetricDashboard} withToolbar={false} />
 
 Arrange metric cards in a responsive grid (typically 2–4 columns) at the top of a dashboard. Group related metrics together and maintain consistent comparison periods across all cards on the same view.
+
+## Accessibility
+
+Card is a layout container with no built-in interactive role.
+
+**Developer responsibilities**
+
+- **Clickable cards** — if the entire card is a link or triggers an action, wrap it in an `<a>` or `<button>` element and give it an `aria-label` that describes the destination or action (e.g. `aria-label="View Project Alpha details"`). Never make a `<div>` clickable with only an `onClick` handler — it will be invisible to keyboard and screen reader users.
+- **Heading hierarchy** — the `CardTitle` should use a heading element (`<h2>`, `<h3>`, etc.) at the correct level for the page structure. Cards that sit inside a section headed by an `<h2>` should use `<h3>`. Do not use headings solely for visual sizing.
+- **Actions in card header** — icon buttons in the card header (e.g. settings or share) must have `aria-label` values that include the card's subject (e.g. `aria-label="Share Project Alpha"`) so they are distinguishable from identically-labelled buttons on sibling cards.
+- **MetricCard trend indicators** — the trend arrow and percentage are visual; the accessible label for the trend region should include both direction and value (e.g. `aria-label="Up 12% vs last month"`). Do not rely on the arrow icon alone to convey direction to screen readers.

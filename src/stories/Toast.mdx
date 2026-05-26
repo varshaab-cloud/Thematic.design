@@ -47,3 +47,19 @@ Always render toasts in the bottom-right corner. This placement keeps them out o
 
 Write toast titles as a plain statement of what happened, not a label for a state. "Settings saved" is correct; "Success!" is not. When a description is present, use the title for what happened and the description for what it means or what to do next — for example, a title of "Couldn't save changes" paired with a description of "Connection issue — check your network."
 
+## Accessibility
+
+Toast is powered by Sonner, which renders notifications in a live region so screen readers announce them without requiring user focus.
+
+**Built-in behaviour**
+
+- Standard toasts render with `role="status"` and `aria-live="polite"` — the announcement waits for a pause in screen reader output so it doesn't interrupt the user mid-action.
+- Error toasts render with `role="alert"` and `aria-live="assertive"` — the announcement is immediate, reflecting the higher urgency.
+
+**Developer responsibilities**
+
+- **Keep titles short** — screen readers announce the full toast title; a long sentence mid-task is disruptive. Aim for six words or fewer.
+- **Action buttons** — if a toast includes an action (e.g. "Undo"), ensure the button has a meaningful label. "Undo" alone is acceptable when the preceding title makes the object clear; avoid standalone labels like "Do it" or "OK".
+- **Do not rely on toasts for critical errors** — `aria-live="assertive"` is still only announced when the screen reader is ready; it does not guarantee the user will catch it. Use an Alert component or an inline error message for errors that block task completion.
+- **Auto-dismiss timing** — the 4-second default gives most users time to read one short sentence. Do not reduce this; users relying on screen magnification or slower reading speeds need the full window. Error toasts that persist until dismissed are the right default — do not auto-dismiss them.
+

@@ -44,3 +44,32 @@ Use helper text to explain the effect of the slider value — for example, "Pred
 ## Playground
 
 <Controls of={SliderStories.Default} />
+
+## Accessibility
+
+Slider is built on Radix UI's `SliderPrimitive`, which renders each thumb as a `role="slider"` with full ARIA value management.
+
+**Built-in behaviour**
+
+- Each thumb renders with `role="slider"`, `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`.
+- `aria-disabled` is applied when the slider is disabled.
+- `aria-orientation="horizontal"` (default) or `"vertical"` is set automatically.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / away from the thumb |
+| `←` / `↓` | Decrements value by one step |
+| `→` / `↑` | Increments value by one step |
+| `Home` | Sets value to minimum |
+| `End` | Sets value to maximum |
+| `Page Down` | Decrements by a larger step (typically 10%) |
+| `Page Up` | Increments by a larger step (typically 10%) |
+
+**Developer responsibilities**
+
+- **Provide an `aria-label` or `aria-labelledby`** on each thumb — Radix does not infer this from sibling label elements. For a range slider, label both thumbs descriptively (e.g. `"Minimum price"` / `"Maximum price"`).
+- **Display the current value visibly** — screen readers announce `aria-valuenow`, but sighted users need a visible readout too. Always show the current value next to the label.
+- **Meaningful value text** — if `aria-valuenow` would read as a raw number that is hard to interpret, provide `aria-valuetext` with a human-readable string (e.g. `"$250"` or `"High"`).
+- **Step values** — when the slider uses non-obvious steps, ensure the displayed labels and `aria-valuetext` reflect the step semantics.

@@ -22,3 +22,18 @@ Do not use a progress bar for indeterminate operations — use a spinner or skel
 ## Playground
 
 <Controls of={ProgressStories.Default} />
+
+## Accessibility
+
+Progress is built on Radix UI's `ProgressPrimitive`, which renders a `role="progressbar"` with the correct ARIA value attributes.
+
+**Built-in behaviour**
+
+- Renders with `role="progressbar"`, `aria-valuenow`, `aria-valuemin="0"`, and `aria-valuemax="100"`.
+- Screen readers announce the current progress value when focus lands on the element or when the value changes.
+
+**Developer responsibilities**
+
+- **Label the progress bar** — provide an `aria-label` or `aria-labelledby` describing what is progressing (e.g. `aria-label="File upload progress"`). Without a label, screen readers announce only the numeric value with no context.
+- **`aria-valuetext`** — if `aria-valuenow` would read as a bare number, supplement it with `aria-valuetext` for a human-readable string (e.g. `"45% — Uploading file.zip"` or `"Step 2 of 5"`). This is especially useful for multi-step progress bars where percentage is less meaningful than step count.
+- **Completion** — when progress reaches 100%, update the label or provide a live region announcement so screen readers know the operation is done. Do not leave the bar at 100% silently.

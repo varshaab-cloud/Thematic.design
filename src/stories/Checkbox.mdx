@@ -28,3 +28,26 @@ Always associate a visible text label with a checkbox using a `<label>` element.
 ## Playground
 
 <Controls of={CheckboxStories.Default} />
+
+## Accessibility
+
+Checkbox is built on Radix UI's `CheckboxPrimitive`, which renders a `<button role="checkbox">` with full ARIA state management.
+
+**Built-in behaviour**
+
+- `aria-checked` is managed automatically — `"true"`, `"false"`, or `"mixed"` for indeterminate state.
+- `aria-disabled` is applied when the `disabled` prop is set.
+- `aria-required` is applied when the `required` prop is set.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / away from the checkbox |
+| `Space` | Toggles the checked state |
+
+**Developer responsibilities**
+
+- **Always pair with a label** — use a visible `<label>` element linked via `htmlFor` / `id`. This extends the click target and allows screen readers to announce the label text alongside the checkbox state.
+- **Indeterminate state** — use `checked="indeterminate"` for "select all" controls where only some children are selected. Screen readers will announce it as partially checked.
+- **Group context** — when multiple checkboxes relate to a single question, wrap them in a `<fieldset>` with a `<legend>` so the group label is announced alongside each option.

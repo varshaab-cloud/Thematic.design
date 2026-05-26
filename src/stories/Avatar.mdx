@@ -28,3 +28,14 @@ Stacks multiple avatars with a slight overlap to represent a group — for examp
 ## Playground
 
 <Controls of={AvatarStories.WithFallback} />
+
+## Accessibility
+
+Avatar is built on Radix UI's `AvatarPrimitive`. It is a decorative element when used alongside a visible name, and an informative element when used alone.
+
+**Developer responsibilities**
+
+- **Image avatars** — the underlying `<img>` requires an `alt` attribute. Use the person's name as the alt text (e.g. `alt="Priya Sharma"`). If the avatar is purely decorative (the name is displayed adjacent to it), pass `alt=""` to hide it from screen readers.
+- **Fallback avatars (initials)** — initials are rendered as visible text, but the container should also carry `aria-label` with the full name so screen readers announce "PS" as "Priya Sharma" rather than spelling out the letters.
+- **Avatar group** — the overflow "+N" avatar is decorative; wrap the group in an element with `aria-label` summarising all members (e.g. `aria-label="4 members: Priya Sharma, Jordan Lee, and 2 others"`).
+- **Clickable avatars** — if an avatar is a link to a profile, wrap it in an `<a>` with `aria-label="View Priya Sharma's profile"`. Do not use `onClick` on a bare `<div>`.

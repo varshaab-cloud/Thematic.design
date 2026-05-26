@@ -21,3 +21,31 @@ Use for contextual object actions — edit, duplicate, delete. Group related act
 
 Use for account-level actions accessible from a persistent header or sidebar — profile, settings, log out. Include the user's name and email as a non-interactive label at the top to orient the user before they choose an action. Keyboard shortcuts can be shown alongside items for power users.
 
+## Accessibility
+
+DropdownMenu is built on Radix UI's `DropdownMenuPrimitive`, which implements the WAI-ARIA Menu Button pattern with full keyboard support.
+
+**Built-in behaviour**
+
+- The trigger renders with `aria-haspopup="menu"` and `aria-expanded`.
+- The menu renders with `role="menu"`; each item has `role="menuitem"` (or `"menuitemcheckbox"` / `"menuitemradio"` as appropriate).
+- Focus moves into the menu on open and returns to the trigger on close.
+- `aria-disabled` is applied to disabled items.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Enter` or `Space` | Opens the menu from the trigger |
+| `↑` / `↓` | Moves focus between menu items |
+| `Enter` | Activates the focused item |
+| `Escape` | Closes the menu and returns focus to the trigger |
+| `Tab` | Closes the menu (focus moves to next element in page order) |
+| Letter keys | Jumps to the next item beginning with that character |
+
+**Developer responsibilities**
+
+- **Trigger label** — the trigger button must have a visible label or an `aria-label`. An icon-only trigger (e.g. a three-dot menu button) must have `aria-label="More actions"` or equivalent.
+- **Destructive items** — add `aria-label` to destructive items if the label alone is ambiguous (e.g. "Delete" could refer to multiple objects). Consider displaying the object name in the label.
+- **Keyboard shortcuts** — shortcut hints shown in the UI are purely visual; they do not automatically register keyboard handlers. Wire up the actual shortcut separately.
+

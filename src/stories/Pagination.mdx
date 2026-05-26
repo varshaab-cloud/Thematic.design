@@ -62,3 +62,27 @@ When there are no records, the pagination bar shows zero-state counts and disabl
 Default to a page size of 10 rows. Offer 10, 25, and 50 as options in the page-size selector, but never default to "All" — loading an unbounded dataset locks the browser on large tables and gives users no sense of scale.
 
 Whenever the user changes a filter, reset the pagination to page 1 and update the row-count summary to reflect the filtered result set. Remaining on page 4 after a filter is applied is disorienting, and showing a count that does not match the visible rows erodes trust in the data.
+
+## Accessibility
+
+Pagination is built on native HTML elements and shadcn/ui primitives.
+
+**Built-in behaviour**
+
+- The pagination bar is wrapped in a `<nav>` with `aria-label="pagination"` so screen readers identify it as a landmark.
+- Page number buttons are `<a>` or `<button>` elements; the current page carries `aria-current="page"`.
+- Disabled previous/next/first/last buttons use the `disabled` attribute to communicate their unavailability.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus between page buttons, prev/next controls, and the page-size selector |
+| `Enter` or `Space` | Activates the focused control |
+
+**Developer responsibilities**
+
+- **Page button labels** — page number buttons are labelled by their visible number, but Previous / Next / First / Last icon buttons must have descriptive `aria-label` values (e.g. `aria-label="Go to previous page"`) so screen readers announce their purpose.
+- **Ellipsis items** — the `…` markers are decorative and should be rendered with `aria-hidden="true"` so screen readers skip them rather than announcing "Ellipsis".
+- **Row-count summary** — the "1–10 of 142 results" text should have an appropriate `aria-live="polite"` region so screen readers announce the update when the page changes without requiring the user to re-read the entire bar.
+- **Page-size selector** — treat it as a labelled `<Select>` with an associated `<label>` (e.g. "Rows per page:") for screen reader context.

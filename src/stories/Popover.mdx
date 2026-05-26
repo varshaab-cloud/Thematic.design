@@ -22,3 +22,29 @@ Use for quick settings or configuration that applies to a specific element in th
 <Canvas of={PopoverStories.FilterPopover} withToolbar={false} />
 
 Use a popover to house filter controls in toolbars and table headers. This keeps the filter UI accessible without taking up permanent space in the layout. Include Clear and Apply actions so users can reset or confirm their selection.
+
+## Accessibility
+
+Popover is built on Radix UI's `PopoverPrimitive`, which manages focus, ARIA state, and dismissal behaviour automatically.
+
+**Built-in behaviour**
+
+- The trigger renders with `aria-haspopup="dialog"` and `aria-expanded`.
+- The panel renders with `role="dialog"`.
+- Focus moves into the panel when it opens and returns to the trigger when it closes.
+- Clicking outside or pressing `Escape` closes the popover.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Enter` or `Space` | Opens the popover from the trigger |
+| `Tab` / `Shift+Tab` | Cycles through focusable elements inside the panel |
+| `Escape` | Closes the panel and returns focus to the trigger |
+
+**Developer responsibilities**
+
+- **Panel label** — provide an `aria-label` or `aria-labelledby` on the `PopoverContent` so screen readers announce the panel's purpose when it opens (e.g. `aria-label="Filter options"`).
+- **Interactive content** — ensure all controls inside the popover have visible labels. Popovers are frequently used for quick forms; apply the same label and error-message requirements as standalone form fields.
+- **Close button** — if you include an explicit close button, give it an `aria-label="Close"` so its purpose is clear in isolation.
+- **Do not use for critical information** — if a user must read the content to complete a task, promote it to a Dialog or inline section.

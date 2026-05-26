@@ -24,3 +24,31 @@ Use a disabled tab to indicate that a section exists but is currently unavailabl
 ## Playground
 
 <Controls of={TabsStories.Default} />
+
+## Accessibility
+
+Tabs is built on Radix UI's `TabsPrimitive`, which implements the WAI-ARIA Tabs pattern in full.
+
+**Built-in behaviour**
+
+- The tab list renders with `role="tablist"`.
+- Each tab renders with `role="tab"`, `aria-selected`, and `aria-controls` linking it to its panel.
+- Each panel renders with `role="tabpanel"` and `aria-labelledby` linking it back to its tab.
+- `aria-disabled` is applied to disabled tabs.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` | Moves focus into the tab list (lands on the active tab) |
+| `←` / `→` (horizontal) | Moves focus and activates the previous / next tab |
+| `↑` / `↓` (vertical) | Moves focus and activates the previous / next tab |
+| `Home` | Moves focus to the first tab |
+| `End` | Moves focus to the last tab |
+| `Tab` (from tab list) | Moves focus into the active tab panel |
+
+**Developer responsibilities**
+
+- **Disabled tabs** — pair every disabled tab with a `<Tooltip>` explaining why it is unavailable. A disabled tab is still rendered and visible, but keyboard users receive no feedback about the reason without one.
+- **Avoid using tabs for sequential flows** — the arrow-key navigation pattern implies that all tabs are equally reachable in any order. If the content must be completed in sequence, use a stepper pattern instead.
+- **Panel focus management** — if the tab panel contains no focusable elements, the panel itself must remain reachable via `Tab`. Radix ensures the panel has `tabIndex={0}` in this case, so do not override it to `-1`.

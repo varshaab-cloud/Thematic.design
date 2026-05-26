@@ -58,3 +58,20 @@ Shows a live counter of characters remaining. Use on fields with a strict charac
 ## Playground
 
 <Controls of={InputStories.Default} />
+
+## Accessibility
+
+Input renders a native `<input>` element and uses `aria-invalid` to communicate validation state to assistive technology.
+
+**Developer responsibilities**
+
+- **Always use a visible label** — associate it with the input via `htmlFor` / `id`. Never rely on `placeholder` alone; placeholder text disappears on focus and has poor contrast in most browsers.
+- **Required fields** — pass the `required` prop, which sets the native `required` attribute. Screen readers announce "required" alongside the label.
+- **Error messages** — when an error is present, set `aria-invalid="true"` on the input and link the error message with `aria-describedby="[errorId]"` so screen readers read it automatically after the label.
+- **Helper text** — also link helper text via `aria-describedby` so it is announced when the field receives focus.
+- **Icon-only suffix actions** (e.g. show/hide password) — the icon button must have an `aria-label` and must toggle descriptively (e.g. `"Show password"` / `"Hide password"`).
+- **Character count** — the live counter should use `aria-live="polite"` so updates are announced without interrupting the user mid-typing.
+
+**Keyboard interaction**
+
+Input is a native element; all standard browser keyboard behaviour applies — `Tab` to focus, standard text editing keys, `Escape` to clear if a clear button is present.

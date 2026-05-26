@@ -21,3 +21,27 @@ Only one item can be open at a time. Expanding a new item automatically collapse
 
 Multiple items can be open simultaneously. Use when sections are independent and users are likely to compare or reference content from several sections at once — for example, a settings panel with unrelated categories.
 
+## Accessibility
+
+Accordion is built on Radix UI's `AccordionPrimitive`, which implements the WAI-ARIA Disclosure pattern with correct heading, button, and region roles.
+
+**Built-in behaviour**
+
+- Each trigger renders inside an `AccordionPrimitive.Header`, which maps to `role="heading"` at the default level — providing document structure for screen readers.
+- Each trigger has `aria-expanded` (`"true"` / `"false"`) that updates when toggled.
+- `aria-controls` links each trigger to its content panel.
+- The content region has `aria-labelledby` pointing back to its trigger.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus between accordion triggers |
+| `Enter` or `Space` | Toggles the focused item open or closed |
+
+**Developer responsibilities**
+
+- **Heading level** — by default, each trigger is wrapped in an `<h3>`. Override the heading level to match your page hierarchy by passing a custom `AccordionPrimitive.Header` element if the accordion sits inside an `<h2>` section.
+- **Content links** — links and interactive elements inside accordion content panels are keyboard-reachable when the panel is open; ensure they are not present in the DOM (or are hidden with `display: none`) when the panel is closed. Radix handles this automatically.
+- **Avoid deeply nested accordions** — more than two levels of nested disclosure adds cognitive and keyboard navigation overhead for all users.
+

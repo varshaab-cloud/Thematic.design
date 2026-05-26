@@ -30,3 +30,25 @@ Always pair a switch with a visible label that describes what will happen when i
 ## Playground
 
 <Controls of={SwitchStories.Default} />
+
+## Accessibility
+
+Switch is built on Radix UI's `SwitchPrimitive`, which renders `role="switch"` — the correct ARIA role for an immediate-effect toggle, distinct from a checkbox.
+
+**Built-in behaviour**
+
+- Renders with `role="switch"` and `aria-checked` (`"true"` / `"false"`).
+- `aria-disabled` is applied when the `disabled` prop is set.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / away from the switch |
+| `Space` | Toggles the switch state |
+
+**Developer responsibilities**
+
+- **Always pair with a visible label** — use a `<label>` linked via `htmlFor` / `id`. The label should describe the setting in its on-state (e.g. "Enable notifications") so users understand the outcome before toggling.
+- **Do not use `aria-label` as a substitute for a visible label** — screen-reader-only labels remove the visual affordance that sighted users rely on. Use `aria-label` only on icon-only controls with no visible text.
+- **Immediate effect** — because switch changes take effect instantly, the label should not say "Save" or imply a deferred action. If the change needs a form submission to apply, use a Checkbox instead.

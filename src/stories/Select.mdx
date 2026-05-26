@@ -40,3 +40,31 @@ A select lets users choose one option from a predefined list. Use a select when 
 ## Playground
 
 <Controls of={SelectStories.Default} />
+
+## Accessibility
+
+Select is built on Radix UI's `SelectPrimitive`, which manages focus, keyboard navigation, and ARIA attributes automatically.
+
+**Built-in behaviour**
+
+- The trigger renders with `role="combobox"`, `aria-expanded`, and `aria-haspopup="listbox"`.
+- The listbox renders with `role="listbox"`; each option has `role="option"` and `aria-selected`.
+- `aria-invalid` is applied when validation fails.
+- Focus returns to the trigger when the listbox closes.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / away from the trigger |
+| `Enter` or `Space` | Opens the listbox |
+| `↑` / `↓` | Moves focus between options |
+| `Enter` | Selects the focused option and closes |
+| `Escape` | Closes without selecting |
+| Letter keys | Jumps to the first option beginning with that character |
+
+**Developer responsibilities**
+
+- **Always use a visible label** — associate it with the trigger via `htmlFor` / `id` or wrap in a `SelectField` which handles this automatically.
+- **Error messages** — link the error text via `aria-describedby` on the trigger so it is announced when focus enters the field.
+- **Grouped options** — `SelectLabel` renders visually but is not announced as a group name by all screen readers; for critical grouping semantics, consider adding `aria-label` to `SelectGroup`.

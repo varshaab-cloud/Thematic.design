@@ -48,3 +48,27 @@ Keep each section to a maximum of 5 items, and limit the sidebar to no more than
 Settings always belongs in the last section, alone or paired with Billing. It is a low-frequency destination and should not compete visually with the primary navigation. The primary section — Overview, Inbox, and similar top-level destinations — should have no section title at all.
 
 Badge counts signal pending items and unread content. Cap the displayed count at 99+ rather than showing the exact number, which becomes noise at scale. Never show a zero — remove the badge entirely when the count reaches zero. Always use the info (blue) variant for nav badges; red is reserved for errors, not quantities. Never badge the Settings or Overview items, as neither carries urgency.
+
+## Accessibility
+
+SidebarNav renders as a `<nav>` landmark with each item as a native anchor or button element.
+
+**Built-in behaviour**
+
+- The outer element is a `<nav>` landmark, which screen readers expose as a navigation region.
+- Active items use `aria-current="page"` to identify the user's current location.
+- The collapse toggle button has `aria-expanded` to communicate the sidebar's open/closed state.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus between navigation items in DOM order |
+| `Enter` | Activates the focused link or button |
+
+**Developer responsibilities**
+
+- **Label the nav landmark** — if the page contains more than one `<nav>` element (e.g. a sidebar and a breadcrumb trail), give each a distinct `aria-label` (e.g. `aria-label="Main navigation"`) so screen reader users can distinguish them in the landmark list.
+- **Active state** — set `aria-current="page"` on the item matching the current route. Do not rely solely on visual highlight — screen readers use `aria-current` to announce which page is active.
+- **Collapsed state (icon rail)** — when text labels are hidden, each icon button must have an `aria-label` or a `<Tooltip>` with `aria-describedby` so keyboard users know which destination each icon represents.
+- **Badge counts** — the visual count inside a nav badge should be included in the item's accessible name (e.g. `aria-label="Inbox, 4 unread items"`) so screen readers announce the count as part of the navigation item rather than as a separate element.

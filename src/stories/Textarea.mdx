@@ -40,3 +40,16 @@ A textarea lets users enter longer, multi-line text. Use it for descriptions, no
 ## Playground
 
 <Controls of={TextareaStories.Default} />
+
+## Accessibility
+
+Textarea renders a native `<textarea>` element and shares the same accessibility contract as Input.
+
+**Developer responsibilities**
+
+- **Always use a visible label** — associate it with the textarea via `htmlFor` / `id`. Never rely on placeholder text alone.
+- **Required fields** — pass the `required` prop to communicate mandatory status to assistive technology.
+- **Error messages** — set `aria-invalid="true"` and link the error message with `aria-describedby="[errorId]"` so it is announced when focus enters the field.
+- **Character count** — the live counter must use `aria-live="polite"` so remaining-character updates are announced without interrupting the user.
+- **Auto-resize** — the height change is purely visual; no additional ARIA is needed, but avoid using JavaScript `focus` traps or scroll-jacking during resize.
+- **Disabled state** — if the field is disabled and you need to explain why, use a `<Tooltip>` on the wrapping element (not the textarea itself, since disabled elements cannot be focused).

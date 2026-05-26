@@ -38,3 +38,19 @@ Use the **icon button** (×) when screen space is tight or the alert sits alongs
 ## Playground
 
 <Controls of={AlertStories.Default} />
+
+## Accessibility
+
+Alert renders with a semantic role that matches its urgency level so screen readers announce it at the right moment.
+
+**Built-in behaviour**
+
+- Use `role="status"` (or `aria-live="polite"`) for Info, Success, Warning, and Default alerts — the announcement waits for a pause in screen reader output.
+- Use `role="alert"` (or `aria-live="assertive"`) for Error and Destructive alerts — the announcement fires immediately, reflecting higher urgency.
+
+**Developer responsibilities**
+
+- **Static vs. dynamic alerts** — if the alert is present in the DOM on page load (not injected after a user action), `aria-live` regions do not fire. For static alerts, the content is read in normal document order, which is usually sufficient. Use live region attributes only on alerts that are dynamically injected.
+- **Dismiss button** — an icon-only dismiss button (×) must have `aria-label="Dismiss"` or equivalent so screen readers do not announce it as an unlabelled button.
+- **Do not make error alerts dismissible without resolution** — if a user dismisses a critical error via keyboard and has no way to recover the message, they lose their only recovery path. Require resolution before dismissal, or persist the error in a visible location.
+- **Icon + colour** — alert icons and background colour are redundant visual signals. Do not rely on them alone; the alert text must convey the severity (e.g. write "Error: …" in the title rather than relying on a red background that may not be visible to colour-blind users).

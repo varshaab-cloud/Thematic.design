@@ -47,3 +47,29 @@ The confirm button must use a specific verb and noun together, matching what wil
 
 Avoid the words "permanently", "forever", "irreversible", and "warning" in dialog copy. State the consequence directly instead — "can't be undone" carries the same meaning without the alarm that makes experienced users second-guess routine operations.
 
+## Accessibility
+
+Dialog and AlertDialog are built on Radix UI's `DialogPrimitive` and `AlertDialogPrimitive`, which handle focus trapping, scroll locking, and ARIA roles automatically.
+
+**Built-in behaviour**
+
+- The dialog panel renders with `role="dialog"` and `aria-modal="true"` (AlertDialog uses `role="alertdialog"`).
+- Focus moves into the dialog when it opens and returns to the trigger element when it closes.
+- Focus is trapped inside while the dialog is open — Tab and Shift+Tab cycle only through focusable elements within the panel.
+- Clicking the overlay or pressing `Escape` closes a regular Dialog (but not an AlertDialog, by design).
+- `DialogTitle` renders as an `aria-labelledby` target; `DialogDescription` renders as an `aria-describedby` target.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Cycles through focusable elements inside the dialog |
+| `Escape` | Closes the dialog (Dialog only; AlertDialog requires explicit button press) |
+
+**Developer responsibilities**
+
+- **Always include a `DialogTitle`** — it is the accessible name of the dialog. If you need a visually hidden title, use `<VisuallyHidden>` from Radix rather than omitting the element entirely.
+- **Always include a `DialogDescription`** — even if brief, it gives screen readers context about the dialog's purpose beyond the title.
+- **Initial focus** — by default, focus moves to the first focusable element. If the first element is a destructive action, set `autoFocus` on a safer element (e.g. the Cancel button) to avoid accidental activation.
+- **AlertDialog** — because it cannot be dismissed with `Escape`, use it only for truly irreversible actions. Trapping users in a dialog that cannot be escaped without an explicit decision is a significant friction point for keyboard users.
+

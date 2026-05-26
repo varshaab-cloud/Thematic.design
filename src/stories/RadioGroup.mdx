@@ -42,3 +42,29 @@ Lays the options out in a row. Use for short, visually compact option sets — s
 ## Playground
 
 <Controls of={RadioGroupStories.Default} />
+
+## Accessibility
+
+RadioGroup is built on Radix UI's `RadioGroupPrimitive`, which renders `role="radiogroup"` with full keyboard and ARIA state management.
+
+**Built-in behaviour**
+
+- The group renders with `role="radiogroup"`.
+- Each item renders with `role="radio"` and `aria-checked`.
+- `aria-disabled` is applied to disabled items and the whole group.
+- `aria-required` is applied when the group is required.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` | Moves focus into the group (lands on the selected item, or the first item if none is selected) |
+| `↑` / `←` | Moves focus and selection to the previous item |
+| `↓` / `→` | Moves focus and selection to the next item |
+| `Shift+Tab` | Moves focus out of the group |
+
+**Developer responsibilities**
+
+- **Group label** — always wrap the RadioGroup in a `<fieldset>` with a `<legend>` so the group question is announced alongside each option. Without it, screen readers only announce the individual item labels with no context about what the user is choosing.
+- **Option descriptions** — link description text to its item via `aria-describedby` so it is read after the label and state.
+- **Disabled items** — explain why an option is unavailable; a disabled radio gives no screen-reader affordance beyond being skipped, so a visible explanation is essential.

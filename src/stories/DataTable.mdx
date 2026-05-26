@@ -54,3 +54,17 @@ The identity cell is always the first column. It shows a name in bold on the pri
 Every DataTable has four states that must all be designed before implementation: loading, empty, error, and populated. Loading shows skeleton rows that match the real column layout and row count so the table does not reflow when data arrives. Empty names what is missing in plain language. Error shows an Alert with a retry action rather than a blank table. Populated displays the row count near the header, not inside the toolbar.
 
 Lay out the toolbar with search and filter controls on the left and export with the primary call to action on the right. There is one primary action per toolbar at most. Export must respect any active filters — exporting the full unfiltered dataset when a filter is in effect is a common mistake that damages user trust in the data they receive.
+
+## Accessibility
+
+DataTable uses native HTML table elements with TanStack Table managing sort and selection state.
+
+**Developer responsibilities**
+
+- **Column headers** — sortable column headers must use `<th scope="col">` with `aria-sort="ascending"`, `"descending"`, or `"none"` so screen readers announce the sort state. Update this attribute when the user changes the sort direction.
+- **Caption or label** — add a visually hidden `<caption>` or `aria-label` on the `<table>` element describing the dataset (e.g. "Team members, 24 results").
+- **Row selection checkboxes** — the header "select all" checkbox must have `aria-label="Select all rows"`. Each row checkbox must include the row's identity in its label (e.g. `aria-label="Select Priya Sharma"`) so screen readers can distinguish them.
+- **Row actions** — the DropdownMenu trigger in the actions cell must have an `aria-label` that includes the row identifier (e.g. `aria-label="Row actions for Priya Sharma"`). Without this, every "more actions" button sounds the same.
+- **Loading state** — the skeleton rows are decorative; wrap the loading region in `aria-busy="true"` and `aria-label="Loading data"` so screen readers announce the in-progress state.
+- **Empty and error states** — both states should be announced. Wrap them in a live region with `aria-live="polite"` so they are announced when they appear after a filter or load operation.
+- **Search input** — the search input must have a visible or screen-reader label (e.g. `aria-label="Search team members"`) so its purpose is clear in isolation.

@@ -70,3 +70,21 @@ Combines multiple outline buttons into a connected control (e.g. a segmented fil
 ## Playground
 
 <Controls of={ButtonStories.Primary} />
+
+## Accessibility
+
+The Button renders a native `<button>` element, which gives it keyboard focus, `Enter`/`Space` activation, and the correct implicit `role="button"` for free.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / away from the button |
+| `Enter` or `Space` | Activates the button |
+
+**Developer responsibilities**
+
+- **Icon-only buttons** — always pass an `aria-label` that describes the action (e.g. `aria-label="Close dialog"`). The `<span className="sr-only">` pattern inside the component also satisfies this; pick one approach and be consistent.
+- **Loading state** — when `isLoading` is `true`, add `aria-busy="true"` and `aria-label="Saving…"` (or similar) so screen readers announce the in-progress state rather than reading a spinner icon.
+- **Disabled buttons** — the native `disabled` attribute removes the button from the tab order. If you need a disabled button to remain focusable (so a tooltip can explain why), use `aria-disabled="true"` instead and suppress the click handler manually.
+- **Destructive actions** — pair the destructive button with a confirmation dialog so keyboard-only and screen-reader users have the same safety gate as pointer users.

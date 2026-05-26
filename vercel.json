@@ -1,1 +1,1 @@
-{"buildCommand": "npm run build-storybook", "outputDirectory": "storybook-static", "framework": null}
+{"buildCommand": "npm ci && npm run build-storybook", "outputDirectory": "storybook-static", "framework": null}

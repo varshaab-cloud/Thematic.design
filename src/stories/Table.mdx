@@ -20,3 +20,15 @@ A standard table with a header row and data rows. Use semantic column headers to
 <Canvas of={TableStories.SimpleTable} withToolbar={false} />
 
 A minimal two-column layout for key–value reference data — for example, design tokens, configuration values, or specification tables. No actions needed; the value of each row speaks for itself.
+
+## Accessibility
+
+Table uses native HTML table elements, which give screen readers full structural context when marked up correctly.
+
+**Developer responsibilities**
+
+- **Column headers** — always use `<th scope="col">` for column headers. `scope="col"` tells screen readers which cells belong to each header, especially important in multi-column tables.
+- **Row headers** — if the first column identifies a row (e.g. a name or ID), mark it with `<th scope="row">` so screen readers announce the row identifier alongside each cell value.
+- **Caption** — add a `<caption>` element to describe the table's content (e.g. "Project members"). This is the accessible name of the table and helps screen reader users who are scanning landmarks.
+- **Row actions** — ghost icon buttons in a trailing cell must have `aria-label` values that include the row context (e.g. `aria-label="Edit Priya Sharma"` rather than just `aria-label="Edit"`), otherwise all action buttons on the page sound identical to screen reader users.
+- **Avoid using tables for layout** — only use `<table>` for genuine tabular data. CSS Grid or Flexbox should be used for visual alignment.
