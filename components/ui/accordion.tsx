@@ -6,16 +6,35 @@ import { Accordion as AccordionPrimitive } from "radix-ui"
 import { cn } from "@/lib/utils"
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
+type AccordionSize = "sm" | "md" | "lg"
+
+const AccordionSizeContext = React.createContext<AccordionSize>("md")
+
+const accordionTriggerSizeClasses: Record<AccordionSize, string> = {
+  sm: "py-2 px-3 text-[13px]",
+  md: "py-4 px-4 text-[14px]",
+  lg: "py-5 px-5 text-[16px]",
+}
+
+const accordionContentSizeClasses: Record<AccordionSize, string> = {
+  sm: "pb-2 px-3 pt-0",
+  md: "pb-4 px-4 pt-0",
+  lg: "pb-5 px-5 pt-0",
+}
+
 function Accordion({
   className,
+  size = "md",
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+}: React.ComponentProps<typeof AccordionPrimitive.Root> & { size?: AccordionSize }) {
   return (
-    <AccordionPrimitive.Root
-      data-slot="accordion"
-      className={cn("flex w-full flex-col", className)}
-      {...props}
-    />
+    <AccordionSizeContext.Provider value={size}>
+      <AccordionPrimitive.Root
+        data-slot="accordion"
+        className={cn("flex w-full flex-col", className)}
+        {...props}
+      />
+    </AccordionSizeContext.Provider>
   )
 }
 
@@ -37,12 +56,14 @@ function AccordionTrigger({
   children,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+  const size = React.useContext(AccordionSizeContext)
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent text-left font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+          accordionTriggerSizeClasses[size],
           className
         )}
         {...props}
@@ -60,6 +81,7 @@ function AccordionContent({
   children,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+  const size = React.useContext(AccordionSizeContext)
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
@@ -68,7 +90,8 @@ function AccordionContent({
     >
       <div
         className={cn(
-          "h-(--radix-accordion-content-height) pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+          "h-(--radix-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+          accordionContentSizeClasses[size],
           className
         )}
       >

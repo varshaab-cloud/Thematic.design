@@ -46,3 +46,49 @@ export const Multiple: Story = {
     </Accordion>
   ),
 }
+
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-8 max-w-lg">
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">sm</p>
+        <Accordion type="single" collapsible size="sm">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What is a design token?</AccordionTrigger>
+            <AccordionContent>Design tokens are named values that represent design decisions like colors, spacing, and typography.</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>What is Radix UI?</AccordionTrigger>
+            <AccordionContent>Radix UI provides unstyled, accessible component primitives for building high-quality design systems.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">md</p>
+        <Accordion type="single" collapsible size="md">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What is a design token?</AccordionTrigger>
+            <AccordionContent>Design tokens are named values that represent design decisions like colors, spacing, and typography.</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>What is Radix UI?</AccordionTrigger>
+            <AccordionContent>Radix UI provides unstyled, accessible component primitives for building high-quality design systems.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">lg</p>
+        <Accordion type="single" collapsible size="lg">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What is a design token?</AccordionTrigger>
+            <AccordionContent>Design tokens are named values that represent design decisions like colors, spacing, and typography.</AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>What is Radix UI?</AccordionTrigger>
+            <AccordionContent>Radix UI provides unstyled, accessible component primitives for building high-quality design systems.</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  ),
+}

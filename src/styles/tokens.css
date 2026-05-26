@@ -299,4 +299,28 @@
   --data-viz-tooltip-text:       #ffffff;
   --data-viz-tooltip-border-radius: 8px;
   --data-viz-focus-ring:         #1c21dc;   /* Highlighted/focused bar or point */
+
+  /* Motion */
+  --base-duration-instant: 0ms;
+  --base-duration-fast: 100ms;
+  --base-duration-normal: 200ms;
+  --base-duration-slow: 300ms;
+  --base-duration-slower: 500ms;
+  --base-easing-linear: linear;
+  --base-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --base-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --base-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --base-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --alias-motion-transition-fast: 100ms cubic-bezier(0, 0, 0.2, 1);
+  --alias-motion-transition-normal: 200ms cubic-bezier(0, 0, 0.2, 1);
+  --alias-motion-transition-slow: 300ms cubic-bezier(0, 0, 0.2, 1);
+  --alias-motion-transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --alias-motion-transition-fade: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Focus */
+  --alias-focus-ring-color: #6e71e6;
+  --alias-focus-ring-offset: 2px;
+  --alias-focus-ring-width: 2px;
+  --alias-focus-ring-style: 2px solid #6e71e6;
+  --alias-focus-ring-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6e71e6;
 }

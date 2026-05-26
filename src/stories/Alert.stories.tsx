@@ -213,6 +213,45 @@ export const WithLinkAction: Story = {
   ),
 }
 
+// ─── Sizes ────────────────────────────────────────────────────────────────────
+
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 max-w-lg">
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">sm</p>
+        <Alert variant="info" size="sm">
+          <InfoIcon className="h-3.5 w-3.5" />
+          <AlertTitle>Workspace URL can't be changed after setup</AlertTitle>
+          <AlertDescription>
+            Choose a URL that reflects your team or company name. It's permanent and will appear in all shared links.
+          </AlertDescription>
+        </Alert>
+      </div>
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">md</p>
+        <Alert variant="info" size="md">
+          <InfoIcon className="h-4 w-4" />
+          <AlertTitle>Workspace URL can't be changed after setup</AlertTitle>
+          <AlertDescription>
+            Choose a URL that reflects your team or company name. It's permanent and will appear in all shared links.
+          </AlertDescription>
+        </Alert>
+      </div>
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">lg</p>
+        <Alert variant="info" size="lg">
+          <InfoIcon className="h-5 w-5" />
+          <AlertTitle>Workspace URL can't be changed after setup</AlertTitle>
+          <AlertDescription>
+            Choose a URL that reflects your team or company name. It's permanent and will appear in all shared links.
+          </AlertDescription>
+        </Alert>
+      </div>
+    </div>
+  ),
+}
+
 // ─── All variants ─────────────────────────────────────────────────────────────
 
 export const AllVariants: Story = {

@@ -35,6 +35,12 @@ Use the **icon button** (×) when screen space is tight or the alert sits alongs
 
 <Canvas of={AlertStories.WithLinkAction} withToolbar={false} />
 
+## Sizes
+
+<Canvas of={AlertStories.Sizes} withToolbar={false} />
+
+The `size` prop is set on the `Alert` root and flows down to `AlertTitle` and `AlertDescription` via context. Use `sm` for inline feedback within tight UI such as inside a card or panel, where a full-weight alert would feel oversized. `md` is the default and suits most page-level messaging. Use `lg` for prominent page banners or dashboard callouts where the alert needs to command more visual attention.
+
 ## Playground
 
 <Controls of={AlertStories.Default} />

@@ -45,3 +45,9 @@ Accordion is built on Radix UI's `AccordionPrimitive`, which implements the WAI-
 - **Content links** — links and interactive elements inside accordion content panels are keyboard-reachable when the panel is open; ensure they are not present in the DOM (or are hidden with `display: none`) when the panel is closed. Radix handles this automatically.
 - **Avoid deeply nested accordions** — more than two levels of nested disclosure adds cognitive and keyboard navigation overhead for all users.
 
+## Sizes
+
+<Canvas of={AccordionStories.Sizes} withToolbar={false} />
+
+The `size` prop is set on the `Accordion` root and propagates to all triggers and content panels via context. Use `sm` for compact panels and sidebars where vertical space is at a premium. `md` is the default and suits standard content areas in most layouts. Use `lg` for prominent feature sections where extra breathing room improves scannability and visual hierarchy.
+
