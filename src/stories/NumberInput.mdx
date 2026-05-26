@@ -1,0 +1,44 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as NumberInputStories from "./NumberInput.stories"
+
+<Meta of={NumberInputStories} />
+
+# Number input
+
+<Canvas of={NumberInputStories.Default} withToolbar={false} />
+
+A number input lets users set an exact numeric value using increment and decrement controls, or by typing directly. Use it when the range is known and bounded, and when small adjustments are common — quantity selectors, seat counts, duration fields.
+
+The component renders as a single inline row: a decrement button on the left, a centred text input in the middle, and an increment button on the right. The outer corners are rounded using the standard input border-radius token while the inner edges share a flush border, creating a unified control group.
+
+## Default
+
+<Canvas of={NumberInputStories.Default} withToolbar={false} />
+
+The default story shows a value of 1 with a min of 0 and a max of 10 and a step of 1. The decrement and increment buttons clamp automatically to the min and max boundaries. Users can also type a value directly; the input clamps on change.
+
+## With limits
+
+<Canvas of={NumberInputStories.WithLimits} withToolbar={false} />
+
+When `min` and `max` are provided, the corresponding button becomes disabled and visually muted as soon as the boundary is reached. This gives users immediate feedback that they have reached the allowed range without an error message. The `aria-disabled` attribute is also applied so the boundary state is communicated to assistive technology.
+
+## Disabled
+
+<Canvas of={NumberInputStories.Disabled} withToolbar={false} />
+
+The entire control — both buttons and the input — is disabled when the `disabled` prop is true. Use this when the field is not applicable given the current form state, rather than hiding it, so users understand the field exists but cannot be edited.
+
+## Large step
+
+<Canvas of={NumberInputStories.LargeStep} withToolbar={false} />
+
+Set `step` to any positive number to change the increment size. A step of 5 is appropriate for percentage fields or coarse quantity adjustments. The up and down arrow keys on the keyboard also respect the configured step value.
+
+## Usage guidelines
+
+Always set a `min` and `max` when the domain is bounded. Use `step` to reflect the smallest meaningful unit — a quantity of items uses step 1, a percentage field might use step 5. Never use a number input for unbounded values like currency amounts or IDs — use a plain text input instead. Pair the number input with a visible label; the component itself does not render a label so the label must be provided by the surrounding form layout.
+
+## Accessibility
+
+The input has `type="number"` and should be associated with a visible label via `id` and `for`, or wrapped in a `<label>` element. Increment and decrement buttons have `aria-label="Increase value"` and `aria-label="Decrease value"` respectively so they are announced correctly when focused. Both buttons carry `aria-disabled` when they are at the min or max boundary, ensuring the disabled state is communicated to screen readers even though the visual appearance alone may not be sufficient. The up and down arrow keys increment and decrement the value, matching the expected keyboard behaviour for numeric steppers described in the ARIA authoring practices.

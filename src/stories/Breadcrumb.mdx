@@ -1,0 +1,44 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as BreadcrumbStories from "./Breadcrumb.stories"
+
+<Meta of={BreadcrumbStories} />
+
+# Breadcrumb
+
+<Canvas of={BreadcrumbStories.Default} withToolbar={false} />
+
+A breadcrumb shows the user's current location within a hierarchy and provides links to navigate back up the tree. Use it on any page that is more than one level deep in the product structure.
+
+The breadcrumb is fully composable — each piece (`Breadcrumb`, `BreadcrumbList`, `BreadcrumbItem`, `BreadcrumbLink`, `BreadcrumbPage`, `BreadcrumbSeparator`, `BreadcrumbEllipsis`) is exported individually so you can arrange and style them to fit your layout without modifying the primitives.
+
+## Default
+
+<Canvas of={BreadcrumbStories.Default} withToolbar={false} />
+
+The default three-level breadcrumb is the most common pattern. Each ancestor is a link styled in muted colour, and the current page is rendered as plain non-linked text in the foreground colour. Separators use ChevronRight by default and are hidden from assistive technology.
+
+## With ellipsis
+
+<Canvas of={BreadcrumbStories.WithEllipsis} withToolbar={false} />
+
+When a path is more than four levels deep, use `BreadcrumbEllipsis` to collapse the middle segments. This keeps the trail readable without wrapping onto a second line. The ellipsis is decorative and screen-reader-hidden — only the visible ancestor links and the current page are announced.
+
+## Single level
+
+<Canvas of={BreadcrumbStories.SingleLevel} withToolbar={false} />
+
+On pages that are only one level below home, the breadcrumb contains just two items: the parent link and the current page. This is the minimal useful form and is preferable to hiding the breadcrumb entirely, since it still gives the user a one-click escape route.
+
+## Custom separator
+
+<Canvas of={BreadcrumbStories.CustomSeparator} withToolbar={false} />
+
+Pass any string or node as a child to `BreadcrumbSeparator` to override the default chevron. A forward slash is a common alternative for products that want a more URL-like appearance. Whatever you pass still renders inside an `aria-hidden` list item, so separators are never announced.
+
+## Usage guidelines
+
+Always reflect the navigational hierarchy — not the user's browser history. The breadcrumb should match the information architecture of the product, so the same page always shows the same trail regardless of how the user arrived. The current page is the last item and is never a link. Truncate long paths with an ellipsis when more than four levels deep rather than wrapping onto multiple lines. Do not use a breadcrumb on top-level pages — it adds noise when there is nothing to navigate back to.
+
+## Accessibility
+
+The `Breadcrumb` wrapper renders as a `<nav>` element with `aria-label="breadcrumb"`, which creates a distinct landmark that screen reader users can jump to directly. The current page item has `aria-current="page"` and `aria-disabled="true"` to signal that it is not interactive. All separators have `aria-hidden="true"` so they are skipped by screen readers. The ellipsis item is also `aria-hidden` — if you expand a collapsed path on interaction, ensure the newly revealed links are focusable and announced correctly.

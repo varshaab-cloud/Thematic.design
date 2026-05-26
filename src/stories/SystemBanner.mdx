@@ -1,0 +1,50 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as SystemBannerStories from "./SystemBanner.stories"
+
+<Meta of={SystemBannerStories} />
+
+# System banner
+
+<Canvas of={SystemBannerStories.States} withToolbar={false} />
+
+A system banner is a full-width notification that spans the top of the page, above the main content and below the application header. Use it for events that affect the entire session or account — scheduled maintenance, trial expiry warnings, degraded service, or successful bulk operations. It is not a replacement for inline Alert, which communicates field- or section-level feedback.
+
+The banner is always full width with no border-radius, sitting flush with the edges of the viewport. It contains an icon, a message, an optional call-to-action, and an optional dismiss button arranged in a single compact row.
+
+## Info
+
+<Canvas of={SystemBannerStories.InfoBanner} withToolbar={false} />
+
+Use the info variant for neutral, non-urgent notifications that affect the user's session. Maintenance windows, policy updates, and feature announcements with no required action are all appropriate uses. The info banner uses a polite `role="status"` so screen readers announce it at a natural pause rather than interrupting.
+
+## Warning
+
+<Canvas of={SystemBannerStories.Warning} withToolbar={false} />
+
+Use the warning variant when something requires the user's attention but has not yet failed — a trial that is about to expire, approaching storage limits, or a configuration that needs review. Pair it with an action when there is a clear path forward. The warning banner uses `role="alert"` to announce assertively, reflecting the higher urgency.
+
+## Error
+
+<Canvas of={SystemBannerStories.Error} withToolbar={false} />
+
+Use the error variant when a service degradation or system failure is actively affecting the user's work. Include a link to a status page or support resource when available. Error banners also use `role="alert"` for immediate screen reader announcement. If the situation cannot be resolved by the user, omit the dismiss button so the banner persists until the issue clears.
+
+## Success
+
+<Canvas of={SystemBannerStories.Success} withToolbar={false} />
+
+Use the success variant to confirm that a significant account- or session-level operation has completed — for example, a successful data import or a version upgrade. Success banners are almost always dismissible because the information is transient. They use `role="status"` for polite announcement.
+
+## Without dismiss
+
+<Canvas of={SystemBannerStories.WithoutDismiss} withToolbar={false} />
+
+Omit `onDismiss` when the situation is outside the user's control and the banner should remain visible until the underlying condition changes — for example, an ongoing service outage. Persistent banners should be used sparingly; they lose their urgency if they appear too often or for too long.
+
+## Usage guidelines
+
+Show at most one system banner at a time. Dismissible banners should remember the user's preference for the session — do not re-show a dismissed banner on page navigation within the same session. Persistent banners (no dismiss) should only be used for situations the user cannot resolve themselves, such as a service outage. Never use a system banner for marketing messages or feature announcements; use a dedicated notification surface for those cases. Do use system banners for account- or session-level events that affect all users or the current account. Avoid stacking multiple banners — if two events occur simultaneously, show the higher severity one and queue the other.
+
+## Accessibility
+
+Info and success banners render with `role="status"`, which maps to an `aria-live="polite"` region. Warning and error banners render with `role="alert"`, which maps to `aria-live="assertive"` and interrupts the screen reader immediately. The dismiss button has `aria-label="Dismiss banner"` to ensure it is announced correctly by screen readers regardless of its icon-only appearance. All icons are marked `aria-hidden="true"` — the meaning of the banner is conveyed entirely through its text content and ARIA role, not its colour or icon.
