@@ -3,6 +3,7 @@ import React, { useState } from "react"
 
 const meta: Meta = {
   title: "Thematic design system/Foundation/Design Tokens",
+  tags: ["!autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: { page: null },

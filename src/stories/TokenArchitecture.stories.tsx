@@ -3,6 +3,7 @@ import React from "react"
 
 const meta: Meta = {
   title: "Thematic design system/Foundation/Design Tokens/Token Architecture",
+  tags: ["!autodocs"],
   parameters: {
     layout: "fullscreen",
     docs: { page: null },
