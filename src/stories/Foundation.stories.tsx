@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
 
 const meta: Meta = {
-  title: "Foundation/Design Tokens",
+  title: "Thematic design system/Foundation/Design Tokens",
   parameters: {
     layout: "fullscreen",
     docs: { page: null },
