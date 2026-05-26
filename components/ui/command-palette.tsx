@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Dialog as DialogPrimitive } from "radix-ui"
 import { Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -100,27 +99,30 @@ export function CommandPalette({
     }
   }
 
+  if (!open) return null
+
   let flatIndex = 0
 
   return (
-    <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
-      <DialogPrimitive.Portal>
-        {/* Semi-transparent backdrop */}
-        <DialogPrimitive.Overlay
-          className="fixed inset-0 z-50 bg-black/20"
-          onClick={() => onOpenChange(false)}
-        />
+    <>
+      {/* Semi-transparent backdrop */}
+      <div
+        className="fixed inset-0 z-50 bg-black/20"
+        onClick={() => onOpenChange(false)}
+      />
 
-        {/* Panel positioned near the top */}
-        <DialogPrimitive.Content
-          aria-label="Command palette"
-          className={cn(
-            "fixed left-1/2 z-50 w-full max-w-xl -translate-x-1/2",
-            "focus:outline-none"
-          )}
-          style={{ top: "80px" }}
-          onKeyDown={handleKeyDown}
-        >
+      {/* Panel positioned near the top */}
+      <div
+        role="dialog"
+        aria-label="Command palette"
+        aria-modal="true"
+        className={cn(
+          "fixed left-1/2 z-50 w-full max-w-xl -translate-x-1/2",
+          "focus:outline-none"
+        )}
+        style={{ top: "80px" }}
+        onKeyDown={handleKeyDown}
+      >
           <div
             className={cn(
               "bg-white border border-[var(--base-color-gray-200)]",
@@ -287,8 +289,7 @@ export function CommandPalette({
               </span>
             </div>
           </div>
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
+      </div>
+    </>
   )
 }

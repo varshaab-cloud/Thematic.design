@@ -40,8 +40,8 @@ export const Default: Story = {
         <AppHeaderActions>
           <AppHeaderNotifications count={3} />
           <AppHeaderUser
-            name="Varsha S."
-            email="varsha@thematic.io"
+            name="John Doe"
+            email="john@thematic.io"
           />
         </AppHeaderActions>
       </AppHeader>
@@ -99,8 +99,8 @@ export const WithActiveNav: Story = {
           <AppHeaderActions>
             <AppHeaderNotifications count={3} />
             <AppHeaderUser
-              name="Varsha S."
-              email="varsha@thematic.io"
+              name="John Doe"
+              email="john@thematic.io"
             />
           </AppHeaderActions>
         </AppHeader>
