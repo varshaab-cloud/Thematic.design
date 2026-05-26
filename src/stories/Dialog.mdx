@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
 import * as DialogStories from "./Dialog.stories"
 
 <Meta of={DialogStories} />
@@ -27,6 +27,13 @@ Use when a task requires input before it can be completed — for example, invit
 
 Use when the action being confirmed is irreversible — for example, permanently deleting a project or revoking access. Use a destructive variant button in the footer to visually reinforce the risk.
 
-## Playground
+## Confirmation dialog
 
-<Controls of={DialogStories.Default} />
+<Canvas of={DialogStories.AlertDialogDefault} withToolbar={false} />
+
+Use an `AlertDialog` when you need a system-enforced confirmation — unlike a regular Dialog, it cannot be dismissed by clicking outside or pressing Escape. Reserve this for truly irreversible actions where accidental dismissal would be harmful, such as deleting an account or removing a team.
+
+<Canvas of={DialogStories.AlertDialogConfirm} withToolbar={false} />
+
+Not all confirmations are destructive. Use a non-destructive confirmation dialog when an action is significant but reversible — for example, publishing to production or sending a bulk notification.
+

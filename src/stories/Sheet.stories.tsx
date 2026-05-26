@@ -4,9 +4,7 @@ import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
 
 const meta: Meta<typeof Sheet> = {
-  title: "Overlays/Sheet",
-  component: Sheet,
-  tags: ["autodocs"],
+  title: "Overlays/Drawer",
 }
 
 export default meta

@@ -1,0 +1,24 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as PopoverStories from "./Popover.stories"
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+<Canvas of={PopoverStories.Default} withToolbar={false} />
+
+A popover is a floating panel anchored to a trigger element. Use it to surface secondary actions, short forms, or contextual controls without navigating away or opening a full dialog.
+
+Unlike a tooltip, a popover is interactive — it can contain inputs, buttons, and other controls. It is dismissed by clicking outside or pressing Escape.
+
+If the content is purely informational and requires no interaction, use a Tooltip instead. If the content requires a decision or is critical to the flow, use a Dialog.
+
+## Default
+
+Use for quick settings or configuration that applies to a specific element in the UI — for example, editing display preferences for a view, or updating a single field inline.
+
+## Filter popover
+
+<Canvas of={PopoverStories.FilterPopover} withToolbar={false} />
+
+Use a popover to house filter controls in toolbars and table headers. This keeps the filter UI accessible without taking up permanent space in the layout. Include Clear and Apply actions so users can reset or confirm their selection.

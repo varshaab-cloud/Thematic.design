@@ -1,0 +1,26 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as TooltipStories from "./Tooltip.stories"
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+<Canvas of={TooltipStories.Default} withToolbar={false} />
+
+A tooltip reveals a short label or description when the user hovers over or focuses an element. Use tooltips to clarify the purpose of icon buttons, truncated labels, or any element where the meaning isn't immediately obvious.
+
+Keep tooltip copy short — one sentence at most. If the explanation requires more than that, use a Popover instead.
+
+Never put essential information inside a tooltip. Tooltips are invisible until triggered, so anything critical to completing a task must also be visible in the UI.
+
+## On icon
+
+<Canvas of={TooltipStories.OnIcon} withToolbar={false} />
+
+The most common use case. Attach a tooltip to an icon or help indicator (`?`, `ⓘ`) to describe a field constraint, limit, or term without cluttering the layout.
+
+## Positions
+
+<Canvas of={TooltipStories.Positions} withToolbar={false} />
+
+Tooltips can appear on any side of the trigger — top, right, bottom, or left. The default is top. Choose the position that keeps the tooltip within the viewport and doesn't obscure related content.
