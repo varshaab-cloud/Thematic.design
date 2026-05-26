@@ -65,20 +65,20 @@ export interface DataTableProps<TData, TValue> {
 // ─── Sort Icon ───────────────────────────────────────────────────────────────
 
 function SortIcon({ sorted }: { sorted: false | "asc" | "desc" }) {
-  if (sorted === "asc")  return <ChevronUp  className="size-3.5 shrink-0 text-foreground" />
-  if (sorted === "desc") return <ChevronDown className="size-3.5 shrink-0 text-foreground" />
-  return <ChevronsUpDown className="size-3.5 shrink-0 text-muted-foreground/50" />
+  if (sorted === "asc")  return <ChevronUp  className="size-3.5 shrink-0 text-[var(--alias-color-text-primary)]" />
+  if (sorted === "desc") return <ChevronDown className="size-3.5 shrink-0 text-[var(--alias-color-text-primary)]" />
+  return <ChevronsUpDown className="size-3.5 shrink-0 text-[var(--alias-color-text-subtle)]/50" />
 }
 
 // ─── Skeleton Row ────────────────────────────────────────────────────────────
 
 function SkeletonRow({ colCount }: { colCount: number }) {
   return (
-    <tr className="border-b border-border">
+    <tr className="border-b border-[var(--alias-color-border-default)]">
       {Array.from({ length: colCount }).map((_, i) => (
         <td key={i} className="px-3 py-2.5">
           <div
-            className="h-4 rounded-md bg-muted animate-pulse"
+            className="h-4 rounded-md bg-[var(--alias-color-background-tertiary)] animate-pulse"
             style={{ width: `${60 + ((i * 37) % 30)}%` }}
           />
         </td>
@@ -92,11 +92,11 @@ function SkeletonRow({ colCount }: { colCount: number }) {
 function DefaultEmptyState() {
   return (
     <div className="flex flex-col items-center justify-center gap-2 py-16 text-center">
-      <div className="flex size-10 items-center justify-center rounded-full bg-muted">
-        <Search className="size-5 text-muted-foreground" />
+      <div className="flex size-10 items-center justify-center rounded-full bg-[var(--alias-color-background-tertiary)]">
+        <Search className="size-5 text-[var(--alias-color-text-subtle)]" />
       </div>
-      <p className="text-sm font-medium text-foreground">No results</p>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-sm font-medium text-[var(--alias-color-text-primary)]">No results</p>
+      <p className="text-xs text-[var(--alias-color-text-subtle)]">
         Try adjusting your search or filters.
       </p>
     </div>
@@ -135,7 +135,7 @@ function ColumnToggle<TData>({
       </Button>
 
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-1 w-44 rounded-lg border border-border bg-popover p-1 shadow-[var(--base-shadow-04)]">
+        <div className="absolute right-0 top-full z-50 mt-1 w-44 rounded-lg border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] p-1 shadow-[var(--base-shadow-04)]">
           {table
             .getAllColumns()
             .filter(col => col.getCanHide())
@@ -150,7 +150,7 @@ function ColumnToggle<TData>({
                   checked={col.getIsVisible()}
                   onChange={col.getToggleVisibilityHandler()}
                 />
-                <span className="truncate text-foreground capitalize">
+                <span className="truncate text-[var(--alias-color-text-primary)] capitalize">
                   {typeof col.columnDef.header === "string"
                     ? col.columnDef.header
                     : col.id}
@@ -265,17 +265,17 @@ export function DataTable<TData, TValue>({
             {/* Global search */}
             {searchable && (
               <div className="relative flex-1 max-w-xs">
-                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground pointer-events-none" />
+                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-[var(--alias-color-text-subtle)] pointer-events-none" />
                 <input
                   value={globalFilter}
                   onChange={e => setGlobalFilter(e.target.value)}
                   placeholder={searchPlaceholder}
-                  className="h-8 w-full rounded-lg border border-input bg-transparent pl-8 pr-8 text-sm outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                  className="h-8 w-full rounded-lg border border-[var(--alias-color-border-default)] bg-transparent pl-8 pr-8 text-sm outline-none transition-colors placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50"
                 />
                 {globalFilter && (
                   <button
                     onClick={() => setGlobalFilter("")}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--alias-color-text-subtle)] hover:text-[var(--alias-color-text-primary)]"
                     aria-label="Clear search"
                   >
                     <X className="size-3.5" />
@@ -290,7 +290,7 @@ export function DataTable<TData, TValue>({
                 {selectedCount} selected
                 <button
                   onClick={() => table.resetRowSelection()}
-                  className="hover:text-foreground"
+                  className="hover:text-[var(--alias-color-text-primary)]"
                   aria-label="Clear selection"
                 >
                   <X className="size-3" />
@@ -305,13 +305,13 @@ export function DataTable<TData, TValue>({
       )}
 
       {/* ── Table ── */}
-      <div className="overflow-hidden rounded-[var(--base-radius-md)] border border-border bg-card shadow-[var(--base-shadow-02)]">
+      <div className="overflow-hidden rounded-[var(--base-radius-md)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] shadow-[var(--base-shadow-02)]">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             {/* Head */}
             <thead>
               {table.getHeaderGroups().map(hg => (
-                <tr key={hg.id} className="border-b border-border bg-[var(--base-color-gray-75)]">
+                <tr key={hg.id} className="border-b border-[var(--alias-color-border-default)] bg-[var(--base-color-gray-75)]">
                   {hg.headers.map(header => {
                     const canSort = header.column.getCanSort()
                     const sorted  = header.column.getIsSorted()
@@ -321,8 +321,8 @@ export function DataTable<TData, TValue>({
                         scope="col"
                         style={{ width: header.column.columnDef.size }}
                         className={cn(
-                          "px-3 py-2.5 text-left text-xs font-medium text-muted-foreground select-none",
-                          canSort && "cursor-pointer hover:text-foreground transition-colors"
+                          "px-3 py-2.5 text-left text-xs font-medium text-[var(--alias-color-text-subtle)] select-none",
+                          canSort && "cursor-pointer hover:text-[var(--alias-color-text-primary)] transition-colors"
                         )}
                         onClick={canSort ? header.column.getToggleSortingHandler() : undefined}
                         aria-sort={
@@ -350,7 +350,7 @@ export function DataTable<TData, TValue>({
             </thead>
 
             {/* Body */}
-            <tbody className="divide-y divide-border">
+            <tbody className="divide-y divide-[var(--alias-color-border-default)]">
               {isLoading ? (
                 Array.from({ length: skeletonRows }).map((_, i) => (
                   <SkeletonRow key={i} colCount={allColumns.length} />
@@ -369,7 +369,7 @@ export function DataTable<TData, TValue>({
                     className="transition-colors hover:bg-[var(--base-color-gray-75)] data-[selected]:bg-[var(--base-color-blue-100)]/60"
                   >
                     {row.getVisibleCells().map(cell => (
-                      <td key={cell.id} className="px-3 py-2.5 text-foreground">
+                      <td key={cell.id} className="px-3 py-2.5 text-[var(--alias-color-text-primary)]">
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -385,7 +385,7 @@ export function DataTable<TData, TValue>({
       </div>
 
       {/* ── Pagination ── */}
-      <div className="flex items-center justify-between gap-4 text-xs text-muted-foreground">
+      <div className="flex items-center justify-between gap-4 text-xs text-[var(--alias-color-text-subtle)]">
         {/* Row count */}
         <span>
           {selectable && selectedCount > 0
@@ -400,7 +400,7 @@ export function DataTable<TData, TValue>({
             <select
               value={pageSize}
               onChange={e => table.setPageSize(Number(e.target.value))}
-              className="h-7 rounded-md border border-input bg-transparent px-1.5 text-xs text-foreground outline-none focus:border-ring focus:ring-2 focus:ring-ring/50"
+              className="h-7 rounded-md border border-[var(--alias-color-border-default)] bg-transparent px-1.5 text-xs text-[var(--alias-color-text-primary)] outline-none focus:border-[var(--alias-color-border-active)] focus:ring-2 focus:ring-[var(--alias-color-border-active)]/50"
             >
               {pageSizeOptions.map(n => (
                 <option key={n} value={n}>{n}</option>

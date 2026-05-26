@@ -89,17 +89,17 @@ export function Pagination({
       )}
     >
       {/* ── Left: row count ── */}
-      <p className="text-muted-foreground tabular-nums">
+      <p className="text-[var(--alias-color-text-subtle)] tabular-nums">
         {total === 0 ? (
           <>No {rowLabel}</>
         ) : (
           <>
             Showing{" "}
-            <span className="font-medium text-foreground">
+            <span className="font-medium text-[var(--alias-color-text-primary)]">
               {rangeStart}–{rangeEnd}
             </span>{" "}
             of{" "}
-            <span className="font-medium text-foreground">{total}</span>{" "}
+            <span className="font-medium text-[var(--alias-color-text-primary)]">{total}</span>{" "}
             {rowLabel}
           </>
         )}
@@ -110,7 +110,7 @@ export function Pagination({
         {/* Page size selector */}
         {pageSizeOptions && pageSizeOptions.length > 0 && onPageSizeChange && (
           <div className="flex items-center gap-1.5">
-            <span className="text-muted-foreground">Rows per page</span>
+            <span className="text-[var(--alias-color-text-subtle)]">Rows per page</span>
             <select
               value={pageSize}
               onChange={e => {
@@ -118,9 +118,9 @@ export function Pagination({
                 onPageChange(1)
               }}
               className={cn(
-                "h-7 rounded-[var(--base-radius-md)] border border-border bg-card px-2 text-sm",
-                "text-foreground outline-none transition-colors",
-                "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+                "h-7 rounded-[var(--base-radius-md)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] px-2 text-sm",
+                "text-[var(--alias-color-text-primary)] outline-none transition-colors",
+                "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
                 "disabled:cursor-not-allowed disabled:opacity-50"
               )}
             >
@@ -159,7 +159,7 @@ export function Pagination({
             item === "…" ? (
               <span
                 key={`ellipsis-${idx}`}
-                className="flex size-7 items-center justify-center text-muted-foreground"
+                className="flex size-7 items-center justify-center text-[var(--alias-color-text-subtle)]"
                 aria-hidden
               >
                 <MoreHorizontal className="size-3.5" />

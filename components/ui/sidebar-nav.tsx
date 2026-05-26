@@ -64,7 +64,7 @@ function SidebarNav({
         {sections.map((section, si) => (
           <div key={si} className="flex flex-col gap-0.5 px-2">
             {section.title && !collapsed && (
-              <p className="px-2 pb-1 text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+              <p className="px-2 pb-1 text-[10px] font-medium uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
                 {section.title}
               </p>
             )}
@@ -75,7 +75,7 @@ function SidebarNav({
                 title={collapsed ? item.label : undefined}
                 className={cn(
                   "flex items-center gap-2.5 rounded-md px-2 h-8 text-sm transition-colors w-full text-left",
-                  "text-[var(--base-color-gray-700)] hover:bg-[var(--base-color-gray-200)] hover:text-foreground",
+                  "text-[var(--base-color-gray-700)] hover:bg-[var(--base-color-gray-200)] hover:text-[var(--alias-color-text-primary)]",
                   item.active && "bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)] font-medium hover:bg-[var(--base-color-blue-100)]",
                   collapsed && "justify-center px-0"
                 )}
@@ -94,7 +94,7 @@ function SidebarNav({
                         "ml-auto text-[10px] font-medium tabular-nums rounded-full px-1.5 py-0.5",
                         item.active
                           ? "bg-[var(--base-color-blue-800)] text-white"
-                          : "bg-[var(--base-color-gray-200)] text-muted-foreground"
+                          : "bg-[var(--base-color-gray-200)] text-[var(--alias-color-text-subtle)]"
                       )}>
                         {item.badge}
                       </span>

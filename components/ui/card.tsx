@@ -12,7 +12,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-[var(--base-radius-md)] bg-card py-4 text-sm text-card-foreground border border-[var(--base-color-gray-200)] shadow-[var(--base-shadow-02)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0",
+        "group/card flex flex-col gap-4 overflow-hidden rounded-[var(--base-radius-md)] bg-[var(--alias-color-background-primary)] py-4 text-sm text-[var(--alias-color-text-primary)] border border-[var(--base-color-gray-200)] shadow-[var(--base-shadow-02)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0",
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("text-sm text-[var(--alias-color-text-subtle)]", className)}
       {...props}
     />
   )
@@ -84,7 +84,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-[var(--base-radius-md)] border-t bg-muted/50 px-4 py-3 group-data-[size=sm]/card:px-3 group-data-[size=sm]/card:py-2.5",
+        "flex items-center rounded-b-[var(--base-radius-md)] border-t bg-[var(--alias-color-background-tertiary)]/50 px-4 py-3 group-data-[size=sm]/card:px-3 group-data-[size=sm]/card:py-2.5",
         className
       )}
       {...props}
@@ -106,7 +106,7 @@ export interface MetricCardProps {
 }
 
 const metricVariants: Record<string, string> = {
-  default: "bg-card ring-foreground/10",
+  default: "bg-[var(--alias-color-background-primary)] ring-[var(--alias-color-text-primary)]/10",
   brand:   "bg-[var(--base-color-blue-800)] text-white ring-[var(--base-color-blue-700)]",
   success: "bg-[var(--base-color-success-800)] ring-[var(--base-color-success-900)]/20",
   warning: "bg-[var(--base-color-warning-50)] ring-[var(--base-color-warning-100)]/40",
@@ -116,7 +116,7 @@ const metricVariants: Record<string, string> = {
 const trendConfig = {
   up:      { icon: TrendingUp,   color: "text-[var(--base-color-green-800)]" },
   down:    { icon: TrendingDown, color: "text-[var(--base-color-error-300)]" },
-  neutral: { icon: Minus,        color: "text-muted-foreground" },
+  neutral: { icon: Minus,        color: "text-[var(--alias-color-text-subtle)]" },
 }
 
 function MetricCard({
@@ -148,14 +148,14 @@ function MetricCard({
       <div className="flex items-center justify-between">
         <p className={cn(
           "text-xs font-medium uppercase tracking-wide",
-          isBrand ? "text-white/70" : "text-muted-foreground"
+          isBrand ? "text-white/70" : "text-[var(--alias-color-text-subtle)]"
         )}>
           {label}
         </p>
         {icon && (
           <div className={cn(
             "flex items-center justify-center rounded-md p-1.5 [&_svg]:size-4",
-            isBrand ? "bg-white/10 text-white" : "bg-muted text-muted-foreground"
+            isBrand ? "bg-white/10 text-white" : "bg-[var(--alias-color-background-tertiary)] text-[var(--alias-color-text-subtle)]"
           )}>
             {icon}
           </div>
@@ -166,7 +166,7 @@ function MetricCard({
       <p className={cn(
         "font-bold leading-none",
         size === "sm" ? "text-2xl" : "text-3xl",
-        isBrand ? "text-white" : "text-foreground"
+        isBrand ? "text-white" : "text-[var(--alias-color-text-primary)]"
       )}>
         {value}
       </p>
@@ -188,7 +188,7 @@ function MetricCard({
           {trendLabel && (
             <span className={cn(
               "text-xs",
-              isBrand ? "text-white/60" : "text-muted-foreground"
+              isBrand ? "text-white/60" : "text-[var(--alias-color-text-subtle)]"
             )}>
               {trendLabel}
             </span>
