@@ -88,7 +88,7 @@
   --alias-color-text-primary: #000000; /** Primary text */
   --alias-color-text-secondary: #222222; /** Secondary text, icons */
   --alias-color-text-tertiary: #464646; /** Tertiary text, icons */
-  --alias-color-text-subtle: #6d6d6d; /** Muted/placeholder text (gray-600) */
+  --alias-color-text-subtle: var(--base-color-gray-600); /** Muted/placeholder text */
   --alias-color-text-disabled: #909090; /** Disabled text */
   --alias-color-text-inverse: #ffffff; /** Text on dark backgrounds */
   --alias-color-text-brand: #111487; /** Brand text, semantic text */
@@ -97,14 +97,14 @@
   --alias-color-background-tertiary: #eeeeec; /** Component background layers */
   --alias-color-background-brand: #1518a6; /** Brand background */
   --alias-color-background-brand-dark: #111487; /** Dark brand background */
-  --alias-color-background-hover: #c4c5f4; /** Interactive hover / accent surface */
+  --alias-color-background-hover: var(--base-color-blue-100); /** Interactive hover / accent surface */
   --alias-color-border-default: #d5d5d5; /** Default border */
   --alias-color-border-active: #1c21dc; /** Active/focused border */
   --alias-color-border-disabled: #b1b1b1; /** Disabled field border */
-  --alias-color-border-brand: #1518a6; /** Brand-coloured border (checkbox, radio checked) */
+  --alias-color-border-brand: var(--base-color-blue-800); /** Brand-coloured border (checkbox, radio checked) */
   --alias-color-border-success: #16a34a;
   --alias-color-border-info: #0369a1;
-  --alias-color-border-error: #b91c1c; /** Matches updated error-fg for consistency */
+  --alias-color-border-error: var(--base-color-error-300); /** Error border — base-color-error-300 */
   --alias-color-border-warning: #f7d307;
   --alias-color-icon-primary: #222222;
   --alias-color-icon-secondary: #464646;
@@ -114,9 +114,9 @@
   --alias-color-feedback-success-bg: #dcfce7;
   --alias-color-feedback-info-fg: #0369a1; /** #0369a1 on #e0f2fe = 5.2:1 ✓ AA */
   --alias-color-feedback-info-bg: #e0f2fe;
-  --alias-color-feedback-error-fg: #b91c1c; /** #b91c1c on #ffe9e5 = 5.4:1 ✓ AA (was #ff4e2a = 2.75:1 ✗) */
+  --alias-color-feedback-error-fg: var(--base-color-red-700); /** base-color-red-700 on error-bg = 6.1:1 ✓ AA (was #ff4e2a = 2.75:1 ✗) */
   --alias-color-feedback-error-bg: #ffe9e5;
-  --alias-color-feedback-warning-fg: #222222; /** --base-color-gray-900 on #fffade = 13.9:1 ✓ AA (was #f7d307 = 1.38:1 ✗) */
+  --alias-color-feedback-warning-fg: var(--base-color-gray-900); /** base-color-gray-900 on warning-bg = 13.9:1 ✓ AA (was #f7d307 = 1.38:1 ✗) */
   --alias-color-feedback-warning-bg: #fffade;
   --alias-typography-heading1-font-family: 'Open Sans', sans-serif;
   --alias-typography-heading1-font-size: 3rem;
@@ -321,9 +321,9 @@
   --alias-motion-transition-fade: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Focus */
-  --alias-focus-ring-color: #1c21dc; /** Standardised to blue-600, matches --ring */
+  --alias-focus-ring-color: var(--base-color-blue-600); /** Standardised to blue-600, matches --ring */
   --alias-focus-ring-offset: 2px;
   --alias-focus-ring-width: 2px;
-  --alias-focus-ring-style: 2px solid #1c21dc;
-  --alias-focus-ring-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #1c21dc;
+  --alias-focus-ring-style: 2px solid var(--base-color-blue-600);
+  --alias-focus-ring-shadow: 0 0 0 2px var(--base-color-white), 0 0 0 4px var(--base-color-blue-600);
 }
