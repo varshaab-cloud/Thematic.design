@@ -116,7 +116,7 @@
   --alias-color-feedback-info-bg: #e0f2fe;
   --alias-color-feedback-error-fg: #b91c1c; /** #b91c1c on #ffe9e5 = 5.4:1 ✓ AA (was #ff4e2a = 2.75:1 ✗) */
   --alias-color-feedback-error-bg: #ffe9e5;
-  --alias-color-feedback-warning-fg: #713f12; /** #713f12 on #fffade = 9.1:1 ✓ AA (was #f7d307 = 1.38:1 ✗) */
+  --alias-color-feedback-warning-fg: #222222; /** --base-color-gray-900 on #fffade = 13.9:1 ✓ AA (was #f7d307 = 1.38:1 ✗) */
   --alias-color-feedback-warning-bg: #fffade;
   --alias-typography-heading1-font-family: 'Open Sans', sans-serif;
   --alias-typography-heading1-font-size: 3rem;
