@@ -8,31 +8,31 @@ type AlertSize = "sm" | "md" | "lg"
 const AlertSizeContext = React.createContext<AlertSize>("md")
 
 const alertPaddingSizeClasses: Record<AlertSize, string> = {
-  sm: "p-3",
-  md: "p-4",
-  lg: "p-5",
+  sm: "p-3 gap-1",
+  md: "p-4 gap-1.5",
+  lg: "p-5 gap-2",
 }
 
 const alertIconSizeClasses: Record<AlertSize, string> = {
-  sm: "*:[svg:not([class*='size-'])]:size-3.5",
-  md: "*:[svg:not([class*='size-'])]:size-4",
-  lg: "*:[svg:not([class*='size-'])]:size-5",
+  sm: "*:[svg]:!size-3.5",
+  md: "*:[svg]:!size-4",
+  lg: "*:[svg]:!size-5",
 }
 
 const alertTitleSizeClasses: Record<AlertSize, string> = {
-  sm: "text-[13px]",
-  md: "text-[14px]",
-  lg: "text-[15px]",
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-base",
 }
 
 const alertDescriptionSizeClasses: Record<AlertSize, string> = {
-  sm: "text-[12px]",
-  md: "text-[13px]",
-  lg: "text-[14px]",
+  sm: "text-[11px]",
+  md: "text-xs",
+  lg: "text-sm",
 }
 
 const alertVariants = cva(
-  "group/alert relative grid w-full gap-0.5 rounded-[var(--base-radius-md)] border px-2.5 py-2 text-left text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4",
+  "group/alert relative grid w-full rounded-[var(--base-radius-md)] border text-left has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-3 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current",
   {
     variants: {
       variant: {

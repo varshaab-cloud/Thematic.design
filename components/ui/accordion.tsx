@@ -11,15 +11,21 @@ type AccordionSize = "sm" | "md" | "lg"
 const AccordionSizeContext = React.createContext<AccordionSize>("md")
 
 const accordionTriggerSizeClasses: Record<AccordionSize, string> = {
-  sm: "py-2 px-3 text-[13px]",
-  md: "py-4 px-4 text-[14px]",
-  lg: "py-5 px-5 text-[16px]",
+  sm: "py-2 px-3 text-xs",
+  md: "py-4 px-4 text-sm",
+  lg: "py-6 px-5 text-base",
 }
 
 const accordionContentSizeClasses: Record<AccordionSize, string> = {
-  sm: "pb-2 px-3 pt-0",
-  md: "pb-4 px-4 pt-0",
-  lg: "pb-5 px-5 pt-0",
+  sm: "pb-2 px-3 pt-0 text-xs",
+  md: "pb-4 px-4 pt-0 text-sm",
+  lg: "pb-6 px-5 pt-0 text-base",
+}
+
+const accordionIconSizeClasses: Record<AccordionSize, string> = {
+  sm: "size-3.5",
+  md: "size-4",
+  lg: "size-5",
 }
 
 function Accordion({
@@ -57,20 +63,21 @@ function AccordionTrigger({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
   const size = React.useContext(AccordionSizeContext)
+  const iconClass = accordionIconSizeClasses[size]
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent text-left font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
+          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent text-left font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:after:border-ring disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-muted-foreground",
           accordionTriggerSizeClasses[size],
           className
         )}
         {...props}
       >
         {children}
-        <ChevronDownIcon data-slot="accordion-trigger-icon" className="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
-        <ChevronUpIcon data-slot="accordion-trigger-icon" className="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
+        <ChevronDownIcon data-slot="accordion-trigger-icon" className={cn("pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden", iconClass)} />
+        <ChevronUpIcon data-slot="accordion-trigger-icon" className={cn("pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline", iconClass)} />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
