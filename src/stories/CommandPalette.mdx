@@ -1,0 +1,41 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./CommandPalette.stories"
+
+<Meta of={Stories} />
+
+# CommandPalette
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A Spotlight-style command palette that drops from the top of the viewport. It provides fast keyboard-driven access to pages, actions, and recently visited files — without interrupting the user's flow with a full modal overlay. Use it wherever users need to navigate a large information space without reaching for the mouse.
+
+The palette appears at `top: 80px`, centred, on a subtle `bg-black/20` backdrop. The floating panel is `max-w-xl`, with grouped results and a search input that filters as the user types.
+
+## With trigger
+
+<Canvas of={Stories.WithTrigger} withToolbar={false} />
+
+Wire the palette to a search button and the `⌘K` (or `Ctrl+K`) keyboard shortcut so users can open it from anywhere on the page. The trigger button in the app header is the canonical entry point — it doubles as a visual affordance for the shortcut.
+
+## Empty state
+
+<Canvas of={Stories.Empty} withToolbar={false} />
+
+When no items match the current query, show a centred empty state with a search icon and clear messaging. Do not show a blank panel — users need feedback that the search ran and returned nothing.
+
+## Usage guidelines
+
+Use the command palette for navigation and quick actions — not as a form or settings panel. Keep items focused: a well-curated list of 10–20 items is more useful than an exhaustive dump of every feature. Always include a shortcut (`⌘K`) and surface it visibly in the trigger so users discover it without documentation.
+
+Group items consistently: Pages first, then Actions, then Recent. Within each group, order by frequency of use. Limit groups to 3–4 visible items before truncating — users stop reading at depth. Keyboard navigation (↑ ↓ Enter Esc) must work without any mouse interaction.
+
+## Accessibility
+
+| Key | Behaviour |
+|---|---|
+| `⌘K` / `Ctrl+K` | Opens the palette from anywhere on the page |
+| `↑` / `↓` | Moves focus between result items |
+| `Enter` | Selects the focused item |
+| `Escape` | Closes the palette and returns focus to the trigger |
+
+The palette renders inside a Radix Dialog Portal, giving it the correct ARIA `role="dialog"` and focus trap. The input has `aria-autocomplete="list"` and each result button has `role="option"` and `aria-selected`.

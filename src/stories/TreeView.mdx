@@ -1,0 +1,36 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./TreeView.stories"
+
+<Meta of={Stories} />
+
+# Tree View
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A tree view displays hierarchical data as an indented, collapsible structure. Use it for file systems, navigation trees, category hierarchies, or any data where parent–child relationships need to be browsable.
+
+Click the chevron icon to expand or collapse a node with children. Click the label to select a node. Keyboard users can navigate with arrow keys, and activate or expand nodes with Enter or Space.
+
+## With icons
+
+<Canvas of={Stories.WithIcons} withToolbar={false} />
+
+Use icons to help users distinguish node types at a glance — for example, folder icons for containers and file-type icons for leaf nodes. Icons are optional; nodes without them align flush with their siblings.
+
+## With badges
+
+<Canvas of={Stories.WithBadges} withToolbar={false} />
+
+Badges communicate counts or statuses alongside node labels — for example, unread message counts or the number of items in a folder. Keep badge values short (under four digits) so they fit within the constrained row width.
+
+## Controlled selection
+
+<Canvas of={Stories.Controlled} withToolbar={false} />
+
+Wire the `onSelect` callback to external state to respond to selection changes — for example, navigating to the selected item's detail view or filtering a list panel.
+
+## Usage guidelines
+
+Keep nesting shallow wherever possible — three to four levels is usually the practical limit before the indentation becomes difficult to parse. For very deep hierarchies, consider a breadcrumb or column-based navigation instead.
+
+The `defaultExpanded` prop accepts an array of node IDs that should be open on first render. Use it to surface the most relevant part of the tree without forcing the user to expand multiple levels manually.

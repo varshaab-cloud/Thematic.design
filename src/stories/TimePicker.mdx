@@ -1,0 +1,42 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./TimePicker.stories"
+
+<Meta of={Stories} />
+
+# Time Picker
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A time picker lets users select a time by scrolling through a column-based panel. Use it for meeting times, deadlines, recurring events, or any field where a user needs to select a specific hour and minute without typing.
+
+The trigger shows a clock icon and the formatted time value. Clicking it opens a popover with scrollable columns for hours and minutes. In 12-hour mode, AM/PM buttons appear alongside the columns. The selected values are highlighted in brand blue.
+
+## Controlled
+
+<Canvas of={Stories.Controlled} withToolbar={false} />
+
+Wire `value` and `onChange` to React state to control the picker. The internal value format is always `"HH:MM"` in 24-hour notation, regardless of the `use12Hour` display setting.
+
+## 24-hour format
+
+<Canvas of={Stories.TwentyFourHour} withToolbar={false} />
+
+Set `use12Hour={false}` for contexts where 24-hour time is the expected convention — developer tools, scheduling dashboards, or international markets that use the 24-hour clock by default.
+
+## Disabled
+
+<Canvas of={Stories.Disabled} withToolbar={false} />
+
+A disabled time picker displays the current value but cannot be interacted with. Use this when the time field is not applicable in the current state.
+
+## Usage guidelines
+
+The `minuteStep` prop controls the granularity of the minutes column (default `5`). Use `minuteStep={1}` for precise scheduling and `minuteStep={15}` or `minuteStep={30}` for simpler booking flows where exact minutes don't matter.
+
+Always store and pass values in `"HH:MM"` 24-hour format. The `use12Hour` prop only affects the display; it does not change the internal value format.
+
+For forms, wrap the picker in a label element or use `aria-labelledby` to associate a visible label with the trigger button.
+
+## Playground
+
+<Controls of={Stories.Default} />

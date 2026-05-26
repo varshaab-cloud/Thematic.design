@@ -1,0 +1,42 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AppHeader.stories"
+
+<Meta of={Stories} />
+
+# AppHeader
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A full-width horizontal navigation bar, 56 px tall, white background. It sits at the top of every application page and provides consistent access to the logo, primary navigation, search, notifications, and the user account menu. Compose it from the provided sub-components to match the exact navigation model of your product.
+
+The header is `56px` tall and uses `var(--base-color-gray-200)` for the bottom border. Text uses `var(--base-color-gray-900)`; active nav items use `var(--base-color-blue-800)` text and a 2 px bottom border in the same colour.
+
+## Minimal
+
+<Canvas of={Stories.Minimal} withToolbar={false} />
+
+Strip the header to its essentials — logo and user avatar — for flows that should not distract with navigation. Useful for onboarding screens, focused editors, or checkout-style pages where the full nav would pull users away from the task.
+
+## Active navigation
+
+<Canvas of={Stories.WithActiveNav} withToolbar={false} />
+
+Mark the active nav item with `active={true}` to anchor the user's position. Only one item should be active at a time. Connect the active prop to your router so it reflects the current route automatically.
+
+## Usage guidelines
+
+Keep the nav to five items or fewer. Beyond that, consider grouping secondary destinations in a dropdown or moving them to a sidebar. The logo is always the leftmost element; the user account menu is always the rightmost. The search trigger sits between the nav and the actions cluster to keep the information architecture visually clear.
+
+For apps that use the command palette, wire `AppHeaderSearch` with `onSearchClick` to open it instead of rendering an inline input. This keeps the header light and moves power users to a more capable interface.
+
+## Accessibility
+
+The `AppHeader` renders as a `<header>` landmark. Active nav items use `aria-current="page"`. The notification button includes an `aria-label` that announces the unread count when it is greater than zero. The user menu trigger is a `<button>` with a descriptive `aria-label`.
+
+| Component | Element | Landmark / role |
+|---|---|---|
+| `AppHeader` | `<header>` | `banner` landmark |
+| `AppHeaderNav` | `<nav>` | `navigation` landmark |
+| `AppHeaderNavItem` | `<a>` or `<button>` | Native link / button |
+| `AppHeaderNotifications` | `<button>` | Button with count in `aria-label` |
+| `AppHeaderUser` | `<button>` + Radix DropdownMenu | Button + `menu` |

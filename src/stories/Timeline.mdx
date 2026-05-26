@@ -1,0 +1,38 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./Timeline.stories"
+
+<Meta of={Stories} />
+
+# Timeline
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A timeline displays a sequence of events in chronological order. Use it for activity feeds, audit logs, process histories, or any situation where the order and timing of events matters to the user.
+
+Each item consists of a circular icon on the left connected to the next item by a vertical line, and a content block on the right with a title, optional description, and time.
+
+## With icons
+
+<Canvas of={Stories.WithIcons} withToolbar={false} />
+
+Pass a `lucide-react` icon (or any React node) to the `icon` prop on `TimelineIcon` to provide visual context for each event type. Use consistent iconography within a single timeline — don't mix abstract icons and literal representations.
+
+## Variants
+
+<Canvas of={Stories.Variants} withToolbar={false} />
+
+The `variant` prop on `TimelineIcon` communicates the semantic status of an event. Use `success` for completed or positive events, `error` for failures, `warning` for caution states, and `info` for informational notices. Use `default` when the event has no special status.
+
+## Compact
+
+<Canvas of={Stories.Compact} withToolbar={false} />
+
+The compact style reduces vertical spacing between items, making it suitable for dense audit logs or activity streams where many events need to fit in a limited vertical space. Pair the time inline with the title row rather than below the description to save further vertical space.
+
+## Usage guidelines
+
+Always mark the last `TimelineItem` and `TimelineIcon` with the `last` prop — this removes the connecting line below the final item.
+
+Use `TimelineTime` to communicate when the event occurred. Relative timestamps ("2 minutes ago") work well for recent activity feeds; absolute timestamps ("09:41") suit audit logs where precision matters.
+
+Keep descriptions concise — one or two lines. For events with rich detail, link to a detail view from the title rather than expanding inline.
