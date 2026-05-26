@@ -1,0 +1,50 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as StepperStories from "./Stepper.stories"
+
+<Meta of={StepperStories} />
+
+# Stepper
+
+<Canvas of={StepperStories.Default} withToolbar={false} />
+
+A stepper guides users through a multi-step process with a clear indication of where they are, where they have been, and what remains. Use it for wizards, onboarding flows, checkout sequences, and any task that must be completed in a defined order across multiple screens.
+
+## Default (horizontal)
+
+The horizontal stepper is the standard layout. Steps are connected by a line that transitions from solid blue for completed segments to dashed grey for upcoming ones. The current step's circle has a blue border and number; completed steps show a filled check icon; upcoming steps are grey and recessed.
+
+The `StepperContent` component renders only when its `step` prop matches the `currentStep`, so each panel mounts only when it is active. `StepperActions` provides a standardised Back / Next / Submit row with correct disabled and loading states.
+
+## Vertical
+
+<Canvas of={StepperStories.Vertical} withToolbar={false} />
+
+Use the vertical layout when the steps have descriptions, when there is room to run the progress indicator down the left side of a layout, or when the horizontal layout would be too compressed. The label and description sit to the right of each circle, and the connecting line runs vertically on the left.
+
+## Four steps
+
+<Canvas of={StepperStories.FourSteps} withToolbar={false} />
+
+The stepper scales from 3 to 6 steps. At 4 steps, the horizontal connector lines compress slightly but labels remain readable. If labels are long, switch to the vertical orientation or shorten the label to a noun phrase.
+
+## With validation
+
+<Canvas of={StepperStories.WithValidation} withToolbar={false} />
+
+Validate each step before allowing the user to advance. Disable or withhold the Next button until the required conditions for that step are met, and surface inline error messages so the user knows exactly what is blocking progress. Do not collect all errors on the final step — validate as close to the point of entry as possible.
+
+## Usage guidelines
+
+Keep the number of steps between 3 and 6. Fewer than 3 steps do not need a stepper — a single form or a simple confirm dialog is sufficient. More than 6 steps should be restructured or split into separate flows. Label each step with a short noun phrase that names the task — "Billing", "Review", "Confirm" — not a verb phrase like "Enter your billing details". Always allow the user to go back and edit a previous step before submitting. Validate each step before advancing — do not surface all errors on the final step.
+
+Allow navigation back to completed steps. Show completed steps as visually distinct from upcoming ones using the filled check icon and brand colour. Do not disable the Back button on the first step — hide it instead so the layout does not shift. Do not use a stepper for non-linear processes where the user can complete steps in any order — use a checklist or tabbed interface instead.
+
+The Back button is always rendered as a ghost-style control so the primary action (Next or Submit) is visually dominant. On the last step, the primary button changes label to "Submit" — or a contextually specific label like "Publish" or "Send invite" — to communicate that clicking it will finalise the flow, not merely advance to another step.
+
+## Accessibility
+
+The stepper has `role="list"` with each step as `role="listitem"`. The current step has `aria-current="step"`. Completed steps include "completed" in their `aria-label` — for example, "Account details, completed". The step number and status together should be readable as a coherent sentence: "Step 1 of 3, Account details, completed".
+
+`StepperActions` uses a `<nav>` element with `aria-label="Step navigation"`. The Back button has `aria-label="Go to previous step"`. The Next/Submit button describes what will happen: "Continue to step 2" or "Submit form", giving keyboard and screen reader users a clear understanding of the consequence before they act.
+
+When a step has a validation error, the error message must be associated with the relevant field using standard label/input/error patterns. Do not announce the error only at the moment the user tries to advance — surface it at the input level so assistive technology reads the error in context.

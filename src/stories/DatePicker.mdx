@@ -1,0 +1,52 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as DatePickerStories from "./DatePicker.stories"
+
+<Meta of={DatePickerStories} />
+
+# Date picker
+
+<Canvas of={DatePickerStories.Default} withToolbar={false} />
+
+A date picker lets users select a date by navigating a calendar grid. Use it for fields where the date context matters visually — booking dates, deadlines, birth dates — and where typing a date in a text field would require the user to know the expected format. For date ranges, use two date pickers with linked `min` and `max` props.
+
+## Default
+
+An empty date picker opens to the current month. The placeholder communicates what the field is for and which format the value will display in. Selecting a date closes the popover and displays the value in the trigger.
+
+## With selected value
+
+<Canvas of={DatePickerStories.WithValue} withToolbar={false} />
+
+When a value is already set — for example, when editing an existing record — the trigger shows the formatted date rather than the placeholder. The calendar opens to the selected date's month and highlights that date.
+
+## With min / max constraints
+
+<Canvas of={DatePickerStories.WithMinMax} withToolbar={false} />
+
+Use `min` and `max` to constrain selection to the valid domain. Dates outside the range are visually dimmed and cannot be selected. Always pair range constraints with field-level validation for dates that must satisfy business rules beyond a simple range. For booking or scheduling flows, consider showing availability or context within the calendar cells.
+
+## Disabled
+
+<Canvas of={DatePickerStories.Disabled} withToolbar={false} />
+
+A disabled date picker cannot be interacted with. Use this when the field is not applicable in the current state, not when the user has made an error — use an error state with a message for validation failures.
+
+## Calendar only
+
+<Canvas of={DatePickerStories.CalendarOnly} withToolbar={false} />
+
+The `Calendar` component can be used standalone without the popover trigger — useful for inline date selection in forms, sidebars, or custom overlays where the trigger-and-popover pattern is not appropriate.
+
+## Usage guidelines
+
+Pre-populate the calendar to the selected value if one exists, or to today's date when empty — never open on a blank or distant month. Use `min` and `max` to constrain selection to the valid domain; always pair with field-level validation for dates that must satisfy business rules beyond a simple range. For booking or scheduling flows, consider showing availability or context within the calendar cells.
+
+Label the field clearly — "Start date", "Date of birth", "Due date" — not just "Date". The label should make clear what the date represents in context, not just that a date is required. Format the displayed value in the user's locale so the date is immediately readable without interpretation.
+
+Do not use a date picker for year-only or month-only inputs — a `<select>` is more appropriate for those cases, since the full calendar grid is unnecessary and adds navigational overhead. Do not use a date picker when a relative time reference ("in 7 days", "end of quarter") serves the user's mental model better than an absolute date.
+
+## Accessibility
+
+The calendar grid uses `role="grid"` with `role="gridcell"` for each day. The selected date has `aria-selected="true"`. Disabled dates have `aria-disabled="true"`. Navigation buttons carry `aria-label="Previous month"` and `aria-label="Next month"` so screen readers announce their purpose without relying on icon-only affordance. The popover trigger has `aria-haspopup="dialog"` and `aria-expanded` reflecting the current open state.
+
+Keyboard interaction: arrow keys navigate between days in the grid, Enter selects the focused day, Escape closes the popover and returns focus to the trigger. Page Up and Page Down move backwards and forwards one month respectively. Tab and Shift+Tab cycle between the navigation buttons and the day cells within the popover.
