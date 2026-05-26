@@ -1,0 +1,38 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./DateRangePicker.stories"
+
+<Meta of={Stories} />
+
+# DateRangePicker
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A date range input backed by a Radix Popover. Clicking the trigger opens a floating panel with two calendar months side by side, allowing users to select a start and end date in one fluid interaction. Built on native JS `Date` — no external date library required.
+
+The trigger shows a calendar icon and a formatted label once a range is selected. The popover panel aligns to the trigger's leading edge and positions itself automatically via Radix to stay within the viewport.
+
+## Controlled
+
+<Canvas of={Stories.Controlled} withToolbar={false} />
+
+Pass `value` and `onChange` to use the picker in controlled mode. The `value` prop is `{ from: Date | null; to: Date | null }`. Useful when you need to reflect the selected range elsewhere on the page — for example, in a query preview or a summary panel.
+
+## With presets
+
+<Canvas of={Stories.WithPresets} withToolbar={false} />
+
+Pass a `presets` array to render a quick-pick column on the left side of the popover. Each preset has a `label` and a `range`. Use presets for common reporting windows — Last 7 days, Last 30 days, This month, This quarter — to reduce the number of calendar interactions for frequent tasks. Selecting a preset closes the popover immediately.
+
+## Disabled
+
+<Canvas of={Stories.Disabled} withToolbar={false} />
+
+Set `disabled={true}` to make the picker read-only. The trigger renders with reduced opacity and a `not-allowed` cursor. Use this when the date range is determined by another control (for example, locked to a billing cycle) and the user should not be able to change it.
+
+## Usage guidelines
+
+Use `minDate` and `maxDate` to constrain valid selections — for example, prevent selecting future dates in a "report for" scenario, or prevent selecting dates before a subscription started. Days outside the allowed range are visually dimmed and cannot be clicked.
+
+Selecting works in two clicks: first click sets the start date, second click sets the end date. If the user clicks an end date earlier than the start, the range is automatically swapped. A hover preview shows the would-be range before the second click is committed.
+
+Always provide a `placeholder` that describes the expected input in context — "Select billing period" is clearer than the generic default. Show the selected range in a human-readable format (`MMM D, YYYY – MMM D, YYYY`) so users can confirm their selection at a glance without reopening the picker.
