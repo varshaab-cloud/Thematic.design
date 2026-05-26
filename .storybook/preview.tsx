@@ -12,6 +12,24 @@ const preview: Preview = {
       },
     },
     layout: "centered",
+    options: {
+      storySort: {
+        order: [
+          ['Thematic Design System', ['Introduction', 'Foundation', '*']],
+          ['Thematic design system', ['Introduction', 'Foundation', '*']],
+          'Data display',
+          'Messaging',
+          'Imagery',
+          'Forms and input',
+          'Overlays',
+          'Navigation',
+          'Loading',
+          'Pages',
+          'Wireframes',
+          '*',
+        ],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
