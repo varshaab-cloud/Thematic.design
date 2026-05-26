@@ -1,0 +1,41 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as ListStories from "./List.stories"
+
+<Meta of={ListStories} />
+
+# List
+
+<Canvas of={ListStories.Default} withToolbar={false} />
+
+A List renders a vertical stack of rows separated by hairline dividers. It is composed from primitive sub-components — `ListItem`, `ListItemAvatar`, `ListItemContent`, `ListItemTitle`, `ListItemDescription`, `ListItemAction`, and `ListDivider` — so you can mix and match exactly what each row needs.
+
+## With avatars
+
+<Canvas of={ListStories.WithAvatars} withToolbar={false} />
+
+Add a `ListItemAvatar` on the left with an `Avatar` inside. Pair it with `ListItemContent` holding a title and description for the standard contact-list layout.
+
+## With actions
+
+<Canvas of={ListStories.WithActions} withToolbar={false} />
+
+Add a `ListItemAction` on the right to surface per-row metadata — a status badge, a button, a count, or a chevron. The action slot uses `ml-auto` to always align to the trailing edge.
+
+## Interactive
+
+<Canvas of={ListStories.Interactive} withToolbar={false} />
+
+Pass `interactive` to a `ListItem` to add hover state and cursor pointer. Pass `selected` to highlight the active row. Use `useState` to track selection in the parent.
+
+## Mixed
+
+<Canvas of={ListStories.Mixed} withToolbar={false} />
+
+The full composition: avatar, title, description, and a trailing chevron icon — all inside interactive rows. A `ListDivider` separates logical groups within the same list.
+
+## Usage guidelines
+
+- Use `List` inside a container with `border` and `overflow-hidden` to get clean rounded corners.
+- Keep list items scannable — one primary label (`ListItemTitle`) and one optional secondary label (`ListItemDescription`) per row.
+- Use `ListDivider` to separate sections, not every item. The `divide-y` on `List` already provides item-level separation.
+- For disabled rows, pass `disabled` to `ListItem` — it removes pointer events and reduces opacity, keeping the row in the DOM for layout consistency.

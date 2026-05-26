@@ -1,0 +1,48 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as SegmentedControlStories from "./SegmentedControl.stories"
+
+<Meta of={SegmentedControlStories} />
+
+# SegmentedControl
+
+<Canvas of={SegmentedControlStories.Default} withToolbar={false} />
+
+A segmented control presents a set of mutually exclusive options in a compact pill. Use it when you have 2–5 choices and want the selected option to feel immediately obvious — like switching between List, Grid, and Board views.
+
+## With icons
+
+<Canvas of={SegmentedControlStories.WithIcons} withToolbar={false} />
+
+Pair each segment with an icon to reinforce the label. Icons improve scannability in toolbars and dense UIs where reading every label quickly is important.
+
+## Sizes
+
+<Canvas of={SegmentedControlStories.Sizes} withToolbar={false} />
+
+**`sm`** — Use in toolbars, table headers, and compact filter rows.
+
+**`md` (default)** — The standard size for most page-level view toggles and settings panels.
+
+**`lg`** — Use when the control is a primary navigational element or needs extra touch target size.
+
+## Disabled
+
+<Canvas of={SegmentedControlStories.Disabled} withToolbar={false} />
+
+Disable the entire control when the feature is unavailable. Always pair with a tooltip or helper text explaining why.
+
+## Full width
+
+<Canvas of={SegmentedControlStories.FullWidth} withToolbar={false} />
+
+Stretches the control to fill its container, with each segment sharing equal width. Use in sidebars, drawers, or narrow panels where the full available width should be used.
+
+## Usage guidelines
+
+- Limit to 2–5 options. More than 5 choices become hard to scan; use a Select or RadioGroup instead.
+- Each option should be short — ideally a single word or icon+word. Long labels break the compact layout.
+- The control is always controlled — always pass `value` and `onChange`.
+
+## Playground
+
+<Controls of={SegmentedControlStories.Default} />

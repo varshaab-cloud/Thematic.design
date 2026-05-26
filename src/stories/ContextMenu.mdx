@@ -1,0 +1,34 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./ContextMenu.stories"
+
+<Meta of={Stories} />
+
+# Context Menu
+
+<Canvas of={Stories.Default} withToolbar={false} />
+
+A context menu surfaces a set of actions relevant to the element the user right-clicked. Use it when a set of contextual actions would clutter the UI if always visible — for example, file operations on a card, row-level actions in a table, or canvas operations in an editor.
+
+Keep menus short. If you have more than seven or eight items, group related actions with separators or move secondary actions into submenus. Place destructive actions (delete, remove) at the bottom, visually separated from safe actions.
+
+## With submenus
+
+<Canvas of={Stories.WithSubmenus} withToolbar={false} />
+
+Use submenus to group a set of related destinations or options behind a single trigger item. Keep nesting to one level — deeper hierarchies are hard to navigate with a mouse and nearly impossible on touch.
+
+## With checkboxes and radio items
+
+<Canvas of={Stories.WithCheckboxAndRadio} withToolbar={false} />
+
+Checkbox items let users toggle boolean preferences in place. Radio groups let users switch between mutually exclusive modes without leaving the menu. Both variants persist state across menu open/close cycles.
+
+## Usage guidelines
+
+Trigger a context menu only via right-click (or a long press on touch). Do not also provide a visible trigger button — if the actions need to be discoverable, use a dropdown menu with an explicit trigger instead.
+
+Label groups with a `ContextMenuLabel` when the items below the label need extra context. Omit the label when the group is self-evident from the items themselves.
+
+## Playground
+
+<Controls of={Stories.Default} />

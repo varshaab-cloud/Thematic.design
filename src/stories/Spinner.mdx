@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as SpinnerStories from "./Spinner.stories"
+
+<Meta of={SpinnerStories} />
+
+# Spinner
+
+<Canvas of={SpinnerStories.Default} withToolbar={false} />
+
+A spinner communicates that an operation is in progress. Use it to reassure users their action was received and the system is working. Keep spinners short-lived — if an operation takes more than a few seconds, consider a progress bar or skeleton instead.
+
+## Sizes
+
+<Canvas of={SpinnerStories.Sizes} withToolbar={false} />
+
+**`sm` (16 px)** — Use inline with text, inside buttons, or in tight table cells.
+
+**`md` (24 px, default)** — The standard size for most loading states: page sections, form submissions, and dialogs.
+
+**`lg` (32 px)** — Use for full-page or full-panel loading states where the spinner is the primary visual.
+
+## Variants
+
+<Canvas of={SpinnerStories.Variants} withToolbar={false} />
+
+**Default** — A neutral gray arc. Use on white or light surfaces where no brand colour is needed.
+
+**Brand** — A blue arc using the primary brand colour. Use when the spinner appears in a branded loading screen or alongside primary actions.
+
+## Inline with text
+
+<Canvas of={SpinnerStories.InlineWithText} withToolbar={false} />
+
+Pair a `sm` spinner with a short status message to give users both a visual signal and a readable description of what is happening.
+
+## Usage guidelines
+
+- Always include a meaningful `label` prop — it becomes the `aria-label` on the SVG and an `sr-only` span, ensuring screen readers announce the loading state.
+- Do not use a spinner as a placeholder for content that has a known shape — use `Skeleton` instead.
+- Remove the spinner as soon as the operation completes; leaving a spinner on screen after loading is done creates confusion.
+
+## Playground
+
+<Controls of={SpinnerStories.Default} />

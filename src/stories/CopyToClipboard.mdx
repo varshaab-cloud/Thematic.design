@@ -1,0 +1,32 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as CopyToClipboardStories from "./CopyToClipboard.stories"
+
+<Meta of={CopyToClipboardStories} />
+
+# CopyToClipboard
+
+<Canvas of={CopyToClipboardStories.Default} withToolbar={false} />
+
+A copy-to-clipboard button gives users a one-click way to copy a value — an API key, a command, a URL — without selecting and using keyboard shortcuts. It cycles through three states: idle (Copy icon), copied (Check icon + "Copied" label), and error (X icon), then automatically reverts after a configurable timeout.
+
+## With code block
+
+<Canvas of={CopyToClipboardStories.WithCodeBlock} withToolbar={false} />
+
+Position a `sm` copy button in the top-right corner of a code block. The button sits absolutely inside a `relative` container and does not push the code content.
+
+## Inline with text
+
+<Canvas of={CopyToClipboardStories.InlineText} withToolbar={false} />
+
+When `children` is provided, the component wraps the content and appends the copy button immediately after. Use this pattern for API keys, tokens, and short values that benefit from an inline copy action.
+
+## Usage guidelines
+
+- Always pass a descriptive `value` — copy the exact string the user sees, not a transformed version.
+- The default `timeout` of 2000 ms gives users enough time to confirm the action succeeded. Reduce it only if the copied state would interfere with other UI updates.
+- In dark-surface code blocks, use `size="sm"` so the button does not overwhelm the code content.
+
+## Playground
+
+<Controls of={CopyToClipboardStories.Default} />
