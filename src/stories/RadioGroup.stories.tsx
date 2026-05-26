@@ -4,7 +4,6 @@ import { RadioGroup, RadioGroupItem, RadioGroupLabel } from "@/components/ui/rad
 const meta: Meta<typeof RadioGroup> = {
   title: "Forms and input/RadioGroup",
   component: RadioGroup,
-  tags: ["autodocs"],
   parameters: { layout: "centered" },
 }
 export default meta

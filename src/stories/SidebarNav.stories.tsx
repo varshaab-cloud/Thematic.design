@@ -24,7 +24,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 const meta: Meta<typeof SidebarNav> = {
   title: "Navigation/SidebarNav",
   component: SidebarNav,
-  tags: ["autodocs"],
   parameters: { layout: "fullscreen" },
 }
 export default meta

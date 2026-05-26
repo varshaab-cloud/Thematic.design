@@ -1,0 +1,46 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as DataTableStories from "./DataTable.stories"
+
+<Meta of={DataTableStories} />
+
+# DataTable
+
+<Canvas of={DataTableStories.Default} withToolbar={false} />
+
+A DataTable is a full-featured data grid for displaying, searching, sorting, and paginating structured datasets. Use it when users need to browse, find, or act on records — team members, transactions, issues, orders.
+
+Prefer DataTable over a plain Table when the dataset has more than one page of results, requires sorting or filtering, or when users need to select and act on multiple rows at once.
+
+## Default
+
+Displays the dataset with search, sorting, and pagination built in. The search bar filters across visible columns in real time. Column headers are sortable on click. Pair each row with an actions menu for row-level operations.
+
+## With row selection
+
+<Canvas of={DataTableStories.WithSelection} withToolbar={false} />
+
+Adds a checkbox column to allow users to select one or more rows. Use when users need to perform bulk actions — delete, export, reassign. Show a bulk-action bar or toolbar when one or more rows are selected.
+
+## With column toggle
+
+<Canvas of={DataTableStories.WithColumnToggle} withToolbar={false} />
+
+Adds a column visibility control that lets users show or hide columns. Use for tables with many columns where different users care about different fields. The toggle remembers user preferences within the session.
+
+## Loading
+
+<Canvas of={DataTableStories.LoadingState} withToolbar={false} />
+
+Displays skeleton rows while data is being fetched. Match the number of skeleton rows to the expected page size so the layout doesn't reflow when real data arrives. Always show the search bar and table header during loading so the structure is immediately understood.
+
+## Empty state
+
+<Canvas of={DataTableStories.EmptyState} withToolbar={false} />
+
+Shown when the dataset is genuinely empty — no records exist yet. Use a simple, centred message. Keep the tone constructive rather than diagnostic.
+
+## Custom empty state
+
+<Canvas of={DataTableStories.CustomEmptyState} withToolbar={false} />
+
+Use a custom empty state when the context calls for a more specific message and a clear next action — for example, "No team members yet" with an "Invite member" button. Match the icon and copy to the domain so the state feels intentional rather than generic.

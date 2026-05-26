@@ -7,20 +7,22 @@ import * as TooltipStories from "./Tooltip.stories"
 
 <Canvas of={TooltipStories.Default} withToolbar={false} />
 
-A tooltip reveals a short label or description when the user hovers over or focuses an element. Use tooltips to clarify the purpose of icon buttons, truncated labels, or any element where the meaning isn't immediately obvious.
+A tooltip surfaces a short, supplementary label when a user hovers over or focuses an element. Use tooltips to clarify the purpose of icon-only controls, reveal keyboard shortcuts, or provide brief definitions for terms that may be unfamiliar.
 
-Keep tooltip copy short — one sentence at most. If the explanation requires more than that, use a Popover instead.
+Tooltips are not interactive and should not contain links, buttons, or multi-line instructions. For richer contextual content, use a Popover. Never put information in a tooltip that is critical to completing a task — it must be reachable without hovering.
 
-Never put essential information inside a tooltip. Tooltips are invisible until triggered, so anything critical to completing a task must also be visible in the UI.
+## Default
+
+A text label attached to any focusable trigger — typically a button or icon button. The tooltip appears on hover and keyboard focus and dismisses when the user moves away.
 
 ## On icon
 
 <Canvas of={TooltipStories.OnIcon} withToolbar={false} />
 
-The most common use case. Attach a tooltip to an icon or help indicator (`?`, `ⓘ`) to describe a field constraint, limit, or term without cluttering the layout.
+The most common pattern: a small info or help icon placed inline with a label or form field. The tooltip explains a constraint, limit, or term that would otherwise require inline documentation. Always include a visually hidden `sr-only` label on the icon for screen readers.
 
 ## Positions
 
 <Canvas of={TooltipStories.Positions} withToolbar={false} />
 
-Tooltips can appear on any side of the trigger — top, right, bottom, or left. The default is top. Choose the position that keeps the tooltip within the viewport and doesn't obscure related content.
+Tooltips can be positioned on any side of their trigger — top, right, bottom, or left. The default is `top`. Use `right` or `left` when vertical space is constrained — for example, in a narrow sidebar. Use `bottom` when the tooltip would otherwise be obscured by a sticky header or the viewport edge.

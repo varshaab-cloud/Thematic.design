@@ -1,0 +1,58 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as PaginationStories from "./Pagination.stories"
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+<Canvas of={PaginationStories.Default} withToolbar={false} />
+
+Pagination splits a large dataset across multiple pages and gives users controls to move between them. Use pagination on any list or table where showing all records at once would hurt performance or readability.
+
+Always show the total record count and the current page context ("1–10 of 142 members") so users always know where they are in the dataset.
+
+## Default
+
+The standard pagination bar with previous/next controls, numbered page buttons, a row-count summary, and a page-size selector. Use this in most table and list contexts.
+
+## First page
+
+<Canvas of={PaginationStories.FirstPage} withToolbar={false} />
+
+On the first page, the Previous and First buttons are disabled but remain visible. Never hide navigation controls — hiding them causes layout shifts and disorientation when the user reaches the boundary.
+
+## Last page
+
+<Canvas of={PaginationStories.LastPage} withToolbar={false} />
+
+On the last page, the Next and Last buttons are disabled. The row-count summary adjusts to reflect the final page's actual record count, which may be fewer than the selected page size.
+
+## Many pages (with ellipsis)
+
+<Canvas of={PaginationStories.ManyPages} withToolbar={false} />
+
+When the total number of pages exceeds the display threshold, the middle of the page range collapses into ellipsis markers (…), keeping the first, last, and pages surrounding the current page always visible. This prevents the pagination bar from becoming too wide on large datasets.
+
+## Small dataset (≤7 pages)
+
+<Canvas of={PaginationStories.SmallDataset} withToolbar={false} />
+
+When the total pages fall within the display threshold, all page numbers are shown without ellipsis. No truncation is applied.
+
+## Single page
+
+<Canvas of={PaginationStories.SinglePage} withToolbar={false} />
+
+When all records fit on one page, all navigation controls are disabled. The row-count summary still shows the total number of records so the user understands why navigation is unavailable.
+
+## No page size selector
+
+<Canvas of={PaginationStories.NoPageSizeSelector} withToolbar={false} />
+
+Use when the page size is fixed by the application or context and the user should not be able to change it — for example, a fixed-length feed or an export preview.
+
+## Empty (zero rows)
+
+<Canvas of={PaginationStories.Empty} withToolbar={false} />
+
+When there are no records, the pagination bar shows zero-state counts and disables all controls. Use this state alongside an empty state message in the table or list above it.

@@ -7,7 +7,7 @@ import { Users, DollarSign, TrendingUp, ShoppingCart, Activity } from "lucide-re
 const meta: Meta<typeof Card> = {
   title: "Data display/Card",
   component: Card,
-  tags: ["autodocs"],
+
 }
 
 export default meta

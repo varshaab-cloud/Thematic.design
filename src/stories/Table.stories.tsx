@@ -6,7 +6,6 @@ import { Button } from "../../components/ui/button"
 const meta: Meta<typeof Table> = {
   title: "Data display/Table",
   component: Table,
-  tags: ["autodocs"],
 }
 
 export default meta

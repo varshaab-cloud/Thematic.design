@@ -43,7 +43,6 @@ function PaginationDemo({
 const meta: Meta<typeof Pagination> = {
   title: "Navigation/Pagination",
   component: Pagination,
-  tags: ["autodocs"],
   parameters: {
     layout: "padded",
   },

@@ -1,0 +1,68 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as CardStories from "./Card.stories"
+
+<Meta of={CardStories} />
+
+# Card
+
+<Canvas of={CardStories.Default} withToolbar={false} />
+
+A card groups related content and actions into a contained, scannable unit. Use cards to present discrete items — a user profile, a metric, a project summary — where each item needs visual separation from its neighbours.
+
+Cards are layout containers, not interactive elements in themselves. If the entire card is clickable, apply a hover state and ensure it has an accessible role and label.
+
+## Default
+
+Use for any grouped content that needs a title, supporting description, and one or more actions. The footer holds the card's primary and secondary actions — keep it to two buttons at most.
+
+## With action
+
+<Canvas of={CardStories.WithAction} withToolbar={false} />
+
+Places a secondary action — typically a small button or badge — in the top-right corner of the card header. Use for contextual shortcuts that relate to the card's subject without being the card's primary CTA: an "Invite" button on a team card, a settings link on a project card, or a live status badge on a deployment card.
+
+## Small (compact)
+
+<Canvas of={CardStories.SmallCard} withToolbar={false} />
+
+A reduced-padding variant for dense layouts such as sidebars, dashboards with many tiles, or stacked lists. Use when cards need to fit comfortably in a constrained grid without competing with each other for space.
+
+## Status card
+
+<Canvas of={CardStories.StatusCard} withToolbar={false} />
+
+Combines a header action badge with semantic badge pills in the content area. Use to communicate the real-time health or state of a system, deployment, or resource at a glance. Keep the content scannable — favour badges and short labels over prose.
+
+---
+
+# MetricCard
+
+<Canvas of={CardStories.MetricVariants} withToolbar={false} />
+
+A MetricCard is a specialised card for displaying a single KPI with its trend direction. Use metric cards in dashboards and summary pages where users need to quickly read a key number and understand whether it is moving in the right direction.
+
+Always show a trend label so the comparison period is clear ("vs last month", "vs last week"). Never show a trend without a reference point.
+
+## Default
+
+<Canvas of={CardStories.MetricDefault} withToolbar={false} />
+
+Displays a label, a large value, and a trend indicator. Use for any quantitative metric where the absolute value and its direction both matter.
+
+## Brand
+
+<Canvas of={CardStories.MetricBrand} withToolbar={false} />
+
+Use the brand variant to highlight your most important or signature metric — typically the primary business KPI on a dashboard header.
+
+## Trend: up / down / neutral
+
+<Canvas of={CardStories.MetricDown} withToolbar={false} />
+
+The trend indicator (arrow + percentage) communicates direction relative to the comparison period. Use "up" for improvement, "down" for decline, and "neutral" when there is no meaningful change. Choose whether "up" is good or bad based on the metric — churn going up is bad; revenue going up is good — and apply the card variant accordingly.
+
+## Dashboard grid
+
+<Canvas of={CardStories.MetricDashboard} withToolbar={false} />
+
+Arrange metric cards in a responsive grid (typically 2–4 columns) at the top of a dashboard. Group related metrics together and maintain consistent comparison periods across all cards on the same view.

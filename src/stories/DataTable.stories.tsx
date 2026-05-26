@@ -112,7 +112,6 @@ const columns: ColumnDef<User, string>[] = [
 const meta: Meta<typeof DataTable> = {
   title: "Data display/DataTable",
   component: DataTable,
-  tags: ["autodocs"],
   parameters: {
     layout: "padded",
   },

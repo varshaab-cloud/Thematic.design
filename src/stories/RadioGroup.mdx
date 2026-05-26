@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as RadioGroupStories from "./RadioGroup.stories"
+
+<Meta of={RadioGroupStories} />
+
+# RadioGroup
+
+<Canvas of={RadioGroupStories.States} withToolbar={false} />
+
+A radio group lets users select exactly one option from a set. Use radio groups when the choices are mutually exclusive and all options should be visible at once — for example, selecting a role, a billing cycle, or an access level.
+
+Use a Select when there are more than five or six options and screen space is constrained. Use a Checkbox when multiple items can be selected simultaneously.
+
+## Default
+
+<Canvas of={RadioGroupStories.Default} withToolbar={false} />
+
+A vertical list of options with a shared group label. Each item has a radio control and a text label. The selected option is visually distinguished by the filled radio button.
+
+## With descriptions
+
+<Canvas of={RadioGroupStories.WithDescriptions} withToolbar={false} />
+
+Each option includes a supporting description beneath the label. Use when the options are non-obvious or have meaningfully different consequences — for example, access level tiers ("Can view all projects but cannot make changes"). Descriptions help users make an informed choice without needing to leave the page for documentation.
+
+## With disabled item
+
+Use a disabled item when one or more options are unavailable in the current context — for example, a plan tier that requires a sales conversation, or a role that requires additional permissions. Show the option so users know it exists, and pair it with a description explaining how to unlock it.
+
+## All disabled
+
+<Canvas of={RadioGroupStories.Disabled} withToolbar={false} />
+
+The entire group is non-interactive. Use when the selection is determined by the system or another setting — for example, showing a locked plan configuration on a read-only billing page.
+
+## Horizontal
+
+<Canvas of={RadioGroupStories.Horizontal} withToolbar={false} />
+
+Lays the options out in a row. Use for short, visually compact option sets — sizes, time intervals, or simple A/B choices — where the options are brief enough to read comfortably side by side.
+
+## Playground
+
+<Controls of={RadioGroupStories.Default} />

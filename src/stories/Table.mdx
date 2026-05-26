@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as TableStories from "./Table.stories"
+
+<Meta of={TableStories} />
+
+# Table
+
+<Canvas of={TableStories.Default} withToolbar={false} />
+
+A Table is a lightweight, static data display for small, stable datasets that don't require sorting, filtering, or pagination. Use it for reference data, comparison layouts, settings summaries, and read-only records.
+
+When the dataset is dynamic, paginated, or needs row actions, use DataTable instead.
+
+## Default
+
+A standard table with a header row and data rows. Use semantic column headers to describe each column clearly. Place row-level actions (Edit, Delete) in a trailing cell using ghost buttons to keep the table visually clean.
+
+## Simple table
+
+<Canvas of={TableStories.SimpleTable} withToolbar={false} />
+
+A minimal two-column layout for key–value reference data — for example, design tokens, configuration values, or specification tables. No actions needed; the value of each row speaks for itself.
