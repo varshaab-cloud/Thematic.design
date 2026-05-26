@@ -37,7 +37,7 @@ const alertVariants = cva(
     variants: {
       variant: {
         // Neutral / informational (no strong semantic colour)
-        default: "bg-card text-card-foreground",
+        default: "bg-[var(--alias-color-background-primary)] text-[var(--alias-color-text-primary)]",
         // Severity variants — all backed by alias tokens, no raw colour values
         // error: state where something has failed (form validation, API error, system failure)
         error:
@@ -86,7 +86,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground",
+        "font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)]",
         alertTitleSizeClasses[size],
         className
       )}
@@ -104,7 +104,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-balance text-muted-foreground md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+        "text-balance text-[var(--alias-color-text-subtle)] md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)] [&_p:not(:last-child)]:mb-4",
         alertDescriptionSizeClasses[size],
         className
       )}

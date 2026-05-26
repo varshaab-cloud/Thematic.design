@@ -5,15 +5,15 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [&>svg]:pointer-events-none [&>svg]:size-3!",
+  "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-[3px] focus-visible:ring-[var(--alias-color-border-active)]/50 [&>svg]:pointer-events-none [&>svg]:size-3!",
   {
     variants: {
       variant: {
         // shadcn defaults
-        default:   "bg-primary text-primary-foreground",
-        secondary: "bg-secondary text-secondary-foreground",
-        destructive: "bg-destructive/10 text-destructive",
-        outline:   "border-border text-foreground",
+        default:   "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)]",
+        secondary: "bg-[var(--alias-color-background-tertiary)] text-[var(--alias-color-text-secondary)]",
+        destructive: "bg-[var(--alias-color-feedback-error-fg)]/10 text-[var(--alias-color-feedback-error-fg)]",
+        outline:   "border-[var(--alias-color-border-default)] text-[var(--alias-color-text-primary)]",
 
         // Thematic semantic variants — using your token system
         success: "bg-[var(--base-color-success-800)] text-[var(--base-color-green-800)] border-[var(--base-color-success-900)]/20",
@@ -58,10 +58,10 @@ function Badge({
     warning:     "bg-[var(--base-color-warning-100)]",
     error:       "bg-[var(--base-color-error-300)]",
     brand:       "bg-white",
-    default:     "bg-primary-foreground",
-    secondary:   "bg-secondary-foreground",
-    destructive: "bg-destructive",
-    outline:     "bg-foreground",
+    default:     "bg-[var(--alias-color-text-inverse)]",
+    secondary:   "bg-[var(--alias-color-text-secondary)]",
+    destructive: "bg-[var(--alias-color-feedback-error-fg)]",
+    outline:     "bg-[var(--alias-color-text-primary)]",
   }
 
   return (
