@@ -15,8 +15,8 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          ['Thematic Design System', ['Introduction', 'Foundation', '*']],
-          ['Thematic design system', ['Introduction', 'Foundation', '*']],
+          'Thematic Design System', ['Introduction', 'Foundation', '*'],
+          'Thematic design system', ['Introduction', 'Foundation', '*'],
           'Data display',
           'Messaging',
           'Imagery',
