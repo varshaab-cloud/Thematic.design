@@ -40,3 +40,11 @@ Navigation items respond to clicks by updating the active state. Only one item s
 <Canvas of={SidebarNavStories.MinimalNoSections} withToolbar={false} />
 
 A single flat list of items with no section groupings. Use when the navigation structure is shallow and sections would add visual noise without meaningful categorisation — for example, a simple five-item product with no sub-domains.
+
+## Usage guidelines
+
+Keep each section to a maximum of 5 items, and limit the sidebar to no more than 4 sections total. Beyond those thresholds the sidebar becomes a menu rather than navigation, and users lose their sense of where they are. Order sections by frequency of use so the destinations people visit most are closest to the top.
+
+Settings always belongs in the last section, alone or paired with Billing. It is a low-frequency destination and should not compete visually with the primary navigation. The primary section — Overview, Inbox, and similar top-level destinations — should have no section title at all.
+
+Badge counts signal pending items and unread content. Cap the displayed count at 99+ rather than showing the exact number, which becomes noise at scale. Never show a zero — remove the badge entirely when the count reaches zero. Always use the info (blue) variant for nav badges; red is reserved for errors, not quantities. Never badge the Settings or Overview items, as neither carries urgency.

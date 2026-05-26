@@ -37,3 +37,13 @@ Use an `AlertDialog` when you need a system-enforced confirmation — unlike a r
 
 Not all confirmations are destructive. Use a non-destructive confirmation dialog when an action is significant but reversible — for example, publishing to production or sending a bulk notification.
 
+## Writing confirmation copy
+
+The dialog title should name the specific thing being acted on, not the action itself. "Remove Priya Sharma from this workspace?" is correct; "Confirm removal?" tells the user nothing. Ask what is happening, not what the user is doing.
+
+The body should state the exact consequence in one sentence, and add "This can't be undone." as a second sentence only when that is literally true. Keep the tone direct and specific — name counts, names, or scope where relevant, so the user can make a confident decision without re-reading.
+
+The confirm button must use a specific verb and noun together, matching what will actually happen: "Delete project", "Remove member", or "Cancel subscription". Never use "Delete", "Confirm", or "Yes" alone — the button is the last thing the user reads before the action fires. The cancel button is always exactly "Cancel", nothing else.
+
+Avoid the words "permanently", "forever", "irreversible", and "warning" in dialog copy. State the consequence directly instead — "can't be undone" carries the same meaning without the alarm that makes experienced users second-guess routine operations.
+

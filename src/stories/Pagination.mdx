@@ -56,3 +56,9 @@ Use when the page size is fixed by the application or context and the user shoul
 <Canvas of={PaginationStories.Empty} withToolbar={false} />
 
 When there are no records, the pagination bar shows zero-state counts and disables all controls. Use this state alongside an empty state message in the table or list above it.
+
+## Usage guidelines
+
+Default to a page size of 10 rows. Offer 10, 25, and 50 as options in the page-size selector, but never default to "All" — loading an unbounded dataset locks the browser on large tables and gives users no sense of scale.
+
+Whenever the user changes a filter, reset the pagination to page 1 and update the row-count summary to reflect the filtered result set. Remaining on page 4 after a filter is applied is disorienting, and showing a count that does not match the visible rows erodes trust in the data.

@@ -39,3 +39,11 @@ Add an action button (typically "Undo" or "View") when a quick reversal or follo
 
 Add a description when the title alone doesn't give enough context — for example, "Version 2.4.1 is now live on production" under a "Deployment complete" title.
 
+## Usage guidelines
+
+Toasts auto-dismiss after 4 seconds by default — long enough to read a short sentence without demanding attention. Error toasts are an exception: they persist until the user explicitly dismisses them, because errors require acknowledgement. When a toast includes an undo action, keep it visible for 5–8 seconds to match the undo window and give the user time to react.
+
+Always render toasts in the bottom-right corner. This placement keeps them out of primary content and away from form submission areas, so they never obscure an action the user is in the middle of taking.
+
+Write toast titles as a plain statement of what happened, not a label for a state. "Settings saved" is correct; "Success!" is not. When a description is present, use the title for what happened and the description for what it means or what to do next — for example, a title of "Couldn't save changes" paired with a description of "Connection issue — check your network."
+

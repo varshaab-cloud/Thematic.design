@@ -44,3 +44,13 @@ Shown when the dataset is genuinely empty — no records exist yet. Use a simple
 <Canvas of={DataTableStories.CustomEmptyState} withToolbar={false} />
 
 Use a custom empty state when the context calls for a more specific message and a clear next action — for example, "No team members yet" with an "Invite member" button. Match the icon and copy to the domain so the state feels intentional rather than generic.
+
+## Column types
+
+The identity cell is always the first column. It shows a name in bold on the primary line and a secondary value such as an email address or subtitle below it in muted foreground. Never truncate the name. Status values should use a Badge with a dot and the appropriate semantic variant — success, warning, or error — never plain text or raw colour. Date and time columns should use relative time for recent events ("2h ago", "yesterday") and absolute dates for historical records, rendered in muted foreground. Numeric columns are always right-aligned and should use tabular-nums so values stack cleanly. The actions cell is always the last column; use a DropdownMenu with a MoreHorizontal trigger for three or more row-level actions, with destructive actions placed below a separator in destructive colour. Boolean values should be represented by a read-only icon or switch, never the raw text "true", "false", "yes", or "no".
+
+## Usage guidelines
+
+Every DataTable has four states that must all be designed before implementation: loading, empty, error, and populated. Loading shows skeleton rows that match the real column layout and row count so the table does not reflow when data arrives. Empty names what is missing in plain language. Error shows an Alert with a retry action rather than a blank table. Populated displays the row count near the header, not inside the toolbar.
+
+Lay out the toolbar with search and filter controls on the left and export with the primary call to action on the right. There is one primary action per toolbar at most. Export must respect any active filters — exporting the full unfiltered dataset when a filter is in effect is a common mistake that damages user trust in the data they receive.
