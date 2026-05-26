@@ -63,9 +63,9 @@ function Combobox({
   return (
     <div className={cn("flex flex-col gap-1", fullWidth ? "w-full" : "w-auto", className)}>
       {label && (
-        <label className="text-sm font-medium text-foreground">
+        <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">
           {label}
-          {required && <span className="text-destructive ml-1">*</span>}
+          {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </label>
       )}
 
@@ -81,10 +81,10 @@ function Combobox({
               "border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)]",
               "px-2.5 text-sm transition-colors outline-none",
               "hover:border-[var(--base-color-gray-400)]",
-              "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+              "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
               "disabled:pointer-events-none disabled:opacity-50 disabled:bg-[var(--base-color-gray-100)]",
-              hasError && "border-destructive ring-3 ring-destructive/20",
-              !selected && "text-muted-foreground"
+              hasError && "border-[var(--alias-color-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20",
+              !selected && "text-[var(--alias-color-text-subtle)]"
             )}
           >
             <span className="truncate">
@@ -106,12 +106,12 @@ function Combobox({
                       onValueChange?.("")
                     }
                   }}
-                  className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  className="text-[var(--alias-color-text-subtle)] hover:text-[var(--alias-color-text-primary)] transition-colors cursor-pointer"
                 >
                   <X className="size-3.5" />
                 </span>
               )}
-              <ChevronsUpDown className="size-3.5 text-muted-foreground" />
+              <ChevronsUpDown className="size-3.5 text-[var(--alias-color-text-subtle)]" />
             </div>
           </button>
         </PopoverTrigger>
@@ -134,7 +134,7 @@ function Combobox({
                     <div className="flex flex-col gap-0.5 flex-1 min-w-0">
                       <span className="truncate">{option.label}</span>
                       {option.description && (
-                        <span className="text-xs text-muted-foreground truncate">
+                        <span className="text-xs text-[var(--alias-color-text-subtle)] truncate">
                           {option.description}
                         </span>
                       )}
@@ -153,8 +153,8 @@ function Combobox({
         </PopoverContent>
       </Popover>
 
-      {hasError && <p className="text-xs text-destructive">{errorMessage}</p>}
-      {helperText && !hasError && <p className="text-xs text-muted-foreground">{helperText}</p>}
+      {hasError && <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
+      {helperText && !hasError && <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>}
     </div>
   )
 }

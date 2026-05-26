@@ -35,10 +35,10 @@ function Slider({
       {(label || showValue) && (
         <div className="flex items-center justify-between">
           {label && (
-            <label className="text-sm font-medium text-foreground">{label}</label>
+            <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">{label}</label>
           )}
           {showValue && (
-            <span className="text-sm tabular-nums text-muted-foreground">
+            <span className="text-sm tabular-nums text-[var(--alias-color-text-subtle)]">
               {currentValue.map(formatValue).join(" – ")}
             </span>
           )}
@@ -76,7 +76,7 @@ function Slider({
               "block size-4 rounded-full border-2 border-[var(--base-color-blue-800)] bg-[var(--base-color-white)]",
               "transition-colors outline-none cursor-pointer",
               "hover:border-[var(--base-color-blue-700)]",
-              "focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:border-ring",
+              "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",
               "active:scale-110"
             )}
           />
@@ -84,7 +84,7 @@ function Slider({
       </SliderPrimitive.Root>
 
       {helperText && (
-        <p className="text-xs text-muted-foreground">{helperText}</p>
+        <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>
       )}
     </div>
   )

@@ -42,9 +42,9 @@ function RadioGroupField({
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {label && (
-        <p className="text-sm font-medium text-foreground">
+        <p className="text-sm font-medium text-[var(--alias-color-text-primary)]">
           {label}
-          {required && <span className="text-destructive ml-1">*</span>}
+          {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </p>
       )}
       <RadioGroupPrimitive.Root
@@ -55,8 +55,8 @@ function RadioGroupField({
       >
         {children}
       </RadioGroupPrimitive.Root>
-      {hasError && <p className="text-xs text-destructive">{errorMessage}</p>}
-      {helperText && !hasError && <p className="text-xs text-muted-foreground">{helperText}</p>}
+      {hasError && <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
+      {helperText && !hasError && <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>}
     </div>
   )
 }
@@ -95,7 +95,7 @@ function RadioGroupItem({
           // Hover
           "hover:border-[var(--base-color-blue-800)]",
           // Focus
-          "focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:border-ring",
+          "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",
           // Checked
           "data-[state=checked]:border-[var(--base-color-blue-800)] data-[state=checked]:bg-[var(--base-color-blue-800)]",
           // Disabled (pointer-events handled by wrapper; opacity too so no double-dim)
@@ -117,13 +117,13 @@ function RadioGroupItem({
           {label && (
             <label
               htmlFor={id}
-              className="text-sm font-medium text-foreground cursor-pointer leading-none pt-0.5"
+              className="text-sm font-medium text-[var(--alias-color-text-primary)] cursor-pointer leading-none pt-0.5"
             >
               {label}
             </label>
           )}
           {description && (
-            <p className="text-xs text-muted-foreground">{description}</p>
+            <p className="text-xs text-[var(--alias-color-text-subtle)]">{description}</p>
           )}
           {children}
         </div>
@@ -139,7 +139,7 @@ function RadioGroupLabel({
   return (
     <p
       data-slot="radio-group-label"
-      className={cn("text-sm font-medium text-foreground mb-1", className)}
+      className={cn("text-sm font-medium text-[var(--alias-color-text-primary)] mb-1", className)}
       {...props}
     />
   )

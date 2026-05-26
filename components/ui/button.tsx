@@ -6,21 +6,21 @@ import { Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-[var(--base-radius-md)] border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-[var(--base-radius-md)] border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-[var(--alias-color-border-error)] aria-invalid:ring-3 aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/20 dark:aria-invalid:border-[var(--alias-color-border-error)]/50 dark:aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         // Taste profile: blue anchors only — primary is the ONE blue thing
-        default:     "bg-primary text-primary-foreground hover:bg-[var(--base-color-blue-700)] active:bg-[var(--base-color-blue-900)]",
+        default:     "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)] hover:bg-[var(--base-color-blue-700)] active:bg-[var(--base-color-blue-900)]",
         // Taste profile: outline hover uses gray-100 — warm neutral, not blue
-        outline:     "border-border bg-card hover:bg-[var(--base-color-gray-100)] hover:text-foreground aria-expanded:bg-[var(--base-color-gray-100)] dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        outline:     "border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] hover:bg-[var(--base-color-gray-100)] hover:text-[var(--alias-color-text-primary)] aria-expanded:bg-[var(--base-color-gray-100)] dark:border-[var(--alias-color-border-default)] dark:bg-[var(--alias-color-border-default)]/30 dark:hover:bg-[var(--alias-color-border-default)]/50",
         // Taste profile: secondary is a muted surface — gray-100 base
-        secondary:   "bg-secondary text-secondary-foreground hover:bg-[var(--base-color-gray-200)] aria-expanded:bg-secondary",
+        secondary:   "bg-[var(--alias-color-background-tertiary)] text-[var(--alias-color-text-secondary)] hover:bg-[var(--base-color-gray-200)] aria-expanded:bg-[var(--alias-color-background-tertiary)]",
         // Taste profile: ghost is invisible until interaction
-        ghost:       "hover:bg-[var(--base-color-gray-100)] hover:text-foreground aria-expanded:bg-[var(--base-color-gray-100)] dark:hover:bg-muted/50",
+        ghost:       "hover:bg-[var(--base-color-gray-100)] hover:text-[var(--alias-color-text-primary)] aria-expanded:bg-[var(--base-color-gray-100)] dark:hover:bg-[var(--alias-color-background-tertiary)]/50",
         // Taste profile: destructive uses error token
-        destructive: "bg-[var(--base-color-error-200)] text-[var(--base-color-error-300)] hover:bg-[var(--base-color-error-300)] hover:text-white focus-visible:ring-destructive/20",
-        link:        "text-primary underline-offset-4 hover:underline",
+        destructive: "bg-[var(--base-color-error-200)] text-[var(--base-color-error-300)] hover:bg-[var(--base-color-error-300)] hover:text-white focus-visible:ring-[var(--alias-color-feedback-error-fg)]/20",
+        link:        "text-[var(--alias-color-background-brand)] underline-offset-4 hover:underline",
       },
       size: {
         default:

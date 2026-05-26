@@ -8,7 +8,7 @@ function InputBase({ className, type, ...props }: React.ComponentProps<"input">)
       type={type}
       data-slot="input"
       className={cn(
-        "h-8 w-full min-w-0 rounded-[var(--base-radius-md)] border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+        "h-8 w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--alias-color-border-default)] bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-[var(--alias-color-text-primary)] placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--alias-color-border-default)]/50 disabled:opacity-50 aria-invalid:border-[var(--alias-color-border-error)] aria-invalid:ring-3 aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/20 md:text-sm dark:bg-[var(--alias-color-border-default)]/30 dark:disabled:bg-[var(--alias-color-border-default)]/80 dark:aria-invalid:border-[var(--alias-color-border-error)]/50 dark:aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/40",
         className
       )}
       {...props}
@@ -72,16 +72,16 @@ function Input({
     <div className={cn("flex flex-col gap-1", fullWidth ? "w-full" : "w-auto")}>
       {/* Label */}
       {label && (
-        <label className="text-sm font-medium text-foreground">
+        <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">
           {label}
-          {required && <span className="text-destructive ml-1">*</span>}
+          {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </label>
       )}
 
       {/* Input wrapper for icons */}
       <div className="relative flex items-center">
         {prefixIcon && (
-          <div className="absolute left-2.5 flex items-center text-muted-foreground [&_svg]:size-4">
+          <div className="absolute left-2.5 flex items-center text-[var(--alias-color-text-subtle)] [&_svg]:size-4">
             {prefixIcon}
           </div>
         )}
@@ -94,11 +94,11 @@ function Input({
           onChange={handleChange}
           maxLength={maxChars}
           className={cn(
-            "w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)] py-1 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--base-color-gray-100)] disabled:opacity-50 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80",
+            "w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)] py-1 text-base transition-colors outline-none placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--base-color-gray-100)] disabled:opacity-50 md:text-sm dark:bg-[var(--alias-color-border-default)]/30 dark:disabled:bg-[var(--alias-color-border-default)]/80",
             sizeClasses[inputSize],
             prefixIcon && "pl-8",
             suffixIcon && "pr-8",
-            hasError && "border-destructive ring-3 ring-destructive/20 focus-visible:border-destructive",
+            hasError && "border-[var(--alias-color-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--alias-color-border-error)]",
             hasSuccess && "border-[var(--base-color-success-900)] ring-3 ring-[var(--base-color-success-800)]/30 focus-visible:border-[var(--base-color-success-900)]",
             className
           )}
@@ -106,7 +106,7 @@ function Input({
         />
 
         {suffixIcon && (
-          <div className="absolute right-2.5 flex items-center text-muted-foreground [&_svg]:size-4">
+          <div className="absolute right-2.5 flex items-center text-[var(--alias-color-text-subtle)] [&_svg]:size-4">
             {suffixIcon}
           </div>
         )}
@@ -116,19 +116,19 @@ function Input({
       <div className="flex items-center justify-between">
         <div>
           {hasError && (
-            <p className="text-xs text-destructive">{errorMessage}</p>
+            <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>
           )}
           {hasSuccess && !hasError && (
             <p className="text-xs text-[var(--base-color-green-800)]">{successMessage}</p>
           )}
           {helperText && !hasError && !hasSuccess && (
-            <p className="text-xs text-muted-foreground">{helperText}</p>
+            <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>
           )}
         </div>
         {maxChars && (
           <p className={cn(
             "text-xs tabular-nums",
-            currentValue.length >= maxChars ? "text-destructive" : "text-muted-foreground"
+            currentValue.length >= maxChars ? "text-[var(--alias-color-feedback-error-fg)]" : "text-[var(--alias-color-text-subtle)]"
           )}>
             {currentValue.length}/{maxChars}
           </p>
