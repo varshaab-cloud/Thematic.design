@@ -2,7 +2,7 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 <Meta title="Thematic Design System/Introduction" />
 
-<div style={{ fontFamily: "var(--font-sans, 'Outfit', sans-serif)", maxWidth: 720, margin: "0 auto", padding: "48px 24px" }}>
+<div style={{ fontFamily: "var(--font-sans, 'Open Sans', sans-serif)", maxWidth: 720, margin: "0 auto", padding: "48px 24px" }}>
 
 <div style={{ marginBottom: 48 }}>
   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
@@ -15,16 +15,15 @@ import { Meta } from "@storybook/addon-docs/blocks"
   <h1 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, margin: "0 0 16px", color: "var(--base-color-gray-900, #222222)" }}>
     A design system built for enterprise clarity
   </h1>
-  <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0, maxWidth: 560 }}>
-    Thematic is a component library and design language for professional product interfaces.
-    Every decision — token, spacing value, shadow depth — is grounded in a single emotional target.
+  <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0, maxWidth: 580 }}>
+    Thematic is a component library and design language for professional product interfaces. It covers everything from raw design tokens through to full page templates — with accessibility, documentation, and usage guidance built in at every layer.
   </p>
 </div>
 
 ---
 
 <div style={{ background: "var(--base-color-blue-800, #1518A6)", borderRadius: 12, padding: "32px 36px", marginBottom: 48 }}>
-  <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", margin: "0 0 12px" }}>Emotional Target</p>
+  <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", margin: "0 0 12px" }}>Emotional target</p>
   <p style={{ fontSize: 22, fontWeight: 600, color: "white", margin: "0 0 8px", lineHeight: 1.35 }}>
     "A trusted senior colleague. Precise, warm, never loud."
   </p>
@@ -33,14 +32,13 @@ import { Meta } from "@storybook/addon-docs/blocks"
   </p>
 </div>
 
-## Design Principles
+## Design principles
 
 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
 
 <div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 24px 20px" }}>
   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-    <span style={{ fontSize: 18 }}>◆</span>
-    <span style={{ fontSize: 12, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>01</span>
+    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>01</span>
   </div>
   <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222222)" }}>Hierarchy over decoration</h3>
   <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0 }}>
@@ -50,8 +48,7 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 <div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 24px 20px" }}>
   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-    <span style={{ fontSize: 18 }}>◆</span>
-    <span style={{ fontSize: 12, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>02</span>
+    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>02</span>
   </div>
   <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222222)" }}>Density earns trust</h3>
   <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0 }}>
@@ -61,23 +58,41 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 <div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 24px 20px" }}>
   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-    <span style={{ fontSize: 18 }}>◆</span>
-    <span style={{ fontSize: 12, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>03</span>
+    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>03</span>
   </div>
   <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222222)" }}>Blue anchors, neutrals carry</h3>
   <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0 }}>
-    Blue is reserved for one purpose: primary actions, active states, brand moments. Everything else is neutral. One anchor colour, used consistently.
+    Blue is reserved for one purpose: primary actions, active states, and brand moments. Everything else is neutral. One anchor colour, used consistently.
   </p>
 </div>
 
 <div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 24px 20px" }}>
   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-    <span style={{ fontSize: 18 }}>◆</span>
-    <span style={{ fontSize: 12, fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>04</span>
+    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>04</span>
   </div>
   <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222222)" }}>States communicate, don't shout</h3>
   <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0 }}>
     Error, success, warning, and loading states are clear and purposeful. Semantic colour signals meaning without alarming. Red means fix this, not catastrophe.
+  </p>
+</div>
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 24px 20px" }}>
+  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>05</span>
+  </div>
+  <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222222)" }}>Accessible by default</h3>
+  <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0 }}>
+    Every component is built to meet WCAG 2.1 AA. Colour contrast, keyboard navigation, focus management, and screen reader semantics are not afterthoughts — they are part of the component contract.
+  </p>
+</div>
+
+<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 24px 20px" }}>
+  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--base-color-blue-800, #1518A6)", letterSpacing: "0.06em", textTransform: "uppercase" }}>06</span>
+  </div>
+  <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 8px", color: "var(--base-color-gray-900, #222222)" }}>Tokens all the way down</h3>
+  <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--base-color-gray-600, #6D6D6D)", margin: 0 }}>
+    No hardcoded values in components. Every colour, radius, shadow, and spacing value traces back to a named token. This makes theming and systematic changes possible without grep-and-replace.
   </p>
 </div>
 
@@ -87,12 +102,15 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 48 }}>
   {[
-    { label: "Atoms", count: "7", desc: "Button, Badge, Avatar, Checkbox, Switch, Progress, Skeleton" },
-    { label: "Inputs", count: "6", desc: "Input, Textarea, Select, Combobox, RadioGroup, Slider" },
-    { label: "Feedback", count: "7", desc: "Alert, Dialog, AlertDialog, Toast, Tooltip, Popover, DropdownMenu" },
-    { label: "Layout", count: "6", desc: "Card, Tabs, Accordion, Sheet, Table, SidebarNav" },
-    { label: "Data", count: "1", desc: "DataTable with sorting, filtering, pagination, and row selection" },
-    { label: "Forms", count: "1", desc: "React Hook Form + Zod composition layer with all input types" },
+    { label: "Foundation", count: "6", desc: "Colour · Typography · Spacing · Elevation · Iconography · Design Tokens" },
+    { label: "Data display", count: "5", desc: "Accordion · Badge · Card · DataTable · Table" },
+    { label: "Messaging", count: "2", desc: "Alert (6 variants) · Toast" },
+    { label: "Forms and input", count: "9", desc: "Button · Checkbox · Combobox · Input · RadioGroup · Select · Slider · Switch · Textarea" },
+    { label: "Overlays", count: "5", desc: "Dialog (incl. confirmation) · Drawer · DropdownMenu · Popover · Tooltip" },
+    { label: "Navigation", count: "3", desc: "Pagination · SidebarNav · Tabs" },
+    { label: "Imagery / Loading", count: "3", desc: "Avatar · Progress · Skeleton" },
+    { label: "Pages", count: "2", desc: "Dashboard · Form templates" },
+    { label: "Wireframes", count: "4", desc: "Dashboard · DataTable view · Login · Settings" },
   ].map(({ label, count, desc }) => (
     <div key={label} style={{ border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "20px 20px 16px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
@@ -106,25 +124,49 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 ## Token architecture
 
-Thematic uses a **three-tier token system** built with Style Dictionary v4 and the W3C Design Token Community Group spec.
+Thematic uses a three-tier token system. Base tokens are raw primitives — never referenced in product code. Alias tokens are semantic mappings named by purpose, not value. Component tokens are scoped overrides for when a component needs to deviate from the alias defaults.
 
-<div style={{ background: "var(--base-color-gray-75, #F5F5F3)", border: "1px solid var(--base-color-gray-200, #E3E3E0)", borderRadius: 10, padding: "24px 28px", fontFamily: "var(--font-mono, monospace)", fontSize: 13 }}>
-  <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
-    <div style={{ flex: 1, padding: "10px 16px", background: "var(--base-color-gray-200, #E3E3E0)", borderRadius: 6, textAlign: "center" }}>
-      <div style={{ fontWeight: 600, color: "var(--base-color-gray-900, #222)" }}>Base</div>
-      <div style={{ fontSize: 11, color: "var(--base-color-gray-500, #909)" }}>–base-color-blue-800</div>
-    </div>
-    <div style={{ padding: "0 12px", color: "var(--base-color-gray-400, #B1B1B1)", fontSize: 18 }}>→</div>
-    <div style={{ flex: 1, padding: "10px 16px", background: "var(--base-color-blue-100, #C4C5F4)", borderRadius: 6, textAlign: "center" }}>
-      <div style={{ fontWeight: 600, color: "var(--base-color-blue-800, #1518A6)" }}>Alias</div>
-      <div style={{ fontSize: 11, color: "var(--base-color-blue-700, #171CBE)" }}>–color-brand-primary</div>
-    </div>
-    <div style={{ padding: "0 12px", color: "var(--base-color-gray-400, #B1B1B1)", fontSize: 18 }}>→</div>
-    <div style={{ flex: 1, padding: "10px 16px", background: "var(--base-color-blue-800, #1518A6)", borderRadius: 6, textAlign: "center" }}>
-      <div style={{ fontWeight: 600, color: "white" }}>Component</div>
-      <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>–button-bg-primary</div>
-    </div>
+<div style={{ display: "flex", alignItems: "stretch", gap: 0, marginBottom: 48 }}>
+  <div style={{ flex: 1, padding: "16px 20px", background: "var(--base-color-gray-100, #EEEEEC)", borderRadius: "10px 0 0 10px", border: "1px solid var(--base-color-gray-200, #E3E3E0)" }}>
+    <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--base-color-gray-600, #6D6D6D)", marginBottom: 6 }}>01 Base</div>
+    <code style={{ fontSize: 11, color: "var(--base-color-gray-700, #464646)", display: "block", marginBottom: 4 }}>--base-color-blue-800</code>
+    <p style={{ fontSize: 12, color: "var(--base-color-gray-500, #909090)", margin: 0 }}>Raw values. Design tool only.</p>
+  </div>
+  <div style={{ display: "flex", alignItems: "center", padding: "0 8px", background: "var(--base-color-gray-100, #EEEEEC)", border: "1px solid var(--base-color-gray-200)", borderLeft: "none", borderRight: "none", color: "var(--base-color-gray-400, #B1B1B1)", fontSize: 16 }}>→</div>
+  <div style={{ flex: 1, padding: "16px 20px", background: "var(--base-color-blue-100, #C4C5F4)", border: "1px solid var(--base-color-blue-200, #AAACF0)", borderLeft: "none", borderRight: "none" }}>
+    <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--base-color-blue-800, #1518A6)", marginBottom: 6 }}>02 Alias</div>
+    <code style={{ fontSize: 11, color: "var(--base-color-blue-900, #111487)", display: "block", marginBottom: 4 }}>--alias-color-background-brand</code>
+    <p style={{ fontSize: 12, color: "var(--base-color-blue-700, #171CBE)", margin: 0 }}>Semantic names. Use in layout.</p>
+  </div>
+  <div style={{ display: "flex", alignItems: "center", padding: "0 8px", background: "var(--base-color-blue-800, #1518A6)", color: "rgba(255,255,255,0.4)", fontSize: 16 }}>→</div>
+  <div style={{ flex: 1, padding: "16px 20px", background: "var(--base-color-blue-800, #1518A6)", borderRadius: "0 10px 10px 0" }}>
+    <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(255,255,255,0.5)", marginBottom: 6 }}>03 Component</div>
+    <code style={{ fontSize: 11, color: "rgba(255,255,255,0.85)", display: "block", marginBottom: 4 }}>--component-button-primary-background</code>
+    <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", margin: 0 }}>Scoped overrides. Use in components.</p>
   </div>
 </div>
+
+## Accessibility
+
+All components are being reviewed against WCAG 2.1 Level AA. Each component doc includes keyboard interaction patterns, ARIA requirements, and screen reader behaviour. The system uses Radix UI primitives for interactive components, which provides correct focus management, keyboard navigation, and ARIA semantics out of the box.
+
+<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 48 }}>
+  {[
+    { label: "Colour contrast", detail: "4.5:1 minimum for text, 3:1 for UI components and icons" },
+    { label: "Keyboard navigation", detail: "All interactive components reachable and operable via keyboard" },
+    { label: "Screen readers", detail: "Correct ARIA roles, labels, and live region announcements throughout" },
+  ].map(({ label, detail }) => (
+    <div key={label} style={{ background: "var(--base-color-success-800, #DCFCE7)", border: "1px solid var(--base-color-green-300, #86EFAC)", borderRadius: 10, padding: "16px 18px" }}>
+      <p style={{ fontSize: 13, fontWeight: 600, color: "var(--base-color-green-900, #14532D)", margin: "0 0 6px" }}>{label}</p>
+      <p style={{ fontSize: 12, color: "var(--base-color-green-800, #166534)", lineHeight: 1.5, margin: 0 }}>{detail}</p>
+    </div>
+  ))}
+</div>
+
+## How to use this documentation
+
+Each component page follows a consistent structure: a live canvas showing the default state, a description of when and how to use the component, individual canvases for each variant or state, and — where the behaviour is non-obvious — a usage guidelines section covering timing, copy rules, and interaction patterns.
+
+The Foundation section covers the raw building blocks: colour palettes, type scale, spacing, elevation, iconography, and the full token reference. The Pages and Wireframes sections show how components compose into real product layouts.
 
 </div>
