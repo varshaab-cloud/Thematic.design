@@ -95,7 +95,7 @@ function MultiSelect({
             )}
             <ChevronDownIcon
               className={cn(
-                "size-4 text-muted-foreground transition-transform",
+                "size-4 text-[var(--alias-color-text-subtle)] transition-transform",
                 open && "rotate-180"
               )}
             />

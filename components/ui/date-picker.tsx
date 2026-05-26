@@ -301,7 +301,7 @@ export function DatePicker({
             "h-8 w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-300)]",
             "bg-[var(--base-color-white)] px-2.5 py-1 text-sm transition-colors outline-none",
             "flex items-center justify-between gap-2",
-            "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+            "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
             disabled && "cursor-not-allowed bg-[var(--base-color-gray-100)] opacity-50 pointer-events-none",
             open && "border-[var(--alias-color-border-active)]",
             className

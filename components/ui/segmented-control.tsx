@@ -70,11 +70,11 @@ function SegmentedControl({
             onClick={() => !disabled && onChange(option.value)}
             className={cn(
               "relative inline-flex shrink-0 items-center justify-center rounded-[calc(var(--base-radius-md)-2px)] font-medium whitespace-nowrap transition-all duration-150 outline-none select-none",
-              "focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-1",
+              "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:ring-offset-1",
               sizes.segment,
               fullWidth && "flex-1",
               isSelected
-                ? "bg-card text-[var(--base-color-gray-900)] shadow-sm"
+                ? "bg-[var(--alias-color-background-primary)] text-[var(--base-color-gray-900)] shadow-sm"
                 : "text-[var(--base-color-gray-500)] hover:text-[var(--base-color-gray-700)]"
             )}
           >

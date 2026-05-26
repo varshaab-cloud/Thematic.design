@@ -9,7 +9,7 @@ function List({ className, ...props }: React.ComponentProps<"ul">) {
   return (
     <ul
       data-slot="list"
-      className={cn("flex flex-col divide-y divide-border", className)}
+      className={cn("flex flex-col divide-y divide-[var(--alias-color-border-default)]", className)}
       {...props}
     />
   )
@@ -40,7 +40,7 @@ function ListItem({
       className={cn(
         "flex items-center gap-3 px-3 py-2.5 text-sm",
         interactive &&
-          "cursor-pointer transition-colors hover:bg-[var(--base-color-gray-50)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+          "cursor-pointer transition-colors hover:bg-[var(--base-color-gray-50)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
         selected && "bg-[var(--base-color-blue-800)]/8 text-[var(--base-color-blue-800)]",
         disabled && "pointer-events-none opacity-50",
         className
@@ -87,7 +87,7 @@ function ListItemTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="list-item-title"
-      className={cn("truncate font-medium text-foreground", className)}
+      className={cn("truncate font-medium text-[var(--alias-color-text-primary)]", className)}
       {...props}
     />
   )
@@ -101,7 +101,7 @@ function ListItemDescription({ className, ...props }: React.ComponentProps<"p">)
   return (
     <p
       data-slot="list-item-description"
-      className={cn("truncate text-xs text-muted-foreground mt-0.5", className)}
+      className={cn("truncate text-xs text-[var(--alias-color-text-subtle)] mt-0.5", className)}
       {...props}
     />
   )
@@ -130,7 +130,7 @@ function ListDivider({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="list-divider"
       role="separator"
-      className={cn("h-px bg-border", className)}
+      className={cn("h-px bg-[var(--alias-color-border-default)]", className)}
       {...props}
     />
   )

@@ -69,7 +69,7 @@ function CopyToClipboard({
       data-state={state}
       className={cn(
         "inline-flex items-center justify-center rounded-[var(--base-radius-sm)] transition-colors outline-none",
-        "focus-visible:ring-2 focus-visible:ring-ring/50",
+        "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
         state === "idle" &&
           "text-[var(--base-color-gray-400)] hover:text-[var(--base-color-gray-700)] hover:bg-[var(--base-color-gray-100)]",
         state === "copied" &&

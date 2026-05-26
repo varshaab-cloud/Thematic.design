@@ -130,7 +130,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
           "flex items-center gap-1 rounded-[var(--base-radius-sm)] px-1 py-1 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-500)]",
           isSelected
             ? "bg-[color-mix(in_srgb,var(--base-color-blue-800)_10%,transparent)] text-[var(--base-color-blue-900)]"
-            : "hover:bg-accent"
+            : "hover:bg-[var(--alias-color-background-hover)]"
         )}
         style={{ paddingLeft: `${depth * 16 + 4}px` }}
         tabIndex={0}
@@ -159,7 +159,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
 
         {/* Icon */}
         {node.icon && (
-          <span className="flex size-4 shrink-0 items-center justify-center text-muted-foreground [&_svg]:size-4">
+          <span className="flex size-4 shrink-0 items-center justify-center text-[var(--alias-color-text-subtle)] [&_svg]:size-4">
             {node.icon}
           </span>
         )}
@@ -170,7 +170,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
         {/* Badge */}
         {node.badge !== undefined && (
           <span
-            className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--base-color-gray-200)] px-1 text-[10px] font-medium tabular-nums text-muted-foreground"
+            className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--base-color-gray-200)] px-1 text-[10px] font-medium tabular-nums text-[var(--alias-color-text-subtle)]"
             data-slot="tree-node-badge"
           >
             {node.badge}

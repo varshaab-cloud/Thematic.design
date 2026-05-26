@@ -121,12 +121,14 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
-    }
+    border-color: var(--alias-color-border-default);
+    outline-color: color-mix(in srgb, var(--alias-color-border-active) 50%, transparent);
+  }
   body {
-    @apply bg-background text-foreground;
-    }
+    background-color: var(--alias-color-background-secondary);
+    color: var(--alias-color-text-primary);
+  }
   html {
-    @apply font-sans;
-    }
+    font-family: var(--base-font-family-primary);
+  }
 }

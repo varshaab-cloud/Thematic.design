@@ -105,7 +105,7 @@ function TimelineTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="timeline-title"
-      className={cn("text-sm font-medium leading-none text-foreground", className)}
+      className={cn("text-sm font-medium leading-none text-[var(--alias-color-text-primary)]", className)}
       {...props}
     />
   )
@@ -117,7 +117,7 @@ function TimelineDescription({ className, ...props }: React.ComponentProps<"p">)
   return (
     <p
       data-slot="timeline-description"
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("text-sm text-[var(--alias-color-text-subtle)]", className)}
       {...props}
     />
   )
@@ -129,7 +129,7 @@ function TimelineTime({ className, ...props }: React.ComponentProps<"time">) {
   return (
     <time
       data-slot="timeline-time"
-      className={cn("text-xs text-muted-foreground", className)}
+      className={cn("text-xs text-[var(--alias-color-text-subtle)]", className)}
       {...props}
     />
   )
