@@ -1,0 +1,42 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as TagInputStories from "./TagInput.stories"
+
+<Meta of={TagInputStories} />
+
+# Tag input
+
+<Canvas of={TagInputStories.States} withToolbar={false} />
+
+A tag input lets users create and manage a list of free-form text values. Each value is entered and confirmed as a tag chip that can be individually removed. Use it for labels, keywords, email recipients, and any field where the user supplies the values rather than choosing from a predefined list. For selecting from a fixed set of options, use Multi-select instead.
+
+## Default
+
+<Canvas of={TagInputStories.Default} withToolbar={false} />
+
+The empty state shows only the placeholder text inside an input-styled container. Users type a value and press Enter or comma to confirm it as a tag.
+
+## With tags
+
+<Canvas of={TagInputStories.WithTags} withToolbar={false} />
+
+Confirmed tags appear as pill chips to the left of the cursor. Each chip has an X button for individual removal. The text input follows the last chip and expands to fill the remaining width.
+
+## Disabled
+
+<Canvas of={TagInputStories.Disabled} withToolbar={false} />
+
+When disabled, existing tags are shown but cannot be removed and no new tags can be added. The container and chips are visually dimmed.
+
+## With max tags
+
+<Canvas of={TagInputStories.WithMaxTags} withToolbar={false} />
+
+When a `maxTags` limit is set and reached, the text input is disabled and its placeholder changes to communicate that the limit has been reached. Removing an existing tag re-enables entry.
+
+## Usage guidelines
+
+Confirm a tag on Enter or comma. Allow backspace on an empty input to remove the last tag — this is a well-established convention that experienced users expect. Show a count indicator or disable the input when a `maxTags` limit is reached so users understand why entry has stopped. Strip leading and trailing whitespace silently; reject duplicates silently without an error state.
+
+## Accessibility
+
+The container has `role="group"`. Each tag has `role="listitem"`. Remove buttons have `aria-label="Remove [tag name]"` so screen reader users hear which tag will be deleted. The text input has an `aria-label` matching its visible placeholder, or should be associated with a visible label via `htmlFor` when used inside a labelled form field.

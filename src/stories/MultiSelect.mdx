@@ -1,0 +1,44 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as MultiSelectStories from "./MultiSelect.stories"
+
+<Meta of={MultiSelectStories} />
+
+# Multi-select
+
+<Canvas of={MultiSelectStories.States} withToolbar={false} />
+
+A multi-select lets users choose multiple items from a predefined list. Use it when two or more options can apply simultaneously and the list has between 4 and 20 items. For fewer than 4 options, use a checkbox group. For free-form entry of values not from a fixed list, use a tag input instead.
+
+## Default
+
+<Canvas of={MultiSelectStories.Default} withToolbar={false} />
+
+The resting state shows a placeholder until at least one option is chosen. Clicking the trigger opens a dropdown listbox where each option has a checkbox indicator.
+
+## With selections
+
+<Canvas of={MultiSelectStories.WithSelections} withToolbar={false} />
+
+Selected items appear as inline chips inside the trigger. A "Clear" button appears alongside the chevron whenever at least one item is selected, allowing users to remove all selections in a single action.
+
+## Disabled
+
+<Canvas of={MultiSelectStories.Disabled} withToolbar={false} />
+
+The disabled state prevents interaction. The trigger is visually dimmed and the cursor becomes not-allowed. Pre-selected values are still shown so users can see the current state even when they cannot change it.
+
+## Many options
+
+<Canvas of={MultiSelectStories.ManyOptions} withToolbar={false} />
+
+When the list has more options than fit in the viewport, the dropdown scrolls vertically. The maximum height is capped to keep the popover contained.
+
+## Usage guidelines
+
+Show the count of selected items in the trigger when the selections would overflow the trigger width — for example "3 selected" rather than showing all three badge labels truncated. Always allow clearing all selections in a single action. Avoid using multi-select for mutually exclusive options; use a radio group or select instead.
+
+Do use multi-select for filtering, category assignment, and permission sets. Do not use it when the user needs to create new values not in the list — use a tag input for that case instead.
+
+## Accessibility
+
+The trigger button has `aria-haspopup="listbox"` and `aria-expanded` to communicate its state to assistive technologies. The dropdown has `role="listbox"` and `aria-multiselectable="true"`. Each option has `role="option"` and `aria-selected` reflecting its current selection state. Keyboard interaction: Enter or Space toggles the focused option, Escape closes the dropdown without changing the selection, and arrow keys navigate between options.

@@ -1,0 +1,50 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as FileUploadStories from "./FileUpload.stories"
+
+<Meta of={FileUploadStories} />
+
+# File upload
+
+<Canvas of={FileUploadStories.States} withToolbar={false} />
+
+A file upload area lets users attach files to a form either by dragging and dropping or by clicking to open a file browser. Use it when file submission is the primary purpose of an interaction — document uploads, image attachments, CSV imports. For secondary or incidental attachments, an icon button with a hidden file input may be less disruptive.
+
+## Default
+
+<Canvas of={FileUploadStories.Default} withToolbar={false} />
+
+The default upload area accepts any file type and a single file at a time. The dashed border and centered layout signal that this zone is droppable. The "Browse files" button provides a keyboard-accessible fallback for users who cannot or prefer not to drag.
+
+## Image only
+
+<Canvas of={FileUploadStories.ImageOnly} withToolbar={false} />
+
+Setting `accept="image/*"` restricts the file browser to image formats. The constraint text at the bottom of the zone tells users what is accepted and the maximum file size before they attempt an upload.
+
+## Multiple files
+
+<Canvas of={FileUploadStories.MultipleFiles} withToolbar={false} />
+
+When `multiple` is true, users can select more than one file in a single browser interaction or drop multiple files at once. Display a list of selected files with individual remove controls after selection, before the user submits the form.
+
+## Disabled
+
+<Canvas of={FileUploadStories.Disabled} withToolbar={false} />
+
+The disabled state prevents all interaction — drag, drop, and click. The zone is visually dimmed and the cursor becomes not-allowed.
+
+## With size limit
+
+<Canvas of={FileUploadStories.WithSizeLimit} withToolbar={false} />
+
+When `maxSizeMB` is set, files that exceed the limit are filtered out before `onFilesSelected` is called. The limit is shown in the constraint text so users know the threshold upfront.
+
+## Usage guidelines
+
+Always display the accepted file types and size limit directly in the upload area so users know before they attempt an upload. Validate file size client-side immediately on selection and show an inline error rather than waiting for a server response. When multiple files are allowed, show a list of selected files with individual remove controls before the user submits the form.
+
+Do show accepted formats and size limits in the UI. Do validate immediately on selection. Do not clear the selected files on a failed upload — let the user correct and retry. Do not use a file upload zone for single-click actions that could be a simple icon button; the drop zone implies drag-and-drop, which sets expectations.
+
+## Accessibility
+
+The drop zone has `role="button"`, `tabIndex={0}`, and responds to Enter and Space to open the file browser, making it fully keyboard operable. It has an `aria-label` describing the upload action. The hidden `<input type="file">` has `aria-hidden="true"` since the visible button handles the interaction and announcing both would be redundant. Error messages for oversized or wrong-format files should be associated with the drop zone via `aria-describedby` so they are announced when focus enters the area.
