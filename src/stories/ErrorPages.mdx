@@ -1,0 +1,36 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as ErrorPagesStories from "./ErrorPages.stories"
+
+<Meta of={ErrorPagesStories} />
+
+# Error pages
+
+<Canvas of={ErrorPagesStories.NotFound} withToolbar={false} />
+
+Error pages replace the full application layout when a route cannot be rendered. They give users clear context about what went wrong and a reliable path back to safety. Three variants cover the most common failure states: page not found (404), server error (500), and planned maintenance.
+
+## 404 Not found
+
+<Canvas of={ErrorPagesStories.NotFound} withToolbar={false} />
+
+The 404 page appears when the requested URL doesn't match any known route. The large "404" numeral is rendered in a muted blue to signal a system state rather than a critical failure — the problem is navigational, not operational. Two actions give users a choice: return to a known-good page, or go back to where they came from.
+
+## 500 Server error
+
+<Canvas of={ErrorPagesStories.ServerError} withToolbar={false} />
+
+The 500 page appears when the server encounters an unhandled error. The red numeral signals higher severity than the 404. Copy explicitly acknowledges that the fault lies on the product side — "We're having trouble on our end" — which preserves user trust and removes any ambiguity about whether they did something wrong. The "contact support" link below the actions is a secondary escape hatch for cases where the error persists.
+
+## Maintenance
+
+<Canvas of={ErrorPagesStories.Maintenance} withToolbar={false} />
+
+The maintenance page is used for planned downtime. Unlike 404 and 500, there is no recovery action — the user cannot do anything to resolve the situation, so offering a button would be misleading. A wrench icon replaces the error number to distinguish this state visually as intentional and temporary. A time estimate sets an expectation and reduces the need for users to repeatedly check back.
+
+## Usage guidelines
+
+Always provide at least one actionable route out of an error page. The primary action should be the most likely recovery path — "Go to dashboard" for 404 and maintenance, "Try again" for 500. For server errors, reassure the user that the problem is on your side and that it has been noticed — do not ask them to report it. Maintenance pages should set an expectation with a time estimate wherever possible.
+
+## Accessibility
+
+Error pages should set the document title to reflect the error — "404 · Page not found" or "500 · Server error". The main content has `role="main"`. The error code and heading together describe the situation — do not rely on the number alone to communicate meaning. The large numeral carries `aria-hidden="true"` because the visible heading conveys the same information to screen readers.

@@ -1,0 +1,56 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as EmptyStateStories from "./EmptyState.stories"
+
+<Meta of={EmptyStateStories} />
+
+# Empty state
+
+<Canvas of={EmptyStateStories.States} withToolbar={false} />
+
+An empty state fills the space where content would normally appear — after a search returns no results, when a list has no items, or when a feature hasn't been used yet. A well-written empty state explains why the space is empty and tells the user what to do next.
+
+## Default
+
+<Canvas of={EmptyStateStories.Default} withToolbar={false} />
+
+The default medium size is the right choice for most list views, data tables, and inline panels. Pair it with a search icon when the context is a filtered or searched list, and always offer a reset action when one is available.
+
+## Small (inline)
+
+<Canvas of={EmptyStateStories.SmallInline} withToolbar={false} />
+
+Use the small size inside cards, sidebars, and tightly-constrained panels where a full-sized empty state would feel overweight. The reduced icon, tighter type scale, and narrower max-width keep it proportional to the surrounding layout.
+
+## Large (full page)
+
+<Canvas of={EmptyStateStories.LargeFullPage} withToolbar={false} />
+
+Reserve the large size for top-level routes where an entire page is empty — an inbox, a project list, or a team directory before any records exist. The larger icon and generous whitespace give the state appropriate visual weight for a whole-page context.
+
+## Without icon
+
+<Canvas of={EmptyStateStories.NoIcon} withToolbar={false} />
+
+Omit the icon when no useful visual metaphor exists for the content type, or when the state appears in a context where an icon would feel decorative rather than informative. The heading and description carry the message on their own.
+
+## Without action
+
+<Canvas of={EmptyStateStories.NoAction} withToolbar={false} />
+
+Not every empty state has a recovery path the user can take. When the space is empty because no one has sent a message or shared a file, it is fine to inform the user without offering a button. Don't manufacture an action that isn't meaningful.
+
+## Error state
+
+<Canvas of={EmptyStateStories.WithError} withToolbar={false} />
+
+When an empty state results from a failed data fetch rather than a genuinely empty collection, use an error-coloured icon and a "Retry" action. This signals that something went wrong on a technical level, not that the user simply has no items yet. Wrap the container in `aria-live="polite"` so screen readers announce the change when the error state replaces a loading indicator.
+
+## Usage guidelines
+
+Write the heading as a statement of the current state, not a question. The description should answer "what now?" in one sentence — point to the action or explain the cause. Use the large size for top-level pages and the small size for panels and cards within a larger layout. Never say "No data found" — be specific about what is absent.
+
+Do be specific — "No invoices this month" beats "Nothing here". Do always offer a way forward when one exists. Don't use an empty state as a placeholder during loading — use Skeleton instead.
+
+## Accessibility
+
+The empty state is read naturally as static content. If it appears after an action (for example, a search returns no results), wrap it in a region with `aria-live="polite"` so screen readers announce the change. The icon is hidden from the accessibility tree with `aria-hidden="true"` because the heading and description convey the full meaning — do not rely on the icon alone.

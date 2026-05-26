@@ -261,4 +261,42 @@
   --component-badge-warning-background: #fffade;
   --component-badge-warning-text: #f7d307;
   --component-badge-warning-border-radius: 20px;
+
+  /* ─── Data visualisation ─────────────────────────────────────────────────── */
+
+  /* Categorical palette — 8 distinct colours for data series */
+  --data-viz-cat-1: #1c21dc;   /* Blue — primary series */
+  --data-viz-cat-2: #16a34a;   /* Green */
+  --data-viz-cat-3: #ff4e2a;   /* Red/Orange */
+  --data-viz-cat-4: #9194eb;   /* Lavender */
+  --data-viz-cat-5: #f7d307;   /* Yellow */
+  --data-viz-cat-6: #0369a1;   /* Teal Blue */
+  --data-viz-cat-7: #464646;   /* Dark gray */
+  --data-viz-cat-8: #86efac;   /* Mint */
+
+  /* Sequential — single hue ramp (blue, lightest to darkest) */
+  --data-viz-seq-1: #c4c5f4;
+  --data-viz-seq-2: #9194eb;
+  --data-viz-seq-3: #6e71e6;
+  --data-viz-seq-4: #1c21dc;
+  --data-viz-seq-5: #1518a6;
+  --data-viz-seq-6: #111487;
+
+  /* Diverging — negative (red) to positive (green) through neutral */
+  --data-viz-div-neg-strong: #d21a26;
+  --data-viz-div-neg-mid:    #ff999c;
+  --data-viz-div-neutral:    #e3e3e0;
+  --data-viz-div-pos-mid:    #86efac;
+  --data-viz-div-pos-strong: #16a34a;
+
+  /* Chart structural tokens */
+  --data-viz-axis-color:         #d5d5d5;   /* Axis lines */
+  --data-viz-grid-color:         #eeeeec;   /* Grid lines */
+  --data-viz-label-color:        #6d6d6d;   /* Axis labels */
+  --data-viz-label-font-size:    0.75rem;
+  --data-viz-label-font-weight:  400;
+  --data-viz-tooltip-background: #222222;
+  --data-viz-tooltip-text:       #ffffff;
+  --data-viz-tooltip-border-radius: 8px;
+  --data-viz-focus-ring:         #1c21dc;   /* Highlighted/focused bar or point */
 }
