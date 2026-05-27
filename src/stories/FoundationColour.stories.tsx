@@ -432,54 +432,6 @@ function needsWhiteText(hex: string): boolean {
   return (r * 299 + g * 587 + b * 114) / 1000 < 128;
 }
 
-// ─── Section A: Brand overview ───────────────────────────────────────────────
-
-function BrandOverview() {
-  return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 0 }}>
-      {BRANDS.map((brand) => (
-        <div key={brand.id} style={{ border: '1px solid #eee', borderRadius: 10, overflow: 'hidden' }}>
-          {/* Header */}
-          <div style={{
-            background: brand.accentHex, padding: '14px 18px',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          }}>
-            <div>
-              <p style={{ fontSize: 14, fontWeight: 600, color: '#fff', margin: 0 }}>{brand.name}</p>
-              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.65)', margin: 0 }}>{brand.personality}</p>
-            </div>
-            <div style={{ display: 'flex', gap: 6 }}>
-              {brand.roles.slice(0, 3).map((r) => (
-                <div key={r.role} style={{
-                  width: 18, height: 18, borderRadius: '50%',
-                  background: r.stops.find(s => s.stop === '600')?.hex ?? r.stops[5].hex,
-                  border: '2px solid rgba(255,255,255,0.35)',
-                }} />
-              ))}
-            </div>
-          </div>
-          {/* Compact swatch rows */}
-          <div style={{ padding: '12px 16px', background: '#fff', display: 'flex', flexDirection: 'column', gap: 6 }}>
-            {brand.roles.map((r) => (
-              <div key={r.role} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontSize: 10, color: '#aaa', width: 56, flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 600 }}>{r.role}</span>
-                <div style={{ display: 'flex', gap: 2, flex: 1 }}>
-                  {r.stops.map((s) => (
-                    <div key={s.stop} style={{
-                      flex: 1, height: 16, borderRadius: 2, background: s.hex,
-                      border: s.isNeutral ? '0.5px solid #e5e5e5' : 'none',
-                    }} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 // ─── Section B: Brand palette detail (tabbed) ────────────────────────────────
 
 function PaletteRow({ roleData }: { roleData: PaletteRole }) {
@@ -638,7 +590,7 @@ function AliasTokenRow({ name, value, usage, index }: {
           <span style={{ fontSize: 9, color: '#bbb' }}>—</span>
         </div>
       )}
-      <span style={{ fontFamily: 'monospace', fontSize: 11, color: '#111', fontWeight: 600, flex: '2 1 0', minWidth: 0 }}>{name}</span>
+      <span style={{ fontFamily: 'monospace', fontSize: 11, color: '#111', fontWeight: 400, flex: '2 1 0', minWidth: 0 }}>{name}</span>
       <span style={{ fontSize: 11, color: '#bbb', flex: '0 0 auto' }}>
         {sourceKey ? `→ ${sourceKey}` : ''}
       </span>
@@ -751,14 +703,6 @@ function FoundationColourPage() {
       <p style={PAGE_SUB}>
         Two brand palettes, one shared semantic system. Brand tokens define identity — semantic tokens define meaning.
       </p>
-
-      {/* ── A: Brand overview ─────────────────────────────────────────────── */}
-      <p style={SECTION_LABEL}>Brand palettes</p>
-      <h2 style={{ ...SECTION_TITLE, marginBottom: 4 }}>Two brands, one system</h2>
-      <p style={SECTION_SUB}>Each brand has its own primary, secondary, tertiary and neutral scale. All map through brand alias tokens to the base colour layer.</p>
-      <BrandOverview />
-
-      <hr style={DIVIDER} />
 
       {/* ── B: Brand palette detail ────────────────────────────────────────── */}
       <BrandPaletteDetail />
