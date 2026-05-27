@@ -209,6 +209,6 @@ function DataVizTokensPage() {
 }
 
 export const Default: Story = {
-  name: "Data Visualisation Tokens",
+  name: "Data Visualisation",
   render: () => <DataVizTokensPage />,
 }
