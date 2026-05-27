@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
+import React, { useState } from "react";
 
 const PAGE: React.CSSProperties = { background: '#fff', padding: '48px 56px', maxWidth: 1100, margin: '0 auto', fontFamily: "'Open Sans', system-ui, sans-serif" };
 const BREADCRUMB: React.CSSProperties = { fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: 8 };
@@ -62,6 +62,12 @@ const ALIAS_SPACING_GROUPS = [
 ];
 
 function FoundationSpacingPage() {
+  const [open, setOpen] = useState<Record<string, boolean>>(
+    Object.fromEntries(ALIAS_SPACING_GROUPS.map((g) => [g.name, true]))
+  );
+
+  const toggle = (name: string) => setOpen((prev) => ({ ...prev, [name]: !prev[name] }));
+
   return (
     <div style={PAGE}>
       <div style={BREADCRUMB}>Foundation</div>
@@ -104,30 +110,47 @@ function FoundationSpacingPage() {
         Semantic names for common spacing use cases.
       </p>
 
-      {ALIAS_SPACING_GROUPS.map((group) => (
-        <div key={group.name} style={{ border: '1px solid #eee', borderRadius: 8, overflow: 'hidden', marginBottom: 16 }}>
-          <div style={{ background: '#fafafa', padding: '12px 20px', borderBottom: '1px solid #eee', display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{group.name}</span>
-            <span style={{ fontSize: 11, color: '#888', background: '#eee', padding: '2px 8px', borderRadius: 20 }}>
-              {group.tokens.length}
-            </span>
+      {ALIAS_SPACING_GROUPS.map((group) => {
+        const isOpen = open[group.name];
+        return (
+          <div key={group.name} style={{ border: '1px solid #eee', borderRadius: 8, overflow: 'hidden', marginBottom: 16 }}>
+            <button
+              onClick={() => toggle(group.name)}
+              style={{
+                width: '100%', background: '#fafafa', padding: '12px 20px',
+                borderBottom: isOpen ? '1px solid #eee' : 'none',
+                display: 'flex', alignItems: 'center', gap: 10,
+                border: 'none', borderRadius: 0, cursor: 'pointer', textAlign: 'left',
+              }}
+            >
+              <svg
+                width="12" height="12" viewBox="0 0 12 12" fill="none"
+                style={{ flexShrink: 0, transition: 'transform 0.15s', transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}
+              >
+                <path d="M4 2l4 4-4 4" stroke="#999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{group.name}</span>
+              <span style={{ fontSize: 11, color: '#888', background: '#eee', padding: '2px 8px', borderRadius: 20 }}>
+                {group.tokens.length}
+              </span>
+            </button>
+            {isOpen && group.tokens.map((row, i) => (
+              <div key={row.token} style={{
+                padding: '10px 20px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                borderBottom: '1px solid #f7f7f7',
+                background: i % 2 === 0 ? '#fafafa' : '#fff',
+              }}>
+                <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flex: '1 1 auto' }}>{row.token}</span>
+                <span style={{ fontSize: 12, color: '#555', flex: '0 0 auto', width: 80 }}>{row.value}</span>
+                <span style={{ fontSize: 12, color: '#888', flex: '1 1 auto', textAlign: 'right' }}>{row.desc}</span>
+              </div>
+            ))}
           </div>
-          {group.tokens.map((row, i) => (
-            <div key={row.token} style={{
-              padding: '10px 20px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              borderBottom: '1px solid #f7f7f7',
-              background: i % 2 === 0 ? '#fafafa' : '#fff',
-            }}>
-              <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flex: '1 1 auto' }}>{row.token}</span>
-              <span style={{ fontSize: 12, color: '#555', flex: '0 0 auto', width: 80 }}>{row.value}</span>
-              <span style={{ fontSize: 12, color: '#888', flex: '1 1 auto', textAlign: 'right' }}>{row.desc}</span>
-            </div>
-          ))}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

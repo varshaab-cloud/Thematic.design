@@ -5,6 +5,11 @@ const PAGE: React.CSSProperties = { background: '#fff', padding: '48px 56px', ma
 const BREADCRUMB: React.CSSProperties = { fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: 8 };
 const PAGE_TITLE: React.CSSProperties = { fontSize: 40, fontWeight: 700, color: '#0a0a0a', margin: '0 0 12px', lineHeight: 1.1 };
 const PAGE_SUB: React.CSSProperties = { fontSize: 15, color: '#666', lineHeight: 1.6, maxWidth: 560, marginBottom: 48, marginTop: 0 };
+const SECTION_TITLE: React.CSSProperties = { fontSize: 20, fontWeight: 700, color: '#111', margin: '48px 0 6px' };
+const SECTION_DESC: React.CSSProperties = { fontSize: 13, color: '#666', margin: '0 0 20px', lineHeight: 1.6 };
+const DIVIDER: React.CSSProperties = { height: 1, background: '#f0f0f0', margin: '40px 0', border: 'none' };
+const TH: React.CSSProperties = { fontSize: 11, fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase', color: '#999', textAlign: 'left', padding: '8px 12px', borderBottom: '1px solid #eee' };
+const TD: React.CSSProperties = { padding: '10px 12px', fontSize: 12, color: '#1a1a1a', borderBottom: '1px solid #f5f5f5' };
 
 interface TypeStyle {
   name: string;
@@ -84,18 +89,89 @@ function TypeStyleRow({ style }: { style: TypeStyle }) {
   );
 }
 
+// ─── Typography tokens (from tokens.css) ─────────────────────────────────────
+
+const TYPE_TOKENS = [
+  { style: 'Heading 1',   tokens: [{ name: '--alias-typography-heading1-font-size', value: '3rem' }, { name: '--alias-typography-heading1-font-weight', value: '700' }, { name: '--alias-typography-heading1-line-height', value: '1.5rem' }] },
+  { style: 'Heading 2',   tokens: [{ name: '--alias-typography-heading2-font-size', value: '2.625rem' }, { name: '--alias-typography-heading2-font-weight', value: '700' }, { name: '--alias-typography-heading2-line-height', value: '1.5rem' }] },
+  { style: 'Heading 3',   tokens: [{ name: '--alias-typography-heading3-font-size', value: '2.25rem' }, { name: '--alias-typography-heading3-font-weight', value: '700' }, { name: '--alias-typography-heading3-line-height', value: '1.5rem' }] },
+  { style: 'Heading 4',   tokens: [{ name: '--alias-typography-heading4-font-size', value: '2rem' }, { name: '--alias-typography-heading4-font-weight', value: '700' }, { name: '--alias-typography-heading4-line-height', value: '1.5rem' }] },
+  { style: 'Heading 5',   tokens: [{ name: '--alias-typography-heading5-font-size', value: '1.875rem' }, { name: '--alias-typography-heading5-font-weight', value: '700' }, { name: '--alias-typography-heading5-line-height', value: '1.5rem' }] },
+  { style: 'Heading 6',   tokens: [{ name: '--alias-typography-heading6-font-size', value: '1.875rem' }, { name: '--alias-typography-heading6-font-weight', value: '600' }, { name: '--alias-typography-heading6-line-height', value: '1.5rem' }] },
+  { style: 'Subheading 1', tokens: [{ name: '--alias-typography-subheading1-font-size', value: '1rem' }, { name: '--alias-typography-subheading1-font-weight', value: '400' }, { name: '--alias-typography-subheading1-line-height', value: '1.5rem' }] },
+  { style: 'Subheading 2', tokens: [{ name: '--alias-typography-subheading2-font-size', value: '0.875rem' }, { name: '--alias-typography-subheading2-font-weight', value: '500' }, { name: '--alias-typography-subheading2-line-height', value: '1.5rem' }] },
+  { style: 'Body 1',      tokens: [{ name: '--alias-typography-body-text1-font-size', value: '1rem' }, { name: '--alias-typography-body-text1-font-weight', value: '400' }, { name: '--alias-typography-body-text1-line-height', value: '1.5rem' }] },
+  { style: 'Body 2',      tokens: [{ name: '--alias-typography-body-text2-font-size', value: '0.875rem' }, { name: '--alias-typography-body-text2-font-weight', value: '400' }, { name: '--alias-typography-body-text2-line-height', value: '1.5rem' }] },
+];
+
+const SHARED_TOKENS = [
+  { name: '--base-font-family-primary', value: "'Open Sans', sans-serif", usage: 'All UI text — the single typeface for the system' },
+  { name: '--base-font-family-mono',    value: "'JetBrains Mono', monospace", usage: 'Code, token names, technical labels' },
+];
+
 function FoundationTypographyPage() {
   return (
     <div style={PAGE}>
       <div style={BREADCRUMB}>Foundation</div>
       <h1 style={PAGE_TITLE}>Typography</h1>
       <p style={PAGE_SUB}>
-        Open Sans across 14 styles. A variable-weight font with a single family covering every role from editorial display headings to dense UI labels.
+        Open Sans across 14 styles. A single family covering every role from display headings to dense UI labels.
       </p>
 
       {TYPE_STYLES.map((style) => (
         <TypeStyleRow key={style.name} style={style} />
       ))}
+
+      <hr style={DIVIDER} />
+
+      {/* Typography tokens */}
+      <h2 style={SECTION_TITLE}>Typography tokens</h2>
+      <p style={SECTION_DESC}>
+        Each style has three alias tokens — font-size, font-weight, and line-height. All share the same
+        font-family token. Reference these in component code instead of hardcoding values.
+      </p>
+
+      {/* Shared tokens */}
+      <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 32 }}>
+        <thead>
+          <tr><th style={TH}>Token</th><th style={TH}>Value</th><th style={TH}>Usage</th></tr>
+        </thead>
+        <tbody>
+          {SHARED_TOKENS.map(t => (
+            <tr key={t.name}>
+              <td style={{ ...TD, fontFamily: 'monospace', color: '#555' }}>{t.name}</td>
+              <td style={{ ...TD, fontFamily: 'monospace' }}>{t.value}</td>
+              <td style={{ ...TD, color: '#666' }}>{t.usage}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* Per-style token table */}
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead>
+          <tr>
+            <th style={TH}>Style</th>
+            <th style={TH}>Token</th>
+            <th style={TH}>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {TYPE_TOKENS.map(({ style, tokens }) =>
+            tokens.map((t, i) => (
+              <tr key={t.name}>
+                {i === 0 && (
+                  <td style={{ ...TD, fontWeight: 600, color: '#444', verticalAlign: 'top' }} rowSpan={tokens.length}>
+                    {style}
+                  </td>
+                )}
+                <td style={{ ...TD, fontFamily: 'monospace', color: '#555' }}>{t.name}</td>
+                <td style={{ ...TD, fontFamily: 'monospace' }}>{t.value}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }

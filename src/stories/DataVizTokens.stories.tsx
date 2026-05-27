@@ -4,205 +4,263 @@ import React from "react"
 const meta: Meta = {
   title: "Thematic design system/Foundation/Data Visualisation",
   tags: ["!autodocs"],
-  parameters: {
-    layout: "fullscreen",
-    docs: { page: null },
-  },
+  parameters: { layout: "fullscreen", docs: { page: null } },
 }
 
 export default meta
 type Story = StoryObj
 
-// ─── Token data ─────────────────────────────────────────────────────────────
+// ─── Shared styles ───────────────────────────────────────────────────────────
 
-const categoricalSwatches = [
-  { token: "--data-viz-cat-1", value: "#1c21dc", label: "cat-1" },
-  { token: "--data-viz-cat-2", value: "#16a34a", label: "cat-2" },
-  { token: "--data-viz-cat-3", value: "#ff4e2a", label: "cat-3" },
-  { token: "--data-viz-cat-4", value: "#9194eb", label: "cat-4" },
-  { token: "--data-viz-cat-5", value: "#f7d307", label: "cat-5" },
-  { token: "--data-viz-cat-6", value: "#0369a1", label: "cat-6" },
-  { token: "--data-viz-cat-7", value: "#464646", label: "cat-7" },
-  { token: "--data-viz-cat-8", value: "#86efac", label: "cat-8" },
-]
-
-const sequentialSwatches = [
-  { token: "--data-viz-seq-1", value: "#c4c5f4", label: "seq-1" },
-  { token: "--data-viz-seq-2", value: "#9194eb", label: "seq-2" },
-  { token: "--data-viz-seq-3", value: "#6e71e6", label: "seq-3" },
-  { token: "--data-viz-seq-4", value: "#1c21dc", label: "seq-4" },
-  { token: "--data-viz-seq-5", value: "#1518a6", label: "seq-5" },
-  { token: "--data-viz-seq-6", value: "#111487", label: "seq-6" },
-]
-
-const divergingSwatches = [
-  { token: "--data-viz-div-neg-strong", value: "#d21a26", label: "neg-strong" },
-  { token: "--data-viz-div-neg-mid", value: "#ff999c", label: "neg-mid" },
-  { token: "--data-viz-div-neutral", value: "#e3e3e0", label: "neutral" },
-  { token: "--data-viz-div-pos-mid", value: "#86efac", label: "pos-mid" },
-  { token: "--data-viz-div-pos-strong", value: "#16a34a", label: "pos-strong" },
-]
-
-const structuralRows = [
-  { token: "--data-viz-axis-color", value: "#d5d5d5", usage: "Axis lines", swatch: true },
-  { token: "--data-viz-grid-color", value: "#eeeeec", usage: "Grid lines", swatch: true },
-  { token: "--data-viz-label-color", value: "#6d6d6d", usage: "Axis labels and tick marks", swatch: true },
-  { token: "--data-viz-label-font-size", value: "0.75rem", usage: "Axis label size", swatch: false },
-  { token: "--data-viz-tooltip-background", value: "#222222", usage: "Tooltip background", swatch: true },
-  { token: "--data-viz-tooltip-text", value: "#ffffff", usage: "Tooltip text", swatch: true },
-  { token: "--data-viz-focus-ring", value: "#1c21dc", usage: "Highlighted bar/point on hover or keyboard focus", swatch: true },
-]
-
-// ─── Sub-components ──────────────────────────────────────────────────────────
-
-const SectionLabel: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style }) => (
-  <p style={{
-    fontSize: 11,
-    fontWeight: 600,
-    letterSpacing: "0.06em",
-    textTransform: "uppercase",
-    color: "var(--muted-foreground)",
-    margin: "2rem 0 0.75rem",
-    ...style,
-  }}>{children}</p>
-)
-
-const thStyle: React.CSSProperties = {
-  fontSize: 11,
-  fontWeight: 600,
-  letterSpacing: "0.04em",
-  textTransform: "uppercase",
-  color: "var(--muted-foreground)",
-  textAlign: "left",
-  padding: "8px 10px",
+const PAGE: React.CSSProperties = {
+  background: '#fff', padding: '48px 56px',
+  maxWidth: 1100, margin: '0 auto',
+  fontFamily: "'Open Sans', system-ui, sans-serif",
+}
+const BREADCRUMB: React.CSSProperties = {
+  fontSize: 11, fontWeight: 600, letterSpacing: '0.08em',
+  textTransform: 'uppercase', color: '#999', marginBottom: 8,
+}
+const PAGE_TITLE: React.CSSProperties = {
+  fontSize: 40, fontWeight: 700, color: '#0a0a0a',
+  margin: '0 0 12px', lineHeight: 1.1,
+}
+const PAGE_SUB: React.CSSProperties = {
+  fontSize: 15, color: '#666', lineHeight: 1.6,
+  maxWidth: 560, marginBottom: 48, marginTop: 0,
+}
+const SECTION_TITLE: React.CSSProperties = {
+  fontSize: 20, fontWeight: 700, color: '#111', margin: '0 0 6px',
+}
+const SECTION_DESC: React.CSSProperties = {
+  fontSize: 13, color: '#666', margin: '0 0 20px', lineHeight: 1.6,
+}
+const DIVIDER: React.CSSProperties = {
+  height: 1, background: '#f0f0f0', margin: '40px 0', border: 'none',
+}
+const TH: React.CSSProperties = {
+  fontSize: 11, fontWeight: 600, letterSpacing: '0.04em',
+  textTransform: 'uppercase', color: '#999', textAlign: 'left',
+  padding: '8px 12px', borderBottom: '1px solid #eee',
+}
+const TD: React.CSSProperties = {
+  padding: '10px 12px', fontSize: 13, color: '#1a1a1a',
+  borderBottom: '1px solid #f5f5f5',
 }
 
-const tdStyle: React.CSSProperties = {
-  padding: "8px 10px",
-  color: "hsl(var(--foreground))",
-}
+// ─── Token data (values match tokens.css) ────────────────────────────────────
 
-interface SwatchRowProps {
-  swatches: { token: string; value: string; label: string }[]
-  caption: string
-}
+const CATEGORICAL = [
+  { token: '--data-viz-cat-1', hex: '#1c21dc', label: 'Blue',   name: 'cat-1' },
+  { token: '--data-viz-cat-2', hex: '#0d9488', label: 'Teal',   name: 'cat-2' },
+  { token: '--data-viz-cat-3', hex: '#db2777', label: 'Rose',   name: 'cat-3' },
+  { token: '--data-viz-cat-4', hex: '#f59e0b', label: 'Amber',  name: 'cat-4' },
+  { token: '--data-viz-cat-5', hex: '#06b6d4', label: 'Cyan',   name: 'cat-5' },
+  { token: '--data-viz-cat-6', hex: '#8b5cf6', label: 'Violet', name: 'cat-6' },
+  { token: '--data-viz-cat-7', hex: '#65a30d', label: 'Lime',   name: 'cat-7' },
+  { token: '--data-viz-cat-8', hex: '#475569', label: 'Slate',  name: 'cat-8' },
+]
 
-const SwatchRow: React.FC<SwatchRowProps> = ({ swatches, caption }) => (
-  <div>
-    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-      {swatches.map(({ token, value, label }) => (
-        <div key={token} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-          <div
-            style={{
-              width: 48,
-              height: 48,
-              borderRadius: 8,
-              background: value,
-              border: "1px solid rgba(0,0,0,0.08)",
-              flexShrink: 0,
-            }}
-            title={value}
-          />
-          <span style={{ fontSize: 10, color: "var(--muted-foreground)", fontFamily: "monospace", textAlign: "center" }}>
-            {token}
-          </span>
-          <span style={{ fontSize: 10, color: "var(--muted-foreground)", fontFamily: "monospace" }}>{value}</span>
-        </div>
-      ))}
+const SEQUENTIAL = [
+  { token: '--data-viz-seq-1', hex: '#c4c5f4', name: 'seq-1' },
+  { token: '--data-viz-seq-2', hex: '#9194eb', name: 'seq-2' },
+  { token: '--data-viz-seq-3', hex: '#6e71e6', name: 'seq-3' },
+  { token: '--data-viz-seq-4', hex: '#1c21dc', name: 'seq-4' },
+  { token: '--data-viz-seq-5', hex: '#171cbe', name: 'seq-5' },
+  { token: '--data-viz-seq-6', hex: '#111487', name: 'seq-6' },
+]
+
+const DIVERGING = [
+  { token: '--data-viz-div-neg-strong', hex: '#dc2626', name: 'neg-strong' },
+  { token: '--data-viz-div-neg-mid',    hex: '#fca5a5', name: 'neg-mid'    },
+  { token: '--data-viz-div-neutral',    hex: '#e2e8f0', name: 'neutral'    },
+  { token: '--data-viz-div-pos-mid',    hex: '#5eead4', name: 'pos-mid'    },
+  { token: '--data-viz-div-pos-strong', hex: '#0d9488', name: 'pos-strong' },
+]
+
+const STRUCTURAL = [
+  { token: '--data-viz-axis-colour',        hex: '#d5d5d5', value: '#d5d5d5', usage: 'Axis lines',                              isColor: true  },
+  { token: '--data-viz-grid-colour',        hex: '#eeeeec', value: '#eeeeec', usage: 'Grid lines',                              isColor: true  },
+  { token: '--data-viz-label-colour',       hex: '#6d6d6d', value: '#6d6d6d', usage: 'Axis labels and tick marks',              isColor: true  },
+  { token: '--data-viz-label-font-size',    hex: '',        value: '0.75rem', usage: 'Axis label font size',                    isColor: false },
+  { token: '--data-viz-label-font-weight',  hex: '',        value: '400',     usage: 'Axis label font weight',                  isColor: false },
+  { token: '--data-viz-tooltip-background', hex: '#222222', value: '#222222', usage: 'Tooltip fill',                            isColor: true  },
+  { token: '--data-viz-tooltip-text',       hex: '#ffffff', value: '#ffffff', usage: 'Tooltip text',                            isColor: true  },
+  { token: '--data-viz-focus-ring',         hex: '#1c21dc', value: '#1c21dc', usage: 'Highlighted bar / point on focus/hover',  isColor: true  },
+]
+
+const USAGE_RULES = [
+  {
+    heading: 'Always assign categorical colours in order',
+    body: 'Use cat-1 for the first series, cat-2 for the second, and so on. Never skip positions or reorder to match brand preferences — the sequence is designed so adjacent colours remain distinguishable.',
+  },
+  {
+    heading: 'Never use feedback colours inside charts',
+    body: 'Do not use --alias-color-feedback-success-fg, --alias-color-feedback-error-fg or similar tokens for charted data. Those tokens carry semantic meaning (success, error, warning) and will be misread as status indicators rather than data values.',
+  },
+  {
+    heading: 'Pair colour with a secondary differentiator',
+    body: 'Every colour in a chart must also differ by line dash pattern, fill texture, or data-point shape. This meets WCAG 1.4.1 (use of colour) and keeps charts legible in print and for users with colour-vision differences.',
+  },
+  {
+    heading: 'Tooltips always use the structural tokens',
+    body: '--data-viz-tooltip-background (#222222) with --data-viz-tooltip-text (#ffffff) meets 4.5:1 contrast for small text and remains readable across all chart background colours.',
+  },
+]
+
+// ─── Swatch strip ─────────────────────────────────────────────────────────────
+
+function SwatchStrip({ swatches }: { swatches: { token: string; hex: string; name: string; label?: string }[] }) {
+  return (
+    <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+      {swatches.map((s) => {
+        const isLight = isLightColor(s.hex)
+        return (
+          <div key={s.token} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div style={{
+              width: 80, height: 64, borderRadius: 8,
+              background: s.hex,
+              border: isLight ? '1px solid #e5e5e5' : 'none',
+              display: 'flex', alignItems: 'flex-end', padding: '6px 8px',
+              boxSizing: 'border-box',
+            }}>
+              {s.label && (
+                <span style={{
+                  fontSize: 10, fontWeight: 600,
+                  color: isLight ? '#555' : '#ffffff',
+                  opacity: 0.85,
+                }}>{s.label}</span>
+              )}
+            </div>
+            <span style={{ fontFamily: 'monospace', fontSize: 10, color: '#888' }}>{s.name}</span>
+            <span style={{ fontFamily: 'monospace', fontSize: 10, color: '#bbb' }}>{s.hex}</span>
+          </div>
+        )
+      })}
     </div>
-    <p style={{ fontSize: 12, color: "var(--muted-foreground)", margin: "0.75rem 0 0", lineHeight: 1.6 }}>{caption}</p>
-  </div>
-)
+  )
+}
 
-// ─── Main component ──────────────────────────────────────────────────────────
+function isLightColor(hex: string): boolean {
+  const h = hex.replace('#', '')
+  const r = parseInt(h.slice(0, 2), 16)
+  const g = parseInt(h.slice(2, 4), 16)
+  const b = parseInt(h.slice(4, 6), 16)
+  return (r * 299 + g * 587 + b * 114) / 1000 > 160
+}
+
+// ─── Main page ────────────────────────────────────────────────────────────────
 
 function DataVizTokensPage() {
   return (
-    <div style={{ padding: "2rem", maxWidth: 960, margin: "0 auto" }}>
-      {/* Header */}
-      <div style={{ marginBottom: "1.5rem" }}>
-        <h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 0.5rem" }}>Data Visualisation Tokens</h1>
-        <p style={{ fontSize: 14, color: "var(--muted-foreground)", margin: 0 }}>
-          Tokens for charts, graphs, and data-dense surfaces. Three palettes cover every chart type:{" "}
-          <strong>categorical</strong> for multi-series comparisons,{" "}
-          <strong>sequential</strong> for magnitude, and{" "}
-          <strong>diverging</strong> for values around a midpoint.
-          Structural tokens cover axes, grids, labels, and tooltips.
-        </p>
+    <div style={PAGE}>
+      <div style={BREADCRUMB}>Foundation</div>
+      <h1 style={PAGE_TITLE}>Data Visualisation</h1>
+      <p style={PAGE_SUB}>
+        Three colour palettes for every chart type, plus structural tokens for axes, labels, and tooltips.
+        All data visualisation work should exclusively use <code style={{ fontFamily: 'monospace', fontSize: 13, background: '#f5f5f5', padding: '1px 5px', borderRadius: 3 }}>--data-viz-*</code> tokens — never feedback or brand colours.
+      </p>
+
+      {/* Categorical */}
+      <h2 style={SECTION_TITLE}>Categorical palette</h2>
+      <p style={SECTION_DESC}>
+        Eight perceptually distinct colours for multi-series charts — bar, line, pie. Assign in order starting at cat-1.
+      </p>
+      <SwatchStrip swatches={CATEGORICAL} />
+
+      <hr style={DIVIDER} />
+
+      {/* Sequential */}
+      <h2 style={SECTION_TITLE}>Sequential ramp</h2>
+      <p style={SECTION_DESC}>
+        Single-hue ramp from light to dark. Use for heatmaps and choropleth maps where intensity represents magnitude.
+      </p>
+      <div style={{ display: 'flex', gap: 6, marginBottom: 12 }}>
+        {SEQUENTIAL.map((s) => (
+          <div key={s.token} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <div style={{
+              height: 48, borderRadius: 6, background: s.hex,
+              border: isLightColor(s.hex) ? '1px solid #e5e5e5' : 'none',
+            }} />
+            <span style={{ fontFamily: 'monospace', fontSize: 10, color: '#888', textAlign: 'center' }}>{s.name}</span>
+            <span style={{ fontFamily: 'monospace', fontSize: 10, color: '#bbb', textAlign: 'center' }}>{s.hex}</span>
+          </div>
+        ))}
       </div>
 
-      {/* 1. Categorical palette */}
-      <SectionLabel style={{ marginTop: 0 }}>Categorical palette</SectionLabel>
-      <SwatchRow
-        swatches={categoricalSwatches}
-        caption="Use for distinct data series in bar charts, line charts, and pie charts. Assign colours in order — cat-1 for the first series, cat-2 for the second."
-      />
+      <hr style={DIVIDER} />
 
-      {/* 2. Sequential ramp */}
-      <SectionLabel>Sequential ramp</SectionLabel>
-      <SwatchRow
-        swatches={sequentialSwatches}
-        caption="Use for single-variable heatmaps and choropleth maps where intensity represents magnitude."
-      />
+      {/* Diverging */}
+      <h2 style={SECTION_TITLE}>Diverging scale</h2>
+      <p style={SECTION_DESC}>
+        Use when data has a meaningful midpoint — growth vs decline, sentiment, above/below target.
+      </p>
+      <div style={{ display: 'flex', gap: 6, marginBottom: 12 }}>
+        {DIVERGING.map((s) => (
+          <div key={s.token} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <div style={{
+              height: 48, borderRadius: 6, background: s.hex,
+              border: isLightColor(s.hex) ? '1px solid #e5e5e5' : 'none',
+            }} />
+            <span style={{ fontFamily: 'monospace', fontSize: 10, color: '#888', textAlign: 'center' }}>{s.name}</span>
+            <span style={{ fontFamily: 'monospace', fontSize: 10, color: '#bbb', textAlign: 'center' }}>{s.hex}</span>
+          </div>
+        ))}
+      </div>
 
-      {/* 3. Diverging scale */}
-      <SectionLabel>Diverging scale</SectionLabel>
-      <SwatchRow
-        swatches={divergingSwatches}
-        caption="Use when data has a meaningful midpoint — growth vs decline, sentiment, above/below target."
-      />
+      <hr style={DIVIDER} />
 
-      {/* 4. Chart structural tokens */}
-      <SectionLabel>Chart structural tokens</SectionLabel>
-      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+      {/* Structural tokens */}
+      <h2 style={SECTION_TITLE}>Structural tokens</h2>
+      <p style={SECTION_DESC}>
+        Tokens for non-data elements: axes, grids, labels, and tooltips. These are fixed and do not change with brand.
+      </p>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
-          <tr style={{ borderBottom: "0.5px solid hsl(var(--border))" }}>
-            <th style={thStyle}>Token</th>
-            <th style={thStyle}>Value</th>
-            <th style={thStyle}>Usage</th>
+          <tr>
+            <th style={TH}>Token</th>
+            <th style={TH}>Value</th>
+            <th style={TH}>Usage</th>
           </tr>
         </thead>
         <tbody>
-          {structuralRows.map((row) => (
-            <tr key={row.token} style={{ borderBottom: "0.5px solid hsl(var(--border))" }}>
-              <td style={{ ...tdStyle, fontFamily: "monospace", color: "var(--muted-foreground)" }}>{row.token}</td>
-              <td style={{ ...tdStyle }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  {row.swatch && (
-                    <span style={{
-                      display: "inline-block",
-                      width: 16,
-                      height: 16,
-                      borderRadius: 3,
-                      background: row.value,
-                      border: "1px solid rgba(0,0,0,0.08)",
-                      flexShrink: 0,
+          {STRUCTURAL.map((row) => (
+            <tr key={row.token}>
+              <td style={{ ...TD, fontFamily: 'monospace', color: '#555', fontSize: 12 }}>{row.token}</td>
+              <td style={TD}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  {row.isColor && (
+                    <div style={{
+                      width: 20, height: 20, borderRadius: 4, background: row.hex, flexShrink: 0,
+                      border: isLightColor(row.hex) ? '1px solid #e5e5e5' : '1px solid rgba(0,0,0,0.07)',
                     }} />
                   )}
-                  <span style={{ fontFamily: "monospace" }}>{row.value}</span>
+                  <span style={{ fontFamily: 'monospace', fontSize: 12 }}>{row.value}</span>
                 </div>
               </td>
-              <td style={{ ...tdStyle, color: "var(--muted-foreground)" }}>{row.usage}</td>
+              <td style={{ ...TD, color: '#666' }}>{row.usage}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {/* 5. Usage rules */}
-      <SectionLabel>Usage rules</SectionLabel>
-      <div style={{ fontSize: 14, lineHeight: 1.7, color: "hsl(var(--foreground))", display: "flex", flexDirection: "column", gap: "1rem" }}>
-        <p style={{ margin: 0 }}>
-          Always apply the categorical palette in order, starting from <code style={{ fontSize: 12 }}>--data-viz-cat-1</code> for the first data series and proceeding sequentially. Never skip positions or reorder colours to match brand preferences — the sequence is designed so adjacent colours remain distinguishable, and breaking the order degrades that property.
-        </p>
-        <p style={{ margin: 0 }}>
-          Do not use alias feedback colours (<code style={{ fontSize: 12 }}>--alias-color-feedback-success-fg</code>, <code style={{ fontSize: 12 }}>--alias-color-feedback-error-fg</code>, and related tokens) inside charts. Those tokens carry semantic meaning — success, error, warning — and will be misread as status indicators rather than data values. Use only the <code style={{ fontSize: 12 }}>--data-viz-*</code> palette for charted data.
-        </p>
-        <p style={{ margin: 0 }}>
-          Ensure every colour in a chart can be distinguished without relying on colour alone. Pair colour with a secondary differentiator such as line dash pattern, fill texture, or data point shape. This is required to meet WCAG 1.4.1 (use of colour) and to remain legible in monochrome print or for users with colour-vision deficiencies.
-        </p>
-        <p style={{ margin: 0 }}>
-          Tooltips must always use <code style={{ fontSize: 12 }}>--data-viz-tooltip-background</code> (<code style={{ fontSize: 12 }}>#222222</code>) with <code style={{ fontSize: 12 }}>--data-viz-tooltip-text</code> (<code style={{ fontSize: 12 }}>#ffffff</code>). This dark-on-white pairing meets the 4.5:1 contrast ratio required for small text and ensures tooltips remain readable across all chart background colours.
-        </p>
+      <hr style={DIVIDER} />
+
+      {/* Usage rules */}
+      <h2 style={SECTION_TITLE}>Usage rules</h2>
+      <p style={SECTION_DESC}>
+        Four rules that keep charts consistent, accessible, and semantically correct.
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {USAGE_RULES.map(({ heading, body }) => (
+          <div key={heading} style={{
+            padding: '14px 18px', borderRadius: 8,
+            border: '1px solid #eeeeee', background: '#fafafa',
+          }}>
+            <p style={{ fontSize: 13, fontWeight: 600, margin: '0 0 4px', color: '#111' }}>{heading}</p>
+            <p style={{ fontSize: 13, color: '#555', margin: 0, lineHeight: 1.6 }}>{body}</p>
+          </div>
+        ))}
       </div>
     </div>
   )
