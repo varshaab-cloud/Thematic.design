@@ -1,16 +1,42 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 
-const PAGE: React.CSSProperties = { background: '#fff', padding: '48px 56px', maxWidth: 1100, margin: '0 auto', fontFamily: "'Open Sans', system-ui, sans-serif" };
-const BREADCRUMB: React.CSSProperties = { fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: 8 };
-const PAGE_TITLE: React.CSSProperties = { fontSize: 40, fontWeight: 700, color: '#0a0a0a', margin: '0 0 12px', lineHeight: 1.1 };
-const PAGE_SUB: React.CSSProperties = { fontSize: 15, color: '#666', lineHeight: 1.6, maxWidth: 560, marginBottom: 48, marginTop: 0 };
-const SECTION_TITLE: React.CSSProperties = { fontSize: 24, fontWeight: 700, color: '#111', margin: '0 0 4px' };
-const SECTION_SUB: React.CSSProperties = { fontSize: 13, color: '#888', margin: '0 0 32px', lineHeight: 1.5 };
-const DIVIDER: React.CSSProperties = { height: 1, background: '#f0f0f0', margin: '40px 0', border: 'none' };
+// ─── Styles ──────────────────────────────────────────────────────────────────
 
-// Token data from tokens.json
-const BASE = {
+const PAGE: React.CSSProperties = {
+  background: '#fff', padding: '48px 56px',
+  maxWidth: 1100, margin: '0 auto',
+  fontFamily: "'Open Sans', system-ui, sans-serif",
+};
+const BREADCRUMB: React.CSSProperties = {
+  fontSize: 11, fontWeight: 600, letterSpacing: '0.08em',
+  textTransform: 'uppercase', color: '#999', marginBottom: 8,
+};
+const PAGE_TITLE: React.CSSProperties = {
+  fontSize: 36, fontWeight: 700, color: '#0a0a0a',
+  margin: '0 0 10px', lineHeight: 1.1,
+};
+const PAGE_SUB: React.CSSProperties = {
+  fontSize: 14, color: '#666', lineHeight: 1.6,
+  maxWidth: 560, marginBottom: 48, marginTop: 0,
+};
+const SECTION_LABEL: React.CSSProperties = {
+  fontSize: 11, fontWeight: 600, letterSpacing: '0.08em',
+  textTransform: 'uppercase', color: '#aaa', marginBottom: 4,
+};
+const SECTION_TITLE: React.CSSProperties = {
+  fontSize: 20, fontWeight: 600, color: '#111', margin: '0 0 4px',
+};
+const SECTION_SUB: React.CSSProperties = {
+  fontSize: 13, color: '#888', margin: '0 0 24px', lineHeight: 1.5,
+};
+const DIVIDER: React.CSSProperties = {
+  height: 1, background: '#f0f0f0', margin: '48px 0', border: 'none',
+};
+
+// ─── Token data ───────────────────────────────────────────────────────────────
+
+const BASE_RESOLVE: Record<string, string> = {
   "--base-color-black": "#000000",
   "--base-color-white": "#ffffff",
   "--base-color-gray-75": "#f5f5f3",
@@ -26,400 +52,696 @@ const BASE = {
   "--base-color-blue-200": "#aaacf0",
   "--base-color-blue-300": "#9194eb",
   "--base-color-blue-400": "#6e71e6",
+  "--base-color-blue-500": "#3a3dee",
   "--base-color-blue-600": "#1c21dc",
   "--base-color-blue-700": "#171cbe",
   "--base-color-blue-800": "#1518a6",
   "--base-color-blue-900": "#111487",
-  "--base-color-red-100": "#ffe2e2",
-  "--base-color-red-200": "#ffb9bb",
-  "--base-color-red-300": "#ff999c",
-  "--base-color-red-400": "#f55658",
-  "--base-color-red-600": "#d21a26",
-  "--base-color-red-700": "#ab121b",
-  "--base-color-red-800": "#81070d",
-  "--base-color-red-900": "#640204",
-  "--base-color-green-100": "#dcfce7",
-  "--base-color-green-200": "#bbf7d0",
-  "--base-color-green-300": "#86efac",
-  "--base-color-green-400": "#4ade80",
-  "--base-color-green-600": "#16a34a",
-  "--base-color-green-700": "#15803d",
-  "--base-color-green-800": "#166534",
-  "--base-color-green-900": "#14532d",
-  "--base-color-success-800": "#dcfce7",
-  "--base-color-success-900": "#16a34a",
-  "--base-color-info-600": "#e0f2fe",
-  "--base-color-info-700": "#0369a1",
-  "--base-color-error-200": "#ffe9e5",
-  "--base-color-error-300": "#ff4e2a",
-  "--base-color-warning-50": "#fffade",
-  "--base-color-warning-100": "#f7d307",
-} as Record<string, string>;
+  "--base-color-teal-100": "#ccfbf1",
+  "--base-color-teal-200": "#99f6e4",
+  "--base-color-teal-300": "#5eead4",
+  "--base-color-teal-400": "#2dd4bf",
+  "--base-color-teal-500": "#14b8a6",
+  "--base-color-teal-600": "#0d9488",
+  "--base-color-teal-700": "#0f766e",
+  "--base-color-teal-800": "#115e59",
+  "--base-color-teal-900": "#134e4a",
+  "--base-color-rose-100": "#fdf2f8",
+  "--base-color-rose-200": "#fce7f3",
+  "--base-color-rose-300": "#fbcfe8",
+  "--base-color-rose-400": "#f9a8d4",
+  "--base-color-rose-500": "#f472b6",
+  "--base-color-rose-600": "#db2777",
+  "--base-color-rose-700": "#be185d",
+  "--base-color-rose-800": "#9d174d",
+  "--base-color-rose-900": "#831843",
+  "--base-color-slate-50":  "#f8fafc",
+  "--base-color-slate-100": "#f1f5f9",
+  "--base-color-slate-200": "#e2e8f0",
+  "--base-color-slate-300": "#cbd5e1",
+  "--base-color-slate-400": "#94a3b8",
+  "--base-color-slate-500": "#64748b",
+  "--base-color-slate-600": "#475569",
+  "--base-color-slate-700": "#334155",
+  "--base-color-slate-800": "#1e293b",
+  "--base-color-slate-900": "#0f172a",
+  "--base-color-emerald-100": "#ecfdf5",
+  "--base-color-emerald-200": "#d1fae5",
+  "--base-color-emerald-300": "#a7f3d0",
+  "--base-color-emerald-400": "#6ee7b7",
+  "--base-color-emerald-500": "#34d399",
+  "--base-color-emerald-600": "#166534",
+  "--base-color-emerald-700": "#14532d",
+  "--base-color-emerald-800": "#0f3d22",
+  "--base-color-emerald-900": "#0a2718",
+  "--base-color-sienna-100": "#fff7ed",
+  "--base-color-sienna-200": "#ffedd5",
+  "--base-color-sienna-300": "#fed7aa",
+  "--base-color-sienna-400": "#fdba74",
+  "--base-color-sienna-500": "#c2521a",
+  "--base-color-sienna-600": "#a3400f",
+  "--base-color-sienna-700": "#823010",
+  "--base-color-sienna-800": "#61210b",
+  "--base-color-sienna-900": "#401407",
+  "--base-color-gold-100": "#fffbeb",
+  "--base-color-gold-200": "#fef3c7",
+  "--base-color-gold-300": "#fde68a",
+  "--base-color-gold-400": "#fcd34d",
+  "--base-color-gold-500": "#f59e0b",
+  "--base-color-gold-600": "#b45309",
+  "--base-color-gold-700": "#92400e",
+  "--base-color-gold-800": "#6e3008",
+  "--base-color-gold-900": "#451d05",
+  "--base-color-sand-50":  "#fdfcf8",
+  "--base-color-sand-100": "#f5f2ea",
+  "--base-color-sand-200": "#e8e2d5",
+  "--base-color-sand-300": "#cec6b4",
+  "--base-color-sand-400": "#a89e8c",
+  "--base-color-sand-500": "#7a7265",
+  "--base-color-sand-600": "#504a40",
+  "--base-color-sand-700": "#35302a",
+  "--base-color-sand-800": "#1e1a15",
+  "--base-color-sand-900": "#0d0b09",
+  "--semantic-color-success-100": "#f0fdf4",
+  "--semantic-color-success-200": "#dcfce7",
+  "--semantic-color-success-300": "#bbf7d0",
+  "--semantic-color-success-400": "#86efac",
+  "--semantic-color-success-500": "#4ade80",
+  "--semantic-color-success-600": "#16a34a",
+  "--semantic-color-success-700": "#15803d",
+  "--semantic-color-success-800": "#166534",
+  "--semantic-color-success-900": "#14532d",
+  "--semantic-color-info-100": "#f0f9ff",
+  "--semantic-color-info-200": "#e0f2fe",
+  "--semantic-color-info-300": "#bae6fd",
+  "--semantic-color-info-400": "#7dd3fc",
+  "--semantic-color-info-500": "#38bdf8",
+  "--semantic-color-info-600": "#0284c7",
+  "--semantic-color-info-700": "#0369a1",
+  "--semantic-color-info-800": "#075985",
+  "--semantic-color-info-900": "#0c4a6e",
+  "--semantic-color-warning-100": "#fffbeb",
+  "--semantic-color-warning-200": "#fef3c7",
+  "--semantic-color-warning-300": "#fde68a",
+  "--semantic-color-warning-400": "#fcd34d",
+  "--semantic-color-warning-500": "#fbbf24",
+  "--semantic-color-warning-600": "#d97706",
+  "--semantic-color-warning-700": "#b45309",
+  "--semantic-color-warning-800": "#92400e",
+  "--semantic-color-warning-900": "#78350f",
+  "--semantic-color-error-100": "#fff5f5",
+  "--semantic-color-error-200": "#fee2e2",
+  "--semantic-color-error-300": "#fecaca",
+  "--semantic-color-error-400": "#fca5a5",
+  "--semantic-color-error-500": "#f87171",
+  "--semantic-color-error-600": "#dc2626",
+  "--semantic-color-error-700": "#b91c1c",
+  "--semantic-color-error-800": "#991b1b",
+  "--semantic-color-error-900": "#7f1d1d",
+};
 
-const ALIAS_COLOR = {
-  "--alias-color-text-primary": "#000000",
-  "--alias-color-text-secondary": "#222222",
-  "--alias-color-text-tertiary": "#464646",
-  "--alias-color-text-subtle": "var(--base-color-gray-600)",
-  "--alias-color-text-disabled": "#909090",
-  "--alias-color-text-inverse": "#ffffff",
-  "--alias-color-text-brand": "#111487",
-  "--alias-color-background-primary": "#ffffff",
-  "--alias-color-background-secondary": "#f5f5f3",
-  "--alias-color-background-tertiary": "#eeeeec",
-  "--alias-color-background-brand": "#1518a6",
-  "--alias-color-background-brand-dark": "#111487",
-  "--alias-color-background-hover": "var(--base-color-blue-100)",
-  "--alias-color-border-default": "#d5d5d5",
-  "--alias-color-border-active": "#1c21dc",
-  "--alias-color-border-disabled": "#b1b1b1",
-  "--alias-color-border-brand": "var(--base-color-blue-800)",
-  "--alias-color-border-success": "#16a34a",
-  "--alias-color-border-info": "#0369a1",
-  "--alias-color-border-error": "var(--base-color-error-300)",
-  "--alias-color-border-warning": "#f7d307",
-  "--alias-color-icon-primary": "#222222",
-  "--alias-color-icon-secondary": "#464646",
-  "--alias-color-icon-disabled": "#b1b1b1",
-  "--alias-color-icon-brand": "#171cbe",
-  "--alias-color-feedback-success-fg": "#166534",
-  "--alias-color-feedback-success-bg": "#dcfce7",
-  "--alias-color-feedback-info-fg": "#0369a1",
-  "--alias-color-feedback-info-bg": "#e0f2fe",
-  "--alias-color-feedback-error-fg": "var(--base-color-red-700)",
-  "--alias-color-feedback-error-bg": "#ffe9e5",
-  "--alias-color-feedback-warning-fg": "var(--base-color-gray-900)",
-  "--alias-color-feedback-warning-bg": "#fffade",
-} as Record<string, string>;
-
-const COMPONENT_TOKENS = {
-  Button: {
-    primary: {
-      "--component-button-primary-background": "#1518a6",
-      "--component-button-primary-background-hover": "#171cbe",
-      "--component-button-primary-background-active": "#111487",
-      "--component-button-primary-background-disabled": "#e3e3e0",
-      "--component-button-primary-text": "#ffffff",
-      "--component-button-primary-text-disabled": "#909090",
-      "--component-button-primary-border": "rgba(0, 0, 0, 0)",
-      "--component-button-primary-border-radius": "var(--base-radius-md)",
-      "--component-button-primary-padding-x": "1.5rem",
-      "--component-button-primary-padding-y": "0.75rem",
-      "--component-button-primary-font-size": "0.875rem",
-      "--component-button-primary-font-weight": "500",
-    },
-    secondary: {
-      "--component-button-secondary-background": "rgba(0, 0, 0, 0)",
-      "--component-button-secondary-background-hover": "#c4c5f4",
-      "--component-button-secondary-background-active": "#aaacf0",
-      "--component-button-secondary-background-disabled": "rgba(0, 0, 0, 0)",
-      "--component-button-secondary-text": "#111487",
-      "--component-button-secondary-text-disabled": "#909090",
-      "--component-button-secondary-border": "#1c21dc",
-      "--component-button-secondary-border-radius": "var(--base-radius-md)",
-      "--component-button-secondary-padding-x": "1.5rem",
-      "--component-button-secondary-padding-y": "0.75rem",
-      "--component-button-secondary-font-size": "0.875rem",
-      "--component-button-secondary-font-weight": "500",
-    },
-    ghost: {
-      "--component-button-ghost-background": "rgba(0, 0, 0, 0)",
-      "--component-button-ghost-background-hover": "#eeeeec",
-      "--component-button-ghost-text": "#111487",
-      "--component-button-ghost-text-disabled": "#909090",
-      "--component-button-ghost-border": "rgba(0, 0, 0, 0)",
-      "--component-button-ghost-border-radius": "var(--base-radius-md)",
-      "--component-button-ghost-padding-x": "1.5rem",
-      "--component-button-ghost-padding-y": "0.75rem",
-      "--component-button-ghost-font-size": "0.875rem",
-      "--component-button-ghost-font-weight": "500",
-    },
-    destructive: {
-      "--component-button-destructive-background": "#ff4e2a",
-      "--component-button-destructive-background-hover": "#d21a26",
-      "--component-button-destructive-text": "#ffffff",
-      "--component-button-destructive-border": "rgba(0, 0, 0, 0)",
-      "--component-button-destructive-border-radius": "var(--base-radius-md)",
-      "--component-button-destructive-padding-x": "1.5rem",
-      "--component-button-destructive-padding-y": "0.75rem",
-      "--component-button-destructive-font-size": "0.875rem",
-      "--component-button-destructive-font-weight": "500",
-    },
-  },
-  Input: {
-    default: {
-      "--component-input-background": "#ffffff",
-      "--component-input-background-disabled": "#eeeeec",
-      "--component-input-border": "#d5d5d5",
-      "--component-input-border-focus": "#1c21dc",
-      "--component-input-border-error": "#ff4e2a",
-      "--component-input-border-disabled": "#b1b1b1",
-      "--component-input-text": "#000000",
-      "--component-input-text-placeholder": "#909090",
-      "--component-input-text-disabled": "#909090",
-      "--component-input-border-radius": "var(--base-radius-md)",
-      "--component-input-padding-x": "1rem",
-      "--component-input-padding-y": "0.75rem",
-      "--component-input-font-size": "0.875rem",
-    },
-  },
-  Card: {
-    default: {
-      "--component-card-background": "#ffffff",
-      "--component-card-border": "#d5d5d5",
-      "--component-card-border-radius": "var(--base-radius-md)",
-      "--component-card-shadow": "0px 1px 3px 0px rgba(0,0,0,0.06), 0px 4px 16px 0px rgba(0,0,0,0.05)",
-      "--component-card-padding": "1.5rem",
-      "--component-card-title-color": "#000000",
-      "--component-card-body-color": "#222222",
-    },
-  },
-  Badge: {
-    variants: {
-      "--component-badge-success-background": "#dcfce7",
-      "--component-badge-success-text": "#16a34a",
-      "--component-badge-success-border-radius": "var(--base-radius-xxl)",
-      "--component-badge-info-background": "#e0f2fe",
-      "--component-badge-info-text": "#0369a1",
-      "--component-badge-info-border-radius": "var(--base-radius-xxl)",
-      "--component-badge-error-background": "#ffe9e5",
-      "--component-badge-error-text": "#ff4e2a",
-      "--component-badge-error-border-radius": "var(--base-radius-xxl)",
-      "--component-badge-warning-background": "#fffade",
-      "--component-badge-warning-text": "#f7d307",
-      "--component-badge-warning-border-radius": "var(--base-radius-xxl)",
-    },
-  },
-} as Record<string, Record<string, Record<string, string>>>;
-
-function resolveValue(val: string, base: Record<string, string>): string {
-  if (val.startsWith('var(--')) {
-    const inner = val.replace(/^var\(/, '').replace(/\)$/, '');
-    return base[inner] || val;
+function resolve(val: string): string {
+  if (val?.startsWith('var(--')) {
+    const key = val.replace(/^var\(/, '').replace(/\)$/, '').trim();
+    return BASE_RESOLVE[key] || val;
   }
   return val;
 }
 
-function isColorValue(val: string): boolean {
-  const resolved = resolveValue(val, BASE);
-  return resolved.startsWith('#') || resolved.startsWith('rgb');
-}
+// ─── Brand palette data ───────────────────────────────────────────────────────
 
-const PALETTE_GROUPS = [
+type PaletteRole = {
+  role: string;
+  hue: string;
+  basePrefix: string;
+  brandPrefix: string;
+  stops: { stop: string; hex: string; isNeutral?: boolean }[];
+};
+
+type BrandDef = {
+  name: string;
+  id: string;
+  accentHex: string;
+  personality: string;
+  roles: PaletteRole[];
+};
+
+const BRANDS: BrandDef[] = [
   {
-    name: 'Neutral', role: 'Pure black and white anchors',
-    tokens: [
-      { stop: 'black', hex: '#000000' },
-      { stop: 'white', hex: '#ffffff' },
-    ]
+    name: 'Cobalt', id: 'cobalt', accentHex: '#1c21dc',
+    personality: 'Enterprise · Sophisticated · Classic',
+    roles: [
+      {
+        role: 'Primary', hue: 'Blue', basePrefix: '--base-color-blue',
+        brandPrefix: '--brand-cobalt-primary',
+        stops: [
+          { stop: '100', hex: '#c4c5f4' }, { stop: '200', hex: '#aaacf0' },
+          { stop: '300', hex: '#9194eb' }, { stop: '400', hex: '#6e71e6' },
+          { stop: '500', hex: '#3a3dee' }, { stop: '600', hex: '#1c21dc' },
+          { stop: '700', hex: '#171cbe' }, { stop: '800', hex: '#1518a6' },
+          { stop: '900', hex: '#111487' },
+        ],
+      },
+      {
+        role: 'Secondary', hue: 'Teal', basePrefix: '--base-color-teal',
+        brandPrefix: '--brand-cobalt-secondary',
+        stops: [
+          { stop: '100', hex: '#ccfbf1' }, { stop: '200', hex: '#99f6e4' },
+          { stop: '300', hex: '#5eead4' }, { stop: '400', hex: '#2dd4bf' },
+          { stop: '500', hex: '#14b8a6' }, { stop: '600', hex: '#0d9488' },
+          { stop: '700', hex: '#0f766e' }, { stop: '800', hex: '#115e59' },
+          { stop: '900', hex: '#134e4a' },
+        ],
+      },
+      {
+        role: 'Tertiary', hue: 'Rose', basePrefix: '--base-color-rose',
+        brandPrefix: '--brand-cobalt-tertiary',
+        stops: [
+          { stop: '100', hex: '#fdf2f8' }, { stop: '200', hex: '#fce7f3' },
+          { stop: '300', hex: '#fbcfe8' }, { stop: '400', hex: '#f9a8d4' },
+          { stop: '500', hex: '#f472b6' }, { stop: '600', hex: '#db2777' },
+          { stop: '700', hex: '#be185d' }, { stop: '800', hex: '#9d174d' },
+          { stop: '900', hex: '#831843' },
+        ],
+      },
+      {
+        role: 'Neutral', hue: 'Slate', basePrefix: '--base-color-slate',
+        brandPrefix: '--brand-cobalt-neutral', isNeutral: true,
+        stops: [
+          { stop: '50',  hex: '#f8fafc', isNeutral: true },
+          { stop: '100', hex: '#f1f5f9', isNeutral: true },
+          { stop: '200', hex: '#e2e8f0', isNeutral: true },
+          { stop: '300', hex: '#cbd5e1', isNeutral: true },
+          { stop: '400', hex: '#94a3b8', isNeutral: true },
+          { stop: '500', hex: '#64748b' }, { stop: '600', hex: '#475569' },
+          { stop: '700', hex: '#334155' }, { stop: '800', hex: '#1e293b' },
+          { stop: '900', hex: '#0f172a' },
+        ],
+      },
+    ],
   },
   {
-    name: 'Gray', role: 'Neutral surfaces, borders, disabled states',
-    tokens: [
-      { stop: '75', hex: '#f5f5f3' },
-      { stop: '100', hex: '#eeeeec' },
-      { stop: '200', hex: '#e3e3e0' },
-      { stop: '300', hex: '#d5d5d5' },
-      { stop: '400', hex: '#b1b1b1' },
-      { stop: '500', hex: '#909090' },
-      { stop: '600', hex: '#6d6d6d' },
-      { stop: '700', hex: '#464646' },
-      { stop: '900', hex: '#222222' },
-    ]
-  },
-  {
-    name: 'Blue', role: 'Brand primary — actions, links, active states',
-    tokens: [
-      { stop: '100', hex: '#c4c5f4' },
-      { stop: '200', hex: '#aaacf0' },
-      { stop: '300', hex: '#9194eb' },
-      { stop: '400', hex: '#6e71e6' },
-      { stop: '600', hex: '#1c21dc' },
-      { stop: '700', hex: '#171cbe' },
-      { stop: '800', hex: '#1518a6' },
-      { stop: '900', hex: '#111487' },
-    ]
-  },
-  {
-    name: 'Red', role: 'Destructive actions, critical errors',
-    tokens: [
-      { stop: '100', hex: '#ffe2e2' },
-      { stop: '200', hex: '#ffb9bb' },
-      { stop: '300', hex: '#ff999c' },
-      { stop: '400', hex: '#f55658' },
-      { stop: '600', hex: '#d21a26' },
-      { stop: '700', hex: '#ab121b' },
-      { stop: '800', hex: '#81070d' },
-      { stop: '900', hex: '#640204' },
-    ]
-  },
-  {
-    name: 'Green', role: 'Positive confirmations, success states',
-    tokens: [
-      { stop: '100', hex: '#dcfce7' },
-      { stop: '200', hex: '#bbf7d0' },
-      { stop: '300', hex: '#86efac' },
-      { stop: '400', hex: '#4ade80' },
-      { stop: '600', hex: '#16a34a' },
-      { stop: '700', hex: '#15803d' },
-      { stop: '800', hex: '#166534' },
-      { stop: '900', hex: '#14532d' },
-    ]
-  },
-  {
-    name: 'Info', role: 'Informational signals, hints, help',
-    tokens: [
-      { stop: '600', hex: '#e0f2fe' },
-      { stop: '700', hex: '#0369a1' },
-    ]
-  },
-  {
-    name: 'Warning', role: 'Attention-required, non-critical alerts',
-    tokens: [
-      { stop: '50', hex: '#fffade' },
-      { stop: '100', hex: '#f7d307' },
-    ]
-  },
-  {
-    name: 'Error', role: 'System failures, validation errors',
-    tokens: [
-      { stop: '200', hex: '#ffe9e5' },
-      { stop: '300', hex: '#ff4e2a' },
-    ]
-  },
-  {
-    name: 'Success', role: 'Completion feedback, positive outcomes',
-    tokens: [
-      { stop: '800', hex: '#dcfce7' },
-      { stop: '900', hex: '#16a34a' },
-    ]
+    name: 'Terra', id: 'terra', accentHex: '#166534',
+    personality: 'Sustainable · Wellness · Healthcare',
+    roles: [
+      {
+        role: 'Primary', hue: 'Emerald', basePrefix: '--base-color-emerald',
+        brandPrefix: '--brand-terra-primary',
+        stops: [
+          { stop: '100', hex: '#ecfdf5' }, { stop: '200', hex: '#d1fae5' },
+          { stop: '300', hex: '#a7f3d0' }, { stop: '400', hex: '#6ee7b7' },
+          { stop: '500', hex: '#34d399' }, { stop: '600', hex: '#166534' },
+          { stop: '700', hex: '#14532d' }, { stop: '800', hex: '#0f3d22' },
+          { stop: '900', hex: '#0a2718' },
+        ],
+      },
+      {
+        role: 'Secondary', hue: 'Sienna', basePrefix: '--base-color-sienna',
+        brandPrefix: '--brand-terra-secondary',
+        stops: [
+          { stop: '100', hex: '#fff7ed' }, { stop: '200', hex: '#ffedd5' },
+          { stop: '300', hex: '#fed7aa' }, { stop: '400', hex: '#fdba74' },
+          { stop: '500', hex: '#c2521a' }, { stop: '600', hex: '#a3400f' },
+          { stop: '700', hex: '#823010' }, { stop: '800', hex: '#61210b' },
+          { stop: '900', hex: '#401407' },
+        ],
+      },
+      {
+        role: 'Tertiary', hue: 'Gold', basePrefix: '--base-color-gold',
+        brandPrefix: '--brand-terra-tertiary',
+        stops: [
+          { stop: '100', hex: '#fffbeb' }, { stop: '200', hex: '#fef3c7' },
+          { stop: '300', hex: '#fde68a' }, { stop: '400', hex: '#fcd34d' },
+          { stop: '500', hex: '#f59e0b' }, { stop: '600', hex: '#b45309' },
+          { stop: '700', hex: '#92400e' }, { stop: '800', hex: '#6e3008' },
+          { stop: '900', hex: '#451d05' },
+        ],
+      },
+      {
+        role: 'Neutral', hue: 'Sand', basePrefix: '--base-color-sand',
+        brandPrefix: '--brand-terra-neutral',
+        stops: [
+          { stop: '50',  hex: '#fdfcf8', isNeutral: true },
+          { stop: '100', hex: '#f5f2ea', isNeutral: true },
+          { stop: '200', hex: '#e8e2d5', isNeutral: true },
+          { stop: '300', hex: '#cec6b4', isNeutral: true },
+          { stop: '400', hex: '#a89e8c', isNeutral: true },
+          { stop: '500', hex: '#7a7265' }, { stop: '600', hex: '#504a40' },
+          { stop: '700', hex: '#35302a' }, { stop: '800', hex: '#1e1a15' },
+          { stop: '900', hex: '#0d0b09' },
+        ],
+      },
+    ],
   },
 ];
+
+// ─── Alias colour tokens ──────────────────────────────────────────────────────
 
 const ALIAS_GROUPS = [
   {
     name: 'Text',
-    tokens: Object.entries(ALIAS_COLOR).filter(([k]) => k.includes('-text-')),
+    description: 'Use for all text and icon content',
+    tokens: [
+      { name: '--alias-color-text-primary',   value: '#000000',                        usage: 'Headings, primary body copy' },
+      { name: '--alias-color-text-secondary',  value: '#222222',                        usage: 'Secondary body copy' },
+      { name: '--alias-color-text-tertiary',   value: '#464646',                        usage: 'Supporting text, labels' },
+      { name: '--alias-color-text-subtle',     value: 'var(--base-color-gray-600)',      usage: 'Placeholders, muted text' },
+      { name: '--alias-color-text-disabled',   value: '#909090',                        usage: 'Disabled state copy' },
+      { name: '--alias-color-text-inverse',    value: '#ffffff',                        usage: 'Text on dark/brand backgrounds' },
+      { name: '--alias-color-text-brand',      value: '#111487',                        usage: 'Brand-coloured text links' },
+    ],
   },
   {
     name: 'Background',
-    tokens: Object.entries(ALIAS_COLOR).filter(([k]) => k.includes('-background-')),
+    description: 'Surfaces, layers and brand fills',
+    tokens: [
+      { name: '--alias-color-background-primary',    value: '#ffffff',                      usage: 'Page background' },
+      { name: '--alias-color-background-secondary',  value: '#f5f5f3',                      usage: 'Subtle surfaces, sidebars' },
+      { name: '--alias-color-background-tertiary',   value: '#eeeeec',                      usage: 'Component internal layers' },
+      { name: '--alias-color-background-brand',      value: '#1518a6',                      usage: 'Brand-filled surfaces' },
+      { name: '--alias-color-background-brand-dark', value: '#111487',                      usage: 'Dark brand surface variant' },
+      { name: '--alias-color-background-hover',      value: 'var(--base-color-blue-100)',   usage: 'Interactive hover tint' },
+    ],
   },
   {
     name: 'Border',
-    tokens: Object.entries(ALIAS_COLOR).filter(([k]) => k.includes('-border-')),
+    description: 'Dividers, field borders and brand outlines',
+    tokens: [
+      { name: '--alias-color-border-default',  value: '#d5d5d5',                        usage: 'Default field and card borders' },
+      { name: '--alias-color-border-active',   value: '#1c21dc',                        usage: 'Focus / active field border' },
+      { name: '--alias-color-border-disabled', value: '#b1b1b1',                        usage: 'Disabled field border' },
+      { name: '--alias-color-border-brand',    value: 'var(--base-color-blue-800)',      usage: 'Checked checkbox / radio ring' },
+      { name: '--alias-color-border-success',  value: 'var(--semantic-color-success-600)', usage: 'Success state border' },
+      { name: '--alias-color-border-info',     value: 'var(--semantic-color-info-600)',    usage: 'Info state border' },
+      { name: '--alias-color-border-warning',  value: 'var(--semantic-color-warning-600)', usage: 'Warning state border' },
+      { name: '--alias-color-border-error',    value: 'var(--semantic-color-error-600)',   usage: 'Error state border' },
+    ],
   },
   {
     name: 'Icon',
-    tokens: Object.entries(ALIAS_COLOR).filter(([k]) => k.includes('-icon-')),
-  },
-  {
-    name: 'Feedback',
-    tokens: Object.entries(ALIAS_COLOR).filter(([k]) => k.includes('-feedback-')),
+    description: 'Icon fill colours by prominence',
+    tokens: [
+      { name: '--alias-color-icon-primary',   value: '#222222', usage: 'High-emphasis icons' },
+      { name: '--alias-color-icon-secondary', value: '#464646', usage: 'Supporting icons' },
+      { name: '--alias-color-icon-disabled',  value: '#b1b1b1', usage: 'Disabled icons' },
+      { name: '--alias-color-icon-brand',     value: '#171cbe', usage: 'Brand-coloured icons' },
+    ],
   },
 ];
 
-function TokenRow({ name, value, index }: { name: string; value: string; index: number }) {
-  const resolved = resolveValue(value, BASE);
+// ─── Semantic system data ─────────────────────────────────────────────────────
+
+const SEMANTIC_SYSTEM = [
+  {
+    name: 'Success', key: 'success',
+    description: 'Confirmations, completed actions, positive outcomes',
+    stops: [
+      { stop: '100', hex: '#f0fdf4' }, { stop: '200', hex: '#dcfce7' },
+      { stop: '300', hex: '#bbf7d0' }, { stop: '400', hex: '#86efac' },
+      { stop: '500', hex: '#4ade80' }, { stop: '600', hex: '#16a34a' },
+      { stop: '700', hex: '#15803d' }, { stop: '800', hex: '#166534' },
+      { stop: '900', hex: '#14532d' },
+    ],
+    aliasTokens: [
+      { token: '--alias-color-feedback-success-bg',     stop: '100', usage: 'Banner / toast background' },
+      { token: '--alias-color-feedback-success-border', stop: '400', usage: 'Border accent' },
+      { token: '--alias-color-feedback-success-fg',     stop: '800', usage: 'Text and icon on bg' },
+    ],
+    hex600: '#16a34a',
+  },
+  {
+    name: 'Info', key: 'info',
+    description: 'Informational hints, help text, neutral notifications',
+    stops: [
+      { stop: '100', hex: '#f0f9ff' }, { stop: '200', hex: '#e0f2fe' },
+      { stop: '300', hex: '#bae6fd' }, { stop: '400', hex: '#7dd3fc' },
+      { stop: '500', hex: '#38bdf8' }, { stop: '600', hex: '#0284c7' },
+      { stop: '700', hex: '#0369a1' }, { stop: '800', hex: '#075985' },
+      { stop: '900', hex: '#0c4a6e' },
+    ],
+    aliasTokens: [
+      { token: '--alias-color-feedback-info-bg',     stop: '100', usage: 'Banner / toast background' },
+      { token: '--alias-color-feedback-info-border', stop: '400', usage: 'Border accent' },
+      { token: '--alias-color-feedback-info-fg',     stop: '800', usage: 'Text and icon on bg' },
+    ],
+    hex600: '#0284c7',
+  },
+  {
+    name: 'Warning', key: 'warning',
+    description: 'Caution states, attention-required, non-critical alerts',
+    stops: [
+      { stop: '100', hex: '#fffbeb' }, { stop: '200', hex: '#fef3c7' },
+      { stop: '300', hex: '#fde68a' }, { stop: '400', hex: '#fcd34d' },
+      { stop: '500', hex: '#fbbf24' }, { stop: '600', hex: '#d97706' },
+      { stop: '700', hex: '#b45309' }, { stop: '800', hex: '#92400e' },
+      { stop: '900', hex: '#78350f' },
+    ],
+    aliasTokens: [
+      { token: '--alias-color-feedback-warning-bg',     stop: '100', usage: 'Banner / toast background' },
+      { token: '--alias-color-feedback-warning-border', stop: '400', usage: 'Border accent' },
+      { token: '--alias-color-feedback-warning-fg',     stop: '800', usage: 'Text and icon on bg' },
+    ],
+    hex600: '#d97706',
+  },
+  {
+    name: 'Error', key: 'error',
+    description: 'Failures, validation errors, destructive states',
+    stops: [
+      { stop: '100', hex: '#fff5f5' }, { stop: '200', hex: '#fee2e2' },
+      { stop: '300', hex: '#fecaca' }, { stop: '400', hex: '#fca5a5' },
+      { stop: '500', hex: '#f87171' }, { stop: '600', hex: '#dc2626' },
+      { stop: '700', hex: '#b91c1c' }, { stop: '800', hex: '#991b1b' },
+      { stop: '900', hex: '#7f1d1d' },
+    ],
+    aliasTokens: [
+      { token: '--alias-color-feedback-error-bg',     stop: '100', usage: 'Banner / toast background' },
+      { token: '--alias-color-feedback-error-border', stop: '400', usage: 'Border accent' },
+      { token: '--alias-color-feedback-error-fg',     stop: '800', usage: 'Text and icon on bg' },
+    ],
+    hex600: '#dc2626',
+  },
+];
+
+// ─── Helper: is this hex dark enough to need white text? ─────────────────────
+
+function needsWhiteText(hex: string): boolean {
+  const h = hex.replace('#', '');
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  return (r * 299 + g * 587 + b * 114) / 1000 < 128;
+}
+
+// ─── Section A: Brand overview ───────────────────────────────────────────────
+
+function BrandOverview() {
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 0 }}>
+      {BRANDS.map((brand) => (
+        <div key={brand.id} style={{ border: '1px solid #eee', borderRadius: 10, overflow: 'hidden' }}>
+          {/* Header */}
+          <div style={{
+            background: brand.accentHex, padding: '14px 18px',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          }}>
+            <div>
+              <p style={{ fontSize: 14, fontWeight: 600, color: '#fff', margin: 0 }}>{brand.name}</p>
+              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.65)', margin: 0 }}>{brand.personality}</p>
+            </div>
+            <div style={{ display: 'flex', gap: 6 }}>
+              {brand.roles.slice(0, 3).map((r) => (
+                <div key={r.role} style={{
+                  width: 18, height: 18, borderRadius: '50%',
+                  background: r.stops.find(s => s.stop === '600')?.hex ?? r.stops[5].hex,
+                  border: '2px solid rgba(255,255,255,0.35)',
+                }} />
+              ))}
+            </div>
+          </div>
+          {/* Compact swatch rows */}
+          <div style={{ padding: '12px 16px', background: '#fff', display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {brand.roles.map((r) => (
+              <div key={r.role} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontSize: 10, color: '#aaa', width: 56, flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 600 }}>{r.role}</span>
+                <div style={{ display: 'flex', gap: 2, flex: 1 }}>
+                  {r.stops.map((s) => (
+                    <div key={s.stop} style={{
+                      flex: 1, height: 16, borderRadius: 2, background: s.hex,
+                      border: s.isNeutral ? '0.5px solid #e5e5e5' : 'none',
+                    }} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Section B: Brand palette detail (tabbed) ────────────────────────────────
+
+function PaletteRow({ roleData }: { roleData: PaletteRole }) {
+  const action600 = roleData.stops.find(s => s.stop === '600') ?? roleData.stops[5];
+  const bg200 = roleData.stops.find(s => s.stop === '200') ?? roleData.stops[1];
+  const text800 = roleData.stops.find(s => s.stop === '800') ?? roleData.stops[7];
+
+  return (
+    <div style={{ marginBottom: 24 }}>
+      {/* Role header */}
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8 }}>
+        <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>{roleData.role}</span>
+        <span style={{ fontSize: 11, color: '#aaa' }}>{roleData.hue}</span>
+      </div>
+
+      {/* Swatch strip */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
+        {roleData.stops.map((s) => {
+          const isAction = s.stop === '600';
+          const white = needsWhiteText(s.hex);
+          return (
+            <div key={s.stop} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{
+                width: '100%', height: isAction ? 48 : 40,
+                borderRadius: 5, background: s.hex,
+                border: s.isNeutral ? '0.5px solid #e5e5e5' : (isAction ? `2px solid ${s.hex}` : 'none'),
+                outline: isAction ? '2px solid ' + s.hex : 'none',
+                outlineOffset: isAction ? 2 : 0,
+                boxSizing: 'border-box',
+              }} />
+              <span style={{ fontSize: 9, color: '#999', marginTop: 4 }}>{s.stop}</span>
+              <span style={{ fontSize: 9, fontFamily: 'monospace', color: '#bbb' }}>{s.hex}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Key token resolution row */}
+      <div style={{ display: 'flex', gap: 6 }}>
+        {[
+          { label: 'Background', stop: bg200 },
+          { label: 'Action', stop: action600 },
+          { label: 'Text', stop: text800 },
+        ].map(({ label, stop }) => (
+          <div key={label} style={{
+            flex: 1, background: '#fafafa', border: '1px solid #eee',
+            borderRadius: 6, padding: '8px 10px',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+              <div style={{
+                width: 12, height: 12, borderRadius: 2, background: stop.hex,
+                border: stop.isNeutral ? '0.5px solid #e5e5e5' : 'none', flexShrink: 0,
+              }} />
+              <span style={{ fontSize: 10, color: '#888', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label} · {stop.stop}</span>
+            </div>
+            <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#1c21dc', margin: '0 0 2px', fontWeight: 600, wordBreak: 'break-all' }}>
+              {roleData.brandPrefix}-{stop.stop}
+            </p>
+            <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#aaa', margin: '0 0 2px', wordBreak: 'break-all' }}>
+              → {roleData.basePrefix}-{stop.stop}
+            </p>
+            <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#666', margin: 0 }}>{stop.hex}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BrandPaletteDetail() {
+  const [activeBrand, setActiveBrand] = useState<'cobalt' | 'terra'>('cobalt');
+  const brand = BRANDS.find(b => b.id === activeBrand)!;
+
+  return (
+    <div>
+      {/* Tab toggle */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+        <div>
+          <p style={SECTION_LABEL}>Palette detail</p>
+          <p style={{ ...SECTION_TITLE, margin: 0 }}>{brand.name}</p>
+        </div>
+        <div style={{ display: 'flex', gap: 2, background: '#f5f5f5', borderRadius: 8, padding: 3 }}>
+          {BRANDS.map(b => (
+            <button
+              key={b.id}
+              onClick={() => setActiveBrand(b.id as 'cobalt' | 'terra')}
+              style={{
+                padding: '6px 16px', borderRadius: 6, border: 'none', cursor: 'pointer',
+                fontSize: 12, fontWeight: 600,
+                background: activeBrand === b.id ? '#fff' : 'transparent',
+                color: activeBrand === b.id ? '#111' : '#888',
+                boxShadow: activeBrand === b.id ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                transition: 'all 0.15s',
+              }}
+            >
+              {b.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Palette rows */}
+      {brand.roles.map(role => (
+        <PaletteRow key={role.role} roleData={role} />
+      ))}
+
+      {/* Token naming note */}
+      <div style={{
+        background: '#f8f8f8', border: '1px solid #eee', borderRadius: 8,
+        padding: '12px 16px', marginTop: 8,
+      }}>
+        <p style={{ fontSize: 12, fontWeight: 600, color: '#555', margin: '0 0 4px' }}>Token naming pattern</p>
+        <p style={{ fontSize: 11, color: '#888', margin: 0, lineHeight: 1.6 }}>
+          <code style={{ fontFamily: 'monospace', background: '#eee', padding: '1px 5px', borderRadius: 3 }}>
+            --brand-{activeBrand}-{'{role}'}-{'{stop}'}
+          </code>
+          {' '}references{' '}
+          <code style={{ fontFamily: 'monospace', background: '#eee', padding: '1px 5px', borderRadius: 3 }}>
+            --base-color-{'{hue}'}-{'{stop}'}
+          </code>
+          . Use brand alias tokens in components — never reference base tokens directly.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─── Section C: Semantic roles ────────────────────────────────────────────────
+
+function AliasTokenRow({ name, value, usage, index }: {
+  name: string; value: string; usage: string; index: number;
+}) {
+  const resolved = resolve(value);
   const isVar = value.startsWith('var(--');
-  const sourceBase = isVar ? value.replace(/^var\(--/, '').replace(/\)$/, '') : null;
-  const isColor = isColorValue(value);
+  const sourceKey = isVar ? value.replace(/^var\(/, '').replace(/\)$/, '').trim() : null;
+  const isColor = resolved.startsWith('#') || resolved.startsWith('rgb');
 
   return (
     <div style={{
-      padding: '10px 20px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 12,
+      display: 'flex', alignItems: 'center', gap: 12,
+      padding: '10px 16px',
       borderBottom: '1px solid #f7f7f7',
       background: index % 2 === 0 ? '#fafafa' : '#fff',
     }}>
       {isColor ? (
-        <div style={{ width: 26, height: 26, borderRadius: 4, background: resolved, border: '1px solid rgba(0,0,0,0.07)', flexShrink: 0 }} />
+        <div style={{
+          width: 28, height: 28, borderRadius: 5, flexShrink: 0,
+          background: resolved, border: '1px solid rgba(0,0,0,0.07)',
+        }} />
       ) : (
-        <div style={{ width: 26, height: 26, borderRadius: 4, background: '#f5f5f5', border: '1px solid #eee', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ fontSize: 9, color: '#aaa' }}>—</span>
+        <div style={{
+          width: 28, height: 28, borderRadius: 5, flexShrink: 0,
+          background: '#f0f0f0', border: '1px solid #e8e8e8',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <span style={{ fontSize: 9, color: '#bbb' }}>—</span>
         </div>
       )}
-      <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flex: '1 1 auto' }}>{name}</span>
-      {sourceBase && (
-        <span style={{ fontSize: 11, color: '#aaa', flex: '0 0 auto' }}>→ {sourceBase}</span>
-      )}
-      <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#666', textAlign: 'right', flex: '0 0 auto' }}>{resolved}</span>
+      <span style={{ fontFamily: 'monospace', fontSize: 11, color: '#111', fontWeight: 600, flex: '2 1 0', minWidth: 0 }}>{name}</span>
+      <span style={{ fontSize: 11, color: '#bbb', flex: '0 0 auto' }}>
+        {sourceKey ? `→ ${sourceKey}` : ''}
+      </span>
+      <span style={{ fontFamily: 'monospace', fontSize: 11, color: '#888', flex: '1 1 0', textAlign: 'right' }}>{resolved}</span>
+      <span style={{ fontSize: 11, color: '#aaa', flex: '1 1 0', textAlign: 'right' }}>{usage}</span>
     </div>
   );
 }
 
-function ComponentAccordion({ groupName, subGroups }: { groupName: string; subGroups: Record<string, Record<string, string>> }) {
-  const [open, setOpen] = useState(false);
-  const allTokens = Object.entries(subGroups).flatMap(([, tokens]) => Object.entries(tokens));
-
+function SemanticRoles() {
   return (
-    <div style={{ marginBottom: 8 }}>
-      <div
-        onClick={() => setOpen(!open)}
-        style={{
-          background: '#fafafa',
-          border: '1px solid #eee',
-          borderRadius: open ? '8px 8px 0 0' : 8,
-          padding: '14px 20px',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{groupName}</span>
-          <span style={{ fontSize: 11, color: '#888', background: '#eee', padding: '2px 8px', borderRadius: 20 }}>
-            {allTokens.length} tokens
-          </span>
+    <div>
+      {ALIAS_GROUPS.map((group) => (
+        <div key={group.name} style={{ marginBottom: 20 }}>
+          <div style={{
+            background: '#f7f7f7', padding: '10px 16px',
+            borderRadius: '8px 8px 0 0', border: '1px solid #eee',
+            display: 'flex', alignItems: 'baseline', gap: 10,
+          }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{group.name}</span>
+            <span style={{ fontSize: 11, color: '#aaa' }}>{group.description}</span>
+          </div>
+          {/* Column headers */}
+          <div style={{
+            display: 'flex', gap: 12, padding: '6px 16px',
+            background: '#fafafa', borderLeft: '1px solid #eee', borderRight: '1px solid #eee',
+          }}>
+            <span style={{ width: 28, flexShrink: 0 }} />
+            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '2 1 0', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Token</span>
+            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '0 0 auto', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Source</span>
+            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '1 1 0', textAlign: 'right', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Value</span>
+            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '1 1 0', textAlign: 'right', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Usage</span>
+          </div>
+          <div style={{ border: '1px solid #eee', borderTop: 'none', borderRadius: '0 0 8px 8px', overflow: 'hidden' }}>
+            {group.tokens.map(({ name, value, usage }, i) => (
+              <AliasTokenRow key={name} name={name} value={value} usage={usage} index={i} />
+            ))}
+          </div>
         </div>
-        <span style={{ fontSize: 12, color: '#aaa' }}>{open ? '▾' : '▸'}</span>
-      </div>
-      {open && (
-        <div style={{ border: '1px solid #eee', borderTop: 'none', borderRadius: '0 0 8px 8px', overflow: 'hidden' }}>
-          {Object.entries(subGroups).map(([subName, tokens]) => (
-            <div key={subName}>
-              <div style={{ padding: '8px 20px', background: '#f7f7f7', fontSize: 11, fontWeight: 600, color: '#888', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                {subName}
-              </div>
-              {Object.entries(tokens).map(([name, value], i) => {
-                const resolved = resolveValue(value, BASE);
-                const isVar = value.startsWith('var(--');
-                const sourceBase = isVar ? value.replace(/^var\(--/, '').replace(/\)$/, '') : null;
-                const isColor = isColorValue(value);
-                return (
-                  <div key={name} style={{
-                    padding: '10px 20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 12,
-                    borderBottom: '1px solid #f7f7f7',
-                    background: i % 2 === 0 ? '#fafafa' : '#fff',
-                  }}>
-                    {isColor ? (
-                      <div style={{ width: 26, height: 26, borderRadius: 4, background: resolved, border: '1px solid rgba(0,0,0,0.07)', flexShrink: 0 }} />
-                    ) : (
-                      <div style={{ width: 26, height: 26, borderRadius: 4, background: '#f5f5f5', border: '1px solid #eee', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span style={{ fontSize: 9, color: '#aaa' }}>—</span>
-                      </div>
-                    )}
-                    <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flex: '1 1 auto' }}>{name}</span>
-                    {sourceBase && (
-                      <span style={{ fontSize: 11, color: '#aaa', flex: '0 0 auto' }}>→ {sourceBase}</span>
-                    )}
-                    <span style={{ fontSize: isColor ? 11 : 12, fontFamily: 'monospace', color: isColor ? '#666' : '#555', textAlign: 'right', flex: '0 0 auto' }}>{resolved}</span>
-                  </div>
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      )}
+      ))}
     </div>
   );
 }
+
+// ─── Section D: Semantic system colours ──────────────────────────────────────
+
+function SemanticSystemRow({ item }: { item: typeof SEMANTIC_SYSTEM[0] }) {
+  return (
+    <div style={{ marginBottom: 28 }}>
+      {/* Row header */}
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8 }}>
+        <div style={{ width: 10, height: 10, borderRadius: 2, background: item.hex600, flexShrink: 0, marginBottom: 2 }} />
+        <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>{item.name}</span>
+        <span style={{ fontSize: 11, color: '#aaa' }}>{item.description}</span>
+      </div>
+
+      {/* Scale strip */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 10 }}>
+        {item.stops.map((s) => {
+          const isAction = s.stop === '600';
+          return (
+            <div key={s.stop} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{
+                width: '100%', height: isAction ? 40 : 32, borderRadius: 4, background: s.hex,
+                border: parseInt(s.stop) <= 300 ? '0.5px solid #e5e5e5' : 'none',
+                outline: isAction ? `2px solid ${s.hex}` : 'none', outlineOffset: 2,
+                boxSizing: 'border-box',
+              }} />
+              <span style={{ fontSize: 9, color: '#aaa', marginTop: 3 }}>{s.stop}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Alias usage tokens */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+        {item.aliasTokens.map(({ token, stop, usage }) => {
+          const stopData = item.stops.find(s => s.stop === stop)!;
+          return (
+            <div key={token} style={{
+              background: '#fafafa', border: '1px solid #eee', borderRadius: 6, padding: '8px 10px',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                <div style={{
+                  width: 12, height: 12, borderRadius: 2, background: stopData.hex,
+                  border: parseInt(stop) <= 300 ? '0.5px solid #e5e5e5' : 'none', flexShrink: 0,
+                }} />
+                <span style={{ fontSize: 10, color: '#888', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{usage}</span>
+              </div>
+              <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#1c21dc', fontWeight: 600, margin: '0 0 2px', wordBreak: 'break-all' }}>{token}</p>
+              <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#aaa', margin: '0 0 1px', wordBreak: 'break-all' }}>
+                → --semantic-color-{item.key}-{stop}
+              </p>
+              <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#666', margin: 0 }}>{stopData.hex}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 function FoundationColourPage() {
   return (
@@ -427,67 +749,46 @@ function FoundationColourPage() {
       <div style={BREADCRUMB}>Foundation</div>
       <h1 style={PAGE_TITLE}>Colour</h1>
       <p style={PAGE_SUB}>
-        A three-tier system. The raw palette provides the primitives. Semantic tokens assign those colours to roles. Component tokens lock in slot-level overrides.
+        Two brand palettes, one shared semantic system. Brand tokens define identity — semantic tokens define meaning.
       </p>
 
-      {/* Section 1 */}
-      <h2 style={SECTION_TITLE}>The raw palette</h2>
-      <p style={SECTION_SUB}>Nine scales, each with stops from lightest to darkest.</p>
-
-      {PALETTE_GROUPS.map((group) => (
-        <div key={group.name} style={{ marginBottom: 40 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12 }}>
-            <span style={{ fontSize: 16, fontWeight: 600, color: '#111' }}>{group.name}</span>
-            <span style={{ fontSize: 12, color: '#888' }}>{group.role}</span>
-          </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {group.tokens.map((t) => (
-              <div key={t.stop} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: 72, height: 64, borderRadius: 6, background: t.hex, border: '1px solid rgba(0,0,0,0.07)' }} />
-                <span style={{ fontSize: 11, fontWeight: 600, color: '#555', marginTop: 6 }}>{t.stop}</span>
-                <span style={{ fontSize: 10, color: '#999', fontFamily: 'monospace' }}>{t.hex}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+      {/* ── A: Brand overview ─────────────────────────────────────────────── */}
+      <p style={SECTION_LABEL}>Brand palettes</p>
+      <h2 style={{ ...SECTION_TITLE, marginBottom: 4 }}>Two brands, one system</h2>
+      <p style={SECTION_SUB}>Each brand has its own primary, secondary, tertiary and neutral scale. All map through brand alias tokens to the base colour layer.</p>
+      <BrandOverview />
 
       <hr style={DIVIDER} />
 
-      {/* Section 2 */}
-      <h2 style={SECTION_TITLE}>Semantic roles</h2>
-      <p style={SECTION_SUB}>
-        Alias tokens bind palette stops to UI roles. Component code always references a semantic token — never a base colour directly.
-      </p>
-
-      {ALIAS_GROUPS.map((group) => (
-        <div key={group.name} style={{ border: '1px solid #eee', borderRadius: 8, overflow: 'hidden', marginBottom: 16 }}>
-          <div style={{ background: '#fafafa', padding: '12px 20px', borderBottom: '1px solid #eee', display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{group.name}</span>
-            <span style={{ fontSize: 11, color: '#888', background: '#eee', padding: '2px 8px', borderRadius: 20 }}>
-              {group.tokens.length}
-            </span>
-          </div>
-          {group.tokens.map(([name, value], i) => (
-            <TokenRow key={name} name={name} value={value} index={i} />
-          ))}
-        </div>
-      ))}
+      {/* ── B: Brand palette detail ────────────────────────────────────────── */}
+      <BrandPaletteDetail />
 
       <hr style={DIVIDER} />
 
-      {/* Section 3 */}
-      <h2 style={SECTION_TITLE}>Component slots</h2>
+      {/* ── C: Semantic roles ─────────────────────────────────────────────── */}
+      <p style={SECTION_LABEL}>Semantic roles</p>
+      <h2 style={{ ...SECTION_TITLE, marginBottom: 4 }}>Alias tokens</h2>
       <p style={SECTION_SUB}>
-        Component tokens narrow semantic colours to specific slots. They give every component a stable contract even as the underlying palette evolves.
+        These are the tokens components use. They bind a UI role to a colour value and stay stable even when the underlying palette changes.
       </p>
+      <SemanticRoles />
 
-      {Object.entries(COMPONENT_TOKENS).map(([groupName, subGroups]) => (
-        <ComponentAccordion key={groupName} groupName={groupName} subGroups={subGroups} />
+      <hr style={DIVIDER} />
+
+      {/* ── D: Semantic system ────────────────────────────────────────────── */}
+      <p style={SECTION_LABEL}>Semantic system colours</p>
+      <h2 style={{ ...SECTION_TITLE, marginBottom: 4 }}>Success · Info · Warning · Error</h2>
+      <p style={SECTION_SUB}>
+        Brand-agnostic and fixed. These never change when a brand theme is swapped. Each scale has nine stops; the three alias tokens are what you actually use in components.
+      </p>
+      {SEMANTIC_SYSTEM.map(item => (
+        <SemanticSystemRow key={item.key} item={item} />
       ))}
     </div>
   );
 }
+
+// ─── Meta ─────────────────────────────────────────────────────────────────────
 
 const meta: Meta = {
   title: 'Thematic design system/Foundation/Colour',
