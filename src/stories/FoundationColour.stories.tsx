@@ -175,6 +175,7 @@ type PaletteRole = {
   hue: string;
   basePrefix: string;
   brandPrefix: string;
+  isNeutral?: boolean;
   stops: { stop: string; hex: string; isNeutral?: boolean }[];
 };
 
@@ -302,52 +303,74 @@ const ALIAS_GROUPS = [
     name: 'Text',
     description: 'Use for all text and icon content',
     tokens: [
-      { name: '--alias-color-text-primary',   value: '#000000',                        usage: 'Headings, primary body copy' },
-      { name: '--alias-color-text-secondary',  value: '#222222',                        usage: 'Secondary body copy' },
-      { name: '--alias-color-text-tertiary',   value: '#464646',                        usage: 'Supporting text, labels' },
-      { name: '--alias-color-text-subtle',     value: 'var(--base-color-gray-600)',      usage: 'Placeholders, muted text' },
-      { name: '--alias-color-text-disabled',   value: '#909090',                        usage: 'Disabled state copy' },
-      { name: '--alias-color-text-inverse',    value: '#ffffff',                        usage: 'Text on dark/brand backgrounds' },
-      { name: '--alias-color-text-brand',      value: '#111487',                        usage: 'Brand-coloured text links' },
+      { name: '--alias-color-text-primary',   value: '#000000',                        usage: 'Headings, primary body copy',       brand: false },
+      { name: '--alias-color-text-secondary',  value: '#222222',                        usage: 'Secondary body copy',               brand: false },
+      { name: '--alias-color-text-tertiary',   value: '#464646',                        usage: 'Supporting text, labels',           brand: false },
+      { name: '--alias-color-text-subtle',     value: 'var(--base-color-gray-600)',      usage: 'Placeholders, muted text',          brand: false },
+      { name: '--alias-color-text-disabled',   value: '#909090',                        usage: 'Disabled state copy',               brand: false },
+      { name: '--alias-color-text-inverse',    value: '#ffffff',                        usage: 'Text on dark/brand backgrounds',    brand: false },
+      { name: '--alias-color-text-brand',      value: '#111487',                        usage: 'Brand-coloured text links',         brand: true  },
     ],
   },
   {
     name: 'Background',
     description: 'Surfaces, layers and brand fills',
     tokens: [
-      { name: '--alias-color-background-primary',    value: '#ffffff',                      usage: 'Page background' },
-      { name: '--alias-color-background-secondary',  value: '#f5f5f3',                      usage: 'Subtle surfaces, sidebars' },
-      { name: '--alias-color-background-tertiary',   value: '#eeeeec',                      usage: 'Component internal layers' },
-      { name: '--alias-color-background-brand',      value: '#1518a6',                      usage: 'Brand-filled surfaces' },
-      { name: '--alias-color-background-brand-dark', value: '#111487',                      usage: 'Dark brand surface variant' },
-      { name: '--alias-color-background-hover',      value: 'var(--base-color-blue-100)',   usage: 'Interactive hover tint' },
+      { name: '--alias-color-background-primary',    value: '#ffffff',                      usage: 'Page background',              brand: false },
+      { name: '--alias-color-background-secondary',  value: '#f5f5f3',                      usage: 'Subtle surfaces, sidebars',    brand: false },
+      { name: '--alias-color-background-tertiary',   value: '#eeeeec',                      usage: 'Component internal layers',    brand: false },
+      { name: '--alias-color-background-brand',      value: '#1518a6',                      usage: 'Brand-filled surfaces',        brand: true  },
+      { name: '--alias-color-background-brand-dark', value: '#111487',                      usage: 'Dark brand surface variant',   brand: true  },
+      { name: '--alias-color-background-hover',      value: 'var(--base-color-blue-100)',   usage: 'Interactive hover tint',       brand: true  },
     ],
   },
   {
     name: 'Border',
     description: 'Dividers, field borders and brand outlines',
     tokens: [
-      { name: '--alias-color-border-default',  value: '#d5d5d5',                        usage: 'Default field and card borders' },
-      { name: '--alias-color-border-active',   value: '#1c21dc',                        usage: 'Focus / active field border' },
-      { name: '--alias-color-border-disabled', value: '#b1b1b1',                        usage: 'Disabled field border' },
-      { name: '--alias-color-border-brand',    value: 'var(--base-color-blue-800)',      usage: 'Checked checkbox / radio ring' },
-      { name: '--alias-color-border-success',  value: 'var(--semantic-color-success-600)', usage: 'Success state border' },
-      { name: '--alias-color-border-info',     value: 'var(--semantic-color-info-600)',    usage: 'Info state border' },
-      { name: '--alias-color-border-warning',  value: 'var(--semantic-color-warning-600)', usage: 'Warning state border' },
-      { name: '--alias-color-border-error',    value: 'var(--semantic-color-error-600)',   usage: 'Error state border' },
+      { name: '--alias-color-border-default',  value: '#d5d5d5',                           usage: 'Default field and card borders',    brand: false },
+      { name: '--alias-color-border-active',   value: '#1c21dc',                           usage: 'Focus / active field border',       brand: true  },
+      { name: '--alias-color-border-disabled', value: '#b1b1b1',                           usage: 'Disabled field border',             brand: false },
+      { name: '--alias-color-border-brand',    value: 'var(--base-color-blue-800)',         usage: 'Checked checkbox / radio ring',     brand: true  },
+      { name: '--alias-color-border-success',  value: 'var(--semantic-color-success-600)', usage: 'Success state border',              brand: false },
+      { name: '--alias-color-border-info',     value: 'var(--semantic-color-info-600)',    usage: 'Info state border',                 brand: false },
+      { name: '--alias-color-border-warning',  value: 'var(--semantic-color-warning-600)', usage: 'Warning state border',              brand: false },
+      { name: '--alias-color-border-error',    value: 'var(--semantic-color-error-600)',   usage: 'Error state border',                brand: false },
     ],
   },
   {
     name: 'Icon',
     description: 'Icon fill colours by prominence',
     tokens: [
-      { name: '--alias-color-icon-primary',   value: '#222222', usage: 'High-emphasis icons' },
-      { name: '--alias-color-icon-secondary', value: '#464646', usage: 'Supporting icons' },
-      { name: '--alias-color-icon-disabled',  value: '#b1b1b1', usage: 'Disabled icons' },
-      { name: '--alias-color-icon-brand',     value: '#171cbe', usage: 'Brand-coloured icons' },
+      { name: '--alias-color-icon-primary',   value: '#222222', usage: 'High-emphasis icons',   brand: false },
+      { name: '--alias-color-icon-secondary', value: '#464646', usage: 'Supporting icons',       brand: false },
+      { name: '--alias-color-icon-disabled',  value: '#b1b1b1', usage: 'Disabled icons',         brand: false },
+      { name: '--alias-color-icon-brand',     value: '#171cbe', usage: 'Brand-coloured icons',   brand: true  },
     ],
   },
 ];
+
+// Brand-specific values for tokens marked brand: true
+const BRAND_ALIAS: Record<string, Record<string, string>> = {
+  cobalt: {
+    '--alias-color-text-brand':             '#111487',  // blue-900
+    '--alias-color-background-brand':       '#1518a6',  // blue-800
+    '--alias-color-background-brand-dark':  '#111487',  // blue-900
+    '--alias-color-background-hover':       '#c4c5f4',  // blue-100
+    '--alias-color-border-active':          '#1c21dc',  // blue-600
+    '--alias-color-border-brand':           '#1518a6',  // blue-800
+    '--alias-color-icon-brand':             '#171cbe',  // blue-700
+  },
+  terra: {
+    '--alias-color-text-brand':             '#0a2718',  // emerald-900
+    '--alias-color-background-brand':       '#0f3d22',  // emerald-800
+    '--alias-color-background-brand-dark':  '#0a2718',  // emerald-900
+    '--alias-color-background-hover':       '#ecfdf5',  // emerald-100
+    '--alias-color-border-active':          '#166534',  // emerald-600
+    '--alias-color-border-brand':           '#0f3d22',  // emerald-800
+    '--alias-color-icon-brand':             '#14532d',  // emerald-700
+  },
+};
 
 // ─── Semantic system data ─────────────────────────────────────────────────────
 
@@ -501,8 +524,10 @@ function PaletteRow({ roleData }: { roleData: PaletteRole }) {
   );
 }
 
-function BrandPaletteDetail() {
-  const [activeBrand, setActiveBrand] = useState<'cobalt' | 'terra'>('cobalt');
+function BrandPaletteDetail({ activeBrand, setActiveBrand }: {
+  activeBrand: 'cobalt' | 'terra';
+  setActiveBrand: (b: 'cobalt' | 'terra') => void;
+}) {
   const brand = BRANDS.find(b => b.id === activeBrand)!;
 
   return (
@@ -561,8 +586,8 @@ function BrandPaletteDetail() {
 
 // ─── Section C: Semantic roles ────────────────────────────────────────────────
 
-function AliasTokenRow({ name, value, usage, index }: {
-  name: string; value: string; usage: string; index: number;
+function AliasTokenRow({ name, value, usage, index, isBrandToken }: {
+  name: string; value: string; usage: string; index: number; isBrandToken?: boolean;
 }) {
   const resolved = resolve(value);
   const isVar = value.startsWith('var(--');
@@ -577,10 +602,18 @@ function AliasTokenRow({ name, value, usage, index }: {
       background: index % 2 === 0 ? '#fafafa' : '#fff',
     }}>
       {isColor ? (
-        <div style={{
-          width: 28, height: 28, borderRadius: 5, flexShrink: 0,
-          background: resolved, border: '1px solid rgba(0,0,0,0.07)',
-        }} />
+        <div style={{ position: 'relative', flexShrink: 0 }}>
+          <div style={{
+            width: 28, height: 28, borderRadius: 5,
+            background: resolved, border: '1px solid rgba(0,0,0,0.07)',
+          }} />
+          {isBrandToken && (
+            <div style={{
+              position: 'absolute', top: -3, right: -3, width: 8, height: 8,
+              borderRadius: '50%', background: '#1c21dc', border: '1.5px solid #fff',
+            }} />
+          )}
+        </div>
       ) : (
         <div style={{
           width: 28, height: 28, borderRadius: 5, flexShrink: 0,
@@ -600,37 +633,71 @@ function AliasTokenRow({ name, value, usage, index }: {
   );
 }
 
-function SemanticRoles() {
+function SemanticRoles({ activeBrand }: { activeBrand: 'cobalt' | 'terra' }) {
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(
+    () => Object.fromEntries(ALIAS_GROUPS.map(g => [g.name, true]))
+  );
+
+  function toggleGroup(name: string) {
+    setOpenGroups(prev => ({ ...prev, [name]: !prev[name] }));
+  }
+
+  const brandValues = BRAND_ALIAS[activeBrand];
+
   return (
     <div>
-      {ALIAS_GROUPS.map((group) => (
-        <div key={group.name} style={{ marginBottom: 20 }}>
-          <div style={{
-            background: '#f7f7f7', padding: '10px 16px',
-            borderRadius: '8px 8px 0 0', border: '1px solid #eee',
-            display: 'flex', alignItems: 'baseline', gap: 10,
-          }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{group.name}</span>
-            <span style={{ fontSize: 11, color: '#aaa' }}>{group.description}</span>
+      {ALIAS_GROUPS.map((group) => {
+        const isOpen = openGroups[group.name];
+        return (
+          <div key={group.name} style={{ marginBottom: 16 }}>
+            {/* Group header — clickable */}
+            <button
+              onClick={() => toggleGroup(group.name)}
+              style={{
+                width: '100%', display: 'flex', alignItems: 'center', gap: 10,
+                background: '#f7f7f7', padding: '10px 16px',
+                borderRadius: isOpen ? '8px 8px 0 0' : '8px',
+                border: '1px solid #eee', cursor: 'pointer', textAlign: 'left',
+              }}
+            >
+              {/* Chevron */}
+              <svg
+                width="12" height="12" viewBox="0 0 12 12" fill="none"
+                style={{ flexShrink: 0, transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.15s', color: '#aaa' }}
+              >
+                <path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>{group.name}</span>
+              <span style={{ fontSize: 11, color: '#aaa' }}>{group.description}</span>
+              <span style={{ marginLeft: 'auto', fontSize: 11, color: '#ccc' }}>{group.tokens.length}</span>
+            </button>
+
+            {isOpen && (
+              <>
+                {/* Column headers */}
+                <div style={{
+                  display: 'flex', gap: 12, padding: '6px 16px',
+                  background: '#fafafa', borderLeft: '1px solid #eee', borderRight: '1px solid #eee',
+                }}>
+                  <span style={{ width: 28, flexShrink: 0 }} />
+                  <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '2 1 0', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Token</span>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '0 0 auto', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Source</span>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '1 1 0', textAlign: 'right', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Value</span>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '1 1 0', textAlign: 'right', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Usage</span>
+                </div>
+                <div style={{ border: '1px solid #eee', borderTop: 'none', borderRadius: '0 0 8px 8px', overflow: 'hidden' }}>
+                  {group.tokens.map(({ name, value, usage, brand: isBrandToken }, i) => {
+                    const resolvedValue = isBrandToken ? (brandValues[name] ?? value) : value;
+                    return (
+                      <AliasTokenRow key={name} name={name} value={resolvedValue} usage={usage} index={i} isBrandToken={isBrandToken} />
+                    );
+                  })}
+                </div>
+              </>
+            )}
           </div>
-          {/* Column headers */}
-          <div style={{
-            display: 'flex', gap: 12, padding: '6px 16px',
-            background: '#fafafa', borderLeft: '1px solid #eee', borderRight: '1px solid #eee',
-          }}>
-            <span style={{ width: 28, flexShrink: 0 }} />
-            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '2 1 0', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Token</span>
-            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '0 0 auto', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Source</span>
-            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '1 1 0', textAlign: 'right', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Value</span>
-            <span style={{ fontSize: 10, fontWeight: 600, color: '#bbb', flex: '1 1 0', textAlign: 'right', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Usage</span>
-          </div>
-          <div style={{ border: '1px solid #eee', borderTop: 'none', borderRadius: '0 0 8px 8px', overflow: 'hidden' }}>
-            {group.tokens.map(({ name, value, usage }, i) => (
-              <AliasTokenRow key={name} name={name} value={value} usage={usage} index={i} />
-            ))}
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -696,6 +763,8 @@ function SemanticSystemRow({ item }: { item: typeof SEMANTIC_SYSTEM[0] }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 function FoundationColourPage() {
+  const [activeBrand, setActiveBrand] = useState<'cobalt' | 'terra'>('cobalt');
+
   return (
     <div style={PAGE}>
       <div style={BREADCRUMB}>Foundation</div>
@@ -705,7 +774,7 @@ function FoundationColourPage() {
       </p>
 
       {/* ── B: Brand palette detail ────────────────────────────────────────── */}
-      <BrandPaletteDetail />
+      <BrandPaletteDetail activeBrand={activeBrand} setActiveBrand={setActiveBrand} />
 
       <hr style={DIVIDER} />
 
@@ -713,9 +782,9 @@ function FoundationColourPage() {
       <p style={SECTION_LABEL}>Semantic roles</p>
       <h2 style={{ ...SECTION_TITLE, marginBottom: 4 }}>Alias tokens</h2>
       <p style={SECTION_SUB}>
-        These are the tokens components use. They bind a UI role to a colour value and stay stable even when the underlying palette changes.
+        These are the tokens components use. Brand-specific values (marked ●) update when you switch brand above.
       </p>
-      <SemanticRoles />
+      <SemanticRoles activeBrand={activeBrand} />
 
       <hr style={DIVIDER} />
 
