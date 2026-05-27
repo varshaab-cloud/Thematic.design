@@ -1,251 +1,147 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import React from "react"
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 
-const meta: Meta = {
-  title: "Foundation/Spacing",
-  tags: ["!autodocs"],
-  parameters: {
-    layout: "fullscreen",
-    docs: { page: null },
+const PAGE: React.CSSProperties = { background: '#fff', padding: '48px 56px', maxWidth: 1100, margin: '0 auto', fontFamily: "'Open Sans', system-ui, sans-serif" };
+const BREADCRUMB: React.CSSProperties = { fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#999', marginBottom: 8 };
+const PAGE_TITLE: React.CSSProperties = { fontSize: 40, fontWeight: 700, color: '#0a0a0a', margin: '0 0 12px', lineHeight: 1.1 };
+const PAGE_SUB: React.CSSProperties = { fontSize: 15, color: '#666', lineHeight: 1.6, maxWidth: 560, marginBottom: 48, marginTop: 0 };
+const SECTION_TITLE: React.CSSProperties = { fontSize: 20, fontWeight: 700, color: '#111', margin: '0 0 24px' };
+const DIVIDER: React.CSSProperties = { height: 1, background: '#f0f0f0', margin: '40px 0', border: 'none' };
+
+// Base spacing tokens from tokens.json
+const BASE_SPACING = [
+  { token: '--base-spacing-1', value: '0.25rem', px: 4 },
+  { token: '--base-spacing-2', value: '0.5rem', px: 8 },
+  { token: '--base-spacing-3', value: '0.75rem', px: 12 },
+  { token: '--base-spacing-4', value: '1rem', px: 16 },
+  { token: '--base-spacing-5', value: '1.5rem', px: 24 },
+  { token: '--base-spacing-6', value: '2rem', px: 32 },
+  { token: '--base-spacing-7', value: '2.5rem', px: 40 },
+  { token: '--base-spacing-8', value: '3rem', px: 48 },
+  { token: '--base-spacing-9', value: '4rem', px: 64 },
+  { token: '--base-spacing-10', value: '5rem', px: 80 },
+];
+
+// Alias spacing tokens from tokens.json
+const ALIAS_SPACING_GROUPS = [
+  {
+    name: 'Inline spacing',
+    tokens: [
+      { token: '--alias-spacing-inline-xs', value: '0.25rem', desc: 'Tight inline gaps, icon-to-label' },
+      { token: '--alias-spacing-inline-sm', value: '0.5rem', desc: 'Standard inline gaps' },
+      { token: '--alias-spacing-inline-md', value: '0.75rem', desc: 'Comfortable inline gaps' },
+    ],
   },
-}
-
-export default meta
-type Story = StoryObj
-
-// ─── Spacing data ─────────────────────────────────────────────────────────────
-
-const baseSpacingTokens = [
-  { name: "--base-spacing-1", value: "0.25rem", px: 4 },
-  { name: "--base-spacing-2", value: "0.5rem", px: 8 },
-  { name: "--base-spacing-3", value: "0.75rem", px: 12 },
-  { name: "--base-spacing-4", value: "1rem", px: 16 },
-  { name: "--base-spacing-5", value: "1.5rem", px: 24 },
-  { name: "--base-spacing-6", value: "2rem", px: 32 },
-  { name: "--base-spacing-7", value: "2.5rem", px: 40 },
-  { name: "--base-spacing-8", value: "3rem", px: 48 },
-  { name: "--base-spacing-9", value: "4rem", px: 64 },
-  { name: "--base-spacing-10", value: "5rem", px: 80 },
-]
-
-const aliasSpacingTokens = [
-  { name: "--alias-spacing-inline-xs", value: "0.25rem", description: "Tight inline spacing" },
-  { name: "--alias-spacing-inline-sm", value: "0.5rem", description: "Small inline spacing" },
-  { name: "--alias-spacing-inline-md", value: "0.75rem", description: "Medium inline spacing" },
-  { name: "--alias-spacing-stack-xs", value: "0.5rem", description: "Tight stack spacing" },
-  { name: "--alias-spacing-stack-sm", value: "0.75rem", description: "Small stack spacing" },
-  { name: "--alias-spacing-stack-md", value: "1rem", description: "Default stack spacing" },
-  { name: "--alias-spacing-stack-lg", value: "1.5rem", description: "Large stack spacing" },
-  { name: "--alias-spacing-padding-xs", value: "0.5rem", description: "XS component padding" },
-  { name: "--alias-spacing-padding-sm", value: "0.75rem", description: "SM component padding" },
-  { name: "--alias-spacing-padding-md", value: "1rem", description: "MD component padding" },
-  { name: "--alias-spacing-padding-lg", value: "1.5rem", description: "LG component padding" },
-  { name: "--alias-spacing-section-md", value: "2rem", description: "Section spacing" },
-  { name: "--alias-spacing-section-lg", value: "3rem", description: "Large section spacing" },
-  { name: "--alias-spacing-page-md", value: "4rem", description: "Page level spacing" },
-  { name: "--alias-spacing-page-lg", value: "5rem", description: "Hero/layout spacing" },
-]
-
-const MAX_BAR_WIDTH = 320
-
-// ─── Page component ───────────────────────────────────────────────────────────
+  {
+    name: 'Stack spacing',
+    tokens: [
+      { token: '--alias-spacing-stack-xs', value: '0.5rem', desc: 'Tight vertical rhythm' },
+      { token: '--alias-spacing-stack-sm', value: '0.75rem', desc: 'Compact list items' },
+      { token: '--alias-spacing-stack-md', value: '1rem', desc: 'Standard paragraph spacing' },
+      { token: '--alias-spacing-stack-lg', value: '1.5rem', desc: 'Generous vertical gap' },
+    ],
+  },
+  {
+    name: 'Padding',
+    tokens: [
+      { token: '--alias-spacing-padding-xs', value: '0.5rem', desc: 'Dense component padding' },
+      { token: '--alias-spacing-padding-sm', value: '0.75rem', desc: 'Compact component padding' },
+      { token: '--alias-spacing-padding-md', value: '1rem', desc: 'Standard component padding' },
+      { token: '--alias-spacing-padding-lg', value: '1.5rem', desc: 'Roomy component padding' },
+    ],
+  },
+  {
+    name: 'Section & page',
+    tokens: [
+      { token: '--alias-spacing-section-md', value: '2rem', desc: 'Section separation' },
+      { token: '--alias-spacing-section-lg', value: '3rem', desc: 'Major section separation' },
+      { token: '--alias-spacing-page-md', value: '4rem', desc: 'Page-level padding medium' },
+      { token: '--alias-spacing-page-lg', value: '5rem', desc: 'Page-level padding large' },
+    ],
+  },
+];
 
 function FoundationSpacingPage() {
-  const maxPx = Math.max(...baseSpacingTokens.map((t) => t.px))
-
   return (
-    <div
-      style={{
-        background: "#ffffff",
-        minHeight: "100vh",
-        padding: "48px",
-        fontFamily: "'Open Sans', sans-serif",
-        boxSizing: "border-box",
-      }}
-    >
-      {/* Breadcrumb */}
-      <p
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
-          color: "#888",
-          margin: 0,
-          fontWeight: 500,
-        }}
-      >
-        Foundation · Spacing
+    <div style={PAGE}>
+      <div style={BREADCRUMB}>Foundation</div>
+      <h1 style={PAGE_TITLE}>Spacing</h1>
+      <p style={PAGE_SUB}>
+        A 4px-base scale with 10 steps. Alias tokens name each step's role — keeping component padding consistent and layouts scannable.
       </p>
 
-      {/* Heading */}
-      <h1
-        style={{
-          fontSize: 36,
-          fontWeight: 700,
-          color: "#111",
-          margin: "6px 0 12px",
-          lineHeight: 1.15,
-        }}
-      >
-        The spacing scale
-      </h1>
+      {/* The scale */}
+      <h2 style={SECTION_TITLE}>The scale</h2>
 
-      {/* Subtitle */}
-      <p
-        style={{
-          fontSize: 14,
-          color: "#555",
-          maxWidth: 600,
-          lineHeight: 1.6,
-          margin: "0 0 40px",
-        }}
-      >
-        A 4px base grid yields 10 steps from 4px to 80px. Alias tokens then map these
-        steps to named roles — inline gaps, stack gaps, component padding, and page-level sections.
-      </p>
-
-      {/* Base spacing scale */}
-      <div
-        style={{
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: "0.06em",
-          textTransform: "uppercase",
-          color: "#aaa",
-          marginBottom: 20,
-        }}
-      >
-        Base scale
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-        {baseSpacingTokens.map((token, i) => {
-          const barWidth = (token.px / maxPx) * MAX_BAR_WIDTH
-
-          return (
-            <div
-              key={token.name}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 24,
-                padding: "12px 0",
-                borderTop: i === 0 ? "1px solid #eee" : "none",
-                borderBottom: "1px solid #eee",
-              }}
-            >
-              {/* Token name + value */}
-              <div style={{ width: 220, flexShrink: 0 }}>
-                <span
-                  style={{
-                    fontFamily: "monospace",
-                    fontSize: 13,
-                    color: "#222",
-                    display: "block",
-                    marginBottom: 2,
-                  }}
-                >
-                  {token.name}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "monospace",
-                    fontSize: 11,
-                    color: "#888",
-                  }}
-                >
-                  {token.value}
-                </span>
-              </div>
-
-              {/* Bar */}
-              <div
-                style={{
-                  width: barWidth,
-                  height: 20,
-                  background: "#1c21dc",
-                  borderRadius: 3,
-                  flexShrink: 0,
-                  minWidth: 4,
-                }}
-              />
-
-              {/* px label */}
-              <span
-                style={{
-                  fontSize: 12,
-                  color: "#888",
-                  fontFamily: "monospace",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {token.px}px
-              </span>
-            </div>
-          )
-        })}
-      </div>
-
-      {/* Alias spacing tokens */}
-      <div
-        style={{
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: "0.06em",
-          textTransform: "uppercase",
-          color: "#aaa",
-          marginTop: 48,
-          marginBottom: 20,
-        }}
-      >
-        Alias tokens
-      </div>
-
-      {/* Column headers */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "280px 100px 1fr",
-          padding: "0 0 8px",
-          borderBottom: "1px solid #eee",
-          gap: 16,
-        }}
-      >
-        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#aaa" }}>Token</span>
-        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#aaa" }}>Value</span>
-        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "#aaa" }}>Role</span>
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-        {aliasSpacingTokens.map((token, i) => (
-          <div
-            key={token.name}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "280px 100px 1fr",
-              alignItems: "center",
-              padding: "10px 0",
-              borderBottom: "1px solid #eee",
-              gap: 16,
-            }}
-          >
-            <span style={{ fontFamily: "monospace", fontSize: 13, color: "#222" }}>
-              {token.name}
-            </span>
-            <span style={{ fontFamily: "monospace", fontSize: 12, color: "#888" }}>
-              {token.value}
-            </span>
-            <span style={{ fontSize: 13, color: "#555" }}>
-              {token.description}
-            </span>
+      <div>
+        {BASE_SPACING.map((item) => (
+          <div key={item.token} style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '8px 0',
+            borderBottom: '1px solid #f7f7f7',
+            gap: 20,
+          }}>
+            <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#555', width: 180, flexShrink: 0 }}>{item.token}</span>
+            <span style={{ fontSize: 11, color: '#888', width: 80, flexShrink: 0 }}>{item.value} / {item.px}px</span>
+            <div style={{
+              height: 10,
+              borderRadius: 3,
+              background: 'linear-gradient(90deg, #1c21dc, #6e71e6)',
+              width: Math.min(item.px * 4, 400),
+              flexShrink: 0,
+            }} />
+            <span style={{ fontSize: 11, color: '#aaa', marginLeft: 8 }}>{item.px}px</span>
           </div>
         ))}
       </div>
+
+      <hr style={DIVIDER} />
+
+      {/* Alias roles */}
+      <h2 style={{ ...SECTION_TITLE, marginTop: 0 }}>Alias roles</h2>
+      <p style={{ fontSize: 13, color: '#888', marginTop: 0, marginBottom: 24, lineHeight: 1.5 }}>
+        Semantic names for common spacing use cases.
+      </p>
+
+      {ALIAS_SPACING_GROUPS.map((group) => (
+        <div key={group.name} style={{ border: '1px solid #eee', borderRadius: 8, overflow: 'hidden', marginBottom: 16 }}>
+          <div style={{ background: '#fafafa', padding: '12px 20px', borderBottom: '1px solid #eee', display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#111' }}>{group.name}</span>
+            <span style={{ fontSize: 11, color: '#888', background: '#eee', padding: '2px 8px', borderRadius: 20 }}>
+              {group.tokens.length}
+            </span>
+          </div>
+          {group.tokens.map((row, i) => (
+            <div key={row.token} style={{
+              padding: '10px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              borderBottom: '1px solid #f7f7f7',
+              background: i % 2 === 0 ? '#fafafa' : '#fff',
+            }}>
+              <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flex: '1 1 auto' }}>{row.token}</span>
+              <span style={{ fontSize: 12, color: '#555', flex: '0 0 auto', width: 80 }}>{row.value}</span>
+              <span style={{ fontSize: 12, color: '#888', flex: '1 1 auto', textAlign: 'right' }}>{row.desc}</span>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
-  )
+  );
 }
 
+const meta: Meta = {
+  title: 'Foundation/Spacing',
+  tags: ['!autodocs'],
+  parameters: { layout: 'fullscreen', docs: { page: null } },
+};
+
+export default meta;
+type Story = StoryObj;
+
 export const Default: Story = {
-  name: "Spacing scale",
+  name: 'Spacing',
   render: () => <FoundationSpacingPage />,
-}
+};
