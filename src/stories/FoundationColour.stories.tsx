@@ -602,18 +602,10 @@ function AliasTokenRow({ name, value, usage, index, isBrandToken }: {
       background: index % 2 === 0 ? '#fafafa' : '#fff',
     }}>
       {isColor ? (
-        <div style={{ position: 'relative', flexShrink: 0 }}>
-          <div style={{
-            width: 28, height: 28, borderRadius: 5,
-            background: resolved, border: '1px solid rgba(0,0,0,0.07)',
-          }} />
-          {isBrandToken && (
-            <div style={{
-              position: 'absolute', top: -3, right: -3, width: 8, height: 8,
-              borderRadius: '50%', background: '#1c21dc', border: '1.5px solid #fff',
-            }} />
-          )}
-        </div>
+        <div style={{
+          width: 28, height: 28, borderRadius: 5, flexShrink: 0,
+          background: resolved, border: '1px solid rgba(0,0,0,0.07)',
+        }} />
       ) : (
         <div style={{
           width: 28, height: 28, borderRadius: 5, flexShrink: 0,
