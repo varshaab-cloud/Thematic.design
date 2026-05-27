@@ -133,7 +133,7 @@ function FoundationSpacingPage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Spacing',
+  title: 'Thematic design system/Foundation/Spacing',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };

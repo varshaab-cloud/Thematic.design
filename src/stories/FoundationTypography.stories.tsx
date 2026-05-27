@@ -101,7 +101,7 @@ function FoundationTypographyPage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Typography',
+  title: 'Thematic design system/Foundation/Typography',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };

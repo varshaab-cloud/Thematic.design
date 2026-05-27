@@ -93,7 +93,7 @@ function FoundationShapePage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Shape',
+  title: 'Thematic design system/Foundation/Shape',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };

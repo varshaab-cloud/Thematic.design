@@ -490,7 +490,7 @@ function FoundationColourPage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Colour',
+  title: 'Thematic design system/Foundation/Colour',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };

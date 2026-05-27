@@ -141,7 +141,7 @@ function FoundationMotionPage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Motion',
+  title: 'Thematic design system/Foundation/Motion',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };

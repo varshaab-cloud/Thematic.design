@@ -130,7 +130,7 @@ function FoundationElevationPage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Elevation',
+  title: 'Thematic design system/Foundation/Elevation',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };

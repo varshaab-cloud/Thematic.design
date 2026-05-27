@@ -135,7 +135,7 @@ function FoundationOverviewPage() {
 }
 
 const meta: Meta = {
-  title: 'Foundation/Overview',
+  title: 'Thematic design system/Foundation/Overview',
   tags: ['!autodocs'],
   parameters: { layout: 'fullscreen', docs: { page: null } },
 };
