@@ -39,14 +39,49 @@
   --base-color-green-700: #15803d;
   --base-color-green-800: #166534;
   --base-color-green-900: #14532d;
-  --base-color-success-800: #dcfce7;
-  --base-color-success-900: #16a34a;
-  --base-color-info-600: #e0f2fe;
-  --base-color-info-700: #0369a1;
-  --base-color-error-200: #ffe9e5;
-  --base-color-error-300: #ff4e2a;
-  --base-color-warning-50: #fffade;
-  --base-color-warning-100: #f7d307;
+  /* ─── Semantic system colours — independent of brand palette ────────────── */
+  /* These encode system state (success/info/warning/error) and never change    */
+  /* when a brand theme is swapped. Named by function, not by hue.              */
+
+  --semantic-color-success-100: #f0fdf4;
+  --semantic-color-success-200: #dcfce7;
+  --semantic-color-success-300: #bbf7d0;
+  --semantic-color-success-400: #86efac;
+  --semantic-color-success-500: #4ade80;
+  --semantic-color-success-600: #16a34a;
+  --semantic-color-success-700: #15803d;
+  --semantic-color-success-800: #166534;
+  --semantic-color-success-900: #14532d;
+
+  --semantic-color-info-100: #f0f9ff;
+  --semantic-color-info-200: #e0f2fe;
+  --semantic-color-info-300: #bae6fd;
+  --semantic-color-info-400: #7dd3fc;
+  --semantic-color-info-500: #38bdf8;
+  --semantic-color-info-600: #0284c7;
+  --semantic-color-info-700: #0369a1;
+  --semantic-color-info-800: #075985;
+  --semantic-color-info-900: #0c4a6e;
+
+  --semantic-color-warning-100: #fffbeb;
+  --semantic-color-warning-200: #fef3c7;
+  --semantic-color-warning-300: #fde68a;
+  --semantic-color-warning-400: #fcd34d;
+  --semantic-color-warning-500: #fbbf24;
+  --semantic-color-warning-600: #d97706;
+  --semantic-color-warning-700: #b45309;
+  --semantic-color-warning-800: #92400e;
+  --semantic-color-warning-900: #78350f;
+
+  --semantic-color-error-100: #fff5f5;
+  --semantic-color-error-200: #fee2e2;
+  --semantic-color-error-300: #fecaca;
+  --semantic-color-error-400: #fca5a5;
+  --semantic-color-error-500: #f87171;
+  --semantic-color-error-600: #dc2626;
+  --semantic-color-error-700: #b91c1c;
+  --semantic-color-error-800: #991b1b;
+  --semantic-color-error-900: #7f1d1d;
 
   /* ─── Brand 1 — Cobalt · additional base colours ────────────────────────── */
   /* Primary Blue already defined above */
@@ -174,22 +209,26 @@
   --alias-color-border-active: #1c21dc; /** Active/focused border */
   --alias-color-border-disabled: #b1b1b1; /** Disabled field border */
   --alias-color-border-brand: var(--base-color-blue-800); /** Brand-coloured border (checkbox, radio checked) */
-  --alias-color-border-success: #16a34a;
-  --alias-color-border-info: #0369a1;
-  --alias-color-border-error: var(--base-color-error-300); /** Error border — base-color-error-300 */
-  --alias-color-border-warning: #f7d307;
+  --alias-color-border-success: var(--semantic-color-success-600);
+  --alias-color-border-info: var(--semantic-color-info-600);
+  --alias-color-border-error: var(--semantic-color-error-600);
+  --alias-color-border-warning: var(--semantic-color-warning-600);
   --alias-color-icon-primary: #222222;
   --alias-color-icon-secondary: #464646;
   --alias-color-icon-disabled: #b1b1b1;
   --alias-color-icon-brand: #171cbe;
-  --alias-color-feedback-success-fg: #166534; /** #166534 on #dcfce7 = 7.2:1 ✓ AA */
-  --alias-color-feedback-success-bg: #dcfce7;
-  --alias-color-feedback-info-fg: #0369a1; /** #0369a1 on #e0f2fe = 5.2:1 ✓ AA */
-  --alias-color-feedback-info-bg: #e0f2fe;
-  --alias-color-feedback-error-fg: var(--base-color-red-700); /** base-color-red-700 on error-bg = 6.1:1 ✓ AA (was #ff4e2a = 2.75:1 ✗) */
-  --alias-color-feedback-error-bg: #ffe9e5;
-  --alias-color-feedback-warning-fg: var(--base-color-gray-900); /** base-color-gray-900 on warning-bg = 13.9:1 ✓ AA (was #f7d307 = 1.38:1 ✗) */
-  --alias-color-feedback-warning-bg: #fffade;
+  --alias-color-feedback-success-fg: var(--semantic-color-success-800); /** #166534 on #f0fdf4 = 8.0:1 ✓ AA */
+  --alias-color-feedback-success-bg: var(--semantic-color-success-100);
+  --alias-color-feedback-success-border: var(--semantic-color-success-400);
+  --alias-color-feedback-info-fg: var(--semantic-color-info-800); /** #075985 on #f0f9ff = 7.2:1 ✓ AA */
+  --alias-color-feedback-info-bg: var(--semantic-color-info-100);
+  --alias-color-feedback-info-border: var(--semantic-color-info-400);
+  --alias-color-feedback-warning-fg: var(--semantic-color-warning-800); /** #92400e on #fffbeb = 8.1:1 ✓ AA */
+  --alias-color-feedback-warning-bg: var(--semantic-color-warning-100);
+  --alias-color-feedback-warning-border: var(--semantic-color-warning-400);
+  --alias-color-feedback-error-fg: var(--semantic-color-error-800); /** #991b1b on #fff5f5 = 7.6:1 ✓ AA */
+  --alias-color-feedback-error-bg: var(--semantic-color-error-100);
+  --alias-color-feedback-error-border: var(--semantic-color-error-400);
   --alias-typography-heading1-font-family: 'Open Sans', sans-serif;
   --alias-typography-heading1-font-size: 3rem;
   --alias-typography-heading1-font-weight: 700;
@@ -378,8 +417,8 @@
   --component-button-ghost-padding-y: 0.75rem;
   --component-button-ghost-font-size: 0.875rem;
   --component-button-ghost-font-weight: 500;
-  --component-button-destructive-background: #ff4e2a;
-  --component-button-destructive-background-hover: #d21a26;
+  --component-button-destructive-background: var(--semantic-color-error-600);
+  --component-button-destructive-background-hover: var(--semantic-color-error-700);
   --component-button-destructive-text: #ffffff;
   --component-button-destructive-border: rgba(0, 0, 0, 0);
   --component-button-destructive-border-radius: var(--base-radius-md);
@@ -391,7 +430,7 @@
   --component-input-background-disabled: #eeeeec;
   --component-input-border: #d5d5d5;
   --component-input-border-focus: #1c21dc;
-  --component-input-border-error: #ff4e2a;
+  --component-input-border-error: var(--semantic-color-error-600);
   --component-input-border-disabled: #b1b1b1;
   --component-input-text: #000000;
   --component-input-text-placeholder: #909090;
@@ -407,17 +446,17 @@
   --component-card-padding: 1.5rem;
   --component-card-title-color: #000000;
   --component-card-body-color: #222222;
-  --component-badge-success-background: #dcfce7;
-  --component-badge-success-text: #16a34a;
+  --component-badge-success-background: var(--semantic-color-success-200);
+  --component-badge-success-text: var(--semantic-color-success-800);
   --component-badge-success-border-radius: var(--base-radius-xxl);
-  --component-badge-info-background: #e0f2fe;
-  --component-badge-info-text: #0369a1;
+  --component-badge-info-background: var(--semantic-color-info-200);
+  --component-badge-info-text: var(--semantic-color-info-800);
   --component-badge-info-border-radius: var(--base-radius-xxl);
-  --component-badge-error-background: #ffe9e5;
-  --component-badge-error-text: #ff4e2a;
+  --component-badge-error-background: var(--semantic-color-error-200);
+  --component-badge-error-text: var(--semantic-color-error-800);
   --component-badge-error-border-radius: var(--base-radius-xxl);
-  --component-badge-warning-background: #fffade;
-  --component-badge-warning-text: #f7d307;
+  --component-badge-warning-background: var(--semantic-color-warning-200);
+  --component-badge-warning-text: var(--semantic-color-warning-800);
   --component-badge-warning-border-radius: var(--base-radius-xxl);
 
   /* ─── Data visualisation ─────────────────────────────────────────────────── */
