@@ -72,12 +72,12 @@
   --base-spacing-8: 3rem;
   --base-spacing-9: 4rem;
   --base-spacing-10: 5rem;
-  --base-radius-xs: 4px;
-  --base-radius-sm: 8px;
-  --base-radius-md: 12px;
-  --base-radius-lg: 14px;
-  --base-radius-xl: 16px;
-  --base-radius-xxl: 20px;
+  --base-radius-xs: 2px;
+  --base-radius-sm: 4px;
+  --base-radius-md: 6px;
+  --base-radius-lg: 8px;
+  --base-radius-xl: 10px;
+  --base-radius-xxl: 14px;
   --base-shadow-01: 0px 1px 2px 0px rgba(0,0,0,0.05);
   --base-shadow-02: 0px 1px 3px 0px rgba(0,0,0,0.06), 0px 4px 16px 0px rgba(0,0,0,0.05);
   --base-shadow-03: 0px 2px 4px 0px rgba(0,0,0,0.07), 0px 6px 20px 0px rgba(0,0,0,0.06);
@@ -196,7 +196,7 @@
   --component-button-primary-text: #ffffff;
   --component-button-primary-text-disabled: #909090;
   --component-button-primary-border: rgba(0, 0, 0, 0);
-  --component-button-primary-border-radius: 12px;
+  --component-button-primary-border-radius: var(--base-radius-md);
   --component-button-primary-padding-x: 1.5rem;
   --component-button-primary-padding-y: 0.75rem;
   --component-button-primary-font-size: 0.875rem;
@@ -208,7 +208,7 @@
   --component-button-secondary-text: #111487;
   --component-button-secondary-text-disabled: #909090;
   --component-button-secondary-border: #1c21dc;
-  --component-button-secondary-border-radius: 12px;
+  --component-button-secondary-border-radius: var(--base-radius-md);
   --component-button-secondary-padding-x: 1.5rem;
   --component-button-secondary-padding-y: 0.75rem;
   --component-button-secondary-font-size: 0.875rem;
@@ -218,7 +218,7 @@
   --component-button-ghost-text: #111487;
   --component-button-ghost-text-disabled: #909090;
   --component-button-ghost-border: rgba(0, 0, 0, 0);
-  --component-button-ghost-border-radius: 12px;
+  --component-button-ghost-border-radius: var(--base-radius-md);
   --component-button-ghost-padding-x: 1.5rem;
   --component-button-ghost-padding-y: 0.75rem;
   --component-button-ghost-font-size: 0.875rem;
@@ -227,7 +227,7 @@
   --component-button-destructive-background-hover: #d21a26;
   --component-button-destructive-text: #ffffff;
   --component-button-destructive-border: rgba(0, 0, 0, 0);
-  --component-button-destructive-border-radius: 12px;
+  --component-button-destructive-border-radius: var(--base-radius-md);
   --component-button-destructive-padding-x: 1.5rem;
   --component-button-destructive-padding-y: 0.75rem;
   --component-button-destructive-font-size: 0.875rem;
@@ -241,29 +241,29 @@
   --component-input-text: #000000;
   --component-input-text-placeholder: #909090;
   --component-input-text-disabled: #909090;
-  --component-input-border-radius: 12px;
+  --component-input-border-radius: var(--base-radius-md);
   --component-input-padding-x: 1rem;
   --component-input-padding-y: 0.75rem;
   --component-input-font-size: 0.875rem;
   --component-card-background: #ffffff;
   --component-card-border: #d5d5d5;
-  --component-card-border-radius: 12px;
+  --component-card-border-radius: var(--base-radius-md);
   --component-card-shadow: 0px 1px 3px 0px rgba(0,0,0,0.06), 0px 4px 16px 0px rgba(0,0,0,0.05);
   --component-card-padding: 1.5rem;
   --component-card-title-color: #000000;
   --component-card-body-color: #222222;
   --component-badge-success-background: #dcfce7;
   --component-badge-success-text: #16a34a;
-  --component-badge-success-border-radius: 20px;
+  --component-badge-success-border-radius: var(--base-radius-xxl);
   --component-badge-info-background: #e0f2fe;
   --component-badge-info-text: #0369a1;
-  --component-badge-info-border-radius: 20px;
+  --component-badge-info-border-radius: var(--base-radius-xxl);
   --component-badge-error-background: #ffe9e5;
   --component-badge-error-text: #ff4e2a;
-  --component-badge-error-border-radius: 20px;
+  --component-badge-error-border-radius: var(--base-radius-xxl);
   --component-badge-warning-background: #fffade;
   --component-badge-warning-text: #f7d307;
-  --component-badge-warning-border-radius: 20px;
+  --component-badge-warning-border-radius: var(--base-radius-xxl);
 
   /* ─── Data visualisation ─────────────────────────────────────────────────── */
 
@@ -300,7 +300,7 @@
   --data-viz-label-font-weight:  400;
   --data-viz-tooltip-background: #222222;
   --data-viz-tooltip-text:       #ffffff;
-  --data-viz-tooltip-border-radius: 8px;
+  --data-viz-tooltip-border-radius: var(--base-radius-lg);
   --data-viz-focus-ring:         #1c21dc;   /* Highlighted/focused bar or point */
 
   /* Motion */

@@ -69,7 +69,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-lg border border-transparent text-left font-medium transition-all outline-none hover:underline focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:after:border-[var(--alias-color-border-active)] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-[var(--alias-color-text-subtle)]",
+          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-[var(--base-radius-lg)] border border-transparent text-left font-medium transition-all outline-none hover:underline focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:after:border-[var(--alias-color-border-active)] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-[var(--alias-color-text-subtle)]",
           accordionTriggerSizeClasses[size],
           className
         )}

@@ -55,12 +55,12 @@ export function AppHeaderLogo({ name, src, className }: AppHeaderLogoProps) {
         <img
           src={src}
           alt={name}
-          className="w-7 h-7 rounded-md object-contain"
+          className="w-7 h-7 rounded-[var(--base-radius-md)] object-contain"
         />
       ) : (
         <div
           className={cn(
-            "w-7 h-7 rounded-md flex items-center justify-center",
+            "w-7 h-7 rounded-[var(--base-radius-md)] flex items-center justify-center",
             "bg-[var(--base-color-blue-800)] text-white",
             "text-xs font-bold leading-none select-none"
           )}
@@ -353,7 +353,7 @@ export function AppHeaderUser({
           sideOffset={6}
           className={cn(
             "z-50 min-w-[180px] rounded-[var(--base-radius-md)]",
-            "border border-[var(--base-color-gray-200)] bg-popover",
+            "border border-[var(--base-color-gray-200)] bg-[var(--alias-color-background-primary)]",
             "shadow-[var(--base-shadow-04)] p-1",
             "text-sm text-[var(--base-color-gray-900)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",

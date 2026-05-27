@@ -74,7 +74,7 @@ function SidebarNav({
                 onClick={item.onClick}
                 title={collapsed ? item.label : undefined}
                 className={cn(
-                  "flex items-center gap-2.5 rounded-md px-2 h-8 text-sm transition-colors w-full text-left",
+                  "flex items-center gap-2.5 rounded-[var(--base-radius-md)] px-2 h-8 text-sm transition-colors w-full text-left",
                   "text-[var(--base-color-gray-700)] hover:bg-[var(--base-color-gray-200)] hover:text-[var(--alias-color-text-primary)]",
                   item.active && "bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)] font-medium hover:bg-[var(--base-color-blue-100)]",
                   collapsed && "justify-center px-0"

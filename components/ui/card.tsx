@@ -138,7 +138,7 @@ function MetricCard({
     <div
       data-slot="metric-card"
       className={cn(
-        "group/card flex flex-col gap-3 overflow-hidden rounded-xl py-4 px-4 ring-1 text-sm",
+        "group/card flex flex-col gap-3 overflow-hidden rounded-[var(--base-radius-xl)] py-4 px-4 ring-1 text-sm",
         size === "sm" ? "gap-2 py-3 px-3" : "gap-3 py-4 px-4",
         metricVariants[variant],
         className
@@ -154,7 +154,7 @@ function MetricCard({
         </p>
         {icon && (
           <div className={cn(
-            "flex items-center justify-center rounded-md p-1.5 [&_svg]:size-4",
+            "flex items-center justify-center rounded-[var(--base-radius-md)] p-1.5 [&_svg]:size-4",
             isBrand ? "bg-white/10 text-white" : "bg-[var(--alias-color-background-tertiary)] text-[var(--alias-color-text-subtle)]"
           )}>
             {icon}

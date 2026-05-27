@@ -128,7 +128,7 @@ function MultiSelect({
                   aria-selected={isSelected}
                   onClick={() => toggleOption(option.value)}
                   className={cn(
-                    "flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm text-[var(--alias-color-text-primary)] select-none",
+                    "flex cursor-pointer items-center gap-2 rounded-[var(--base-radius-md)] px-2 py-1.5 text-sm text-[var(--alias-color-text-primary)] select-none",
                     "hover:bg-[var(--alias-color-background-tertiary)]",
                     isSelected && "bg-[var(--alias-color-background-secondary)]"
                   )}

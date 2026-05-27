@@ -73,7 +73,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "group/dropdown-menu-item relative flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] not-data-[variant=destructive]:focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-[variant=destructive]:text-[var(--alias-color-feedback-error-fg)] data-[variant=destructive]:focus:bg-[var(--alias-color-feedback-error-fg)]/10 data-[variant=destructive]:focus:text-[var(--alias-color-feedback-error-fg)] dark:data-[variant=destructive]:focus:bg-[var(--alias-color-feedback-error-fg)]/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-[var(--alias-color-feedback-error-fg)]",
+        "group/dropdown-menu-item relative flex cursor-default items-center gap-1.5 rounded-[var(--base-radius-md)] px-1.5 py-1 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] not-data-[variant=destructive]:focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-[variant=destructive]:text-[var(--alias-color-feedback-error-fg)] data-[variant=destructive]:focus:bg-[var(--alias-color-feedback-error-fg)]/10 data-[variant=destructive]:focus:text-[var(--alias-color-feedback-error-fg)] dark:data-[variant=destructive]:focus:bg-[var(--alias-color-feedback-error-fg)]/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-[var(--alias-color-feedback-error-fg)]",
         className
       )}
       {...props}
@@ -95,7 +95,7 @@ function DropdownMenuCheckboxItem({
       data-slot="dropdown-menu-checkbox-item"
       data-inset={inset}
       className={cn(
-        "relative flex cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex cursor-default items-center gap-1.5 rounded-[var(--base-radius-md)] py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       checked={checked}
@@ -139,7 +139,7 @@ function DropdownMenuRadioItem({
       data-slot="dropdown-menu-radio-item"
       data-inset={inset}
       className={cn(
-        "relative flex cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex cursor-default items-center gap-1.5 rounded-[var(--base-radius-md)] py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
@@ -226,7 +226,7 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] not-data-[variant=destructive]:focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-open:bg-[var(--alias-color-background-hover)] data-open:text-[var(--alias-color-text-brand)] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "flex cursor-default items-center gap-1.5 rounded-[var(--base-radius-md)] px-1.5 py-1 text-sm outline-hidden select-none focus:bg-[var(--alias-color-background-hover)] focus:text-[var(--alias-color-text-brand)] not-data-[variant=destructive]:focus:**:text-[var(--alias-color-text-brand)] data-inset:pl-7 data-open:bg-[var(--alias-color-background-hover)] data-open:text-[var(--alias-color-text-brand)] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

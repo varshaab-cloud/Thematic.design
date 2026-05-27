@@ -78,7 +78,7 @@ function SkeletonRow({ colCount }: { colCount: number }) {
       {Array.from({ length: colCount }).map((_, i) => (
         <td key={i} className="px-3 py-2.5">
           <div
-            className="h-4 rounded-md bg-[var(--alias-color-background-tertiary)] animate-pulse"
+            className="h-4 rounded-[var(--base-radius-md)] bg-[var(--alias-color-background-tertiary)] animate-pulse"
             style={{ width: `${60 + ((i * 37) % 30)}%` }}
           />
         </td>
@@ -135,14 +135,14 @@ function ColumnToggle<TData>({
       </Button>
 
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-1 w-44 rounded-lg border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] p-1 shadow-[var(--base-shadow-04)]">
+        <div className="absolute right-0 top-full z-50 mt-1 w-44 rounded-[var(--base-radius-lg)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] p-1 shadow-[var(--base-shadow-04)]">
           {table
             .getAllColumns()
             .filter(col => col.getCanHide())
             .map(col => (
               <label
                 key={col.id}
-                className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-[var(--base-color-gray-100)]"
+                className="flex cursor-pointer items-center gap-2 rounded-[var(--base-radius-md)] px-2 py-1.5 text-xs hover:bg-[var(--base-color-gray-100)]"
               >
                 <input
                   type="checkbox"
@@ -270,7 +270,7 @@ export function DataTable<TData, TValue>({
                   value={globalFilter}
                   onChange={e => setGlobalFilter(e.target.value)}
                   placeholder={searchPlaceholder}
-                  className="h-8 w-full rounded-lg border border-[var(--alias-color-border-default)] bg-transparent pl-8 pr-8 text-sm outline-none transition-colors placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50"
+                  className="h-8 w-full rounded-[var(--base-radius-lg)] border border-[var(--alias-color-border-default)] bg-transparent pl-8 pr-8 text-sm outline-none transition-colors placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50"
                 />
                 {globalFilter && (
                   <button
@@ -400,7 +400,7 @@ export function DataTable<TData, TValue>({
             <select
               value={pageSize}
               onChange={e => table.setPageSize(Number(e.target.value))}
-              className="h-7 rounded-md border border-[var(--alias-color-border-default)] bg-transparent px-1.5 text-xs text-[var(--alias-color-text-primary)] outline-none focus:border-[var(--alias-color-border-active)] focus:ring-2 focus:ring-[var(--alias-color-border-active)]/50"
+              className="h-7 rounded-[var(--base-radius-md)] border border-[var(--alias-color-border-default)] bg-transparent px-1.5 text-xs text-[var(--alias-color-text-primary)] outline-none focus:border-[var(--alias-color-border-active)] focus:ring-2 focus:ring-[var(--alias-color-border-active)]/50"
             >
               {pageSizeOptions.map(n => (
                 <option key={n} value={n}>{n}</option>
