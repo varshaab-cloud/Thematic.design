@@ -1149,7 +1149,7 @@
   /* --- Tree View --- */
   --component-tree-view-item-text: var(--alias-color-text-primary);
   --component-tree-view-item-hover-bg: var(--alias-color-background-hover);
-  --component-tree-view-item-selected-bg: var(--base-color-blue-800);
+  --component-tree-view-item-selected-bg: var(--base-color-blue-200);
   --component-tree-view-item-selected-text: var(--base-color-blue-900);
   --component-tree-view-item-icon-color: var(--alias-color-text-subtle);
   --component-tree-view-indent-guide-color: var(--alias-color-border-default);
