@@ -25,21 +25,21 @@ const sizeConfig = {
     iconSize: "32px",
     headingStyle: { fontSize: "14px", fontWeight: 600 } as React.CSSProperties,
     descriptionStyle: { fontSize: "13px" } as React.CSSProperties,
-    gap: "gap-2",
+    gap: "gap-[var(--alias-spacing-stack-xs)]",
   },
   md: {
     wrapper: "max-w-[360px]",
     iconSize: "48px",
     headingStyle: { fontSize: "16px", fontWeight: 600 } as React.CSSProperties,
     descriptionStyle: { fontSize: "14px" } as React.CSSProperties,
-    gap: "gap-3",
+    gap: "gap-[var(--alias-spacing-stack-sm)]",
   },
   lg: {
     wrapper: "max-w-[480px]",
     iconSize: "64px",
     headingStyle: { fontSize: "20px", fontWeight: 600 } as React.CSSProperties,
     descriptionStyle: { fontSize: "15px" } as React.CSSProperties,
-    gap: "gap-4",
+    gap: "gap-[var(--alias-spacing-stack-md)]",
   },
 }
 
@@ -70,7 +70,7 @@ export function EmptyState({
           style={{
             width: config.iconSize,
             height: config.iconSize,
-            color: "var(--alias-color-icon-secondary)",
+            color: "var(--component-empty-state-icon-color)",
           }}
           aria-hidden="true"
         >
@@ -82,7 +82,7 @@ export function EmptyState({
         <p
           style={{
             ...config.headingStyle,
-            color: "var(--alias-color-text-primary)",
+            color: "var(--component-empty-state-title-color)",
             lineHeight: "1.4",
           }}
         >
@@ -93,7 +93,7 @@ export function EmptyState({
           <p
             style={{
               ...config.descriptionStyle,
-              color: "var(--alias-color-text-tertiary)",
+              color: "var(--component-empty-state-description-color)",
               lineHeight: "1.5",
             }}
           >

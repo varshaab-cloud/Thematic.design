@@ -15,26 +15,26 @@ const variantConfig: Record<
   }
 > = {
   info: {
-    bg: "bg-[var(--alias-color-feedback-info-bg)]",
-    fg: "text-[var(--alias-color-feedback-info-fg)]",
+    bg: "bg-[var(--component-system-banner-info-background)]",
+    fg: "text-[var(--component-system-banner-info-text)]",
     Icon: Info,
     role: "status",
   },
   warning: {
-    bg: "bg-[var(--alias-color-feedback-warning-bg)]",
-    fg: "text-[var(--base-color-gray-900)]",
+    bg: "bg-[var(--component-system-banner-warning-background)]",
+    fg: "text-[var(--component-system-banner-warning-text)]",
     Icon: AlertTriangle,
     role: "alert",
   },
   error: {
-    bg: "bg-[var(--alias-color-feedback-error-bg)]",
-    fg: "text-[var(--alias-color-feedback-error-fg)]",
+    bg: "bg-[var(--component-system-banner-error-background)]",
+    fg: "text-[var(--component-system-banner-error-text)]",
     Icon: XCircle,
     role: "alert",
   },
   success: {
-    bg: "bg-[var(--alias-color-feedback-success-bg)]",
-    fg: "text-[var(--alias-color-feedback-success-fg)]",
+    bg: "bg-[var(--component-system-banner-success-background)]",
+    fg: "text-[var(--component-system-banner-success-text)]",
     Icon: CheckCircle2,
     role: "status",
   },
@@ -63,7 +63,7 @@ function SystemBanner({
       data-variant={variant}
       role={role}
       className={cn(
-        "flex w-full items-center gap-3 px-6 py-3 text-sm",
+        "flex w-full items-center gap-[var(--alias-spacing-inline-md)] px-[var(--alias-spacing-padding-lg)] py-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-body-text2-font-size)]",
         bg,
         fg,
         className
@@ -86,7 +86,7 @@ function SystemBanner({
           aria-label="Dismiss banner"
           onClick={onDismiss}
           className={cn(
-            "shrink-0 rounded p-0.5 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+            "shrink-0 rounded p-0.5 [transition:var(--alias-motion-transition-fade)] hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
             fg
           )}
         >

@@ -7,10 +7,29 @@ const PAGE_TITLE: React.CSSProperties = { fontSize: 40, fontWeight: 700, color: 
 const PAGE_SUB: React.CSSProperties = { fontSize: 15, color: '#666', lineHeight: 1.6, maxWidth: 560, marginBottom: 48, marginTop: 0 };
 const DIVIDER: React.CSSProperties = { height: 1, background: '#f0f0f0', margin: '32px 0', border: 'none' };
 
+// Navigate to another story from within the preview iframe.
+// Uses NAVIGATE_URL ("navigateUrl") — confirmed in storybook/dist/core-events.
+// This event is forwarded by the preview to the manager which then navigates.
+function navigateTo(title: string) {
+  const storyId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '--default';
+  const url = `?path=/story/${storyId}`;
+  const channel = (window as any).__STORYBOOK_ADDONS_CHANNEL__;
+  if (channel) {
+    // navigateUrl is the correct event for cross-frame navigation in Storybook 7+
+    channel.emit('navigateUrl', { url });
+    return;
+  }
+  // Fallback: direct parent URL manipulation
+  if (window.parent !== window) {
+    window.parent.location.href = url;
+  }
+}
+
 function FoundationOverviewPage() {
   const cards = [
     {
       title: 'Colour',
+      storyId: 'Thematic design system/Foundation/Colour',
       description: 'Nine palette scales covering brand, feedback, and neutral. Base swatches → semantic roles → component slots.',
       stats: '92 base · 42 alias · 28 component',
       preview: (
@@ -23,6 +42,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Typography',
+      storyId: 'Thematic design system/Foundation/Typography',
       description: 'Open Sans across 14 styles — from 48px display headings to 10px captions, each with paired weight and line-height.',
       stats: '1 font family · 14 styles',
       preview: (
@@ -35,6 +55,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Spacing',
+      storyId: 'Thematic design system/Foundation/Spacing',
       description: '10-step base scale (4px–80px) plus 15 alias tokens naming roles: inline, stack, padding, section, page.',
       stats: '10 base · 15 alias',
       preview: (
@@ -52,6 +73,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Shape',
+      storyId: 'Thematic design system/Foundation/Shape',
       description: 'Six border-radius steps from 2px sharp to 14px soft, plus full-round pill. All components reference these tokens.',
       stats: '6 steps · xs → xxl + pill',
       preview: (
@@ -64,6 +86,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Elevation',
+      storyId: 'Thematic design system/Foundation/Elevation',
       description: 'Five shadow levels from shadow-01 (barely-there lift) to shadow-05 (full modal overlay depth).',
       stats: '5 levels · shadow-01 → shadow-05',
       preview: (
@@ -74,6 +97,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Motion',
+      storyId: 'Thematic design system/Foundation/Motion & Focus',
       description: 'Five durations (0ms–500ms) and four easing curves. Alias tokens cover fast/normal/slow/spring transitions.',
       stats: '5 durations · 4 easings',
       preview: (
@@ -120,14 +144,34 @@ function FoundationOverviewPage() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
         {cards.map((card) => (
-          <div key={card.title} style={{ border: '1px solid #eee', borderRadius: 8, padding: 20, background: '#fff' }}>
+          <button
+            key={card.title}
+            onClick={() => navigateTo(card.storyId)}
+            style={{
+              border: '1px solid #eee', borderRadius: 8, padding: 20, background: '#fff',
+              textAlign: 'left', cursor: 'pointer', transition: 'border-color 0.15s, box-shadow 0.15s',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = '#1c21dc';
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(28,33,220,0.08)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = '#eee';
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = 'none';
+            }}
+          >
             <div style={{ height: 60, background: '#f7f7f7', borderRadius: 6, overflow: 'hidden', padding: '12px 16px', marginBottom: 16 }}>
               {card.preview}
             </div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: '#111', marginBottom: 4 }}>{card.title}</div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
+              <div style={{ fontSize: 15, fontWeight: 700, color: '#111' }}>{card.title}</div>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, color: '#bbb' }}>
+                <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
             <div style={{ fontSize: 12, color: '#666', lineHeight: 1.6, marginBottom: 12 }}>{card.description}</div>
             <div style={{ fontSize: 11, color: '#aaa', fontFamily: 'monospace' }}>{card.stats}</div>
-          </div>
+          </button>
         ))}
       </div>
     </div>

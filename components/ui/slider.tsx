@@ -35,10 +35,10 @@ function Slider({
       {(label || showValue) && (
         <div className="flex items-center justify-between">
           {label && (
-            <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">{label}</label>
+            <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">{label}</label>
           )}
           {showValue && (
-            <span className="text-sm tabular-nums text-[var(--alias-color-text-subtle)]">
+            <span className="text-[length:var(--alias-typography-body-text2-font-size)] tabular-nums text-[var(--alias-color-text-subtle)]">
               {currentValue.map(formatValue).join(" – ")}
             </span>
           )}
@@ -59,11 +59,11 @@ function Slider({
         {/* Track */}
         <SliderPrimitive.Track
           data-slot="slider-track"
-          className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-[var(--base-color-gray-200)]"
+          className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-[var(--component-slider-track-bg)]"
         >
           <SliderPrimitive.Range
             data-slot="slider-range"
-            className="absolute h-full bg-[var(--base-color-blue-800)]"
+            className="absolute h-full bg-[var(--component-slider-fill-bg)]"
           />
         </SliderPrimitive.Track>
 
@@ -73,9 +73,9 @@ function Slider({
             key={i}
             data-slot="slider-thumb"
             className={cn(
-              "block size-4 rounded-full border-2 border-[var(--base-color-blue-800)] bg-[var(--base-color-white)]",
-              "transition-colors outline-none cursor-pointer",
-              "hover:border-[var(--base-color-blue-700)]",
+              "block size-4 rounded-full border-2 border-[var(--component-slider-thumb-border)] bg-[var(--component-slider-thumb-bg)]",
+              "[transition:var(--alias-motion-transition-normal)] outline-none cursor-pointer",
+              "hover:border-[var(--alias-color-icon-brand)]",
               "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",
               "active:scale-110"
             )}
@@ -84,7 +84,7 @@ function Slider({
       </SliderPrimitive.Root>
 
       {helperText && (
-        <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>
+        <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)]">{helperText}</p>
       )}
     </div>
   )

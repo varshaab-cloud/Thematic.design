@@ -57,14 +57,14 @@ function MultiSelect({
           aria-expanded={open}
           disabled={disabled}
           className={cn(
-            "flex h-8 w-full min-w-0 items-center justify-between gap-1.5 rounded-[var(--component-input-border-radius)] border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-2.5 py-1 text-sm transition-colors outline-none",
+            "flex h-8 w-full min-w-0 items-center justify-between gap-1.5 rounded-[var(--component-input-border-radius)] border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-2.5 py-[var(--alias-spacing-inline-xs)] text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] outline-none",
             "focus-visible:border-[var(--component-input-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/20",
             "disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[var(--component-input-background-disabled)]",
             open && "border-[var(--component-input-border-focus)] ring-3 ring-[var(--alias-color-border-active)]/20",
             className
           )}
         >
-          <span className="flex flex-1 flex-wrap items-center gap-1 overflow-hidden">
+          <span className="flex flex-1 flex-wrap items-center gap-[var(--alias-spacing-inline-xs)] overflow-hidden">
             {selectedLabels.length === 0 ? (
               <span className="text-[var(--component-input-text-placeholder)]">
                 {placeholder}
@@ -73,7 +73,7 @@ function MultiSelect({
               selectedLabels.map((label, i) => (
                 <span
                   key={value[i]}
-                  className="inline-flex items-center rounded-full bg-[var(--alias-color-background-tertiary)] px-2 py-0.5 text-xs text-[var(--alias-color-text-secondary)]"
+                  className="inline-flex items-center rounded-[var(--component-multi-select-tag-border-radius)] bg-[var(--component-multi-select-tag-bg)] px-[var(--alias-spacing-padding-xs)] py-0.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-multi-select-tag-text)]"
                 >
                   {label}
                 </span>
@@ -81,13 +81,13 @@ function MultiSelect({
             )}
           </span>
 
-          <span className="flex shrink-0 items-center gap-1">
+          <span className="flex shrink-0 items-center gap-[var(--alias-spacing-inline-xs)]">
             {value.length > 0 && !disabled && (
               <span
                 role="button"
                 tabIndex={-1}
                 onClick={clearAll}
-                className="flex items-center rounded text-[var(--alias-color-text-tertiary)] hover:text-[var(--alias-color-text-primary)] text-xs px-0.5 cursor-pointer"
+                className="flex items-center rounded text-[var(--component-multi-select-tag-remove-color)] hover:text-[var(--alias-color-text-primary)] text-[length:var(--alias-typography-caption1-font-size)] px-0.5 cursor-pointer"
                 aria-label="Clear all selections"
               >
                 Clear
@@ -95,7 +95,7 @@ function MultiSelect({
             )}
             <ChevronDownIcon
               className={cn(
-                "size-4 text-[var(--alias-color-text-subtle)] transition-transform",
+                "size-4 text-[var(--alias-color-text-subtle)] [transition:var(--alias-motion-transition-normal)]",
                 open && "rotate-180"
               )}
             />
@@ -108,7 +108,7 @@ function MultiSelect({
           align="start"
           sideOffset={4}
           className={cn(
-            "z-50 min-w-[var(--radix-popover-trigger-width)] overflow-hidden rounded-[var(--base-radius-sm)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] shadow-[var(--base-shadow-02)]",
+            "z-50 min-w-[var(--radix-popover-trigger-width)] overflow-hidden rounded-[var(--base-radius-sm)] border border-[var(--alias-color-border-default)] bg-[var(--component-multi-select-dropdown-bg)] shadow-[var(--component-multi-select-dropdown-shadow)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2"
@@ -117,7 +117,7 @@ function MultiSelect({
           <ul
             role="listbox"
             aria-multiselectable="true"
-            className="max-h-60 overflow-y-auto p-1"
+            className="max-h-60 overflow-y-auto p-[var(--alias-spacing-inline-xs)]"
           >
             {options.map((option) => {
               const isSelected = value.includes(option.value)
@@ -128,9 +128,9 @@ function MultiSelect({
                   aria-selected={isSelected}
                   onClick={() => toggleOption(option.value)}
                   className={cn(
-                    "flex cursor-pointer items-center gap-2 rounded-[var(--base-radius-md)] px-2 py-1.5 text-sm text-[var(--alias-color-text-primary)] select-none",
-                    "hover:bg-[var(--alias-color-background-tertiary)]",
-                    isSelected && "bg-[var(--alias-color-background-secondary)]"
+                    "flex cursor-pointer items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-button-font-size)] text-[var(--alias-color-text-primary)] select-none",
+                    "hover:bg-[var(--component-multi-select-option-hover-bg)]",
+                    isSelected && "bg-[var(--component-multi-select-option-selected-bg)]"
                   )}
                 >
                   <span

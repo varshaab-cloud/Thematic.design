@@ -68,21 +68,21 @@ function CopyToClipboard({
       data-slot="copy-button"
       data-state={state}
       className={cn(
-        "inline-flex items-center justify-center rounded-[var(--base-radius-sm)] transition-colors outline-none",
+        "inline-flex items-center justify-center rounded-[var(--component-copy-to-clipboard-border-radius)] [transition:var(--alias-motion-transition-normal)] outline-none",
         "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
         state === "idle" &&
-          "text-[var(--base-color-gray-400)] hover:text-[var(--base-color-gray-700)] hover:bg-[var(--base-color-gray-100)]",
+          "text-[var(--component-copy-to-clipboard-icon-color)] hover:text-[var(--alias-color-text-primary)] hover:bg-[var(--component-copy-to-clipboard-hover-bg)]",
         state === "copied" &&
-          "text-[var(--base-color-green-800)] bg-[var(--base-color-success-800)]",
+          "text-[var(--component-copy-to-clipboard-success-color)] bg-[var(--component-copy-to-clipboard-success-bg)]",
         state === "error" &&
-          "text-[var(--base-color-error-300)] bg-[var(--base-color-error-200)]",
+          "text-[var(--component-copy-to-clipboard-error-color)] bg-[var(--component-copy-to-clipboard-error-bg)]",
         sizeClasses[size],
         !children && className
       )}
     >
       {icon}
       {state === "copied" && (
-        <span className="ml-1 text-xs font-medium">Copied</span>
+        <span className="ml-1 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)]">Copied</span>
       )}
     </button>
   )

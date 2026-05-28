@@ -5,6 +5,16 @@ import { Input } from "../../components/ui/input"
 
 const meta: Meta<typeof Sheet> = {
   title: "Overlays/Drawer",
+  component: Sheet,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A panel that slides in from the edge of the screen. Use for detail views, settings, filters, and navigation drawers. Built on Radix UI Dialog — fully accessible with focus trap and keyboard dismiss.",
+      },
+    },
+  },
 }
 
 export default meta

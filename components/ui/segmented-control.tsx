@@ -22,15 +22,15 @@ export interface SegmentedControlProps {
 const sizeClasses = {
   sm: {
     container: "h-7 p-0.5 gap-0.5",
-    segment: "h-6 px-2.5 text-xs gap-1 [&_svg]:size-3",
+    segment: "h-6 px-2.5 text-[length:var(--alias-typography-caption1-font-size)] gap-[var(--alias-spacing-inline-xs)] [&_svg]:size-3",
   },
   md: {
     container: "h-9 p-0.5 gap-0.5",
-    segment: "h-8 px-3 text-sm gap-1.5 [&_svg]:size-4",
+    segment: "h-8 px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-button-font-size)] gap-1.5 [&_svg]:size-4",
   },
   lg: {
-    container: "h-11 p-1 gap-0.5",
-    segment: "h-9 px-4 text-sm gap-2 [&_svg]:size-4",
+    container: "h-11 p-[var(--alias-spacing-inline-xs)] gap-0.5",
+    segment: "h-9 px-[var(--alias-spacing-padding-md)] text-[length:var(--alias-typography-button-font-size)] gap-2 [&_svg]:size-4",
   },
 }
 
@@ -51,7 +51,7 @@ function SegmentedControl({
       data-slot="segmented-control"
       aria-disabled={disabled || undefined}
       className={cn(
-        "inline-flex items-center rounded-[var(--base-radius-md)] bg-[var(--base-color-gray-100)] transition-colors",
+        "inline-flex items-center rounded-[var(--base-radius-md)] bg-[var(--component-segmented-control-background)] [transition:var(--alias-motion-transition-normal)]",
         sizes.container,
         fullWidth && "flex w-full",
         disabled && "pointer-events-none opacity-50",
@@ -69,13 +69,13 @@ function SegmentedControl({
             disabled={disabled}
             onClick={() => !disabled && onChange(option.value)}
             className={cn(
-              "relative inline-flex shrink-0 items-center justify-center rounded-[calc(var(--base-radius-md)-2px)] font-medium whitespace-nowrap transition-all duration-150 outline-none select-none",
+              "relative inline-flex shrink-0 items-center justify-center rounded-[calc(var(--base-radius-md)-2px)] font-[number:var(--alias-typography-button-font-weight)] whitespace-nowrap [transition:var(--alias-motion-transition-normal)] outline-none select-none",
               "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:ring-offset-1",
               sizes.segment,
               fullWidth && "flex-1",
               isSelected
-                ? "bg-[var(--alias-color-background-primary)] text-[var(--base-color-gray-900)] shadow-sm"
-                : "text-[var(--base-color-gray-500)] hover:text-[var(--base-color-gray-700)]"
+                ? "bg-[var(--alias-color-background-primary)] text-[var(--component-segmented-control-item-text-active)] shadow-sm"
+                : "text-[var(--component-segmented-control-item-text)] hover:text-[var(--alias-color-text-tertiary)]"
             )}
           >
             {option.icon && (

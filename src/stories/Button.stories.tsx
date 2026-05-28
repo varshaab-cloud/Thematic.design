@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Button } from "../../components/ui/button"
-import { Mail, Trash2, Plus, ArrowRight, Download } from "lucide-react"
+import { Mail, Trash2, Plus, ArrowRight, Download, Check } from "lucide-react"
 
 const meta: Meta<typeof Button> = {
   title: "Forms and input/Button",
@@ -94,6 +94,17 @@ export const States: Story = {
               <span className="text-xs text-muted-foreground">{label}</span>
             </div>
           ))}
+          <div className="flex flex-col items-center gap-2">
+            <button
+              type="button"
+              disabled
+              className="inline-flex items-center gap-1.5 h-8 px-2.5 rounded-[var(--component-button-primary-border-radius)] text-[length:var(--component-button-primary-font-size)] font-[number:var(--component-button-primary-font-weight)] border border-transparent cursor-default select-none bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)]"
+            >
+              <Check className="size-4" />
+              Saved
+            </button>
+            <span className="text-xs text-muted-foreground">Success</span>
+          </div>
         </div>
       </div>
       <div>

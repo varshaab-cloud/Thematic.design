@@ -12,7 +12,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
     >
       <table
         data-slot="table"
-        className={cn("w-full caption-bottom text-sm", className)}
+        className={cn("w-full caption-bottom text-[length:var(--alias-typography-body-text2-font-size)]", className)}
         {...props}
       />
     </div>
@@ -44,7 +44,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     <tfoot
       data-slot="table-footer"
       className={cn(
-        "border-t bg-[var(--alias-color-background-tertiary)]/50 font-medium [&>tr]:last:border-b-0",
+        "border-t bg-[var(--component-table-footer-bg)]/50 font-[number:var(--base-font-weight-medium)] [&>tr]:last:border-b-0",
         className
       )}
       {...props}
@@ -57,7 +57,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b transition-colors hover:bg-[var(--alias-color-background-tertiary)]/50 has-aria-expanded:bg-[var(--alias-color-background-tertiary)]/50 data-[state=selected]:bg-[var(--alias-color-background-tertiary)]",
+        "border-b [transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-table-row-hover-bg)]/50 has-aria-expanded:bg-[var(--component-table-row-hover-bg)]/50 data-[state=selected]:bg-[var(--component-table-row-selected-bg)]",
         className
       )}
       {...props}
@@ -70,7 +70,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-[var(--alias-color-text-primary)] [&:has([role=checkbox])]:pr-0",
+        "h-10 px-[var(--alias-spacing-padding-xs)] text-left align-middle font-[number:var(--base-font-weight-medium)] whitespace-nowrap text-[var(--component-table-header-text)] [&:has([role=checkbox])]:pr-0",
         className
       )}
       {...props}
@@ -83,7 +83,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
+        "p-[var(--alias-spacing-padding-xs)] align-middle whitespace-nowrap text-[var(--component-table-cell-text)] [&:has([role=checkbox])]:pr-0",
         className
       )}
       {...props}
@@ -98,7 +98,7 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("mt-4 text-sm text-[var(--alias-color-text-subtle)]", className)}
+      className={cn("mt-4 text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-table-caption-text)]", className)}
       {...props}
     />
   )

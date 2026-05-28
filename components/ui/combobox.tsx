@@ -61,9 +61,9 @@ function Combobox({
   const selected = options.find((o) => o.value === value)
 
   return (
-    <div className={cn("flex flex-col gap-1", fullWidth ? "w-full" : "w-auto", className)}>
+    <div className={cn("flex flex-col gap-[var(--alias-spacing-inline-xs)]", fullWidth ? "w-full" : "w-auto", className)}>
       {label && (
-        <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">
+        <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </label>
@@ -77,14 +77,14 @@ function Combobox({
             aria-invalid={hasError || undefined}
             disabled={disabled}
             className={cn(
-              "flex h-8 w-full items-center justify-between gap-1.5 rounded-[var(--base-radius-md)]",
-              "border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)]",
-              "px-2.5 text-sm transition-colors outline-none",
-              "hover:border-[var(--base-color-gray-400)]",
-              "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
-              "disabled:pointer-events-none disabled:opacity-50 disabled:bg-[var(--base-color-gray-100)]",
-              hasError && "border-[var(--alias-color-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20",
-              !selected && "text-[var(--alias-color-text-subtle)]"
+              "flex h-8 w-full items-center justify-between gap-1.5 rounded-[var(--component-combobox-border-radius)]",
+              "border border-[var(--component-combobox-border)] bg-[var(--component-combobox-background)]",
+              "px-2.5 text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-combobox-text)] [transition:var(--alias-motion-transition-normal)] outline-none",
+              "hover:border-[var(--component-combobox-border-focus)]",
+              "focus-visible:border-[var(--component-combobox-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-combobox-border-focus)]/50",
+              "disabled:pointer-events-none disabled:opacity-50 disabled:bg-[var(--component-combobox-disabled-bg)]",
+              hasError && "border-[var(--component-combobox-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20",
+              !selected && "text-[var(--component-combobox-placeholder)]"
             )}
           >
             <span className="truncate">
@@ -106,12 +106,12 @@ function Combobox({
                       onValueChange?.("")
                     }
                   }}
-                  className="text-[var(--alias-color-text-subtle)] hover:text-[var(--alias-color-text-primary)] transition-colors cursor-pointer"
+                  className="text-[var(--component-combobox-placeholder)] hover:text-[var(--component-combobox-text)] [transition:var(--alias-motion-transition-normal)] cursor-pointer"
                 >
                   <X className="size-3.5" />
                 </span>
               )}
-              <ChevronsUpDown className="size-3.5 text-[var(--alias-color-text-subtle)]" />
+              <ChevronsUpDown className="size-3.5 text-[var(--component-combobox-placeholder)]" />
             </div>
           </button>
         </PopoverTrigger>
@@ -134,14 +134,14 @@ function Combobox({
                     <div className="flex flex-col gap-0.5 flex-1 min-w-0">
                       <span className="truncate">{option.label}</span>
                       {option.description && (
-                        <span className="text-xs text-[var(--alias-color-text-subtle)] truncate">
+                        <span className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)] truncate">
                           {option.description}
                         </span>
                       )}
                     </div>
                     <Check
                       className={cn(
-                        "size-4 shrink-0 text-[var(--base-color-blue-800)]",
+                        "size-4 shrink-0 text-[var(--component-combobox-option-selected-text)]",
                         value === option.value ? "opacity-100" : "opacity-0"
                       )}
                     />
@@ -153,8 +153,8 @@ function Combobox({
         </PopoverContent>
       </Popover>
 
-      {hasError && <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
-      {helperText && !hasError && <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>}
+      {hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
+      {helperText && !hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)]">{helperText}</p>}
     </div>
   )
 }

@@ -24,9 +24,9 @@ export function AppHeader({
     <header
       data-slot="app-header"
       className={cn(
-        "flex items-center w-full bg-card px-4 gap-3",
+        "flex items-center w-full bg-[var(--component-app-header-background)] px-[var(--alias-spacing-padding-md)] gap-[var(--alias-spacing-inline-md)]",
         sticky && "sticky top-0 z-50",
-        bordered && "border-b border-[var(--base-color-gray-200)]",
+        bordered && "border-b border-[var(--component-app-header-border-bottom)]",
         className
       )}
       style={{ height: 56 }}
@@ -48,7 +48,7 @@ export function AppHeaderLogo({ name, src, className }: AppHeaderLogoProps) {
   return (
     <div
       data-slot="app-header-logo"
-      className={cn("flex items-center gap-2 shrink-0", className)}
+      className={cn("flex items-center gap-[var(--alias-spacing-inline-sm)] shrink-0", className)}
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -61,14 +61,14 @@ export function AppHeaderLogo({ name, src, className }: AppHeaderLogoProps) {
         <div
           className={cn(
             "w-7 h-7 rounded-[var(--base-radius-md)] flex items-center justify-center",
-            "bg-[var(--base-color-blue-800)] text-white",
-            "text-xs font-bold leading-none select-none"
+            "bg-[var(--component-app-header-logo-bg)] text-[var(--component-app-header-logo-text)]",
+            "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-bold)] leading-none select-none"
           )}
         >
           T
         </div>
       )}
-      <span className="text-sm font-semibold text-[var(--base-color-gray-900)] tracking-tight">
+      <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-app-header-nav-item-text-hover)] tracking-tight">
         {name}
       </span>
     </div>
@@ -112,11 +112,11 @@ export function AppHeaderNavItem({
   className,
 }: AppHeaderNavItemProps) {
   const sharedClass = cn(
-    "relative flex items-center h-full px-3 text-sm font-medium transition-colors",
-    "outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-400)]",
+    "relative flex items-center h-full px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] [transition:var(--alias-motion-transition-normal)]",
+    "outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-app-header-search-border-focus)]",
     active
-      ? "text-[var(--base-color-blue-800)]"
-      : "text-[var(--base-color-gray-600)] hover:text-[var(--base-color-gray-900)]",
+      ? "text-[var(--component-app-header-nav-item-text-active)]"
+      : "text-[var(--component-app-header-nav-item-text)] hover:text-[var(--component-app-header-nav-item-text-hover)]",
     className
   )
 
@@ -125,7 +125,7 @@ export function AppHeaderNavItem({
       {children}
       {active && (
         <span
-          className="absolute bottom-0 left-3 right-3 h-0.5 rounded-t-full bg-[var(--base-color-blue-800)]"
+          className="absolute bottom-0 left-3 right-3 h-0.5 rounded-t-full bg-[var(--component-app-header-nav-item-active-indicator)]"
           aria-hidden
         />
       )}
@@ -178,17 +178,17 @@ export function AppHeaderSearch({
         data-slot="app-header-search"
         onClick={onSearchClick}
         className={cn(
-          "flex items-center gap-2 h-8 px-3 rounded-[var(--base-radius-md)]",
-          "border border-[var(--base-color-gray-200)] bg-[var(--base-color-gray-50)]",
-          "text-sm text-[var(--base-color-gray-400)]",
-          "hover:border-[var(--base-color-gray-300)] hover:bg-card transition-colors",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-400)]",
+          "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-sm)] rounded-[var(--base-radius-md)]",
+          "border border-[var(--component-app-header-border-bottom)] bg-[var(--component-app-header-search-bg)]",
+          "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-app-header-search-placeholder)]",
+          "hover:border-[var(--alias-color-border-default)] hover:bg-[var(--component-app-header-background)] [transition:var(--alias-motion-transition-normal)]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-app-header-search-border-focus)]",
           className
         )}
       >
         <Search style={{ width: 14, height: 14 }} />
-        <span className="text-sm">{placeholder}</span>
-        <kbd className="ml-1 hidden sm:inline-flex items-center text-[10px] border border-[var(--base-color-gray-200)] rounded px-1 leading-4">
+        <span className="text-[length:var(--alias-typography-body-text2-font-size)]">{placeholder}</span>
+        <kbd className="ml-1 hidden sm:inline-flex items-center text-[10px] border border-[var(--component-app-header-border-bottom)] rounded px-1 leading-4">
           ⌘K
         </kbd>
       </button>
@@ -199,23 +199,23 @@ export function AppHeaderSearch({
     <div
       data-slot="app-header-search"
       className={cn(
-        "flex items-center gap-2 h-8 px-3 rounded-[var(--base-radius-md)]",
-        "border border-[var(--base-color-gray-200)] bg-[var(--base-color-gray-50)]",
-        "focus-within:border-[var(--base-color-blue-400)] focus-within:bg-card focus-within:ring-2 focus-within:ring-[var(--base-color-blue-100)]",
-        "transition-all",
+        "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-sm)] rounded-[var(--base-radius-md)]",
+        "border border-[var(--component-app-header-border-bottom)] bg-[var(--component-app-header-search-bg)]",
+        "focus-within:border-[var(--component-app-header-search-border-focus)] focus-within:bg-[var(--component-app-header-background)] focus-within:ring-2 focus-within:ring-[var(--alias-color-background-hover)]",
+        "[transition:var(--alias-motion-transition-normal)]",
         className
       )}
     >
       <Search
-        className="shrink-0 text-[var(--base-color-gray-400)]"
+        className="shrink-0 text-[var(--component-app-header-search-placeholder)]"
         style={{ width: 14, height: 14 }}
       />
       <input
         type="text"
         placeholder={placeholder}
         className={cn(
-          "flex-1 bg-transparent text-sm text-[var(--base-color-gray-900)]",
-          "placeholder:text-[var(--base-color-gray-400)]",
+          "flex-1 bg-transparent text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-app-header-search-text)]",
+          "placeholder:text-[var(--component-app-header-search-placeholder)]",
           "outline-none border-none focus:ring-0 min-w-0 w-32"
         )}
       />
@@ -235,7 +235,7 @@ export function AppHeaderActions({
   return (
     <div
       data-slot="app-header-actions"
-      className={cn("flex items-center gap-1 ml-auto shrink-0", className)}
+      className={cn("flex items-center gap-[var(--alias-spacing-inline-xs)] ml-auto shrink-0", className)}
     >
       {children}
     </div>
@@ -263,9 +263,9 @@ export function AppHeaderNotifications({
       aria-label={count > 0 ? `${count} notifications` : "Notifications"}
       className={cn(
         "relative flex items-center justify-center w-8 h-8 rounded-[var(--base-radius-md)]",
-        "text-[var(--base-color-gray-600)] hover:text-[var(--base-color-gray-900)]",
-        "hover:bg-[var(--base-color-gray-100)] transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-400)]",
+        "text-[var(--component-app-header-nav-item-text)] hover:text-[var(--component-app-header-nav-item-text-hover)]",
+        "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-app-header-search-border-focus)]",
         className
       )}
     >
@@ -275,7 +275,7 @@ export function AppHeaderNotifications({
           className={cn(
             "absolute top-1 right-1 flex items-center justify-center",
             "min-w-[16px] h-4 px-1 rounded-full",
-            "bg-[var(--base-color-blue-800)] text-white text-[9px] font-semibold leading-none",
+            "bg-[var(--component-app-header-notification-badge-bg)] text-[var(--component-app-header-notification-badge-text)] text-[9px] font-[number:var(--base-font-weight-semibold)] leading-none",
             "select-none pointer-events-none"
           )}
         >
@@ -320,10 +320,10 @@ export function AppHeaderUser({
           data-slot="app-header-user"
           aria-label={`User menu for ${name}`}
           className={cn(
-            "flex items-center gap-2 h-8 px-2 rounded-[var(--base-radius-md)]",
-            "text-sm text-[var(--base-color-gray-700)]",
-            "hover:bg-[var(--base-color-gray-100)] transition-colors",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-400)]",
+            "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-xs)] rounded-[var(--base-radius-md)]",
+            "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-tertiary)]",
+            "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-app-header-search-border-focus)]",
             className
           )}
         >
@@ -331,17 +331,17 @@ export function AppHeaderUser({
           <span
             className={cn(
               "w-6 h-6 rounded-full flex items-center justify-center shrink-0",
-              "bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)]",
-              "text-[10px] font-semibold select-none"
+              "bg-[var(--component-app-header-avatar-bg)] text-[var(--component-app-header-avatar-text)]",
+              "text-[10px] font-[number:var(--base-font-weight-semibold)] select-none"
             )}
           >
             {initials}
           </span>
-          <span className="hidden sm:block font-medium truncate max-w-[120px]">
+          <span className="hidden sm:block font-[number:var(--base-font-weight-medium)] truncate max-w-[120px]">
             {name}
           </span>
           <ChevronDown
-            className="text-[var(--base-color-gray-400)]"
+            className="text-[var(--component-app-header-search-placeholder)]"
             style={{ width: 14, height: 14 }}
           />
         </button>
@@ -353,29 +353,29 @@ export function AppHeaderUser({
           sideOffset={6}
           className={cn(
             "z-50 min-w-[180px] rounded-[var(--base-radius-md)]",
-            "border border-[var(--base-color-gray-200)] bg-[var(--alias-color-background-primary)]",
-            "shadow-[var(--base-shadow-04)] p-1",
-            "text-sm text-[var(--base-color-gray-900)]",
+            "border border-[var(--component-app-header-border-bottom)] bg-[var(--alias-color-background-primary)]",
+            "shadow-[var(--base-shadow-04)] p-[var(--alias-spacing-inline-xs)]",
+            "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-secondary)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
             "duration-100 origin-top-right"
           )}
         >
           {/* User info */}
-          <div className="px-2 py-1.5 mb-1 border-b border-[var(--base-color-gray-100)]">
-            <p className="font-medium text-[var(--base-color-gray-900)] truncate">{name}</p>
+          <div className="px-2 py-1.5 mb-1 border-b border-[var(--alias-color-background-tertiary)]">
+            <p className="font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-secondary)] truncate">{name}</p>
             {email && (
-              <p className="text-xs text-[var(--base-color-gray-400)] truncate">{email}</p>
+              <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-app-header-search-placeholder)] truncate">{email}</p>
             )}
           </div>
 
           <DropdownMenuPrimitive.Item
             onSelect={onProfile}
             className={cn(
-              "flex items-center gap-2 px-2 py-1.5 rounded-[var(--base-radius-sm)]",
+              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
               "cursor-pointer outline-none",
-              "hover:bg-[var(--base-color-gray-100)] focus:bg-[var(--base-color-gray-100)]",
-              "text-[var(--base-color-gray-700)] transition-colors"
+              "hover:bg-[var(--alias-color-background-tertiary)] focus:bg-[var(--alias-color-background-tertiary)]",
+              "text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
             )}
           >
             Profile
@@ -384,24 +384,24 @@ export function AppHeaderUser({
           <DropdownMenuPrimitive.Item
             onSelect={onSettings}
             className={cn(
-              "flex items-center gap-2 px-2 py-1.5 rounded-[var(--base-radius-sm)]",
+              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
               "cursor-pointer outline-none",
-              "hover:bg-[var(--base-color-gray-100)] focus:bg-[var(--base-color-gray-100)]",
-              "text-[var(--base-color-gray-700)] transition-colors"
+              "hover:bg-[var(--alias-color-background-tertiary)] focus:bg-[var(--alias-color-background-tertiary)]",
+              "text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
             )}
           >
             Settings
           </DropdownMenuPrimitive.Item>
 
-          <DropdownMenuPrimitive.Separator className="my-1 h-px bg-[var(--base-color-gray-200)]" />
+          <DropdownMenuPrimitive.Separator className="my-1 h-px bg-[var(--component-app-header-border-bottom)]" />
 
           <DropdownMenuPrimitive.Item
             onSelect={onSignOut}
             className={cn(
-              "flex items-center gap-2 px-2 py-1.5 rounded-[var(--base-radius-sm)]",
+              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
               "cursor-pointer outline-none",
-              "hover:bg-[var(--base-color-gray-100)] focus:bg-[var(--base-color-gray-100)]",
-              "text-[var(--base-color-gray-700)] transition-colors"
+              "hover:bg-[var(--alias-color-background-tertiary)] focus:bg-[var(--alias-color-background-tertiary)]",
+              "text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
             )}
           >
             Sign out

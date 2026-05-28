@@ -58,7 +58,7 @@ function NumberInput({
   }
 
   const sharedButtonClass =
-    "flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--component-input-border)] bg-[var(--component-input-background)] text-[var(--alias-color-icon-primary)] transition-colors hover:bg-[var(--alias-color-background-secondary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--component-input-border-focus)] disabled:pointer-events-none disabled:bg-[var(--component-input-background-disabled)] disabled:text-[var(--alias-color-icon-disabled)]"
+    "flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--component-input-border)] bg-[var(--component-number-input-control-bg)] text-[var(--component-number-input-control-icon-color)] [transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-number-input-control-hover-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--component-input-border-focus)] disabled:pointer-events-none disabled:bg-[var(--component-number-input-control-disabled-bg)] disabled:text-[var(--alias-color-icon-disabled)]"
 
   return (
     <div
@@ -94,7 +94,7 @@ function NumberInput({
         disabled={disabled}
         placeholder={placeholder}
         className={cn(
-          "h-9 flex-1 border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-2 text-center text-sm text-[var(--component-input-text)] outline-none transition-colors placeholder:text-[var(--component-input-text-placeholder)] focus-visible:border-[var(--component-input-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-input-border-focus)]/30 disabled:bg-[var(--component-input-background-disabled)] disabled:text-[var(--component-input-text-disabled)] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          "h-9 flex-1 border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-[var(--alias-spacing-padding-xs)] text-center text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-input-text)] outline-none [transition:var(--alias-motion-transition-normal)] placeholder:text-[var(--component-input-text-placeholder)] focus-visible:border-[var(--component-input-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-input-border-focus)]/30 disabled:bg-[var(--component-input-background-disabled)] disabled:text-[var(--component-input-text-disabled)] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         )}
       />
 

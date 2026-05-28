@@ -125,15 +125,15 @@ export function CommandPalette({
       >
           <div
             className={cn(
-              "bg-popover border border-[var(--base-color-gray-200)]",
+              "bg-[var(--component-command-palette-panel-bg)] border border-[var(--component-command-palette-border)]",
               "rounded-[var(--base-radius-lg)] shadow-xl",
               "max-h-[400px] overflow-hidden flex flex-col"
             )}
           >
             {/* Search input */}
-            <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-[var(--base-color-gray-200)]">
+            <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-[var(--component-command-palette-border)]">
               <Search
-                className="shrink-0 text-[var(--base-color-gray-400)]"
+                className="shrink-0 text-[var(--component-command-palette-badge-text)]"
                 style={{ width: 16, height: 16 }}
               />
               <input
@@ -143,8 +143,8 @@ export function CommandPalette({
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={placeholder}
                 className={cn(
-                  "flex-1 bg-transparent text-sm text-[var(--base-color-gray-900)]",
-                  "placeholder:text-[var(--base-color-gray-400)]",
+                  "flex-1 bg-transparent text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-command-palette-input-text)]",
+                  "placeholder:text-[var(--component-command-palette-input-placeholder)]",
                   "outline-none border-none focus:ring-0"
                 )}
                 aria-autocomplete="list"
@@ -153,8 +153,8 @@ export function CommandPalette({
               <kbd
                 className={cn(
                   "hidden sm:inline-flex items-center gap-0.5 shrink-0",
-                  "text-[10px] text-[var(--base-color-gray-400)]",
-                  "border border-[var(--base-color-gray-200)] rounded px-1 py-0.5"
+                  "text-[10px] text-[var(--component-command-palette-badge-text)]",
+                  "border border-[var(--component-command-palette-badge-bg)] rounded px-1 py-0.5"
                 )}
               >
                 Esc
@@ -170,13 +170,13 @@ export function CommandPalette({
               {flatItems.length === 0 ? (
                 <div className="flex flex-col items-center justify-center gap-1.5 py-10 text-center">
                   <Search
-                    className="text-[var(--base-color-gray-300)]"
+                    className="text-[var(--alias-color-border-default)]"
                     style={{ width: 24, height: 24 }}
                   />
-                  <p className="text-sm text-[var(--base-color-gray-500)]">
+                  <p className="text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-subtle)]">
                     No results for &ldquo;{query}&rdquo;
                   </p>
-                  <p className="text-xs text-[var(--base-color-gray-400)]">
+                  <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-command-palette-badge-text)]">
                     Try a different search term.
                   </p>
                 </div>
@@ -186,8 +186,8 @@ export function CommandPalette({
                     {/* Group label */}
                     <p
                       className={cn(
-                        "px-2 py-1 text-[10px] font-semibold tracking-wider uppercase",
-                        "text-[var(--base-color-gray-400)]"
+                        "px-[var(--alias-spacing-padding-xs)] py-1 text-[10px] font-[number:var(--base-font-weight-semibold)] tracking-wider uppercase",
+                        "text-[var(--component-command-palette-badge-text)]"
                       )}
                     >
                       {group}
@@ -205,11 +205,11 @@ export function CommandPalette({
                           aria-selected={isActive}
                           data-active={isActive}
                           className={cn(
-                            "w-full flex items-center gap-2.5 px-2 py-2 rounded-[var(--base-radius-sm)]",
-                            "text-left text-sm transition-colors",
+                            "w-full flex items-center gap-2.5 px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-padding-xs)] rounded-[var(--base-radius-sm)]",
+                            "text-left text-[length:var(--alias-typography-body-text2-font-size)] [transition:var(--alias-motion-transition-normal)]",
                             isActive
-                              ? "bg-[var(--base-color-blue-50)] text-[var(--base-color-blue-800)]"
-                              : "text-[var(--base-color-gray-900)] hover:bg-[var(--base-color-gray-100)]"
+                              ? "bg-[var(--component-command-palette-item-selected-bg)] text-[var(--component-command-palette-item-selected-text)]"
+                              : "text-[var(--component-command-palette-item-text)] hover:bg-[var(--component-command-palette-item-hover-bg)]"
                           )}
                           onMouseEnter={() => setActiveIndex(currentIndex)}
                           onClick={() => {
@@ -222,8 +222,8 @@ export function CommandPalette({
                               className={cn(
                                 "shrink-0 flex items-center justify-center",
                                 isActive
-                                  ? "text-[var(--base-color-blue-600)]"
-                                  : "text-[var(--base-color-gray-400)]"
+                                  ? "text-[var(--alias-color-border-active)]"
+                                  : "text-[var(--component-command-palette-badge-text)]"
                               )}
                               style={{ width: 16, height: 16 }}
                             >
@@ -231,16 +231,16 @@ export function CommandPalette({
                             </span>
                           )}
                           <span className="flex-1 min-w-0">
-                            <span className="block font-medium truncate">
+                            <span className="block font-[number:var(--base-font-weight-medium)] truncate">
                               {item.label}
                             </span>
                             {item.description && (
                               <span
                                 className={cn(
-                                  "block text-xs truncate",
+                                  "block text-[length:var(--alias-typography-caption1-font-size)] truncate",
                                   isActive
-                                    ? "text-[var(--base-color-blue-600)]"
-                                    : "text-[var(--base-color-gray-400)]"
+                                    ? "text-[var(--alias-color-border-active)]"
+                                    : "text-[var(--component-command-palette-badge-text)]"
                                 )}
                               >
                                 {item.description}
@@ -252,8 +252,8 @@ export function CommandPalette({
                               className={cn(
                                 "shrink-0 text-[10px] border rounded px-1 py-0.5",
                                 isActive
-                                  ? "border-[var(--base-color-blue-200)] text-[var(--base-color-blue-600)]"
-                                  : "border-[var(--base-color-gray-200)] text-[var(--base-color-gray-400)]"
+                                  ? "border-[var(--alias-color-background-hover)] text-[var(--alias-color-border-active)]"
+                                  : "border-[var(--component-command-palette-badge-bg)] text-[var(--component-command-palette-badge-text)]"
                               )}
                             >
                               {item.shortcut}
@@ -270,21 +270,21 @@ export function CommandPalette({
             {/* Footer hint */}
             <div
               className={cn(
-                "flex items-center gap-3 px-3 py-2 border-t border-[var(--base-color-gray-200)]",
-                "text-[10px] text-[var(--base-color-gray-400)]"
+                "flex items-center gap-3 px-3 py-2 border-t border-[var(--component-command-palette-border)]",
+                "text-[10px] text-[var(--component-command-palette-badge-text)]"
               )}
             >
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--base-color-gray-200)] rounded px-1">↑</kbd>
-                <kbd className="border border-[var(--base-color-gray-200)] rounded px-1">↓</kbd>
+                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">↑</kbd>
+                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">↓</kbd>
                 navigate
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--base-color-gray-200)] rounded px-1">↵</kbd>
+                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">↵</kbd>
                 select
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--base-color-gray-200)] rounded px-1">Esc</kbd>
+                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">Esc</kbd>
                 close
               </span>
             </div>

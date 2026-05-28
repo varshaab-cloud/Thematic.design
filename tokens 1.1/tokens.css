@@ -1,0 +1,329 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --base-color-black: #000000;
+  --base-color-white: #ffffff;
+  --base-color-gray-75: #f5f5f3;
+  --base-color-gray-100: #eeeeec;
+  --base-color-gray-200: #e3e3e0;
+  --base-color-gray-300: #d5d5d5;
+  --base-color-gray-400: #b1b1b1;
+  --base-color-gray-500: #909090;
+  --base-color-gray-600: #6d6d6d;
+  --base-color-gray-700: #464646;
+  --base-color-gray-900: #222222;
+  --base-color-blue-100: #c4c5f4;
+  --base-color-blue-200: #aaacf0;
+  --base-color-blue-300: #9194eb;
+  --base-color-blue-400: #6e71e6;
+  --base-color-blue-600: #1c21dc;
+  --base-color-blue-700: #171cbe;
+  --base-color-blue-800: #1518a6;
+  --base-color-blue-900: #111487;
+  --base-color-red-100: #ffe2e2;
+  --base-color-red-200: #ffb9bb;
+  --base-color-red-300: #ff999c;
+  --base-color-red-400: #f55658;
+  --base-color-red-600: #d21a26;
+  --base-color-red-700: #ab121b;
+  --base-color-red-800: #81070d;
+  --base-color-red-900: #640204;
+  --base-color-green-100: #dcfce7;
+  --base-color-green-200: #bbf7d0;
+  --base-color-green-300: #86efac;
+  --base-color-green-400: #4ade80;
+  --base-color-green-600: #16a34a;
+  --base-color-green-700: #15803d;
+  --base-color-green-800: #166534;
+  --base-color-green-900: #14532d;
+  --base-color-success-800: #dcfce7;
+  --base-color-success-900: #16a34a;
+  --base-color-info-600: #e0f2fe;
+  --base-color-info-700: #0369a1;
+  --base-color-error-200: #ffe9e5;
+  --base-color-error-300: #ff4e2a;
+  --base-color-warning-50: #fffade;
+  --base-color-warning-100: #f7d307;
+  --base-font-family-primary: 'Open Sans', sans-serif;
+  --base-font-weight-regular: 400;
+  --base-font-weight-medium: 500;
+  --base-font-weight-semibold: 600;
+  --base-font-weight-bold: 700;
+  --base-font-size-100: 0.625rem;
+  --base-font-size-200: 0.75rem;
+  --base-font-size-300: 0.875rem;
+  --base-font-size-400: 1rem;
+  --base-font-size-500: 1.875rem;
+  --base-font-size-600: 2rem;
+  --base-font-size-700: 2.25rem;
+  --base-font-size-800: 2.625rem;
+  --base-font-size-900: 3rem;
+  --base-font-line-height-relaxed: 1.5rem;
+  --base-font-line-height-tight: 1.25rem;
+  --base-spacing-1: 0.25rem;
+  --base-spacing-2: 0.5rem;
+  --base-spacing-3: 0.75rem;
+  --base-spacing-4: 1rem;
+  --base-spacing-5: 1.5rem;
+  --base-spacing-6: 2rem;
+  --base-spacing-7: 2.5rem;
+  --base-spacing-8: 3rem;
+  --base-spacing-9: 4rem;
+  --base-spacing-10: 5rem;
+  --base-radius-xs: 2px;
+  --base-radius-sm: 4px;
+  --base-radius-md: 6px;
+  --base-radius-lg: 8px;
+  --base-radius-xl: 10px;
+  --base-radius-xxl: 14px;
+  --base-shadow-01: 0px 1px 2px 0px rgba(0,0,0,0.05);
+  --base-shadow-02: 0px 1px 3px 0px rgba(0,0,0,0.06), 0px 4px 16px 0px rgba(0,0,0,0.05);
+  --base-shadow-03: 0px 2px 4px 0px rgba(0,0,0,0.07), 0px 6px 20px 0px rgba(0,0,0,0.06);
+  --base-shadow-04: 0px 4px 6px 0px rgba(0,0,0,0.07), 0px 10px 30px 0px rgba(0,0,0,0.08);
+  --base-shadow-05: 0px 8px 16px 0px rgba(0,0,0,0.10), 0px 20px 48px 0px rgba(0,0,0,0.10);
+  --base-border-width: 1px;
+  --base-border-style: solid;
+  --alias-color-text-primary: #000000; /** Primary text */
+  --alias-color-text-secondary: #222222; /** Secondary text, icons */
+  --alias-color-text-tertiary: #464646; /** Tertiary text, icons */
+  --alias-color-text-subtle: var(--base-color-gray-600); /** Muted/placeholder text */
+  --alias-color-text-disabled: #909090; /** Disabled text */
+  --alias-color-text-inverse: #ffffff; /** Text on dark backgrounds */
+  --alias-color-text-brand: #111487; /** Brand text, semantic text */
+  --alias-color-background-primary: #ffffff; /** Primary page background */
+  --alias-color-background-secondary: #f5f5f3; /** Secondary background */
+  --alias-color-background-tertiary: #eeeeec; /** Component background layers */
+  --alias-color-background-brand: #1518a6; /** Brand background */
+  --alias-color-background-brand-dark: #111487; /** Dark brand background */
+  --alias-color-background-hover: var(--base-color-blue-100); /** Interactive hover / accent surface */
+  --alias-color-border-default: #d5d5d5; /** Default border */
+  --alias-color-border-active: #1c21dc; /** Active/focused border */
+  --alias-color-border-disabled: #b1b1b1; /** Disabled field border */
+  --alias-color-border-brand: var(--base-color-blue-800); /** Brand-coloured border (checkbox, radio checked) */
+  --alias-color-border-success: #16a34a;
+  --alias-color-border-info: #0369a1;
+  --alias-color-border-error: var(--base-color-error-300); /** Error border — base-color-error-300 */
+  --alias-color-border-warning: #f7d307;
+  --alias-color-icon-primary: #222222;
+  --alias-color-icon-secondary: #464646;
+  --alias-color-icon-disabled: #b1b1b1;
+  --alias-color-icon-brand: #171cbe;
+  --alias-color-feedback-success-fg: #166534; /** #166534 on #dcfce7 = 7.2:1 ✓ AA */
+  --alias-color-feedback-success-bg: #dcfce7;
+  --alias-color-feedback-info-fg: #0369a1; /** #0369a1 on #e0f2fe = 5.2:1 ✓ AA */
+  --alias-color-feedback-info-bg: #e0f2fe;
+  --alias-color-feedback-error-fg: var(--base-color-red-700); /** base-color-red-700 on error-bg = 6.1:1 ✓ AA (was #ff4e2a = 2.75:1 ✗) */
+  --alias-color-feedback-error-bg: #ffe9e5;
+  --alias-color-feedback-warning-fg: var(--base-color-gray-900); /** base-color-gray-900 on warning-bg = 13.9:1 ✓ AA (was #f7d307 = 1.38:1 ✗) */
+  --alias-color-feedback-warning-bg: #fffade;
+  --alias-typography-heading1-font-family: 'Open Sans', sans-serif;
+  --alias-typography-heading1-font-size: 3rem;
+  --alias-typography-heading1-font-weight: 700;
+  --alias-typography-heading1-line-height: 1.5rem;
+  --alias-typography-heading2-font-family: 'Open Sans', sans-serif;
+  --alias-typography-heading2-font-size: 2.625rem;
+  --alias-typography-heading2-font-weight: 700;
+  --alias-typography-heading2-line-height: 1.5rem;
+  --alias-typography-heading3-font-family: 'Open Sans', sans-serif;
+  --alias-typography-heading3-font-size: 2.25rem;
+  --alias-typography-heading3-font-weight: 700;
+  --alias-typography-heading3-line-height: 1.5rem;
+  --alias-typography-heading4-font-family: 'Open Sans', sans-serif;
+  --alias-typography-heading4-font-size: 2rem;
+  --alias-typography-heading4-font-weight: 700;
+  --alias-typography-heading4-line-height: 1.5rem;
+  --alias-typography-heading5-font-family: 'Open Sans', sans-serif;
+  --alias-typography-heading5-font-size: 1.875rem;
+  --alias-typography-heading5-font-weight: 700;
+  --alias-typography-heading5-line-height: 1.5rem;
+  --alias-typography-heading6-font-family: 'Open Sans', sans-serif;
+  --alias-typography-heading6-font-size: 1.875rem;
+  --alias-typography-heading6-font-weight: 600;
+  --alias-typography-heading6-line-height: 1.5rem;
+  --alias-typography-subheading1-font-family: 'Open Sans', sans-serif;
+  --alias-typography-subheading1-font-size: 1rem;
+  --alias-typography-subheading1-font-weight: 400;
+  --alias-typography-subheading1-line-height: 1.5rem;
+  --alias-typography-subheading2-font-family: 'Open Sans', sans-serif;
+  --alias-typography-subheading2-font-size: 0.875rem;
+  --alias-typography-subheading2-font-weight: 500;
+  --alias-typography-subheading2-line-height: 1.5rem;
+  --alias-typography-body-text1-font-family: 'Open Sans', sans-serif;
+  --alias-typography-body-text1-font-size: 1rem;
+  --alias-typography-body-text1-font-weight: 400;
+  --alias-typography-body-text1-line-height: 1.5rem;
+  --alias-typography-body-text2-font-family: 'Open Sans', sans-serif;
+  --alias-typography-body-text2-font-size: 0.875rem;
+  --alias-typography-body-text2-font-weight: 400;
+  --alias-typography-body-text2-line-height: 1.5rem;
+  --alias-typography-body-text3-font-family: 'Open Sans', sans-serif;
+  --alias-typography-body-text3-font-size: 0.75rem;
+  --alias-typography-body-text3-font-weight: 400;
+  --alias-typography-body-text3-line-height: 1.5rem;
+  --alias-typography-button-font-family: 'Open Sans', sans-serif;
+  --alias-typography-button-font-size: 0.875rem;
+  --alias-typography-button-font-weight: 500;
+  --alias-typography-button-line-height: 1.25rem;
+  --alias-typography-caption1-font-family: 'Open Sans', sans-serif;
+  --alias-typography-caption1-font-size: 0.75rem;
+  --alias-typography-caption1-font-weight: 400;
+  --alias-typography-caption1-line-height: 1.25rem;
+  --alias-typography-caption2-font-family: 'Open Sans', sans-serif;
+  --alias-typography-caption2-font-size: 0.625rem;
+  --alias-typography-caption2-font-weight: 400;
+  --alias-typography-caption2-line-height: 1.25rem;
+  --alias-spacing-inline-xs: 0.25rem; /** Tight inline spacing */
+  --alias-spacing-inline-sm: 0.5rem; /** Small inline spacing */
+  --alias-spacing-inline-md: 0.75rem; /** Medium inline spacing */
+  --alias-spacing-stack-xs: 0.5rem; /** Tight stack spacing */
+  --alias-spacing-stack-sm: 0.75rem; /** Small stack spacing */
+  --alias-spacing-stack-md: 1rem; /** Default stack spacing */
+  --alias-spacing-stack-lg: 1.5rem; /** Large stack spacing */
+  --alias-spacing-padding-xs: 0.5rem; /** XS component padding */
+  --alias-spacing-padding-sm: 0.75rem; /** SM component padding */
+  --alias-spacing-padding-md: 1rem; /** MD component padding */
+  --alias-spacing-padding-lg: 1.5rem; /** LG component padding */
+  --alias-spacing-section-md: 2rem; /** Section spacing */
+  --alias-spacing-section-lg: 3rem; /** Large section spacing */
+  --alias-spacing-page-md: 4rem; /** Page level spacing */
+  --alias-spacing-page-lg: 5rem; /** Hero/layout spacing */
+  --component-button-primary-background: #1518a6;
+  --component-button-primary-background-hover: #171cbe;
+  --component-button-primary-background-active: #111487;
+  --component-button-primary-background-disabled: #e3e3e0;
+  --component-button-primary-text: #ffffff;
+  --component-button-primary-text-disabled: #909090;
+  --component-button-primary-border: rgba(0, 0, 0, 0);
+  --component-button-primary-border-radius: var(--base-radius-md);
+  --component-button-primary-padding-x: 1.5rem;
+  --component-button-primary-padding-y: 0.75rem;
+  --component-button-primary-font-size: 0.875rem;
+  --component-button-primary-font-weight: 500;
+  --component-button-secondary-background: rgba(0, 0, 0, 0);
+  --component-button-secondary-background-hover: #c4c5f4;
+  --component-button-secondary-background-active: #aaacf0;
+  --component-button-secondary-background-disabled: rgba(0, 0, 0, 0);
+  --component-button-secondary-text: #111487;
+  --component-button-secondary-text-disabled: #909090;
+  --component-button-secondary-border: #1c21dc;
+  --component-button-secondary-border-radius: var(--base-radius-md);
+  --component-button-secondary-padding-x: 1.5rem;
+  --component-button-secondary-padding-y: 0.75rem;
+  --component-button-secondary-font-size: 0.875rem;
+  --component-button-secondary-font-weight: 500;
+  --component-button-ghost-background: rgba(0, 0, 0, 0);
+  --component-button-ghost-background-hover: #eeeeec;
+  --component-button-ghost-text: #111487;
+  --component-button-ghost-text-disabled: #909090;
+  --component-button-ghost-border: rgba(0, 0, 0, 0);
+  --component-button-ghost-border-radius: var(--base-radius-md);
+  --component-button-ghost-padding-x: 1.5rem;
+  --component-button-ghost-padding-y: 0.75rem;
+  --component-button-ghost-font-size: 0.875rem;
+  --component-button-ghost-font-weight: 500;
+  --component-button-destructive-background: #ff4e2a;
+  --component-button-destructive-background-hover: #d21a26;
+  --component-button-destructive-text: #ffffff;
+  --component-button-destructive-border: rgba(0, 0, 0, 0);
+  --component-button-destructive-border-radius: var(--base-radius-md);
+  --component-button-destructive-padding-x: 1.5rem;
+  --component-button-destructive-padding-y: 0.75rem;
+  --component-button-destructive-font-size: 0.875rem;
+  --component-button-destructive-font-weight: 500;
+  --component-input-background: #ffffff;
+  --component-input-background-disabled: #eeeeec;
+  --component-input-border: #d5d5d5;
+  --component-input-border-focus: #1c21dc;
+  --component-input-border-error: #ff4e2a;
+  --component-input-border-disabled: #b1b1b1;
+  --component-input-text: #000000;
+  --component-input-text-placeholder: #909090;
+  --component-input-text-disabled: #909090;
+  --component-input-border-radius: var(--base-radius-md);
+  --component-input-padding-x: 1rem;
+  --component-input-padding-y: 0.75rem;
+  --component-input-font-size: 0.875rem;
+  --component-card-background: #ffffff;
+  --component-card-border: #d5d5d5;
+  --component-card-border-radius: var(--base-radius-md);
+  --component-card-shadow: 0px 1px 3px 0px rgba(0,0,0,0.06), 0px 4px 16px 0px rgba(0,0,0,0.05);
+  --component-card-padding: 1.5rem;
+  --component-card-title-color: #000000;
+  --component-card-body-color: #222222;
+  --component-badge-success-background: #dcfce7;
+  --component-badge-success-text: #16a34a;
+  --component-badge-success-border-radius: var(--base-radius-xxl);
+  --component-badge-info-background: #e0f2fe;
+  --component-badge-info-text: #0369a1;
+  --component-badge-info-border-radius: var(--base-radius-xxl);
+  --component-badge-error-background: #ffe9e5;
+  --component-badge-error-text: #ff4e2a;
+  --component-badge-error-border-radius: var(--base-radius-xxl);
+  --component-badge-warning-background: #fffade;
+  --component-badge-warning-text: #f7d307;
+  --component-badge-warning-border-radius: var(--base-radius-xxl);
+
+  /* ─── Data visualisation ─────────────────────────────────────────────────── */
+
+  /* Categorical palette — 8 distinct colours for data series */
+  --data-viz-cat-1: #1c21dc;   /* Blue — primary series */
+  --data-viz-cat-2: #16a34a;   /* Green */
+  --data-viz-cat-3: #ff4e2a;   /* Red/Orange */
+  --data-viz-cat-4: #9194eb;   /* Lavender */
+  --data-viz-cat-5: #f7d307;   /* Yellow */
+  --data-viz-cat-6: #0369a1;   /* Teal Blue */
+  --data-viz-cat-7: #464646;   /* Dark gray */
+  --data-viz-cat-8: #86efac;   /* Mint */
+
+  /* Sequential — single hue ramp (blue, lightest to darkest) */
+  --data-viz-seq-1: #c4c5f4;
+  --data-viz-seq-2: #9194eb;
+  --data-viz-seq-3: #6e71e6;
+  --data-viz-seq-4: #1c21dc;
+  --data-viz-seq-5: #1518a6;
+  --data-viz-seq-6: #111487;
+
+  /* Diverging — negative (red) to positive (green) through neutral */
+  --data-viz-div-neg-strong: #d21a26;
+  --data-viz-div-neg-mid:    #ff999c;
+  --data-viz-div-neutral:    #e3e3e0;
+  --data-viz-div-pos-mid:    #86efac;
+  --data-viz-div-pos-strong: #16a34a;
+
+  /* Chart structural tokens */
+  --data-viz-axis-color:         #d5d5d5;   /* Axis lines */
+  --data-viz-grid-color:         #eeeeec;   /* Grid lines */
+  --data-viz-label-color:        #6d6d6d;   /* Axis labels */
+  --data-viz-label-font-size:    0.75rem;
+  --data-viz-label-font-weight:  400;
+  --data-viz-tooltip-background: #222222;
+  --data-viz-tooltip-text:       #ffffff;
+  --data-viz-tooltip-border-radius: var(--base-radius-lg);
+  --data-viz-focus-ring:         #1c21dc;   /* Highlighted/focused bar or point */
+
+  /* Motion */
+  --base-duration-instant: 0ms;
+  --base-duration-fast: 100ms;
+  --base-duration-normal: 200ms;
+  --base-duration-slow: 300ms;
+  --base-duration-slower: 500ms;
+  --base-easing-linear: linear;
+  --base-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --base-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --base-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --base-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --alias-motion-transition-fast: 100ms cubic-bezier(0, 0, 0.2, 1);
+  --alias-motion-transition-normal: 200ms cubic-bezier(0, 0, 0.2, 1);
+  --alias-motion-transition-slow: 300ms cubic-bezier(0, 0, 0.2, 1);
+  --alias-motion-transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --alias-motion-transition-fade: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Focus */
+  --alias-focus-ring-color: var(--base-color-blue-600); /** Standardised to blue-600, matches --ring */
+  --alias-focus-ring-offset: 2px;
+  --alias-focus-ring-width: 2px;
+  --alias-focus-ring-style: 2px solid var(--base-color-blue-600);
+  --alias-focus-ring-shadow: 0 0 0 2px var(--base-color-white), 0 0 0 4px var(--base-color-blue-600);
+}

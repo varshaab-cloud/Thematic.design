@@ -88,8 +88,9 @@ function FoundationSpacingPage() {
             borderBottom: '1px solid #f7f7f7',
             gap: 20,
           }}>
-            <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#555', width: 180, flexShrink: 0 }}>{item.token}</span>
-            <span style={{ fontSize: 11, color: '#888', width: 80, flexShrink: 0 }}>{item.value} / {item.px}px</span>
+            <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#555', width: 200, flexShrink: 0 }}>{item.token}</span>
+            <span style={{ fontSize: 11, color: '#888', width: 64, flexShrink: 0 }}>{item.value}</span>
+            <span style={{ fontSize: 11, color: '#bbb', width: 40, flexShrink: 0 }}>{item.px}px</span>
             <div style={{
               height: 10,
               borderRadius: 3,
@@ -139,13 +140,13 @@ function FoundationSpacingPage() {
                 padding: '10px 20px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 12,
+                gap: 16,
                 borderBottom: '1px solid #f7f7f7',
                 background: i % 2 === 0 ? '#fafafa' : '#fff',
               }}>
-                <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flex: '1 1 auto' }}>{row.token}</span>
-                <span style={{ fontSize: 12, color: '#555', flex: '0 0 auto', width: 80 }}>{row.value}</span>
-                <span style={{ fontSize: 12, color: '#888', flex: '1 1 auto', textAlign: 'right' }}>{row.desc}</span>
+                <span style={{ fontFamily: 'monospace', fontSize: 12, color: '#1a1a1a', fontWeight: 500, flexShrink: 0, width: 260 }}>{row.token}</span>
+                <span style={{ fontSize: 12, color: '#555', flexShrink: 0, width: 64 }}>{row.value}</span>
+                <span style={{ fontSize: 12, color: '#888', flex: '1 1 auto' }}>{row.desc}</span>
               </div>
             ))}
           </div>

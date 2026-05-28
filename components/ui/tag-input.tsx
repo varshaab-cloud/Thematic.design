@@ -70,7 +70,7 @@ function TagInput({
       role="group"
       onClick={handleContainerClick}
       className={cn(
-        "flex min-h-8 w-full flex-wrap items-center gap-1 rounded-[var(--component-input-border-radius)] border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-2.5 py-1 text-sm transition-colors",
+        "flex min-h-8 w-full flex-wrap items-center gap-[var(--alias-spacing-inline-xs)] rounded-[var(--component-input-border-radius)] border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-2.5 py-[var(--alias-spacing-inline-xs)] text-[length:var(--alias-typography-body-text2-font-size)] [transition:var(--alias-motion-transition-normal)]",
         "focus-within:border-[var(--component-input-border-focus)] focus-within:ring-3 focus-within:ring-[var(--alias-color-border-active)]/20",
         disabled && "cursor-not-allowed opacity-50 bg-[var(--component-input-background-disabled)]",
         className
@@ -80,7 +80,7 @@ function TagInput({
         <span
           key={index}
           role="listitem"
-          className="inline-flex items-center gap-1 rounded-full bg-[var(--alias-color-background-tertiary)] px-2 py-0.5 text-xs text-[var(--alias-color-text-secondary)]"
+          className="inline-flex items-center gap-[var(--alias-spacing-inline-xs)] rounded-[var(--component-tag-input-tag-border-radius)] bg-[var(--component-tag-input-tag-bg)] px-[var(--alias-spacing-padding-xs)] py-0.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-tag-input-tag-text)]"
           style={{ fontSize: "12px" }}
         >
           {tag}
@@ -92,7 +92,7 @@ function TagInput({
                 removeTag(index)
               }}
               aria-label={`Remove ${tag}`}
-              className="flex items-center text-[var(--alias-color-text-tertiary)] hover:text-[var(--alias-color-text-primary)] transition-colors"
+              className="flex items-center text-[var(--component-tag-input-tag-remove-color)] hover:text-[var(--alias-color-text-primary)] [transition:var(--alias-motion-transition-normal)]"
             >
               <XIcon style={{ width: "12px", height: "12px" }} />
             </button>
@@ -110,7 +110,7 @@ function TagInput({
         placeholder={value.length === 0 ? placeholder : isAtMax ? `Max ${maxTags} tags reached` : ""}
         aria-label={placeholder}
         className={cn(
-          "min-w-20 flex-1 bg-transparent text-sm text-[var(--component-input-text)] outline-none placeholder:text-[var(--component-input-text-placeholder)]",
+          "min-w-20 flex-1 bg-transparent text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-input-text)] outline-none placeholder:text-[var(--component-input-text-placeholder)]",
           "disabled:cursor-not-allowed disabled:opacity-50"
         )}
       />

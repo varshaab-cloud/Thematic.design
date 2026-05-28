@@ -30,11 +30,19 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       style={
         {
-          "--normal-bg":     "var(--base-color-white)",
-          "--normal-text":   "var(--base-color-gray-900)",
-          "--normal-border": "var(--base-color-gray-200)",
-          "--border-radius": "var(--base-radius-md)",
-          "--font-family":   "var(--font-sans)",
+          "--normal-bg":     "var(--component-sonner-background)",
+          "--normal-text":   "var(--component-sonner-title-color)",
+          "--normal-border": "var(--component-sonner-border)",
+          "--border-radius": "var(--component-sonner-border-radius)",
+          "--font-family":   "var(--base-font-family-primary)",
+          "--success-bg":    "var(--component-sonner-success-bg)",
+          "--success-border":"var(--component-sonner-success-border)",
+          "--error-bg":      "var(--component-sonner-error-bg)",
+          "--error-border":  "var(--component-sonner-error-border)",
+          "--warning-bg":    "var(--component-sonner-warning-bg)",
+          "--warning-border":"var(--component-sonner-warning-border)",
+          "--info-bg":       "var(--component-sonner-info-bg)",
+          "--info-border":   "var(--component-sonner-info-border)",
         } as React.CSSProperties
       }
       toastOptions={{

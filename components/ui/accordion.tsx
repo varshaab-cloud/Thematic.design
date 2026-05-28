@@ -11,15 +11,15 @@ type AccordionSize = "sm" | "md" | "lg"
 const AccordionSizeContext = React.createContext<AccordionSize>("md")
 
 const accordionTriggerSizeClasses: Record<AccordionSize, string> = {
-  sm: "py-2 px-3 text-xs",
-  md: "py-4 px-4 text-sm",
-  lg: "py-6 px-5 text-base",
+  sm: "py-[var(--alias-spacing-padding-xs)] px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-caption1-font-size)]",
+  md: "py-[var(--alias-spacing-padding-md)] px-[var(--alias-spacing-padding-md)] text-[length:var(--alias-typography-body-text2-font-size)]",
+  lg: "py-[var(--alias-spacing-padding-lg)] px-5 text-[length:var(--alias-typography-body-text1-font-size)]",
 }
 
 const accordionContentSizeClasses: Record<AccordionSize, string> = {
-  sm: "pb-2 px-3 pt-0 text-xs",
-  md: "pb-4 px-4 pt-0 text-sm",
-  lg: "pb-6 px-5 pt-0 text-base",
+  sm: "pb-[var(--alias-spacing-padding-xs)] px-[var(--alias-spacing-padding-sm)] pt-0 text-[length:var(--alias-typography-caption1-font-size)]",
+  md: "pb-[var(--alias-spacing-padding-md)] px-[var(--alias-spacing-padding-md)] pt-0 text-[length:var(--alias-typography-body-text2-font-size)]",
+  lg: "pb-[var(--alias-spacing-padding-lg)] px-5 pt-0 text-[length:var(--alias-typography-body-text1-font-size)]",
 }
 
 const accordionIconSizeClasses: Record<AccordionSize, string> = {
@@ -69,7 +69,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-[var(--base-radius-lg)] border border-transparent text-left font-medium transition-all outline-none hover:underline focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:after:border-[var(--alias-color-border-active)] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-[var(--alias-color-text-subtle)]",
+          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-[var(--component-accordion-border-radius)] border border-transparent text-left font-[number:var(--base-font-weight-medium)] [transition:var(--alias-motion-transition-normal)] outline-none hover:underline focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:after:border-[var(--alias-color-border-active)] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-[var(--component-accordion-trigger-icon-color)]",
           accordionTriggerSizeClasses[size],
           className
         )}
@@ -92,12 +92,12 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up"
+      className="overflow-hidden text-[length:var(--alias-typography-body-text2-font-size)] data-open:animate-accordion-down data-closed:animate-accordion-up"
       {...props}
     >
       <div
         className={cn(
-          "h-(--radix-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)] [&_p:not(:last-child)]:mb-4",
+          "h-(--radix-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--component-accordion-content-text)] [&_p:not(:last-child)]:mb-4",
           accordionContentSizeClasses[size],
           className
         )}

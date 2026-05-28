@@ -84,33 +84,33 @@ export function Pagination({
     <div
       data-slot="pagination"
       className={cn(
-        "flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm",
+        "flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-[length:var(--alias-typography-body-text2-font-size)]",
         className
       )}
     >
       {/* ── Left: row count ── */}
-      <p className="text-[var(--alias-color-text-subtle)] tabular-nums">
+      <p className="text-[var(--component-pagination-label-text)] tabular-nums">
         {total === 0 ? (
           <>No {rowLabel}</>
         ) : (
           <>
             Showing{" "}
-            <span className="font-medium text-[var(--alias-color-text-primary)]">
+            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-pagination-item-text)]">
               {rangeStart}–{rangeEnd}
             </span>{" "}
             of{" "}
-            <span className="font-medium text-[var(--alias-color-text-primary)]">{total}</span>{" "}
+            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-pagination-item-text)]">{total}</span>{" "}
             {rowLabel}
           </>
         )}
       </p>
 
       {/* ── Right: page size + navigation ── */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-[var(--alias-spacing-inline-sm)]">
         {/* Page size selector */}
         {pageSizeOptions && pageSizeOptions.length > 0 && onPageSizeChange && (
           <div className="flex items-center gap-1.5">
-            <span className="text-[var(--alias-color-text-subtle)]">Rows per page</span>
+            <span className="text-[var(--component-pagination-label-text)]">Rows per page</span>
             <select
               value={pageSize}
               onChange={e => {
@@ -118,8 +118,8 @@ export function Pagination({
                 onPageChange(1)
               }}
               className={cn(
-                "h-7 rounded-[var(--base-radius-md)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] px-2 text-sm",
-                "text-[var(--alias-color-text-primary)] outline-none transition-colors",
+                "h-7 rounded-[var(--component-pagination-item-border-radius)] border border-[var(--component-pagination-item-border)] bg-[var(--component-pagination-item-bg)] px-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-body-text2-font-size)]",
+                "text-[var(--component-pagination-item-text)] outline-none [transition:var(--alias-motion-transition-normal)]",
                 "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
                 "disabled:cursor-not-allowed disabled:opacity-50"
               )}
@@ -159,7 +159,7 @@ export function Pagination({
             item === "…" ? (
               <span
                 key={`ellipsis-${idx}`}
-                className="flex size-7 items-center justify-center text-[var(--alias-color-text-subtle)]"
+                className="flex size-7 items-center justify-center text-[var(--component-pagination-disabled-text)]"
                 aria-hidden
               >
                 <MoreHorizontal className="size-3.5" />

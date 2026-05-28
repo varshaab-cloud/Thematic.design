@@ -12,7 +12,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-[var(--base-radius-md)] bg-[var(--alias-color-background-primary)] py-4 text-sm text-[var(--alias-color-text-primary)] border border-[var(--base-color-gray-200)] shadow-[var(--base-shadow-02)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0",
+        "group/card flex flex-col gap-[var(--alias-spacing-stack-md)] overflow-hidden rounded-[var(--component-card-border-radius)] bg-[var(--component-card-background)] py-[var(--alias-spacing-padding-md)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-card-body-color)] border border-[var(--component-card-border)] shadow-[var(--component-card-shadow)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0",
         className
       )}
       {...props}
@@ -25,7 +25,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-header"
       className={cn(
-        "group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-[var(--base-radius-md)] px-4 group-data-[size=sm]/card:px-3 has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-4 group-data-[size=sm]/card:[.border-b]:pb-3",
+        "group/card-header @container/card-header grid auto-rows-min items-start gap-[var(--alias-spacing-inline-xs)] rounded-t-[var(--component-card-border-radius)] px-[var(--alias-spacing-padding-md)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)] has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-4 group-data-[size=sm]/card:[.border-b]:pb-3",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "font-heading text-base leading-snug font-semibold group-data-[size=sm]/card:text-sm",
+        "text-[length:var(--alias-typography-body-text1-font-size)] leading-snug font-[number:var(--base-font-weight-semibold)] text-[var(--component-card-title-color)] group-data-[size=sm]/card:text-[length:var(--alias-typography-body-text2-font-size)]",
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-sm text-[var(--alias-color-text-subtle)]", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-card-body-color)]", className)}
       {...props}
     />
   )
@@ -73,7 +73,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-content"
-      className={cn("px-4 group-data-[size=sm]/card:px-3", className)}
+      className={cn("px-[var(--alias-spacing-padding-md)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)]", className)}
       {...props}
     />
   )
@@ -84,7 +84,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-[var(--base-radius-md)] border-t bg-[var(--alias-color-background-tertiary)]/50 px-4 py-3 group-data-[size=sm]/card:px-3 group-data-[size=sm]/card:py-2.5",
+        "flex items-center rounded-b-[var(--component-card-border-radius)] border-t bg-[var(--alias-color-background-tertiary)]/50 px-[var(--alias-spacing-padding-md)] py-[var(--alias-spacing-padding-sm)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)] group-data-[size=sm]/card:py-2.5",
         className
       )}
       {...props}
@@ -106,16 +106,16 @@ export interface MetricCardProps {
 }
 
 const metricVariants: Record<string, string> = {
-  default: "bg-[var(--alias-color-background-primary)] ring-[var(--alias-color-text-primary)]/10",
-  brand:   "bg-[var(--base-color-blue-800)] text-white ring-[var(--base-color-blue-700)]",
-  success: "bg-[var(--base-color-success-800)] ring-[var(--base-color-success-900)]/20",
-  warning: "bg-[var(--base-color-warning-50)] ring-[var(--base-color-warning-100)]/40",
-  error:   "bg-[var(--base-color-error-200)] ring-[var(--base-color-error-300)]/20",
+  default: "bg-[var(--component-card-background)] ring-[var(--alias-color-text-primary)]/10",
+  brand:   "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)] ring-[var(--alias-color-icon-brand)]",
+  success: "bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] ring-[var(--alias-color-feedback-success-fg)]/20",
+  warning: "bg-[var(--alias-color-feedback-warning-bg)] text-[var(--alias-color-feedback-warning-fg)] ring-[var(--alias-color-feedback-warning-fg)]/20",
+  error:   "bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] ring-[var(--alias-color-feedback-error-fg)]/20",
 }
 
 const trendConfig = {
-  up:      { icon: TrendingUp,   color: "text-[var(--base-color-green-800)]" },
-  down:    { icon: TrendingDown, color: "text-[var(--base-color-error-300)]" },
+  up:      { icon: TrendingUp,   color: "text-[var(--semantic-color-success-800)]" },
+  down:    { icon: TrendingDown, color: "text-[var(--semantic-color-error-600)]" },
   neutral: { icon: Minus,        color: "text-[var(--alias-color-text-subtle)]" },
 }
 
@@ -138,8 +138,8 @@ function MetricCard({
     <div
       data-slot="metric-card"
       className={cn(
-        "group/card flex flex-col gap-3 overflow-hidden rounded-[var(--base-radius-xl)] py-4 px-4 ring-1 text-sm",
-        size === "sm" ? "gap-2 py-3 px-3" : "gap-3 py-4 px-4",
+        "group/card flex flex-col gap-[var(--alias-spacing-stack-sm)] overflow-hidden rounded-[var(--base-radius-xl)] py-[var(--alias-spacing-padding-md)] px-[var(--alias-spacing-padding-md)] ring-1 text-[length:var(--alias-typography-body-text2-font-size)]",
+        size === "sm" ? "gap-[var(--alias-spacing-stack-xs)] py-[var(--alias-spacing-padding-sm)] px-[var(--alias-spacing-padding-sm)]" : "gap-[var(--alias-spacing-stack-sm)] py-[var(--alias-spacing-padding-md)] px-[var(--alias-spacing-padding-md)]",
         metricVariants[variant],
         className
       )}
@@ -147,7 +147,7 @@ function MetricCard({
       {/* Top row — label + icon */}
       <div className="flex items-center justify-between">
         <p className={cn(
-          "text-xs font-medium uppercase tracking-wide",
+          "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] uppercase tracking-wide",
           isBrand ? "text-white/70" : "text-[var(--alias-color-text-subtle)]"
         )}>
           {label}
@@ -164,7 +164,7 @@ function MetricCard({
 
       {/* Value */}
       <p className={cn(
-        "font-bold leading-none",
+        "font-[number:var(--base-font-weight-bold)] leading-none",
         size === "sm" ? "text-2xl" : "text-3xl",
         isBrand ? "text-white" : "text-[var(--alias-color-text-primary)]"
       )}>
@@ -173,13 +173,13 @@ function MetricCard({
 
       {/* Trend */}
       {(trend || trendValue) && (
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-[var(--alias-spacing-inline-xs)]">
           {TrendIcon && (
             <TrendIcon className={cn("size-3.5 shrink-0", isBrand ? "text-white/70" : trendColor)} />
           )}
           {trendValue && (
             <span className={cn(
-              "text-xs font-medium",
+              "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)]",
               isBrand ? "text-white/90" : trendColor
             )}>
               {trendValue}
@@ -187,7 +187,7 @@ function MetricCard({
           )}
           {trendLabel && (
             <span className={cn(
-              "text-xs",
+              "text-[length:var(--alias-typography-caption1-font-size)]",
               isBrand ? "text-white/60" : "text-[var(--alias-color-text-subtle)]"
             )}>
               {trendLabel}

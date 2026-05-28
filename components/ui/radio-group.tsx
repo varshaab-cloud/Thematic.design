@@ -13,6 +13,34 @@ export interface RadioGroupItemProps
   extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {
   label?: string
   description?: string
+  size?: "sm" | "md" | "lg"
+}
+
+const itemSizeConfig = {
+  sm: {
+    indicator: "size-3.5",
+    dot: "size-1",
+    label: "text-[13px]",
+    description: "text-[11px]",
+    gap: "gap-2",
+    mt: "mt-0",
+  },
+  md: {
+    indicator: "size-4",
+    dot: "size-1.5",
+    label: "text-[length:var(--alias-typography-body-text2-font-size)]",
+    description: "text-[length:var(--alias-typography-caption1-font-size)]",
+    gap: "gap-2.5",
+    mt: "mt-0.5",
+  },
+  lg: {
+    indicator: "size-5",
+    dot: "size-2",
+    label: "text-[16px]",
+    description: "text-[13px]",
+    gap: "gap-3",
+    mt: "mt-0.5",
+  },
 }
 
 // RadioGroupField — enterprise wrapper matching Input/Select/Textarea pattern
@@ -42,7 +70,7 @@ function RadioGroupField({
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {label && (
-        <p className="text-sm font-medium text-[var(--alias-color-text-primary)]">
+        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-radio-group-label-text)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </p>
@@ -50,13 +78,13 @@ function RadioGroupField({
       <RadioGroupPrimitive.Root
         data-slot="radio-group"
         aria-invalid={hasError || undefined}
-        className="flex flex-col gap-2"
+        className="flex flex-col gap-[var(--alias-spacing-stack-xs)]"
         {...rootProps}
       >
         {children}
       </RadioGroupPrimitive.Root>
-      {hasError && <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
-      {helperText && !hasError && <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>}
+      {hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
+      {helperText && !hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-radio-group-description-text)]">{helperText}</p>}
     </div>
   )
 }
@@ -68,7 +96,7 @@ function RadioGroup({
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
-      className={cn("flex flex-col gap-2", className)}
+      className={cn("flex flex-col gap-[var(--alias-spacing-stack-xs)]", className)}
       {...props}
     />
   )
@@ -79,26 +107,28 @@ function RadioGroupItem({
   label,
   description,
   children,
+  size = "md",
   ...props
 }: RadioGroupItemProps) {
   const id = React.useId()
+  const sc = itemSizeConfig[size]
 
   return (
-    <div className="flex items-start gap-2.5 has-[[data-disabled]]:opacity-50 has-[[data-disabled]]:pointer-events-none">
+    <div className={cn("flex items-start has-[[data-disabled]]:opacity-50 has-[[data-disabled]]:pointer-events-none", sc.gap)}>
       <RadioGroupPrimitive.Item
         id={id}
         data-slot="radio-group-item"
         className={cn(
           // Base
-          "mt-0.5 size-4 shrink-0 rounded-full border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)]",
-          "transition-colors outline-none cursor-pointer",
+          sc.mt, sc.indicator, "shrink-0 rounded-[var(--component-radio-group-border-radius)] border border-[var(--component-radio-group-border)] bg-[var(--component-radio-group-background)]",
+          "[transition:var(--alias-motion-transition-normal)] outline-none cursor-pointer",
           // Hover
-          "hover:border-[var(--base-color-blue-800)]",
+          "hover:border-[var(--component-radio-group-border-checked)]",
           // Focus
           "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",
           // Checked
-          "data-[state=checked]:border-[var(--base-color-blue-800)] data-[state=checked]:bg-[var(--base-color-blue-800)]",
-          // Disabled (pointer-events handled by wrapper; opacity too so no double-dim)
+          "data-[state=checked]:border-[var(--component-radio-group-border-checked)] data-[state=checked]:bg-[var(--component-radio-group-background-checked)]",
+          // Disabled
           "disabled:pointer-events-none",
           className
         )}
@@ -108,7 +138,7 @@ function RadioGroupItem({
           data-slot="radio-group-indicator"
           className="flex items-center justify-center"
         >
-          <div className="size-1.5 rounded-full bg-white" />
+          <div className={cn(sc.dot, "rounded-full bg-white")} />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
 
@@ -117,13 +147,13 @@ function RadioGroupItem({
           {label && (
             <label
               htmlFor={id}
-              className="text-sm font-medium text-[var(--alias-color-text-primary)] cursor-pointer leading-none pt-0.5"
+              className={cn(sc.label, "font-[number:var(--base-font-weight-medium)] text-[var(--component-radio-group-label-text)] cursor-pointer leading-none pt-0.5")}
             >
               {label}
             </label>
           )}
           {description && (
-            <p className="text-xs text-[var(--alias-color-text-subtle)]">{description}</p>
+            <p className={cn(sc.description, "text-[var(--component-radio-group-description-text)]")}>{description}</p>
           )}
           {children}
         </div>
@@ -139,7 +169,7 @@ function RadioGroupLabel({
   return (
     <p
       data-slot="radio-group-label"
-      className={cn("text-sm font-medium text-[var(--alias-color-text-primary)] mb-1", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-radio-group-label-text)] mb-1", className)}
       {...props}
     />
   )

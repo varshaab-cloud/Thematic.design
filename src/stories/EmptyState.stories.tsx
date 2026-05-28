@@ -17,22 +17,30 @@ type Story = StoryObj<typeof EmptyState>
 
 // ─── States — all three sizes side by side ────────────────────────────────────
 
+const SizeChip = ({ label }: { label: string }) => (
+  <span
+    style={{
+      display: "inline-block",
+      fontSize: "11px",
+      fontWeight: 600,
+      textTransform: "uppercase",
+      letterSpacing: "0.07em",
+      padding: "2px 10px",
+      borderRadius: "20px",
+      background: "var(--alias-color-feedback-info-bg)",
+      color: "var(--alias-color-feedback-info-fg)",
+    }}
+  >
+    {label}
+  </span>
+)
+
 export const States: Story = {
   name: "States",
   render: () => (
-    <div className="flex flex-row items-start justify-center gap-10 flex-wrap p-8">
-      <div className="flex flex-col items-center gap-3">
-        <span
-          style={{
-            fontSize: "11px",
-            fontWeight: 500,
-            color: "var(--alias-color-text-tertiary)",
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-          }}
-        >
-          sm
-        </span>
+    <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", justifyContent: "center", gap: 48, flexWrap: "wrap", padding: 40 }}>
+      <div className="flex flex-col items-center gap-4">
+        <SizeChip label="SM" />
         <EmptyState
           size="sm"
           icon={<FolderOpen style={{ width: "32px", height: "32px" }} />}
@@ -41,18 +49,10 @@ export const States: Story = {
         />
       </div>
 
-      <div className="flex flex-col items-center gap-3">
-        <span
-          style={{
-            fontSize: "11px",
-            fontWeight: 500,
-            color: "var(--alias-color-text-tertiary)",
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-          }}
-        >
-          md
-        </span>
+      <div style={{ width: 1, background: "var(--alias-color-border-default)", alignSelf: "stretch", flexShrink: 0 }} />
+
+      <div className="flex flex-col items-center gap-4">
+        <SizeChip label="MD" />
         <EmptyState
           size="md"
           icon={<SearchX style={{ width: "48px", height: "48px" }} />}
@@ -61,18 +61,10 @@ export const States: Story = {
         />
       </div>
 
-      <div className="flex flex-col items-center gap-3">
-        <span
-          style={{
-            fontSize: "11px",
-            fontWeight: 500,
-            color: "var(--alias-color-text-tertiary)",
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-          }}
-        >
-          lg
-        </span>
+      <div style={{ width: 1, background: "var(--alias-color-border-default)", alignSelf: "stretch", flexShrink: 0 }} />
+
+      <div className="flex flex-col items-center gap-4">
+        <SizeChip label="LG" />
         <EmptyState
           size="lg"
           icon={<Inbox style={{ width: "64px", height: "64px" }} />}

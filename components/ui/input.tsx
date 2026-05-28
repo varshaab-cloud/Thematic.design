@@ -8,7 +8,7 @@ function InputBase({ className, type, ...props }: React.ComponentProps<"input">)
       type={type}
       data-slot="input"
       className={cn(
-        "h-8 w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--alias-color-border-default)] bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-[var(--alias-color-text-primary)] placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--alias-color-border-default)]/50 disabled:opacity-50 aria-invalid:border-[var(--alias-color-border-error)] aria-invalid:ring-3 aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/20 md:text-sm dark:bg-[var(--alias-color-border-default)]/30 dark:disabled:bg-[var(--alias-color-border-default)]/80 dark:aria-invalid:border-[var(--alias-color-border-error)]/50 dark:aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/40",
+        "h-8 w-full min-w-0 rounded-[var(--component-input-border-radius)] border border-[var(--component-input-border)] bg-[var(--component-input-background)] px-[var(--component-input-padding-x)] py-[var(--alias-spacing-inline-xs)] text-[length:var(--component-input-font-size)] text-[var(--component-input-text)] [transition:var(--alias-motion-transition-normal)] outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-[length:var(--alias-typography-body-text2-font-size)] file:font-[number:var(--base-font-weight-medium)] file:text-[var(--alias-color-text-primary)] placeholder:text-[var(--component-input-text-placeholder)] focus-visible:border-[var(--component-input-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-input-border-focus)]/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--component-input-background-disabled)] disabled:text-[var(--component-input-text-disabled)] disabled:opacity-50 aria-invalid:border-[var(--component-input-border-error)] aria-invalid:ring-3 aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/20 md:text-[length:var(--alias-typography-body-text2-font-size)] dark:bg-[var(--alias-color-border-default)]/30 dark:disabled:bg-[var(--alias-color-border-default)]/80 dark:aria-invalid:border-[var(--component-input-border-error)]/50 dark:aria-invalid:ring-[var(--alias-color-feedback-error-fg)]/40",
         className
       )}
       {...props}
@@ -18,9 +18,9 @@ function InputBase({ className, type, ...props }: React.ComponentProps<"input">)
 
 // Size variants
 const sizeClasses = {
-  sm: "h-7 text-xs px-2",
-  md: "h-8 text-sm px-2.5",
-  lg: "h-10 text-base px-3",
+  sm: "h-7 text-[length:var(--alias-typography-caption1-font-size)] px-[var(--alias-spacing-padding-xs)]",
+  md: "h-8 text-[length:var(--alias-typography-body-text2-font-size)] px-2.5",
+  lg: "h-10 text-[length:var(--alias-typography-body-text1-font-size)] px-[var(--alias-spacing-padding-sm)]",
 }
 
 // Full-featured Input wrapper
@@ -69,10 +69,10 @@ function Input({
   }
 
   return (
-    <div className={cn("flex flex-col gap-1", fullWidth ? "w-full" : "w-auto")}>
+    <div className={cn("flex flex-col gap-[var(--alias-spacing-inline-xs)]", fullWidth ? "w-full" : "w-auto")}>
       {/* Label */}
       {label && (
-        <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">
+        <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </label>
@@ -94,12 +94,12 @@ function Input({
           onChange={handleChange}
           maxLength={maxChars}
           className={cn(
-            "w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)] py-1 text-base transition-colors outline-none placeholder:text-[var(--alias-color-text-subtle)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--base-color-gray-100)] disabled:opacity-50 md:text-sm dark:bg-[var(--alias-color-border-default)]/30 dark:disabled:bg-[var(--alias-color-border-default)]/80",
+            "w-full min-w-0 rounded-[var(--component-input-border-radius)] border border-[var(--component-input-border)] bg-[var(--component-input-background)] py-[var(--component-input-padding-y)] text-[length:var(--component-input-font-size)] text-[var(--component-input-text)] [transition:var(--alias-motion-transition-normal)] outline-none placeholder:text-[var(--component-input-text-placeholder)] focus-visible:border-[var(--component-input-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-input-border-focus)]/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--component-input-background-disabled)] disabled:text-[var(--component-input-text-disabled)] disabled:opacity-50 md:text-[length:var(--alias-typography-body-text2-font-size)] dark:bg-[var(--alias-color-border-default)]/30 dark:disabled:bg-[var(--alias-color-border-default)]/80",
             sizeClasses[inputSize],
             prefixIcon && "pl-8",
             suffixIcon && "pr-8",
-            hasError && "border-[var(--alias-color-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--alias-color-border-error)]",
-            hasSuccess && "border-[var(--base-color-success-900)] ring-3 ring-[var(--base-color-success-800)]/30 focus-visible:border-[var(--base-color-success-900)]",
+            hasError && "border-[var(--component-input-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--component-input-border-error)]",
+            hasSuccess && "border-[var(--alias-color-border-success)] ring-3 ring-[var(--alias-color-feedback-success-border)]/30 focus-visible:border-[var(--alias-color-border-success)]",
             className
           )}
           {...props}
@@ -116,18 +116,18 @@ function Input({
       <div className="flex items-center justify-between">
         <div>
           {hasError && (
-            <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>
+            <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>
           )}
           {hasSuccess && !hasError && (
-            <p className="text-xs text-[var(--base-color-green-800)]">{successMessage}</p>
+            <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-success-fg)]">{successMessage}</p>
           )}
           {helperText && !hasError && !hasSuccess && (
-            <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>
+            <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)]">{helperText}</p>
           )}
         </div>
         {maxChars && (
           <p className={cn(
-            "text-xs tabular-nums",
+            "text-[length:var(--alias-typography-caption1-font-size)] tabular-nums",
             currentValue.length >= maxChars ? "text-[var(--alias-color-feedback-error-fg)]" : "text-[var(--alias-color-text-subtle)]"
           )}>
             {currentValue.length}/{maxChars}

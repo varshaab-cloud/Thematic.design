@@ -134,15 +134,15 @@ function TimePicker({
           aria-label={displayValue || placeholder}
           data-slot="time-picker-trigger"
           className={cn(
-            "inline-flex h-9 w-full items-center justify-between gap-2 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-300)] bg-[var(--alias-color-background-primary)] px-3 text-sm transition-colors",
-            "hover:border-[var(--base-color-gray-400)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--base-color-blue-500)]",
+            "inline-flex h-9 w-full items-center justify-between gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-border)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)]",
+            "hover:border-[var(--alias-color-border-disabled)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]",
             "disabled:cursor-not-allowed disabled:opacity-50",
-            !displayValue && "text-muted-foreground",
+            !displayValue && "text-[var(--component-time-picker-column-item-text)]/50",
             className
           )}
         >
           <span>{displayValue || placeholder}</span>
-          <Clock className="size-4 shrink-0 text-muted-foreground" />
+          <Clock className="size-4 shrink-0 text-[var(--alias-color-text-subtle)]" />
         </button>
       </PopoverPrimitive.Trigger>
 
@@ -152,14 +152,14 @@ function TimePicker({
           sideOffset={4}
           align="start"
           className={cn(
-            "z-50 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-200)] bg-card p-2 text-card-foreground shadow-[var(--base-shadow-04)] outline-none",
+            "z-50 rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-panel-border)] bg-[var(--component-time-picker-panel-bg)] p-[var(--alias-spacing-padding-xs)] text-[var(--component-time-picker-column-item-text)] shadow-[var(--base-shadow-04)] outline-none",
             "duration-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
           )}
         >
-          <div className="flex items-start gap-2">
+          <div className="flex items-start gap-[var(--alias-spacing-inline-sm)]">
             {/* Hours column */}
             <div className="flex flex-col gap-0.5">
-              <p className="px-1 py-0.5 text-center text-xs font-medium text-muted-foreground">
+              <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-subtle)]">
                 {use12Hour ? "HR" : "HH"}
               </p>
               <div className="flex max-h-48 flex-col gap-px overflow-y-auto rounded-[var(--base-radius-sm)]" style={{ scrollbarWidth: "none" }}>
@@ -172,10 +172,10 @@ function TimePicker({
                       type="button"
                       onClick={() => handleHourSelect(h)}
                       className={cn(
-                        "w-10 rounded-[var(--base-radius-sm)] px-2 py-1 text-center text-sm tabular-nums transition-colors",
+                        "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
                         isSelected
-                          ? "bg-[var(--base-color-blue-800)] text-white"
-                          : "hover:bg-accent"
+                          ? "bg-[var(--component-time-picker-column-item-selected-bg)] text-[var(--component-time-picker-column-item-selected-text)]"
+                          : "hover:bg-[var(--component-time-picker-column-item-hover-bg)]"
                       )}
                     >
                       {pad(h)}
@@ -187,15 +187,15 @@ function TimePicker({
 
             {/* Separator */}
             <div className="flex flex-col items-center">
-              <p className="py-0.5 text-xs font-medium text-transparent select-none">:</p>
+              <p className="py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-transparent select-none">:</p>
               <div className="flex h-48 items-center justify-center">
-                <span className="text-lg font-light text-muted-foreground">:</span>
+                <span className="text-lg font-light text-[var(--component-time-picker-separator-color)]">:</span>
               </div>
             </div>
 
             {/* Minutes column */}
             <div className="flex flex-col gap-0.5">
-              <p className="px-1 py-0.5 text-center text-xs font-medium text-muted-foreground">MM</p>
+              <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-subtle)]">MM</p>
               <div className="flex max-h-48 flex-col gap-px overflow-y-auto rounded-[var(--base-radius-sm)]" style={{ scrollbarWidth: "none" }}>
                 {minuteOptions.map((m) => {
                   const isSelected = currentMinutes === m
@@ -206,10 +206,10 @@ function TimePicker({
                       type="button"
                       onClick={() => handleMinuteSelect(m)}
                       className={cn(
-                        "w-10 rounded-[var(--base-radius-sm)] px-2 py-1 text-center text-sm tabular-nums transition-colors",
+                        "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
                         isSelected
-                          ? "bg-[var(--base-color-blue-800)] text-white"
-                          : "hover:bg-accent"
+                          ? "bg-[var(--component-time-picker-column-item-selected-bg)] text-[var(--component-time-picker-column-item-selected-text)]"
+                          : "hover:bg-[var(--component-time-picker-column-item-hover-bg)]"
                       )}
                     >
                       {pad(m)}
@@ -222,18 +222,18 @@ function TimePicker({
             {/* AM/PM column */}
             {use12Hour && (
               <div className="flex flex-col gap-0.5">
-                <p className="px-1 py-0.5 text-center text-xs font-medium text-transparent select-none">–</p>
-                <div className="flex flex-col gap-1 pt-1">
+                <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-transparent select-none">–</p>
+                <div className="flex flex-col gap-[var(--alias-spacing-stack-xs)] pt-1">
                   {(["AM", "PM"] as const).map((p) => (
                     <button
                       key={p}
                       type="button"
                       onClick={() => handlePeriodToggle(p)}
                       className={cn(
-                        "w-10 rounded-[var(--base-radius-sm)] px-2 py-1 text-center text-sm font-medium transition-colors",
+                        "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] [transition:var(--alias-motion-transition-normal)]",
                         period === p
-                          ? "bg-[var(--base-color-blue-800)] text-white"
-                          : "hover:bg-accent text-muted-foreground"
+                          ? "bg-[var(--component-time-picker-column-item-selected-bg)] text-[var(--component-time-picker-column-item-selected-text)]"
+                          : "hover:bg-[var(--component-time-picker-column-item-hover-bg)] text-[var(--alias-color-text-subtle)]"
                       )}
                     >
                       {p}

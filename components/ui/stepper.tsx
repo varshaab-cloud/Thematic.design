@@ -76,17 +76,17 @@ function StepCircle({ index, state, label }: StepCircleProps) {
       aria-current={state === "current" ? "step" : undefined}
       aria-label={ariaLabel}
       className={cn(
-        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-all",
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--component-stepper-step-border-radius)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] [transition:var(--alias-motion-transition-normal)]",
         state === "completed" && [
-          "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)]",
+          "bg-[var(--component-stepper-step-bg-completed)] text-[var(--component-stepper-step-text-completed)]",
         ],
         state === "current" && [
-          "border-2 border-[var(--alias-color-border-active)] bg-[var(--alias-color-background-primary)]",
-          "text-[var(--alias-color-text-brand)]",
+          "border-2 border-[var(--component-stepper-step-border-active)] bg-[var(--component-stepper-step-bg-active)]",
+          "text-[var(--component-stepper-step-text-active)]",
         ],
         state === "upcoming" && [
-          "border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-secondary)]",
-          "text-[var(--alias-color-text-disabled)]",
+          "border border-[var(--component-stepper-step-border)] bg-[var(--component-stepper-step-bg)]",
+          "text-[var(--component-stepper-step-text)]",
         ]
       )}
     >
@@ -120,7 +120,7 @@ export function Stepper({
           const isLast = index === steps.length - 1
 
           return (
-            <div key={step.id} className="flex gap-4">
+            <div key={step.id} className="flex gap-[var(--alias-spacing-stack-md)]">
               {/* Left column: circle + connector */}
               <div className="flex flex-col items-center">
                 <StepCircle index={index} state={state} label={step.label} />
@@ -130,8 +130,8 @@ export function Stepper({
                     className={cn(
                       "mt-1 w-px flex-1",
                       state === "completed"
-                        ? "bg-[var(--alias-color-border-active)]"
-                        : "bg-[var(--alias-color-border-default)]"
+                        ? "bg-[var(--component-stepper-connector-color-active)]"
+                        : "bg-[var(--component-stepper-connector-color)]"
                     )}
                     style={{ minHeight: 24 }}
                   />
@@ -142,18 +142,18 @@ export function Stepper({
               <div className={cn("pb-6 pt-0.5", isLast && "pb-0")}>
                 <p
                   className={cn(
-                    "text-sm font-medium leading-tight",
+                    "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] leading-tight",
                     state === "current"
-                      ? "text-[var(--alias-color-text-primary)]"
+                      ? "text-[var(--component-stepper-label-text)]"
                       : state === "completed"
-                      ? "text-[var(--alias-color-text-secondary)]"
-                      : "text-[var(--alias-color-text-disabled)]"
+                      ? "text-[var(--component-stepper-label-text)]"
+                      : "text-[var(--component-stepper-label-text-upcoming)]"
                   )}
                 >
                   {step.label}
                 </p>
                 {step.description && (
-                  <p className="mt-0.5 text-xs text-[var(--alias-color-text-disabled)]">
+                  <p className="mt-0.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-stepper-description-text)]">
                     {step.description}
                   </p>
                 )}
@@ -183,12 +183,12 @@ export function Stepper({
               <StepCircle index={index} state={state} label={step.label} />
               <p
                 className={cn(
-                  "mt-2 max-w-[80px] text-center text-xs font-medium leading-tight",
+                  "mt-2 max-w-[80px] text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] leading-tight",
                   state === "current"
-                    ? "text-[var(--alias-color-text-primary)]"
+                    ? "text-[var(--component-stepper-label-text)]"
                     : state === "completed"
-                    ? "text-[var(--alias-color-text-secondary)]"
-                    : "text-[var(--alias-color-text-disabled)]"
+                    ? "text-[var(--component-stepper-label-text)]"
+                    : "text-[var(--component-stepper-label-text-upcoming)]"
                 )}
               >
                 {step.label}
@@ -199,14 +199,14 @@ export function Stepper({
             {!isLast && (
               <div
                 aria-hidden="true"
-                className="mt-4 flex-1 self-start px-2"
+                className="mt-4 flex-1 self-start px-[var(--alias-spacing-padding-xs)]"
               >
                 <div
                   className={cn(
                     "h-px w-full",
                     state === "completed"
-                      ? "border-t-2 border-solid border-[var(--alias-color-border-active)]"
-                      : "border-t-2 border-dashed border-[var(--alias-color-border-default)]"
+                      ? "border-t-2 border-solid border-[var(--component-stepper-connector-color-active)]"
+                      : "border-t-2 border-dashed border-[var(--component-stepper-connector-color)]"
                   )}
                 />
               </div>
@@ -254,7 +254,7 @@ export function StepperActions({
   return (
     <nav
       aria-label="Step navigation"
-      className="flex items-center justify-between gap-3 pt-4"
+      className="flex items-center justify-between gap-[var(--alias-spacing-inline-md)] pt-4"
     >
       <Button
         variant="ghost"

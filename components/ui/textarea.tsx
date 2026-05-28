@@ -55,11 +55,11 @@ function Textarea({
   }
 
   return (
-    <div className={cn("flex flex-col gap-1", fullWidth ? "w-full" : "w-auto")}>
+    <div className={cn("flex flex-col gap-[var(--alias-spacing-stack-xs)]", fullWidth ? "w-full" : "w-auto")}>
 
       {/* Label */}
       {label && (
-        <label className="text-sm font-medium text-[var(--alias-color-text-primary)]">
+        <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </label>
@@ -75,14 +75,14 @@ function Textarea({
         onChange={handleChange}
         maxLength={maxChars}
         className={cn(
-          "w-full min-w-0 rounded-[var(--base-radius-md)] border border-[var(--base-color-gray-300)] bg-[var(--base-color-white)]",
-          "px-2.5 py-2 text-sm text-[var(--alias-color-text-primary)] transition-colors outline-none resize-y",
-          "placeholder:text-[var(--alias-color-text-subtle)]",
-          "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
-          "disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--base-color-gray-100)] disabled:opacity-50",
-          "read-only:bg-[var(--base-color-gray-100)] read-only:cursor-default",
-          hasError && "border-[var(--alias-color-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--alias-color-border-error)]",
-          hasSuccess && !hasError && "border-[var(--base-color-success-900)] ring-3 ring-[var(--base-color-success-800)]/30 focus-visible:border-[var(--base-color-success-900)]",
+          "w-full min-w-0 rounded-[var(--component-textarea-border-radius)] border border-[var(--component-textarea-border)] bg-[var(--component-textarea-background)]",
+          "px-2.5 py-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-textarea-text)] [transition:var(--alias-motion-transition-normal)] outline-none resize-y",
+          "placeholder:text-[var(--component-textarea-placeholder)]",
+          "focus-visible:border-[var(--component-textarea-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-textarea-border-focus)]/50",
+          "disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--component-textarea-background-disabled)] disabled:text-[var(--component-textarea-disabled-text)] disabled:opacity-50",
+          "read-only:bg-[var(--component-textarea-background-disabled)] read-only:cursor-default",
+          hasError && "border-[var(--component-textarea-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--component-textarea-border-error)]",
+          hasSuccess && !hasError && "border-[var(--component-textarea-border-success)] ring-3 ring-[var(--alias-color-feedback-success-border)]/30 focus-visible:border-[var(--component-textarea-border-success)]",
           autoResize && "resize-none overflow-hidden",
           className
         )}
@@ -90,21 +90,21 @@ function Textarea({
       />
 
       {/* Bottom row — feedback + char count */}
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex items-start justify-between gap-[var(--alias-spacing-inline-sm)]">
         <div>
           {hasError && (
-            <p className="text-xs text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>
+            <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>
           )}
           {hasSuccess && !hasError && (
-            <p className="text-xs text-[var(--base-color-green-800)]">{successMessage}</p>
+            <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-success-fg)]">{successMessage}</p>
           )}
           {helperText && !hasError && !hasSuccess && (
-            <p className="text-xs text-[var(--alias-color-text-subtle)]">{helperText}</p>
+            <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)]">{helperText}</p>
           )}
         </div>
         {maxChars && (
           <p className={cn(
-            "text-xs tabular-nums shrink-0",
+            "text-[length:var(--alias-typography-caption1-font-size)] tabular-nums shrink-0",
             currentValue.length >= maxChars ? "text-[var(--alias-color-feedback-error-fg)]" : "text-[var(--alias-color-text-subtle)]"
           )}>
             {currentValue.length}/{maxChars}

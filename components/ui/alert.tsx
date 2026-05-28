@@ -8,8 +8,8 @@ type AlertSize = "sm" | "md" | "lg"
 const AlertSizeContext = React.createContext<AlertSize>("md")
 
 const alertPaddingSizeClasses: Record<AlertSize, string> = {
-  sm: "p-3 gap-1",
-  md: "p-4 gap-1.5",
+  sm: "p-[var(--alias-spacing-padding-sm)] gap-[var(--alias-spacing-inline-xs)]",
+  md: "p-[var(--alias-spacing-padding-md)] gap-1.5",
   lg: "p-5 gap-2",
 }
 
@@ -20,40 +20,40 @@ const alertIconSizeClasses: Record<AlertSize, string> = {
 }
 
 const alertTitleSizeClasses: Record<AlertSize, string> = {
-  sm: "text-xs",
-  md: "text-sm",
-  lg: "text-base",
+  sm: "text-[length:var(--alias-typography-caption1-font-size)]",
+  md: "text-[length:var(--alias-typography-body-text2-font-size)]",
+  lg: "text-[length:var(--alias-typography-body-text1-font-size)]",
 }
 
 const alertDescriptionSizeClasses: Record<AlertSize, string> = {
   sm: "text-[11px]",
-  md: "text-xs",
-  lg: "text-sm",
+  md: "text-[length:var(--alias-typography-caption1-font-size)]",
+  lg: "text-[length:var(--alias-typography-body-text2-font-size)]",
 }
 
 const alertVariants = cva(
-  "group/alert relative grid w-full rounded-[var(--base-radius-md)] border text-left has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-3 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current",
+  "group/alert relative grid w-full rounded-[var(--component-alert-border-radius)] border text-left has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-3 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current",
   {
     variants: {
       variant: {
         // Neutral / informational (no strong semantic colour)
-        default: "bg-[var(--alias-color-background-primary)] text-[var(--alias-color-text-primary)]",
+        default: "bg-[var(--component-alert-default-background)] text-[var(--component-alert-default-text)]",
         // Severity variants — all backed by alias tokens, no raw colour values
         // error: state where something has failed (form validation, API error, system failure)
         error:
-          "bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] border-[var(--alias-color-border-error)] *:data-[slot=alert-description]:text-[var(--alias-color-feedback-error-fg)]/80 *:[svg]:text-current",
+          "bg-[var(--component-alert-error-background)] text-[var(--component-alert-error-text)] border-[var(--component-alert-error-border)] *:data-[slot=alert-description]:text-[var(--component-alert-error-description-color)] *:[svg]:text-current",
         // destructive: alias for error — kept for backward compatibility; prefer 'error' for state, 'destructive' for irreversible action confirmations
         destructive:
-          "bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] border-[var(--alias-color-border-error)] *:data-[slot=alert-description]:text-[var(--alias-color-feedback-error-fg)]/80 *:[svg]:text-current",
+          "bg-[var(--component-alert-error-background)] text-[var(--component-alert-error-text)] border-[var(--component-alert-error-border)] *:data-[slot=alert-description]:text-[var(--component-alert-error-description-color)] *:[svg]:text-current",
         // warning: something requires attention but hasn't failed
         warning:
-          "bg-[var(--alias-color-feedback-warning-bg)] text-[var(--base-color-gray-900)] border-[var(--alias-color-border-warning)] *:data-[slot=alert-description]:text-[var(--base-color-gray-700)] *:[svg]:text-[var(--alias-color-feedback-warning-fg)]",
+          "bg-[var(--component-alert-warning-background)] text-[var(--component-alert-warning-text)] border-[var(--component-alert-warning-border)] *:data-[slot=alert-description]:text-[var(--component-alert-warning-description-color)] *:[svg]:text-[var(--component-alert-warning-icon-color)]",
         // success: action completed successfully
         success:
-          "bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] border-[var(--alias-color-border-success)] *:data-[slot=alert-description]:text-[var(--alias-color-feedback-success-fg)]/80 *:[svg]:text-current",
+          "bg-[var(--component-alert-success-background)] text-[var(--component-alert-success-text)] border-[var(--component-alert-success-border)] *:data-[slot=alert-description]:text-[var(--component-alert-success-description-color)] *:[svg]:text-current",
         // info: neutral informational message
         info:
-          "bg-[var(--alias-color-feedback-info-bg)] text-[var(--alias-color-feedback-info-fg)] border-[var(--alias-color-border-info)] *:data-[slot=alert-description]:text-[var(--alias-color-feedback-info-fg)]/80 *:[svg]:text-current",
+          "bg-[var(--component-alert-info-background)] text-[var(--component-alert-info-text)] border-[var(--component-alert-info-border)] *:data-[slot=alert-description]:text-[var(--component-alert-info-description-color)] *:[svg]:text-current",
       },
     },
     defaultVariants: {
@@ -86,7 +86,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)]",
+        "font-[number:var(--base-font-weight-medium)] group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)]",
         alertTitleSizeClasses[size],
         className
       )}
@@ -104,7 +104,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-balance text-[var(--alias-color-text-subtle)] md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)] [&_p:not(:last-child)]:mb-4",
+        "text-balance text-[var(--component-alert-default-description-color)] md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)] [&_p:not(:last-child)]:mb-4",
         alertDescriptionSizeClasses[size],
         className
       )}

@@ -40,7 +40,7 @@ export const States: Story = {
       <SystemBanner
         variant="warning"
         action={
-          <a href="#" className="underline underline-offset-2 hover:opacity-80 text-[var(--base-color-gray-900)]">
+          <a href="#" className="underline underline-offset-2 hover:opacity-80 text-[var(--alias-color-feedback-warning-fg)] font-medium">
             Upgrade now
           </a>
         }
@@ -91,7 +91,7 @@ export const Warning: Story = {
       action={
         <button
           type="button"
-          className="rounded border border-[var(--base-color-gray-900)] px-3 py-0.5 text-xs font-medium text-[var(--base-color-gray-900)] hover:bg-black/5 transition-colors"
+          className="rounded border border-[var(--alias-color-feedback-warning-fg)] px-3 py-0.5 text-xs font-medium text-[var(--alias-color-feedback-warning-fg)] hover:bg-[var(--alias-color-feedback-warning-fg)]/10 [transition:var(--alias-motion-transition-normal)]"
         >
           Upgrade now
         </button>

@@ -76,7 +76,7 @@ function FormItem({ className, ...props }: React.ComponentProps<"div">) {
   const id = React.useId()
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div className={cn("flex flex-col gap-1", className)} {...props} />
+      <div className={cn("flex flex-col gap-[var(--alias-spacing-inline-xs)]", className)} {...props} />
     </FormItemContext.Provider>
   )
 }
@@ -94,14 +94,14 @@ function FormLabel({
     <label
       htmlFor={id}
       className={cn(
-        "text-sm font-medium text-foreground",
-        error && "text-destructive",
+        "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-form-label-color)]",
+        error && "text-[var(--component-form-error-text-color)]",
         className
       )}
       {...props}
     >
       {children}
-      {required && <span className="text-destructive ml-1">*</span>}
+      {required && <span className="text-[var(--component-form-error-text-color)] ml-1">*</span>}
     </label>
   )
 }
@@ -124,7 +124,7 @@ function FormControl({ ...props }: React.ComponentProps<"div">) {
 function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
-      className={cn("text-xs text-muted-foreground", className)}
+      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-form-helper-text-color)]", className)}
       {...props}
     />
   )
@@ -138,7 +138,7 @@ function FormMessage({ className, children, ...props }: React.ComponentProps<"p"
   if (!body) return null
   return (
     <p
-      className={cn("text-xs text-destructive", className)}
+      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-form-error-text-color)]", className)}
       {...props}
     >
       {body}
@@ -160,11 +160,11 @@ function FormSection({
   children: React.ReactNode
 }) {
   return (
-    <div className={cn("flex flex-col gap-4", className)}>
+    <div className={cn("flex flex-col gap-[var(--alias-spacing-stack-md)]", className)}>
       {(title || description) && (
-        <div className="flex flex-col gap-0.5 pb-3 border-b border-[var(--base-color-gray-200)]">
-          {title && <h3 className="text-sm font-semibold text-foreground">{title}</h3>}
-          {description && <p className="text-xs text-muted-foreground">{description}</p>}
+        <div className="flex flex-col gap-0.5 pb-3 border-b border-[var(--alias-color-border-default)]">
+          {title && <h3 className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-form-section-title-color)]">{title}</h3>}
+          {description && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-form-helper-text-color)]">{description}</p>}
         </div>
       )}
       {children}
@@ -176,7 +176,7 @@ function FormSection({
 
 function FormRow({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
-    <div className={cn("grid gap-4 sm:grid-cols-2", className)}>
+    <div className={cn("grid gap-[var(--alias-spacing-stack-md)] sm:grid-cols-2", className)}>
       {children}
     </div>
   )
@@ -196,7 +196,7 @@ function FormActions({
   return (
     <div
       className={cn(
-        "flex items-center gap-2 pt-4 border-t border-[var(--base-color-gray-200)]",
+        "flex items-center gap-[var(--alias-spacing-inline-sm)] pt-4 border-t border-[var(--alias-color-border-default)]",
         align === "right" && "justify-end",
         align === "left" && "justify-start",
         align === "between" && "justify-between",

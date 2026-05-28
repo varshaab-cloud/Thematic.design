@@ -91,10 +91,42 @@ export const Disabled: Story = {
 
 export const Horizontal: Story = {
   render: () => (
-    <RadioGroup defaultValue="md" className="flex-row gap-4">
+    <RadioGroup defaultValue="md" className="flex-row gap-6">
       <RadioGroupItem value="sm" label="Small" />
       <RadioGroupItem value="md" label="Medium" />
       <RadioGroupItem value="lg" label="Large" />
     </RadioGroup>
+  ),
+}
+
+export const Sizes: Story = {
+  name: "Sizes",
+  render: () => (
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-2">
+        <span className="text-xs text-muted-foreground uppercase tracking-wide font-medium">SM</span>
+        <RadioGroup defaultValue="b" className="flex-row gap-5">
+          <RadioGroupItem value="a" label="Small" size="sm" />
+          <RadioGroupItem value="b" label="Medium" size="sm" />
+          <RadioGroupItem value="c" label="Large" size="sm" />
+        </RadioGroup>
+      </div>
+      <div className="flex flex-col gap-2">
+        <span className="text-xs text-muted-foreground uppercase tracking-wide font-medium">MD (default)</span>
+        <RadioGroup defaultValue="b" className="flex-row gap-5">
+          <RadioGroupItem value="a" label="Small" size="md" />
+          <RadioGroupItem value="b" label="Medium" size="md" />
+          <RadioGroupItem value="c" label="Large" size="md" />
+        </RadioGroup>
+      </div>
+      <div className="flex flex-col gap-2">
+        <span className="text-xs text-muted-foreground uppercase tracking-wide font-medium">LG</span>
+        <RadioGroup defaultValue="b" className="flex-row gap-5">
+          <RadioGroupItem value="a" label="Small" size="lg" />
+          <RadioGroupItem value="b" label="Medium" size="lg" />
+          <RadioGroupItem value="c" label="Large" size="lg" />
+        </RadioGroup>
+      </div>
+    </div>
   ),
 }

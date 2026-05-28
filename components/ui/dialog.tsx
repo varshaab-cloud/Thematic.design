@@ -61,7 +61,7 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-[var(--base-radius-md)] bg-[var(--alias-color-background-primary)] border border-[var(--base-color-gray-200)] p-4 text-sm text-[var(--alias-color-text-primary)] shadow-[var(--base-shadow-05)] duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-[var(--alias-spacing-stack-md)] rounded-[var(--base-radius-md)] bg-[var(--alias-color-background-primary)] border border-[var(--component-dialog-border)] p-[var(--alias-spacing-padding-md)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-primary)] shadow-[var(--base-shadow-05)] duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
           className
         )}
         {...props}
@@ -89,7 +89,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn("flex flex-col gap-2", className)}
+      className={cn("flex flex-col gap-[var(--alias-spacing-stack-xs)]", className)}
       {...props}
     />
   )
@@ -107,7 +107,7 @@ function DialogFooter({
     <div
       data-slot="dialog-footer"
       className={cn(
-        "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-[var(--base-radius-md)] border-t border-[var(--base-color-gray-200)] bg-[var(--base-color-gray-100)] p-4 sm:flex-row sm:justify-end",
+        "-mx-4 -mb-4 flex flex-col-reverse gap-[var(--alias-spacing-stack-xs)] rounded-b-[var(--base-radius-md)] border-t border-[var(--component-dialog-border)] bg-[var(--component-dialog-footer-bg)] p-[var(--alias-spacing-padding-md)] sm:flex-row sm:justify-end",
         className
       )}
       {...props}
@@ -130,7 +130,7 @@ function DialogTitle({
     <DialogPrimitive.Title
       data-slot="dialog-title"
       className={cn(
-        "font-heading text-base leading-none font-semibold",
+        "text-[length:var(--alias-typography-body-text1-font-size)] leading-none font-[number:var(--base-font-weight-semibold)]",
         className
       )}
       {...props}
@@ -146,7 +146,7 @@ function DialogDescription({
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        "text-sm text-[var(--alias-color-text-subtle)] *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-[var(--alias-color-text-primary)]",
+        "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-subtle)] *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-[var(--alias-color-text-primary)]",
         className
       )}
       {...props}

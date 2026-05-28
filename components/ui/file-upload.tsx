@@ -89,22 +89,22 @@ function FileUpload({
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       className={cn(
-        "flex flex-col items-center justify-center gap-2 rounded-[var(--base-radius-md)] border-2 border-dashed border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-secondary)] px-6 py-10 text-center transition-colors",
-        isDragOver && !disabled && "border-[var(--alias-color-border-active)] bg-[var(--alias-color-background-tertiary)]",
-        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-[var(--alias-color-border-active)] hover:bg-[var(--alias-color-background-tertiary)]",
+        "flex flex-col items-center justify-center gap-[var(--alias-spacing-stack-xs)] rounded-[var(--component-file-upload-dropzone-border-radius)] border-2 border-dashed border-[var(--component-file-upload-dropzone-border)] bg-[var(--component-file-upload-dropzone-bg)] px-[var(--alias-spacing-padding-lg)] py-10 text-center [transition:var(--alias-motion-transition-normal)]",
+        isDragOver && !disabled && "border-[var(--component-file-upload-dropzone-border-active)] bg-[var(--component-file-upload-dropzone-hover-bg)]",
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-[var(--component-file-upload-dropzone-border-active)] hover:bg-[var(--component-file-upload-dropzone-hover-bg)]",
         className
       )}
     >
       <UploadCloudIcon
-        className="text-[var(--alias-color-icon-secondary)]"
+        className="text-[var(--component-file-upload-icon-color)]"
         style={{ width: "32px", height: "32px" }}
       />
 
-      <div className="flex flex-col items-center gap-1">
-        <p className="text-sm font-medium text-[var(--alias-color-text-primary)]">
+      <div className="flex flex-col items-center gap-[var(--alias-spacing-inline-xs)]">
+        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-file-upload-dropzone-text)]">
           Drop files here
         </p>
-        <p className="text-xs text-[var(--alias-color-text-tertiary)]">or</p>
+        <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-tertiary)]">or</p>
         <button
           type="button"
           disabled={disabled}
@@ -113,10 +113,10 @@ function FileUpload({
             inputRef.current?.click()
           }}
           className={cn(
-            "rounded-[var(--component-button-secondary-border-radius)] border border-[var(--component-button-secondary-border)] bg-[var(--component-button-secondary-background)] px-4 py-1.5 text-sm font-medium text-[var(--component-button-secondary-text)] transition-colors",
-            "hover:bg-[var(--component-button-secondary-background-hover)]",
+            "rounded-[var(--component-button-secondary-border-radius)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-md)] py-1.5 text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] text-[var(--alias-color-text-primary)] [transition:var(--alias-motion-transition-normal)]",
+            "hover:bg-[var(--alias-color-background-secondary)] hover:border-[var(--alias-color-text-primary)]",
             "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/30",
-            "disabled:cursor-not-allowed disabled:opacity-50 disabled:text-[var(--component-button-secondary-text-disabled)]"
+            "disabled:cursor-not-allowed disabled:text-[var(--alias-color-text-disabled)] disabled:border-[var(--alias-color-border-default)]"
           )}
         >
           Browse files
@@ -124,7 +124,7 @@ function FileUpload({
       </div>
 
       {constraintText && (
-        <p className="text-xs text-[var(--alias-color-text-tertiary)]">
+        <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-tertiary)]">
           {constraintText}
         </p>
       )}
