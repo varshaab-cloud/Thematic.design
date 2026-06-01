@@ -125,7 +125,7 @@ function CalendarMonth({
   return (
     <div className="select-none">
       {/* Month/year heading */}
-      <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-date-range-picker-text)] text-center mb-3">
+      <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-date-range-picker-trigger-color-text-value)] text-center mb-3">
         {MONTHS[month]} {year}
       </p>
 
@@ -134,7 +134,7 @@ function CalendarMonth({
         {DAYS.map((d) => (
           <span
             key={d}
-            className="text-center text-[10px] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-range-picker-placeholder)] py-[var(--alias-spacing-inline-xs)]"
+            className="text-center text-[10px] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-range-picker-trigger-color-text-placeholder)] py-[var(--alias-spacing-inline-xs)]"
           >
             {d}
           </span>
@@ -175,20 +175,20 @@ function CalendarMonth({
               {inRange && (
                 <span
                   className="absolute inset-y-1 inset-x-0"
-                  style={{ background: "color-mix(in srgb, var(--component-date-range-picker-range-in-range-bg) 50%, transparent)" }}
+                  style={{ background: "color-mix(in srgb, var(--component-date-range-picker-calendar-color-day-bg-range-fill) 50%, transparent)" }}
                 />
               )}
               {/* Half-band on from/to endpoints */}
               {isFrom && effectiveTo && (
                 <span
                   className="absolute inset-y-1 right-0 left-1/2"
-                  style={{ background: "color-mix(in srgb, var(--component-date-range-picker-range-in-range-bg) 50%, transparent)" }}
+                  style={{ background: "color-mix(in srgb, var(--component-date-range-picker-calendar-color-day-bg-range-fill) 50%, transparent)" }}
                 />
               )}
               {isTo && effectiveFrom && !isSameDay(startOfDay(effectiveFrom), startOfDay(effectiveTo)) && (
                 <span
                   className="absolute inset-y-1 left-0 right-1/2"
-                  style={{ background: "color-mix(in srgb, var(--component-date-range-picker-range-in-range-bg) 50%, transparent)" }}
+                  style={{ background: "color-mix(in srgb, var(--component-date-range-picker-calendar-color-day-bg-range-fill) 50%, transparent)" }}
                 />
               )}
 
@@ -202,12 +202,12 @@ function CalendarMonth({
                   "relative z-10 flex items-center justify-center w-8 h-8 rounded-full",
                   "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-button-font-weight)] [transition:var(--alias-motion-transition-normal)]",
                   isDisabled && "opacity-30 cursor-not-allowed",
-                  !isDisabled && !isEndpoint && "hover:bg-[var(--alias-color-background-tertiary)] hover:text-[var(--component-date-range-picker-text)]",
+                  !isDisabled && !isEndpoint && "hover:bg-[var(--alias-color-background-tertiary)] hover:text-[var(--component-date-range-picker-trigger-color-text-value)]",
                   isEndpoint
-                    ? "bg-[var(--component-date-range-picker-day-selected-bg)] text-white"
+                    ? "bg-[var(--component-date-range-picker-calendar-color-day-bg-selected)] text-white"
                     : inRange
-                    ? "text-[var(--component-date-range-picker-preset-active-text)]"
-                    : "text-[var(--component-date-range-picker-text)]"
+                    ? "text-[var(--component-date-range-picker-calendar-color-day-text-selected)]"
+                    : "text-[var(--component-date-range-picker-trigger-color-text-value)]"
                 )}
               >
                 {date.getDate()}
@@ -307,12 +307,12 @@ export function DateRangePicker({
           data-slot="date-range-picker-trigger"
           className={cn(
             "flex items-center gap-[var(--alias-spacing-inline-sm)] h-9 px-[var(--alias-spacing-padding-sm)] rounded-[var(--base-radius-md)]",
-            "border border-[var(--component-date-range-picker-border)] bg-[var(--component-date-range-picker-background)]",
+            "border border-[var(--component-date-range-picker-trigger-color-stroke-default)] bg-[var(--component-date-range-picker-trigger-color-bg-default)]",
             "text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-range-picker-border-focus)]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-range-picker-trigger-color-stroke-focus)]",
             range.from
-              ? "text-[var(--component-date-range-picker-text)]"
-              : "text-[var(--component-date-range-picker-placeholder)]",
+              ? "text-[var(--component-date-range-picker-trigger-color-text-value)]"
+              : "text-[var(--component-date-range-picker-trigger-color-text-placeholder)]",
             disabled
               ? "opacity-50 cursor-not-allowed"
               : "hover:border-[var(--alias-color-border-default)] cursor-pointer",
@@ -320,7 +320,7 @@ export function DateRangePicker({
           )}
         >
           <CalendarIcon
-            className="shrink-0 text-[var(--component-date-range-picker-placeholder)]"
+            className="shrink-0 text-[var(--component-date-range-picker-trigger-color-text-placeholder)]"
             style={{ width: 15, height: 15 }}
           />
           <span>{triggerLabel}</span>
@@ -333,8 +333,8 @@ export function DateRangePicker({
           sideOffset={6}
           className={cn(
             "z-50 flex rounded-[var(--base-radius-lg)]",
-            "border border-[var(--component-date-range-picker-border)] bg-[var(--component-date-range-picker-background)]",
-            "shadow-[var(--component-date-range-picker-calendar-shadow)]",
+            "border border-[var(--component-date-range-picker-trigger-color-stroke-default)] bg-[var(--component-date-range-picker-trigger-color-bg-default)]",
+            "shadow-[var(--component-date-range-picker-calendar-dimension-panel-gap)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
             "duration-100 origin-(--radix-popover-content-transform-origin)"
@@ -342,8 +342,8 @@ export function DateRangePicker({
         >
           {/* Presets column */}
           {presets && presets.length > 0 && (
-            <div className="flex flex-col gap-0.5 p-[var(--alias-spacing-padding-xs)] border-r border-[var(--component-date-range-picker-border)] min-w-[140px]">
-              <p className="px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-[10px] font-[number:var(--base-font-weight-semibold)] uppercase tracking-wider text-[var(--component-date-range-picker-placeholder)]">
+            <div className="flex flex-col gap-0.5 p-[var(--alias-spacing-padding-xs)] border-r border-[var(--component-date-range-picker-trigger-color-stroke-default)] min-w-[140px]">
+              <p className="px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-[10px] font-[number:var(--base-font-weight-semibold)] uppercase tracking-wider text-[var(--component-date-range-picker-trigger-color-text-placeholder)]">
                 Presets
               </p>
               {presets.map((preset) => {
@@ -362,7 +362,7 @@ export function DateRangePicker({
                       "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
                       "text-[length:var(--alias-typography-button-font-size)] text-left [transition:var(--alias-motion-transition-normal)]",
                       isActive
-                        ? "bg-[var(--component-date-range-picker-preset-active-bg)] text-[var(--component-date-range-picker-preset-active-text)] font-[number:var(--alias-typography-button-font-weight)]"
+                        ? "bg-[var(--component-date-range-picker-calendar-color-day-bg-selected)] text-[var(--component-date-range-picker-calendar-color-day-text-selected)] font-[number:var(--alias-typography-button-font-weight)]"
                         : "text-[var(--alias-color-text-tertiary)] hover:bg-[var(--alias-color-background-tertiary)]"
                     )}
                   >
@@ -382,7 +382,7 @@ export function DateRangePicker({
                 onClick={handlePrevMonth}
                 className={cn(
                   "flex items-center justify-center w-7 h-7 rounded-[var(--base-radius-sm)]",
-                  "text-[var(--alias-color-text-disabled)] hover:text-[var(--component-date-range-picker-text)]",
+                  "text-[var(--alias-color-text-disabled)] hover:text-[var(--component-date-range-picker-trigger-color-text-value)]",
                   "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]"
                 )}
                 aria-label="Previous month"
@@ -395,7 +395,7 @@ export function DateRangePicker({
                 onClick={handleNextMonth}
                 className={cn(
                   "flex items-center justify-center w-7 h-7 rounded-[var(--base-radius-sm)]",
-                  "text-[var(--alias-color-text-disabled)] hover:text-[var(--component-date-range-picker-text)]",
+                  "text-[var(--alias-color-text-disabled)] hover:text-[var(--component-date-range-picker-trigger-color-text-value)]",
                   "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]"
                 )}
                 aria-label="Next month"
@@ -432,7 +432,7 @@ export function DateRangePicker({
 
             {/* Footer hint */}
             <div className="mt-3 pt-3 border-t border-[var(--alias-color-background-tertiary)] flex items-center justify-between">
-              <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-date-range-picker-placeholder)]">
+              <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-date-range-picker-trigger-color-text-placeholder)]">
                 {selecting === "from" ? "Select start date" : "Select end date"}
               </p>
               {(range.from || range.to) && (
@@ -442,7 +442,7 @@ export function DateRangePicker({
                     setRange({ from: null, to: null })
                     setSelecting("from")
                   }}
-                  className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-date-range-picker-placeholder)] hover:text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
+                  className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-date-range-picker-trigger-color-text-placeholder)] hover:text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
                 >
                   Clear
                 </button>

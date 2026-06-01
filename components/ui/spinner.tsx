@@ -58,8 +58,8 @@ function Spinner({
         strokeWidth={px * 0.1}
         stroke={
           variant === "brand"
-            ? "var(--component-spinner-brand-color)"
-            : "var(--component-spinner-track-color)"
+            ? "var(--component-spinner-color-arc-arc)"
+            : "var(--component-spinner-color-arc-track)"
         }
         opacity={0.3}
       />
@@ -71,8 +71,8 @@ function Spinner({
         strokeWidth={px * 0.1}
         stroke={
           variant === "brand"
-            ? "var(--component-spinner-brand-color)"
-            : "var(--component-spinner-color)"
+            ? "var(--component-spinner-color-arc-arc)"
+            : "var(--component-spinner-color-arc)"
         }
         strokeLinecap="round"
         strokeDasharray={dashArray}

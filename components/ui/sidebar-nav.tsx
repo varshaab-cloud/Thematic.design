@@ -42,8 +42,8 @@ function SidebarNav({
     <aside
       data-slot="sidebar-nav"
       className={cn(
-        "flex flex-col h-full border-r border-[var(--component-sidebar-nav-border-right)]",
-        "bg-[var(--component-sidebar-nav-background)]",
+        "flex flex-col h-full border-r border-[var(--component-nav-sidebar-color-stroke)]",
+        "bg-[var(--component-nav-sidebar-color-bg)]",
         collapsed ? "w-14" : "w-56",
         "[transition:var(--alias-motion-transition-slow)] shrink-0",
         className
@@ -52,7 +52,7 @@ function SidebarNav({
       {/* Logo / Wordmark */}
       {logo && (
         <div className={cn(
-          "flex items-center h-14 border-b border-[var(--component-sidebar-nav-border-right)] shrink-0",
+          "flex items-center h-14 border-b border-[var(--component-nav-sidebar-color-stroke)] shrink-0",
           collapsed ? "justify-center px-0" : "px-[var(--alias-spacing-padding-md)]"
         )}>
           {logo}
@@ -75,14 +75,14 @@ function SidebarNav({
                 title={collapsed ? item.label : undefined}
                 className={cn(
                   "flex items-center gap-2.5 rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] h-8 text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] w-full text-left",
-                  "text-[var(--component-sidebar-nav-item-text)] hover:bg-[var(--component-sidebar-nav-item-hover-bg)] hover:text-[var(--component-sidebar-nav-item-hover-text)]",
-                  item.active && "bg-[var(--component-sidebar-nav-item-active-bg)] text-[var(--component-sidebar-nav-item-active-text)] font-[number:var(--alias-typography-button-font-weight)] hover:bg-[var(--component-sidebar-nav-item-active-bg)]",
+                  "text-[var(--component-nav-sidebar-color-item-text-default)] hover:bg-[var(--component-nav-sidebar-color-item-bg-hover)] hover:text-[var(--component-nav-sidebar-color-item-text-hover)]",
+                  item.active && "bg-[var(--component-nav-sidebar-color-item-bg-active)] text-[var(--component-nav-sidebar-color-item-text-active)] font-[number:var(--alias-typography-button-font-weight)] hover:bg-[var(--component-nav-sidebar-color-item-bg-active)]",
                   collapsed && "justify-center px-0"
                 )}
               >
                 <span className={cn(
                   "shrink-0 [&_svg]:size-4",
-                  item.active ? "text-[var(--component-sidebar-nav-item-icon-active-color)]" : "text-[var(--component-sidebar-nav-item-icon-color)]"
+                  item.active ? "text-[var(--component-nav-sidebar-color-item-icon-active)]" : "text-[var(--component-nav-sidebar-color-item-icon-default)]"
                 )}>
                   {item.icon}
                 </span>
@@ -93,8 +93,8 @@ function SidebarNav({
                       <span className={cn(
                         "ml-auto text-[10px] font-[number:var(--base-font-weight-medium)] tabular-nums rounded-full px-1.5 py-0.5",
                         item.active
-                          ? "bg-[var(--component-sidebar-nav-badge-active-bg)] text-white"
-                          : "bg-[var(--component-sidebar-nav-badge-bg)] text-[var(--alias-color-text-subtle)]"
+                          ? "bg-[var(--component-feedback-badge-brand-color-bg)] text-white"
+                          : "bg-[var(--component-feedback-badge-neutral-color-bg)] text-[var(--alias-color-text-subtle)]"
                       )}>
                         {item.badge}
                       </span>
@@ -110,7 +110,7 @@ function SidebarNav({
       {/* Footer slot */}
       {footer && (
         <div className={cn(
-          "border-t border-[var(--component-sidebar-nav-border-right)] p-[var(--alias-spacing-padding-sm)] shrink-0",
+          "border-t border-[var(--component-nav-sidebar-color-stroke)] p-[var(--alias-spacing-padding-sm)] shrink-0",
           collapsed && "flex justify-center"
         )}>
           {footer}

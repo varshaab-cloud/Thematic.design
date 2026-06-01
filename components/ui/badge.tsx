@@ -16,10 +16,10 @@ const badgeVariants = cva(
         outline:   "border-[var(--alias-color-border-default)] text-[var(--alias-color-text-primary)]",
 
         // Thematic semantic variants — using your token system
-        success: "rounded-[var(--component-badge-success-border-radius)] bg-[var(--component-badge-success-background)] text-[var(--component-badge-success-text)] border-[var(--component-badge-success-text)]/20",
-        info:    "rounded-[var(--component-badge-info-border-radius)] bg-[var(--component-badge-info-background)] text-[var(--component-badge-info-text)] border-[var(--component-badge-info-text)]/20",
-        warning: "rounded-[var(--component-badge-warning-border-radius)] bg-[var(--component-badge-warning-background)] text-[var(--component-badge-warning-text)] border-[var(--component-badge-warning-text)]/20",
-        error:   "rounded-[var(--component-badge-error-border-radius)] bg-[var(--component-badge-error-background)] text-[var(--component-badge-error-text)] border-[var(--component-badge-error-text)]/20",
+        success: "rounded-[var(--component-feedback-badge-shared-dimension-radius)] bg-[var(--component-feedback-badge-success-color-bg)] text-[var(--component-feedback-badge-success-color-text)] border-[var(--component-feedback-badge-success-color-text)]/20",
+        info:    "rounded-[var(--component-feedback-badge-shared-dimension-radius)] bg-[var(--component-feedback-badge-info-color-bg)] text-[var(--component-feedback-badge-info-color-text)] border-[var(--component-feedback-badge-info-color-text)]/20",
+        warning: "rounded-[var(--component-feedback-badge-shared-dimension-radius)] bg-[var(--component-feedback-badge-warning-color-bg)] text-[var(--component-feedback-badge-warning-color-text)] border-[var(--component-feedback-badge-warning-color-text)]/20",
+        error:   "rounded-[var(--component-feedback-badge-shared-dimension-radius)] bg-[var(--component-feedback-badge-error-color-bg)] text-[var(--component-feedback-badge-error-color-text)] border-[var(--component-feedback-badge-error-color-text)]/20",
         brand:   "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)]",
       },
       size: {
@@ -53,10 +53,10 @@ function Badge({
   const Comp = asChild ? Slot.Root : "span"
 
   const dotColor: Record<string, string> = {
-    success:     "bg-[var(--component-badge-success-text)]",
-    info:        "bg-[var(--component-badge-info-text)]",
-    warning:     "bg-[var(--component-badge-warning-text)]",
-    error:       "bg-[var(--component-badge-error-text)]",
+    success:     "bg-[var(--component-feedback-badge-success-color-text)]",
+    info:        "bg-[var(--component-feedback-badge-info-color-text)]",
+    warning:     "bg-[var(--component-feedback-badge-warning-color-text)]",
+    error:       "bg-[var(--component-feedback-badge-error-color-text)]",
     brand:       "bg-white",
     default:     "bg-[var(--alias-color-text-inverse)]",
     secondary:   "bg-[var(--alias-color-text-secondary)]",

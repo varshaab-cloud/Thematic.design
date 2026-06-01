@@ -50,11 +50,11 @@ type TimelineIconProps = React.ComponentProps<"div"> & {
 }
 
 const iconVariantStyles: Record<TimelineIconVariant, string> = {
-  default: "bg-[var(--component-timeline-node-bg)] text-[var(--component-timeline-node-icon-color)]",
-  success: "bg-[var(--component-timeline-success-node-bg)] text-[var(--component-timeline-success-node-icon-color)]",
-  error:   "bg-[var(--component-timeline-error-node-bg)] text-[var(--component-timeline-error-node-icon-color)]",
-  warning: "bg-[var(--component-timeline-warning-node-bg)] text-[var(--component-timeline-warning-node-icon-color)]",
-  info:    "bg-[var(--component-timeline-info-node-bg)] text-[var(--component-timeline-info-node-icon-color)]",
+  default: "bg-[var(--component-timeline-color-node-default-bg)] text-[var(--component-timeline-color-node-default-icon)]",
+  success: "bg-[var(--component-timeline-color-node-success-bg)] text-[var(--component-timeline-color-node-success-icon)]",
+  error:   "bg-[var(--component-timeline-color-node-error-bg)] text-[var(--component-timeline-color-node-error-icon)]",
+  warning: "bg-[var(--component-timeline-color-node-warning-bg)] text-[var(--component-timeline-color-node-warning-icon)]",
+  info:    "bg-[var(--component-timeline-color-node-info-bg)] text-[var(--component-timeline-color-node-info-icon)]",
 }
 
 function TimelineIcon({
@@ -72,7 +72,7 @@ function TimelineIcon({
     >
       <div
         className={cn(
-          "relative z-10 flex size-8 items-center justify-center rounded-[var(--component-timeline-node-border-radius)] text-[length:var(--alias-typography-body-text2-font-size)] [&_svg]:size-4 [&_svg]:shrink-0",
+          "relative z-10 flex size-8 items-center justify-center rounded-[var(--component-timeline-dimension-node-radius)] text-[length:var(--alias-typography-body-text2-font-size)] [&_svg]:size-4 [&_svg]:shrink-0",
           iconVariantStyles[variant]
         )}
       >
@@ -81,7 +81,7 @@ function TimelineIcon({
         )}
       </div>
       {!last && (
-        <div className="mt-1 w-px flex-1 bg-[var(--component-timeline-connector-color)]" />
+        <div className="mt-1 w-px flex-1 bg-[var(--component-timeline-color-connector-default)]" />
       )}
     </div>
   )
@@ -105,7 +105,7 @@ function TimelineTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="timeline-title"
-      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] leading-none text-[var(--component-timeline-title-text)]", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] leading-none text-[var(--component-timeline-color-text-title)]", className)}
       {...props}
     />
   )
@@ -117,7 +117,7 @@ function TimelineDescription({ className, ...props }: React.ComponentProps<"p">)
   return (
     <p
       data-slot="timeline-description"
-      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-timeline-description-text)]", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-timeline-color-text-description)]", className)}
       {...props}
     />
   )
@@ -129,7 +129,7 @@ function TimelineTime({ className, ...props }: React.ComponentProps<"time">) {
   return (
     <time
       data-slot="timeline-time"
-      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-timeline-timestamp-text)]", className)}
+      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-timeline-color-text-timestamp)]", className)}
       {...props}
     />
   )

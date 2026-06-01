@@ -67,18 +67,18 @@ export interface DataTableProps<TData, TValue> {
 function SortIcon({ sorted }: { sorted: false | "asc" | "desc" }) {
   if (sorted === "asc")  return <ChevronUp  className="size-3.5 shrink-0 text-[var(--alias-color-text-primary)]" />
   if (sorted === "desc") return <ChevronDown className="size-3.5 shrink-0 text-[var(--alias-color-text-primary)]" />
-  return <ChevronsUpDown className="size-3.5 shrink-0 text-[var(--component-data-table-sort-icon-color)]/50" />
+  return <ChevronsUpDown className="size-3.5 shrink-0 text-[var(--component-data-table-color-sort-icon-default)]/50" />
 }
 
 // ─── Skeleton Row ────────────────────────────────────────────────────────────
 
 function SkeletonRow({ colCount }: { colCount: number }) {
   return (
-    <tr className="border-b border-[var(--component-data-table-border)]">
+    <tr className="border-b border-[var(--component-data-table-color-stroke)]">
       {Array.from({ length: colCount }).map((_, i) => (
         <td key={i} className="px-3 py-2.5">
           <div
-            className="h-4 rounded-[var(--component-data-table-border-radius)] bg-[var(--alias-color-background-tertiary)] animate-pulse"
+            className="h-4 rounded-[var(--component-data-table-dimension-radius)] bg-[var(--alias-color-background-tertiary)] animate-pulse"
             style={{ width: `${60 + ((i * 37) % 30)}%` }}
           />
         </td>
@@ -96,7 +96,7 @@ function DefaultEmptyState() {
         <Search className="size-5 text-[var(--alias-color-text-subtle)]" />
       </div>
       <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">No results</p>
-      <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-data-table-pagination-text)]">
+      <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-nav-pagination-color-text-default)]">
         Try adjusting your search or filters.
       </p>
     </div>
@@ -135,14 +135,14 @@ function ColumnToggle<TData>({
       </Button>
 
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-1 w-44 rounded-[var(--component-data-table-border-radius)] border border-[var(--component-data-table-border)] bg-[var(--alias-color-background-primary)] p-1 shadow-[var(--component-data-table-shadow)]">
+        <div className="absolute right-0 top-full z-50 mt-1 w-44 rounded-[var(--component-data-table-dimension-radius)] border border-[var(--component-data-table-color-stroke)] bg-[var(--alias-color-background-primary)] p-1 shadow-[var(--component-data-table-elevation)]">
           {table
             .getAllColumns()
             .filter(col => col.getCanHide())
             .map(col => (
               <label
                 key={col.id}
-                className="flex cursor-pointer items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--component-data-table-border-radius)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-caption1-font-size)] hover:bg-[var(--component-data-table-row-hover-bg)]"
+                className="flex cursor-pointer items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--component-data-table-dimension-radius)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-caption1-font-size)] hover:bg-[var(--component-table-color-row-bg-hover)]"
               >
                 <input
                   type="checkbox"
@@ -270,7 +270,7 @@ export function DataTable<TData, TValue>({
                   value={globalFilter}
                   onChange={e => setGlobalFilter(e.target.value)}
                   placeholder={searchPlaceholder}
-                  className="h-8 w-full rounded-[var(--component-data-table-border-radius)] border border-[var(--component-data-table-border)] bg-transparent pl-8 pr-8 text-[length:var(--alias-typography-body-text2-font-size)] outline-none [transition:var(--alias-motion-transition-normal)] placeholder:text-[var(--component-data-table-header-text)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50"
+                  className="h-8 w-full rounded-[var(--component-data-table-dimension-radius)] border border-[var(--component-data-table-color-stroke)] bg-transparent pl-8 pr-8 text-[length:var(--alias-typography-body-text2-font-size)] outline-none [transition:var(--alias-motion-transition-normal)] placeholder:text-[var(--component-table-color-header-text)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50"
                 />
                 {globalFilter && (
                   <button
@@ -286,7 +286,7 @@ export function DataTable<TData, TValue>({
 
             {/* Selection badge */}
             {selectable && selectedCount > 0 && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--component-data-table-row-selected-bg)]/40 bg-[var(--component-data-table-row-selected-bg)] px-2.5 py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--component-table-color-row-bg-selected)]/40 bg-[var(--component-table-color-row-bg-selected)] px-2.5 py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
                 {selectedCount} selected
                 <button
                   onClick={() => table.resetRowSelection()}
@@ -305,13 +305,13 @@ export function DataTable<TData, TValue>({
       )}
 
       {/* ── Table ── */}
-      <div className="overflow-hidden rounded-[var(--component-data-table-border-radius)] border border-[var(--component-data-table-border)] bg-[var(--component-data-table-row-bg)] shadow-[var(--component-data-table-shadow)]">
+      <div className="overflow-hidden rounded-[var(--component-data-table-dimension-radius)] border border-[var(--component-data-table-color-stroke)] bg-[var(--component-table-color-row-bg-default)] shadow-[var(--component-data-table-elevation)]">
         <div className="overflow-x-auto">
           <table className="w-full text-[length:var(--alias-typography-body-text2-font-size)]">
             {/* Head */}
             <thead>
               {table.getHeaderGroups().map(hg => (
-                <tr key={hg.id} className="border-b border-[var(--component-data-table-border)] bg-[var(--component-data-table-header-bg)]">
+                <tr key={hg.id} className="border-b border-[var(--component-data-table-color-stroke)] bg-[var(--component-table-color-header-bg)]">
                   {hg.headers.map(header => {
                     const canSort = header.column.getCanSort()
                     const sorted  = header.column.getIsSorted()
@@ -321,7 +321,7 @@ export function DataTable<TData, TValue>({
                         scope="col"
                         style={{ width: header.column.columnDef.size }}
                         className={cn(
-                          "px-[var(--alias-spacing-padding-sm)] py-2.5 text-left text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-data-table-header-text)] select-none",
+                          "px-[var(--alias-spacing-padding-sm)] py-2.5 text-left text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-table-color-header-text)] select-none",
                           canSort && "cursor-pointer hover:text-[var(--alias-color-text-primary)] [transition:var(--alias-motion-transition-normal)]"
                         )}
                         onClick={canSort ? header.column.getToggleSortingHandler() : undefined}
@@ -350,7 +350,7 @@ export function DataTable<TData, TValue>({
             </thead>
 
             {/* Body */}
-            <tbody className="divide-y divide-[var(--component-data-table-border)]">
+            <tbody className="divide-y divide-[var(--component-data-table-color-stroke)]">
               {isLoading ? (
                 Array.from({ length: skeletonRows }).map((_, i) => (
                   <SkeletonRow key={i} colCount={allColumns.length} />
@@ -366,10 +366,10 @@ export function DataTable<TData, TValue>({
                   <tr
                     key={row.id}
                     data-selected={row.getIsSelected() || undefined}
-                    className="[transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-data-table-row-hover-bg)] data-[selected]:bg-[var(--component-data-table-row-selected-bg)]/60"
+                    className="[transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-table-color-row-bg-hover)] data-[selected]:bg-[var(--component-table-color-row-bg-selected)]/60"
                   >
                     {row.getVisibleCells().map(cell => (
-                      <td key={cell.id} className="px-3 py-2.5 text-[var(--component-data-table-cell-text)]">
+                      <td key={cell.id} className="px-3 py-2.5 text-[var(--component-table-color-cell-text)]">
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -385,7 +385,7 @@ export function DataTable<TData, TValue>({
       </div>
 
       {/* ── Pagination ── */}
-      <div className="flex items-center justify-between gap-4 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-data-table-pagination-text)]">
+      <div className="flex items-center justify-between gap-4 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-nav-pagination-color-text-default)]">
         {/* Row count */}
         <span>
           {selectable && selectedCount > 0
@@ -400,7 +400,7 @@ export function DataTable<TData, TValue>({
             <select
               value={pageSize}
               onChange={e => table.setPageSize(Number(e.target.value))}
-              className="h-7 rounded-[var(--component-data-table-border-radius)] border border-[var(--component-data-table-border)] bg-transparent px-1.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-data-table-cell-text)] outline-none focus:border-[var(--alias-color-border-active)] focus:ring-2 focus:ring-[var(--alias-color-border-active)]/50"
+              className="h-7 rounded-[var(--component-data-table-dimension-radius)] border border-[var(--component-data-table-color-stroke)] bg-transparent px-1.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-table-color-cell-text)] outline-none focus:border-[var(--alias-color-border-active)] focus:ring-2 focus:ring-[var(--alias-color-border-active)]/50"
             >
               {pageSizeOptions.map(n => (
                 <option key={n} value={n}>{n}</option>

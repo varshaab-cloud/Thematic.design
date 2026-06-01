@@ -125,15 +125,15 @@ export function CommandPalette({
       >
           <div
             className={cn(
-              "bg-[var(--component-command-palette-panel-bg)] border border-[var(--component-command-palette-border)]",
+              "bg-[var(--component-command-color-bg)] border border-[var(--component-command-color-stroke)]",
               "rounded-[var(--base-radius-lg)] shadow-xl",
               "max-h-[400px] overflow-hidden flex flex-col"
             )}
           >
             {/* Search input */}
-            <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-[var(--component-command-palette-border)]">
+            <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-[var(--component-command-color-stroke)]">
               <Search
-                className="shrink-0 text-[var(--component-command-palette-badge-text)]"
+                className="shrink-0 text-[var(--component-feedback-badge-brand-color-text)]"
                 style={{ width: 16, height: 16 }}
               />
               <input
@@ -143,8 +143,8 @@ export function CommandPalette({
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={placeholder}
                 className={cn(
-                  "flex-1 bg-transparent text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-command-palette-input-text)]",
-                  "placeholder:text-[var(--component-command-palette-input-placeholder)]",
+                  "flex-1 bg-transparent text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-input-field-color-text-value)]",
+                  "placeholder:text-[var(--component-input-field-color-text-placeholder)]",
                   "outline-none border-none focus:ring-0"
                 )}
                 aria-autocomplete="list"
@@ -153,8 +153,8 @@ export function CommandPalette({
               <kbd
                 className={cn(
                   "hidden sm:inline-flex items-center gap-0.5 shrink-0",
-                  "text-[10px] text-[var(--component-command-palette-badge-text)]",
-                  "border border-[var(--component-command-palette-badge-bg)] rounded px-1 py-0.5"
+                  "text-[10px] text-[var(--component-feedback-badge-brand-color-text)]",
+                  "border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1 py-0.5"
                 )}
               >
                 Esc
@@ -176,7 +176,7 @@ export function CommandPalette({
                   <p className="text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-subtle)]">
                     No results for &ldquo;{query}&rdquo;
                   </p>
-                  <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-command-palette-badge-text)]">
+                  <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-feedback-badge-brand-color-text)]">
                     Try a different search term.
                   </p>
                 </div>
@@ -187,7 +187,7 @@ export function CommandPalette({
                     <p
                       className={cn(
                         "px-[var(--alias-spacing-padding-xs)] py-1 text-[10px] font-[number:var(--base-font-weight-semibold)] tracking-wider uppercase",
-                        "text-[var(--component-command-palette-badge-text)]"
+                        "text-[var(--component-feedback-badge-brand-color-text)]"
                       )}
                     >
                       {group}
@@ -208,8 +208,8 @@ export function CommandPalette({
                             "w-full flex items-center gap-2.5 px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-padding-xs)] rounded-[var(--base-radius-sm)]",
                             "text-left text-[length:var(--alias-typography-body-text2-font-size)] [transition:var(--alias-motion-transition-normal)]",
                             isActive
-                              ? "bg-[var(--component-command-palette-item-selected-bg)] text-[var(--component-command-palette-item-selected-text)]"
-                              : "text-[var(--component-command-palette-item-text)] hover:bg-[var(--component-command-palette-item-hover-bg)]"
+                              ? "bg-[var(--component-command-color-item-bg-selected)] text-[var(--component-command-color-item-text-default)]"
+                              : "text-[var(--component-command-color-item-text-default)] hover:bg-[var(--component-command-color-item-bg-selected)]"
                           )}
                           onMouseEnter={() => setActiveIndex(currentIndex)}
                           onClick={() => {
@@ -223,7 +223,7 @@ export function CommandPalette({
                                 "shrink-0 flex items-center justify-center",
                                 isActive
                                   ? "text-[var(--alias-color-border-active)]"
-                                  : "text-[var(--component-command-palette-badge-text)]"
+                                  : "text-[var(--component-feedback-badge-brand-color-text)]"
                               )}
                               style={{ width: 16, height: 16 }}
                             >
@@ -240,7 +240,7 @@ export function CommandPalette({
                                   "block text-[length:var(--alias-typography-caption1-font-size)] truncate",
                                   isActive
                                     ? "text-[var(--alias-color-border-active)]"
-                                    : "text-[var(--component-command-palette-badge-text)]"
+                                    : "text-[var(--component-feedback-badge-brand-color-text)]"
                                 )}
                               >
                                 {item.description}
@@ -253,7 +253,7 @@ export function CommandPalette({
                                 "shrink-0 text-[10px] border rounded px-1 py-0.5",
                                 isActive
                                   ? "border-[var(--alias-color-background-hover)] text-[var(--alias-color-border-active)]"
-                                  : "border-[var(--component-command-palette-badge-bg)] text-[var(--component-command-palette-badge-text)]"
+                                  : "border-[var(--component-feedback-badge-brand-color-bg)] text-[var(--component-feedback-badge-brand-color-text)]"
                               )}
                             >
                               {item.shortcut}
@@ -270,21 +270,21 @@ export function CommandPalette({
             {/* Footer hint */}
             <div
               className={cn(
-                "flex items-center gap-3 px-3 py-2 border-t border-[var(--component-command-palette-border)]",
-                "text-[10px] text-[var(--component-command-palette-badge-text)]"
+                "flex items-center gap-3 px-3 py-2 border-t border-[var(--component-command-color-stroke)]",
+                "text-[10px] text-[var(--component-feedback-badge-brand-color-text)]"
               )}
             >
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">↑</kbd>
-                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">↓</kbd>
+                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">↑</kbd>
+                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">↓</kbd>
                 navigate
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">↵</kbd>
+                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">↵</kbd>
                 select
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--component-command-palette-badge-bg)] rounded px-1">Esc</kbd>
+                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">Esc</kbd>
                 close
               </span>
             </div>

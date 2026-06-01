@@ -134,10 +134,10 @@ function TimePicker({
           aria-label={displayValue || placeholder}
           data-slot="time-picker-trigger"
           className={cn(
-            "inline-flex h-9 w-full items-center justify-between gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-border)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)]",
+            "inline-flex h-9 w-full items-center justify-between gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-trigger-color-stroke-default)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)]",
             "hover:border-[var(--alias-color-border-disabled)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]",
             "disabled:cursor-not-allowed disabled:opacity-50",
-            !displayValue && "text-[var(--component-time-picker-column-item-text)]/50",
+            !displayValue && "text-[var(--component-time-picker-dropdown-color-item-text-default)]/50",
             className
           )}
         >
@@ -152,7 +152,7 @@ function TimePicker({
           sideOffset={4}
           align="start"
           className={cn(
-            "z-50 rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-panel-border)] bg-[var(--component-time-picker-panel-bg)] p-[var(--alias-spacing-padding-xs)] text-[var(--component-time-picker-column-item-text)] shadow-[var(--base-shadow-04)] outline-none",
+            "z-50 rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-dropdown-color-stroke)] bg-[var(--component-time-picker-dropdown-color-bg)] p-[var(--alias-spacing-padding-xs)] text-[var(--component-time-picker-dropdown-color-item-text-default)] shadow-[var(--base-shadow-04)] outline-none",
             "duration-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
           )}
         >
@@ -174,8 +174,8 @@ function TimePicker({
                       className={cn(
                         "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
                         isSelected
-                          ? "bg-[var(--component-time-picker-column-item-selected-bg)] text-[var(--component-time-picker-column-item-selected-text)]"
-                          : "hover:bg-[var(--component-time-picker-column-item-hover-bg)]"
+                          ? "bg-[var(--component-time-picker-dropdown-color-item-bg-selected)] text-[var(--component-time-picker-dropdown-color-item-text-selected)]"
+                          : "hover:bg-[var(--component-time-picker-dropdown-color-item-bg-hover)]"
                       )}
                     >
                       {pad(h)}
@@ -189,7 +189,7 @@ function TimePicker({
             <div className="flex flex-col items-center">
               <p className="py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-transparent select-none">:</p>
               <div className="flex h-48 items-center justify-center">
-                <span className="text-lg font-light text-[var(--component-time-picker-separator-color)]">:</span>
+                <span className="text-lg font-light text-[var(--component-time-picker-dropdown-color-column-separator)]">:</span>
               </div>
             </div>
 
@@ -208,8 +208,8 @@ function TimePicker({
                       className={cn(
                         "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
                         isSelected
-                          ? "bg-[var(--component-time-picker-column-item-selected-bg)] text-[var(--component-time-picker-column-item-selected-text)]"
-                          : "hover:bg-[var(--component-time-picker-column-item-hover-bg)]"
+                          ? "bg-[var(--component-time-picker-dropdown-color-item-bg-selected)] text-[var(--component-time-picker-dropdown-color-item-text-selected)]"
+                          : "hover:bg-[var(--component-time-picker-dropdown-color-item-bg-hover)]"
                       )}
                     >
                       {pad(m)}
@@ -232,8 +232,8 @@ function TimePicker({
                       className={cn(
                         "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] [transition:var(--alias-motion-transition-normal)]",
                         period === p
-                          ? "bg-[var(--component-time-picker-column-item-selected-bg)] text-[var(--component-time-picker-column-item-selected-text)]"
-                          : "hover:bg-[var(--component-time-picker-column-item-hover-bg)] text-[var(--alias-color-text-subtle)]"
+                          ? "bg-[var(--component-time-picker-dropdown-color-item-bg-selected)] text-[var(--component-time-picker-dropdown-color-item-text-selected)]"
+                          : "hover:bg-[var(--component-time-picker-dropdown-color-item-bg-hover)] text-[var(--alias-color-text-subtle)]"
                       )}
                     >
                       {p}

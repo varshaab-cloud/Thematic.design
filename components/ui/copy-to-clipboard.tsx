@@ -68,14 +68,14 @@ function CopyToClipboard({
       data-slot="copy-button"
       data-state={state}
       className={cn(
-        "inline-flex items-center justify-center rounded-[var(--component-copy-to-clipboard-border-radius)] [transition:var(--alias-motion-transition-normal)] outline-none",
+        "inline-flex items-center justify-center rounded-[var(--component-copy-to-clipboard-dimension-radius)] [transition:var(--alias-motion-transition-normal)] outline-none",
         "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
         state === "idle" &&
-          "text-[var(--component-copy-to-clipboard-icon-color)] hover:text-[var(--alias-color-text-primary)] hover:bg-[var(--component-copy-to-clipboard-hover-bg)]",
+          "text-[var(--component-copy-to-clipboard-color-icon-default)] hover:text-[var(--alias-color-text-primary)] hover:bg-[var(--component-copy-to-clipboard-color-bg-hover)]",
         state === "copied" &&
-          "text-[var(--component-copy-to-clipboard-success-color)] bg-[var(--component-copy-to-clipboard-success-bg)]",
+          "text-[var(--component-copy-to-clipboard-color-icon-success)] bg-[var(--component-copy-to-clipboard-color-bg-success)]",
         state === "error" &&
-          "text-[var(--component-copy-to-clipboard-error-color)] bg-[var(--component-copy-to-clipboard-error-bg)]",
+          "text-[var(--component-copy-to-clipboard-color-icon-error)] bg-[var(--component-copy-to-clipboard-color-bg-error)]",
         sizeClasses[size],
         !children && className
       )}

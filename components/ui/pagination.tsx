@@ -89,17 +89,17 @@ export function Pagination({
       )}
     >
       {/* ── Left: row count ── */}
-      <p className="text-[var(--component-pagination-label-text)] tabular-nums">
+      <p className="text-[var(--component-nav-pagination-color-text-default)] tabular-nums">
         {total === 0 ? (
           <>No {rowLabel}</>
         ) : (
           <>
             Showing{" "}
-            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-pagination-item-text)]">
+            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-nav-pagination-color-text-default)]">
               {rangeStart}–{rangeEnd}
             </span>{" "}
             of{" "}
-            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-pagination-item-text)]">{total}</span>{" "}
+            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-nav-pagination-color-text-default)]">{total}</span>{" "}
             {rowLabel}
           </>
         )}
@@ -110,7 +110,7 @@ export function Pagination({
         {/* Page size selector */}
         {pageSizeOptions && pageSizeOptions.length > 0 && onPageSizeChange && (
           <div className="flex items-center gap-1.5">
-            <span className="text-[var(--component-pagination-label-text)]">Rows per page</span>
+            <span className="text-[var(--component-nav-pagination-color-text-default)]">Rows per page</span>
             <select
               value={pageSize}
               onChange={e => {
@@ -118,8 +118,8 @@ export function Pagination({
                 onPageChange(1)
               }}
               className={cn(
-                "h-7 rounded-[var(--component-pagination-item-border-radius)] border border-[var(--component-pagination-item-border)] bg-[var(--component-pagination-item-bg)] px-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-body-text2-font-size)]",
-                "text-[var(--component-pagination-item-text)] outline-none [transition:var(--alias-motion-transition-normal)]",
+                "h-7 rounded-[var(--component-nav-pagination-dimension-radius)] border border-[var(--component-nav-pagination-color-stroke-default)] bg-[var(--component-nav-pagination-color-bg-default)] px-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-body-text2-font-size)]",
+                "text-[var(--component-nav-pagination-color-text-default)] outline-none [transition:var(--alias-motion-transition-normal)]",
                 "focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50",
                 "disabled:cursor-not-allowed disabled:opacity-50"
               )}
@@ -159,7 +159,7 @@ export function Pagination({
             item === "…" ? (
               <span
                 key={`ellipsis-${idx}`}
-                className="flex size-7 items-center justify-center text-[var(--component-pagination-disabled-text)]"
+                className="flex size-7 items-center justify-center text-[var(--component-nav-pagination-color-text-disabled)]"
                 aria-hidden
               >
                 <MoreHorizontal className="size-3.5" />

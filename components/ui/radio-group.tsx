@@ -70,7 +70,7 @@ function RadioGroupField({
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {label && (
-        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-radio-group-label-text)]">
+        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </p>
@@ -84,7 +84,7 @@ function RadioGroupField({
         {children}
       </RadioGroupPrimitive.Root>
       {hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-feedback-error-fg)]">{errorMessage}</p>}
-      {helperText && !hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-radio-group-description-text)]">{helperText}</p>}
+      {helperText && !hasError && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-input-label-color-text-default)]">{helperText}</p>}
     </div>
   )
 }
@@ -120,14 +120,14 @@ function RadioGroupItem({
         data-slot="radio-group-item"
         className={cn(
           // Base
-          sc.mt, sc.indicator, "shrink-0 rounded-[var(--component-radio-group-border-radius)] border border-[var(--component-radio-group-border)] bg-[var(--component-radio-group-background)]",
+          sc.mt, sc.indicator, "shrink-0 rounded-[var(--component-input-radio-color-stroke-default-radius)] border border-[var(--component-input-radio-color-stroke-default)] bg-[var(--component-input-radio-color-bg-default)]",
           "[transition:var(--alias-motion-transition-normal)] outline-none cursor-pointer",
           // Hover
-          "hover:border-[var(--component-radio-group-border-checked)]",
+          "hover:border-[var(--component-input-radio-color-stroke-checked)]",
           // Focus
           "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",
           // Checked
-          "data-[state=checked]:border-[var(--component-radio-group-border-checked)] data-[state=checked]:bg-[var(--component-radio-group-background-checked)]",
+          "data-[state=checked]:border-[var(--component-input-radio-color-stroke-checked)] data-[state=checked]:bg-[var(--component-input-radio-color-bg-checked)]",
           // Disabled
           "disabled:pointer-events-none",
           className
@@ -147,13 +147,13 @@ function RadioGroupItem({
           {label && (
             <label
               htmlFor={id}
-              className={cn(sc.label, "font-[number:var(--base-font-weight-medium)] text-[var(--component-radio-group-label-text)] cursor-pointer leading-none pt-0.5")}
+              className={cn(sc.label, "font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)] cursor-pointer leading-none pt-0.5")}
             >
               {label}
             </label>
           )}
           {description && (
-            <p className={cn(sc.description, "text-[var(--component-radio-group-description-text)]")}>{description}</p>
+            <p className={cn(sc.description, "text-[var(--component-input-label-color-text-default)]")}>{description}</p>
           )}
           {children}
         </div>
@@ -169,7 +169,7 @@ function RadioGroupLabel({
   return (
     <p
       data-slot="radio-group-label"
-      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-radio-group-label-text)] mb-1", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)] mb-1", className)}
       {...props}
     />
   )

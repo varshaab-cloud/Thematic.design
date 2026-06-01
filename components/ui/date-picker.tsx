@@ -171,16 +171,16 @@ export function Calendar({
           aria-label="Previous month"
           onClick={prevMonth}
           className={cn(
-            "flex h-7 w-7 items-center justify-center rounded-[var(--component-date-picker-border-radius)]",
-            "text-[var(--component-date-picker-nav-icon-color)] [transition:var(--alias-motion-transition-normal)]",
-            "hover:bg-[var(--component-date-picker-day-hover-bg)]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-border-focus)]"
+            "flex h-7 w-7 items-center justify-center rounded-[var(--component-date-picker-trigger-dimension-radius)]",
+            "text-[var(--component-date-picker-calendar-color-nav-icon)] [transition:var(--alias-motion-transition-normal)]",
+            "hover:bg-[var(--component-date-picker-calendar-color-day-bg-hover)]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-trigger-color-stroke-focus)]"
           )}
         >
           <ChevronLeft className="size-4" />
         </button>
 
-        <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-date-picker-month-year-text)]">
+        <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-date-picker-calendar-color-month-year)]">
           {MONTH_NAMES[viewMonth]} {viewYear}
         </span>
 
@@ -189,10 +189,10 @@ export function Calendar({
           aria-label="Next month"
           onClick={nextMonth}
           className={cn(
-            "flex h-7 w-7 items-center justify-center rounded-[var(--component-date-picker-border-radius)]",
-            "text-[var(--component-date-picker-nav-icon-color)] [transition:var(--alias-motion-transition-normal)]",
-            "hover:bg-[var(--component-date-picker-day-hover-bg)]",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-border-focus)]"
+            "flex h-7 w-7 items-center justify-center rounded-[var(--component-date-picker-trigger-dimension-radius)]",
+            "text-[var(--component-date-picker-calendar-color-nav-icon)] [transition:var(--alias-motion-transition-normal)]",
+            "hover:bg-[var(--component-date-picker-calendar-color-day-bg-hover)]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-trigger-color-stroke-focus)]"
           )}
         >
           <ChevronRight className="size-4" />
@@ -205,7 +205,7 @@ export function Calendar({
           <div
             key={day}
             aria-hidden="true"
-            className="flex h-8 items-center justify-center text-[11px] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-picker-weekday-text)]"
+            className="flex h-8 items-center justify-center text-[11px] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-picker-calendar-color-weekday-label)]"
           >
             {day}
           </div>
@@ -231,20 +231,20 @@ export function Calendar({
                   onClick={() => !disabled && onChange(date)}
                   className={cn(
                     "mx-auto flex h-9 w-9 items-center justify-center rounded-full text-[14px] [transition:var(--alias-motion-transition-normal)]",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-border-focus)]",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-trigger-color-stroke-focus)]",
                     // Base text colour
                     isCurrentMonth
-                      ? "text-[var(--component-date-picker-day-text)]"
-                      : "text-[var(--component-date-picker-day-disabled-text)]",
+                      ? "text-[var(--component-date-picker-calendar-color-day-text-default)]"
+                      : "text-[var(--component-date-picker-calendar-color-day-text-disabled)]",
                     // Today ring
-                    isToday && !isSelected && "border border-[var(--component-date-picker-border-focus)]",
+                    isToday && !isSelected && "border border-[var(--component-date-picker-trigger-color-stroke-focus)]",
                     // Selected
                     isSelected && [
-                      "bg-[var(--component-date-picker-day-selected-bg)] text-[var(--component-date-picker-day-selected-text)]",
-                      "border border-[var(--component-date-picker-day-selected-bg)]",
+                      "bg-[var(--component-date-picker-calendar-color-day-bg-selected)] text-[var(--component-date-picker-calendar-color-day-text-selected)]",
+                      "border border-[var(--component-date-picker-calendar-color-day-bg-selected)]",
                     ],
                     // Hover (only when not selected/disabled)
-                    !isSelected && !disabled && "hover:bg-[var(--component-date-picker-day-hover-bg)]",
+                    !isSelected && !disabled && "hover:bg-[var(--component-date-picker-calendar-color-day-bg-hover)]",
                     // Disabled
                     disabled && "cursor-not-allowed opacity-40"
                   )}
@@ -298,12 +298,12 @@ export function DatePicker({
           disabled={disabled}
           className={cn(
             // Match Input styling exactly
-            "h-8 w-full min-w-0 rounded-[var(--component-date-picker-border-radius)] border border-[var(--component-date-picker-border)]",
-            "bg-[var(--component-date-picker-background)] px-2.5 py-1 text-[length:var(--alias-typography-body-text2-font-size)] [transition:var(--alias-motion-transition-normal)] outline-none",
+            "h-8 w-full min-w-0 rounded-[var(--component-date-picker-trigger-dimension-radius)] border border-[var(--component-date-picker-trigger-color-stroke-default)]",
+            "bg-[var(--component-date-picker-trigger-color-bg-default)] px-2.5 py-1 text-[length:var(--alias-typography-body-text2-font-size)] [transition:var(--alias-motion-transition-normal)] outline-none",
             "flex items-center justify-between gap-2",
-            "focus-visible:border-[var(--component-date-picker-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-date-picker-border-focus)]/50",
+            "focus-visible:border-[var(--component-date-picker-trigger-color-stroke-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-date-picker-trigger-color-stroke-focus)]/50",
             disabled && "cursor-not-allowed bg-[var(--alias-color-background-tertiary)] opacity-50 pointer-events-none",
-            open && "border-[var(--component-date-picker-border-focus)]",
+            open && "border-[var(--component-date-picker-trigger-color-stroke-focus)]",
             className
           )}
         >
@@ -311,13 +311,13 @@ export function DatePicker({
             className={cn(
               "flex-1 text-left truncate",
               value
-                ? "text-[var(--component-date-picker-day-text)]"
-                : "text-[var(--component-date-picker-day-disabled-text)]"
+                ? "text-[var(--component-date-picker-calendar-color-day-text-default)]"
+                : "text-[var(--component-date-picker-calendar-color-day-text-disabled)]"
             )}
           >
             {value ? formatDate(value) : placeholder}
           </span>
-          <CalendarIcon className="size-4 shrink-0 text-[var(--component-date-picker-nav-icon-color)]" />
+          <CalendarIcon className="size-4 shrink-0 text-[var(--component-date-picker-calendar-color-nav-icon)]" />
         </button>
       </PopoverTrigger>
 

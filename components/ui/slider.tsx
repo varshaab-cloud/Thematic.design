@@ -59,11 +59,11 @@ function Slider({
         {/* Track */}
         <SliderPrimitive.Track
           data-slot="slider-track"
-          className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-[var(--component-slider-track-bg)]"
+          className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-[var(--component-slider-color-track)]"
         >
           <SliderPrimitive.Range
             data-slot="slider-range"
-            className="absolute h-full bg-[var(--component-slider-fill-bg)]"
+            className="absolute h-full bg-[var(--component-slider-color-fill)]"
           />
         </SliderPrimitive.Track>
 
@@ -73,7 +73,7 @@ function Slider({
             key={i}
             data-slot="slider-thumb"
             className={cn(
-              "block size-4 rounded-full border-2 border-[var(--component-slider-thumb-border)] bg-[var(--component-slider-thumb-bg)]",
+              "block size-4 rounded-full border-2 border-[var(--component-slider-color-thumb-stroke)] bg-[var(--component-slider-color-thumb-bg)]",
               "[transition:var(--alias-motion-transition-normal)] outline-none cursor-pointer",
               "hover:border-[var(--alias-color-icon-brand)]",
               "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",

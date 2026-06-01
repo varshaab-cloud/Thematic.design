@@ -76,17 +76,17 @@ function StepCircle({ index, state, label }: StepCircleProps) {
       aria-current={state === "current" ? "step" : undefined}
       aria-label={ariaLabel}
       className={cn(
-        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--component-stepper-step-border-radius)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] [transition:var(--alias-motion-transition-normal)]",
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--component-stepper-dimension-step-radius)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] [transition:var(--alias-motion-transition-normal)]",
         state === "completed" && [
-          "bg-[var(--component-stepper-step-bg-completed)] text-[var(--component-stepper-step-text-completed)]",
+          "bg-[var(--component-stepper-color-step-completed-bg)] text-[var(--component-stepper-color-step-completed-text)]",
         ],
         state === "current" && [
-          "border-2 border-[var(--component-stepper-step-border-active)] bg-[var(--component-stepper-step-bg-active)]",
-          "text-[var(--component-stepper-step-text-active)]",
+          "border-2 border-[var(--component-stepper-color-step-active-stroke)] bg-[var(--component-stepper-color-step-active-bg)]",
+          "text-[var(--component-stepper-color-step-active-text)]",
         ],
         state === "upcoming" && [
-          "border border-[var(--component-stepper-step-border)] bg-[var(--component-stepper-step-bg)]",
-          "text-[var(--component-stepper-step-text)]",
+          "border border-[var(--component-stepper-color-step-upcoming-stroke)] bg-[var(--component-stepper-color-step-upcoming-bg)]",
+          "text-[var(--component-stepper-color-step-upcoming-text)]",
         ]
       )}
     >
@@ -130,8 +130,8 @@ export function Stepper({
                     className={cn(
                       "mt-1 w-px flex-1",
                       state === "completed"
-                        ? "bg-[var(--component-stepper-connector-color-active)]"
-                        : "bg-[var(--component-stepper-connector-color)]"
+                        ? "bg-[var(--component-stepper-color-connector-active)]"
+                        : "bg-[var(--component-stepper-color-connector-default)]"
                     )}
                     style={{ minHeight: 24 }}
                   />
@@ -144,16 +144,16 @@ export function Stepper({
                   className={cn(
                     "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] leading-tight",
                     state === "current"
-                      ? "text-[var(--component-stepper-label-text)]"
+                      ? "text-[var(--component-stepper-color-label-active)]"
                       : state === "completed"
-                      ? "text-[var(--component-stepper-label-text)]"
-                      : "text-[var(--component-stepper-label-text-upcoming)]"
+                      ? "text-[var(--component-stepper-color-label-active)]"
+                      : "text-[var(--component-stepper-color-label-upcoming)]"
                   )}
                 >
                   {step.label}
                 </p>
                 {step.description && (
-                  <p className="mt-0.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-stepper-description-text)]">
+                  <p className="mt-0.5 text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-stepper-color-description)]">
                     {step.description}
                   </p>
                 )}
@@ -185,10 +185,10 @@ export function Stepper({
                 className={cn(
                   "mt-2 max-w-[80px] text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] leading-tight",
                   state === "current"
-                    ? "text-[var(--component-stepper-label-text)]"
+                    ? "text-[var(--component-stepper-color-label-active)]"
                     : state === "completed"
-                    ? "text-[var(--component-stepper-label-text)]"
-                    : "text-[var(--component-stepper-label-text-upcoming)]"
+                    ? "text-[var(--component-stepper-color-label-active)]"
+                    : "text-[var(--component-stepper-color-label-upcoming)]"
                 )}
               >
                 {step.label}
@@ -205,8 +205,8 @@ export function Stepper({
                   className={cn(
                     "h-px w-full",
                     state === "completed"
-                      ? "border-t-2 border-solid border-[var(--component-stepper-connector-color-active)]"
-                      : "border-t-2 border-dashed border-[var(--component-stepper-connector-color)]"
+                      ? "border-t-2 border-solid border-[var(--component-stepper-color-connector-active)]"
+                      : "border-t-2 border-dashed border-[var(--component-stepper-color-connector-default)]"
                   )}
                 />
               </div>

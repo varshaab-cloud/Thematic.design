@@ -9,7 +9,7 @@ function List({ className, ...props }: React.ComponentProps<"ul">) {
   return (
     <ul
       data-slot="list"
-      className={cn("flex flex-col divide-y divide-[var(--component-list-item-border)]", className)}
+      className={cn("flex flex-col divide-y divide-[var(--component-list-color-stroke)]", className)}
       {...props}
     />
   )
@@ -40,8 +40,8 @@ function ListItem({
       className={cn(
         "flex items-center gap-[var(--alias-spacing-inline-md)] px-[var(--alias-spacing-padding-sm)] py-2.5 text-[length:var(--alias-typography-body-text2-font-size)]",
         interactive &&
-          "cursor-pointer [transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-list-item-hover-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
-        selected && "bg-[var(--component-list-item-selected-bg)]/8 text-[var(--component-list-item-selected-text)]",
+          "cursor-pointer [transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-list-color-item-bg-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
+        selected && "bg-[var(--component-list-color-item-bg-selected)]/8 text-[var(--component-list-color-item-text-title-selected)]",
         disabled && "pointer-events-none opacity-50",
         className
       )}
@@ -87,7 +87,7 @@ function ListItemTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="list-item-title"
-      className={cn("truncate font-[number:var(--base-font-weight-medium)] text-[var(--component-list-item-text)]", className)}
+      className={cn("truncate font-[number:var(--base-font-weight-medium)] text-[var(--component-list-color-item-text-title-default)]", className)}
       {...props}
     />
   )
@@ -101,7 +101,7 @@ function ListItemDescription({ className, ...props }: React.ComponentProps<"p">)
   return (
     <p
       data-slot="list-item-description"
-      className={cn("truncate text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-list-description-text)] mt-0.5", className)}
+      className={cn("truncate text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-list-color-item-text-description)] mt-0.5", className)}
       {...props}
     />
   )
@@ -130,7 +130,7 @@ function ListDivider({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="list-divider"
       role="separator"
-      className={cn("h-px bg-[var(--component-list-item-border)]", className)}
+      className={cn("h-px bg-[var(--component-list-color-stroke)]", className)}
       {...props}
     />
   )

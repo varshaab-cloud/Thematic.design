@@ -70,7 +70,7 @@ export function EmptyState({
           style={{
             width: config.iconSize,
             height: config.iconSize,
-            color: "var(--component-empty-state-icon-color)",
+            color: "var(--component-empty-state-color-icon)",
           }}
           aria-hidden="true"
         >
@@ -82,7 +82,7 @@ export function EmptyState({
         <p
           style={{
             ...config.headingStyle,
-            color: "var(--component-empty-state-title-color)",
+            color: "var(--component-empty-state-color-title)",
             lineHeight: "1.4",
           }}
         >
@@ -93,7 +93,7 @@ export function EmptyState({
           <p
             style={{
               ...config.descriptionStyle,
-              color: "var(--component-empty-state-description-color)",
+              color: "var(--component-empty-state-color-description)",
               lineHeight: "1.5",
             }}
           >

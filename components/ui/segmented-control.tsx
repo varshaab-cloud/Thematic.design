@@ -51,7 +51,7 @@ function SegmentedControl({
       data-slot="segmented-control"
       aria-disabled={disabled || undefined}
       className={cn(
-        "inline-flex items-center rounded-[var(--base-radius-md)] bg-[var(--component-segmented-control-background)] [transition:var(--alias-motion-transition-normal)]",
+        "inline-flex items-center rounded-[var(--base-radius-md)] bg-[var(--component-segmented-control-color-container-bg)] [transition:var(--alias-motion-transition-normal)]",
         sizes.container,
         fullWidth && "flex w-full",
         disabled && "pointer-events-none opacity-50",
@@ -74,8 +74,8 @@ function SegmentedControl({
               sizes.segment,
               fullWidth && "flex-1",
               isSelected
-                ? "bg-[var(--alias-color-background-primary)] text-[var(--component-segmented-control-item-text-active)] shadow-sm"
-                : "text-[var(--component-segmented-control-item-text)] hover:text-[var(--alias-color-text-tertiary)]"
+                ? "bg-[var(--alias-color-background-primary)] text-[var(--component-segmented-control-color-item-text-active)] shadow-sm"
+                : "text-[var(--component-segmented-control-color-item-text-default)] hover:text-[var(--alias-color-text-tertiary)]"
             )}
           >
             {option.icon && (

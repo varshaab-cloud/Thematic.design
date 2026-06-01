@@ -94,14 +94,14 @@ function FormLabel({
     <label
       htmlFor={id}
       className={cn(
-        "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-form-label-color)]",
-        error && "text-[var(--component-form-error-text-color)]",
+        "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)]",
+        error && "text-[var(--component-input-helper-color-text-error)]",
         className
       )}
       {...props}
     >
       {children}
-      {required && <span className="text-[var(--component-form-error-text-color)] ml-1">*</span>}
+      {required && <span className="text-[var(--component-input-helper-color-text-error)] ml-1">*</span>}
     </label>
   )
 }
@@ -124,7 +124,7 @@ function FormControl({ ...props }: React.ComponentProps<"div">) {
 function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
-      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-form-helper-text-color)]", className)}
+      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-input-helper-color-text-default)]", className)}
       {...props}
     />
   )
@@ -138,7 +138,7 @@ function FormMessage({ className, children, ...props }: React.ComponentProps<"p"
   if (!body) return null
   return (
     <p
-      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-form-error-text-color)]", className)}
+      className={cn("text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-input-helper-color-text-error)]", className)}
       {...props}
     >
       {body}
@@ -163,8 +163,8 @@ function FormSection({
     <div className={cn("flex flex-col gap-[var(--alias-spacing-stack-md)]", className)}>
       {(title || description) && (
         <div className="flex flex-col gap-0.5 pb-3 border-b border-[var(--alias-color-border-default)]">
-          {title && <h3 className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-form-section-title-color)]">{title}</h3>}
-          {description && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-form-helper-text-color)]">{description}</p>}
+          {title && <h3 className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-input-label-color-text-default)]">{title}</h3>}
+          {description && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-input-helper-color-text-default)]">{description}</p>}
         </div>
       )}
       {children}

@@ -69,7 +69,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-[var(--component-accordion-border-radius)] border border-transparent text-left font-[number:var(--base-font-weight-medium)] [transition:var(--alias-motion-transition-normal)] outline-none hover:underline focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:after:border-[var(--alias-color-border-active)] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-[var(--component-accordion-trigger-icon-color)]",
+          "group/accordion-trigger relative flex flex-1 items-start justify-between rounded-[var(--component-accordion-dimension-radius)] border border-transparent text-left font-[number:var(--base-font-weight-medium)] [transition:var(--alias-motion-transition-normal)] outline-none hover:underline focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:after:border-[var(--alias-color-border-active)] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:text-[var(--component-accordion-color-trigger-icon-default)]",
           accordionTriggerSizeClasses[size],
           className
         )}
@@ -97,7 +97,7 @@ function AccordionContent({
     >
       <div
         className={cn(
-          "h-(--radix-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--component-accordion-content-text)] [&_p:not(:last-child)]:mb-4",
+          "h-(--radix-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--component-accordion-color-content-text)] [&_p:not(:last-child)]:mb-4",
           accordionContentSizeClasses[size],
           className
         )}

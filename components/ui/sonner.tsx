@@ -30,19 +30,19 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       style={
         {
-          "--normal-bg":     "var(--component-sonner-background)",
-          "--normal-text":   "var(--component-sonner-title-color)",
-          "--normal-border": "var(--component-sonner-border)",
-          "--border-radius": "var(--component-sonner-border-radius)",
+          "--normal-bg":     "var(--component-feedback-toast-info-color-bg)",
+          "--normal-text":   "var(--component-feedback-toast-info-color-text)",
+          "--normal-border": "var(--component-feedback-toast-info-color-stroke)",
+          "--border-radius": "var(--component-feedback-toast-shared-dimension-radius)",
           "--font-family":   "var(--base-font-family-primary)",
-          "--success-bg":    "var(--component-sonner-success-bg)",
-          "--success-border":"var(--component-sonner-success-border)",
-          "--error-bg":      "var(--component-sonner-error-bg)",
-          "--error-border":  "var(--component-sonner-error-border)",
-          "--warning-bg":    "var(--component-sonner-warning-bg)",
-          "--warning-border":"var(--component-sonner-warning-border)",
-          "--info-bg":       "var(--component-sonner-info-bg)",
-          "--info-border":   "var(--component-sonner-info-border)",
+          "--success-bg":    "var(--component-feedback-toast-success-color-bg)",
+          "--success-border":"var(--component-feedback-toast-success-color-stroke)",
+          "--error-bg":      "var(--component-feedback-toast-error-color-bg)",
+          "--error-border":  "var(--component-feedback-toast-error-color-stroke)",
+          "--warning-bg":    "var(--component-feedback-toast-warning-color-bg)",
+          "--warning-border":"var(--component-feedback-toast-warning-color-stroke)",
+          "--info-bg":       "var(--component-feedback-toast-info-color-bg)",
+          "--info-border":   "var(--component-feedback-toast-info-color-stroke)",
         } as React.CSSProperties
       }
       toastOptions={{

@@ -15,26 +15,26 @@ const variantConfig: Record<
   }
 > = {
   info: {
-    bg: "bg-[var(--component-system-banner-info-background)]",
-    fg: "text-[var(--component-system-banner-info-text)]",
+    bg: "bg-[var(--component-system-banner-info-color-bg)]",
+    fg: "text-[var(--component-system-banner-info-color-text)]",
     Icon: Info,
     role: "status",
   },
   warning: {
-    bg: "bg-[var(--component-system-banner-warning-background)]",
-    fg: "text-[var(--component-system-banner-warning-text)]",
+    bg: "bg-[var(--component-system-banner-warning-color-bg)]",
+    fg: "text-[var(--component-system-banner-warning-color-text)]",
     Icon: AlertTriangle,
     role: "alert",
   },
   error: {
-    bg: "bg-[var(--component-system-banner-error-background)]",
-    fg: "text-[var(--component-system-banner-error-text)]",
+    bg: "bg-[var(--component-system-banner-error-color-bg)]",
+    fg: "text-[var(--component-system-banner-error-color-text)]",
     Icon: XCircle,
     role: "alert",
   },
   success: {
-    bg: "bg-[var(--component-system-banner-success-background)]",
-    fg: "text-[var(--component-system-banner-success-text)]",
+    bg: "bg-[var(--component-system-banner-success-color-bg)]",
+    fg: "text-[var(--component-system-banner-success-color-text)]",
     Icon: CheckCircle2,
     role: "status",
   },

@@ -89,19 +89,19 @@ function FileUpload({
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       className={cn(
-        "flex flex-col items-center justify-center gap-[var(--alias-spacing-stack-xs)] rounded-[var(--component-file-upload-dropzone-border-radius)] border-2 border-dashed border-[var(--component-file-upload-dropzone-border)] bg-[var(--component-file-upload-dropzone-bg)] px-[var(--alias-spacing-padding-lg)] py-10 text-center [transition:var(--alias-motion-transition-normal)]",
-        isDragOver && !disabled && "border-[var(--component-file-upload-dropzone-border-active)] bg-[var(--component-file-upload-dropzone-hover-bg)]",
-        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-[var(--component-file-upload-dropzone-border-active)] hover:bg-[var(--component-file-upload-dropzone-hover-bg)]",
+        "flex flex-col items-center justify-center gap-[var(--alias-spacing-stack-xs)] rounded-[var(--component-file-upload-dimension-radius)] border-2 border-dashed border-[var(--component-file-upload-color-dropzone-stroke-default)] bg-[var(--component-file-upload-color-dropzone-bg-default)] px-[var(--alias-spacing-padding-lg)] py-10 text-center [transition:var(--alias-motion-transition-normal)]",
+        isDragOver && !disabled && "border-[var(--component-file-upload-color-dropzone-stroke-active)] bg-[var(--component-file-upload-color-dropzone-bg-hover)]",
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:border-[var(--component-file-upload-color-dropzone-stroke-active)] hover:bg-[var(--component-file-upload-color-dropzone-bg-hover)]",
         className
       )}
     >
       <UploadCloudIcon
-        className="text-[var(--component-file-upload-icon-color)]"
+        className="text-[var(--component-file-upload-color-icon)]"
         style={{ width: "32px", height: "32px" }}
       />
 
       <div className="flex flex-col items-center gap-[var(--alias-spacing-inline-xs)]">
-        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-file-upload-dropzone-text)]">
+        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-file-upload-color-label)]">
           Drop files here
         </p>
         <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-tertiary)]">or</p>
@@ -113,7 +113,7 @@ function FileUpload({
             inputRef.current?.click()
           }}
           className={cn(
-            "rounded-[var(--component-button-secondary-border-radius)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-md)] py-1.5 text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] text-[var(--alias-color-text-primary)] [transition:var(--alias-motion-transition-normal)]",
+            "rounded-[var(--component-button-secondary-dimension-radius)] border border-[var(--alias-color-border-default)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-md)] py-1.5 text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] text-[var(--alias-color-text-primary)] [transition:var(--alias-motion-transition-normal)]",
             "hover:bg-[var(--alias-color-background-secondary)] hover:border-[var(--alias-color-text-primary)]",
             "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/30",
             "disabled:cursor-not-allowed disabled:text-[var(--alias-color-text-disabled)] disabled:border-[var(--alias-color-border-default)]"

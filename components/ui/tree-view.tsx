@@ -127,10 +127,10 @@ function TreeNode({ node, depth }: TreeNodeProps) {
     <li role="treeitem" aria-selected={isSelected} aria-expanded={hasChildren ? isExpanded : undefined} data-slot="tree-node">
       <div
         className={cn(
-          "flex items-center gap-[var(--alias-spacing-inline-xs)] rounded-[var(--component-tree-view-border-radius)] px-1 py-[var(--alias-spacing-inline-xs)] cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)] text-[var(--component-tree-view-item-text)]",
+          "flex items-center gap-[var(--alias-spacing-inline-xs)] rounded-[var(--component-tree-view-dimension-radius)] px-1 py-[var(--alias-spacing-inline-xs)] cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)] text-[var(--component-tree-view-color-item-text-default)]",
           isSelected
-            ? "bg-[var(--component-tree-view-item-selected-bg)] text-[var(--component-tree-view-item-selected-text)]"
-            : "hover:bg-[var(--component-tree-view-item-hover-bg)]"
+            ? "bg-[var(--component-tree-view-color-item-bg-selected)] text-[var(--component-tree-view-color-item-text-selected)]"
+            : "hover:bg-[var(--component-tree-view-color-item-bg-hover)]"
         )}
         style={{ paddingLeft: `${depth * 16 + 4}px` }}
         tabIndex={0}
@@ -150,7 +150,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
           {hasChildren && (
             <ChevronRight
               className={cn(
-                "size-3.5 [transition:var(--alias-motion-transition-normal)] text-[var(--component-tree-view-toggle-icon-color)]",
+                "size-3.5 [transition:var(--alias-motion-transition-normal)] text-[var(--component-tree-view-color-item-toggle-icon-default)]",
                 isExpanded && "rotate-90"
               )}
             />
@@ -159,7 +159,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
 
         {/* Icon */}
         {node.icon && (
-          <span className="flex size-4 shrink-0 items-center justify-center text-[var(--component-tree-view-item-icon-color)] [&_svg]:size-4">
+          <span className="flex size-4 shrink-0 items-center justify-center text-[var(--component-tree-view-color-item-node-icon-default)] [&_svg]:size-4">
             {node.icon}
           </span>
         )}
@@ -170,7 +170,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
         {/* Badge */}
         {node.badge !== undefined && (
           <span
-            className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--component-tree-view-badge-bg)] px-1 text-[10px] font-[number:var(--base-font-weight-medium)] tabular-nums text-[var(--component-tree-view-badge-text)]"
+            className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--component-tree-view-color-badge-bg)] px-1 text-[10px] font-[number:var(--base-font-weight-medium)] tabular-nums text-[var(--component-tree-view-color-badge-text)]"
             data-slot="tree-node-badge"
           >
             {node.badge}

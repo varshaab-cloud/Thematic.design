@@ -77,14 +77,14 @@ function Combobox({
             aria-invalid={hasError || undefined}
             disabled={disabled}
             className={cn(
-              "flex h-8 w-full items-center justify-between gap-1.5 rounded-[var(--component-combobox-border-radius)]",
-              "border border-[var(--component-combobox-border)] bg-[var(--component-combobox-background)]",
-              "px-2.5 text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-combobox-text)] [transition:var(--alias-motion-transition-normal)] outline-none",
-              "hover:border-[var(--component-combobox-border-focus)]",
-              "focus-visible:border-[var(--component-combobox-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-combobox-border-focus)]/50",
-              "disabled:pointer-events-none disabled:opacity-50 disabled:bg-[var(--component-combobox-disabled-bg)]",
-              hasError && "border-[var(--component-combobox-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20",
-              !selected && "text-[var(--component-combobox-placeholder)]"
+              "flex h-8 w-full items-center justify-between gap-1.5 rounded-[var(--component-combobox-trigger-dimension-radius)]",
+              "border border-[var(--component-combobox-trigger-color-stroke-default)] bg-[var(--component-combobox-trigger-color-bg-default)]",
+              "px-2.5 text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-combobox-trigger-color-text-value)] [transition:var(--alias-motion-transition-normal)] outline-none",
+              "hover:border-[var(--component-combobox-trigger-color-stroke-focus)]",
+              "focus-visible:border-[var(--component-combobox-trigger-color-stroke-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-combobox-trigger-color-stroke-focus)]/50",
+              "disabled:pointer-events-none disabled:opacity-50 disabled:bg-[var(--component-combobox-trigger-color-bg-disabled)]",
+              hasError && "border-[var(--component-combobox-trigger-color-stroke-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20",
+              !selected && "text-[var(--component-combobox-trigger-color-text-placeholder)]"
             )}
           >
             <span className="truncate">
@@ -106,12 +106,12 @@ function Combobox({
                       onValueChange?.("")
                     }
                   }}
-                  className="text-[var(--component-combobox-placeholder)] hover:text-[var(--component-combobox-text)] [transition:var(--alias-motion-transition-normal)] cursor-pointer"
+                  className="text-[var(--component-combobox-trigger-color-text-placeholder)] hover:text-[var(--component-combobox-trigger-color-text-value)] [transition:var(--alias-motion-transition-normal)] cursor-pointer"
                 >
                   <X className="size-3.5" />
                 </span>
               )}
-              <ChevronsUpDown className="size-3.5 text-[var(--component-combobox-placeholder)]" />
+              <ChevronsUpDown className="size-3.5 text-[var(--component-combobox-trigger-color-text-placeholder)]" />
             </div>
           </button>
         </PopoverTrigger>
@@ -141,7 +141,7 @@ function Combobox({
                     </div>
                     <Check
                       className={cn(
-                        "size-4 shrink-0 text-[var(--component-combobox-option-selected-text)]",
+                        "size-4 shrink-0 text-[var(--component-select-option-color-text-default)]",
                         value === option.value ? "opacity-100" : "opacity-0"
                       )}
                     />

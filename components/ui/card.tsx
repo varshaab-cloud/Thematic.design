@@ -12,7 +12,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-[var(--alias-spacing-stack-md)] overflow-hidden rounded-[var(--component-card-border-radius)] bg-[var(--component-card-background)] py-[var(--alias-spacing-padding-md)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-card-body-color)] border border-[var(--component-card-border)] shadow-[var(--component-card-shadow)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0",
+        "group/card flex flex-col gap-[var(--alias-spacing-stack-md)] overflow-hidden rounded-[var(--component-nav-card-dimension-radius)] bg-[var(--component-nav-card-color-bg)] py-[var(--alias-spacing-padding-md)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-nav-card-color-body)] border border-[var(--component-nav-card-color-stroke)] shadow-[var(--component-nav-card-elevation-default)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0",
         className
       )}
       {...props}
@@ -25,7 +25,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-header"
       className={cn(
-        "group/card-header @container/card-header grid auto-rows-min items-start gap-[var(--alias-spacing-inline-xs)] rounded-t-[var(--component-card-border-radius)] px-[var(--alias-spacing-padding-md)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)] has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-4 group-data-[size=sm]/card:[.border-b]:pb-3",
+        "group/card-header @container/card-header grid auto-rows-min items-start gap-[var(--alias-spacing-inline-xs)] rounded-t-[var(--component-nav-card-dimension-radius)] px-[var(--alias-spacing-padding-md)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)] has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-4 group-data-[size=sm]/card:[.border-b]:pb-3",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "text-[length:var(--alias-typography-body-text1-font-size)] leading-snug font-[number:var(--base-font-weight-semibold)] text-[var(--component-card-title-color)] group-data-[size=sm]/card:text-[length:var(--alias-typography-body-text2-font-size)]",
+        "text-[length:var(--alias-typography-body-text1-font-size)] leading-snug font-[number:var(--base-font-weight-semibold)] text-[var(--component-nav-card-color-heading)] group-data-[size=sm]/card:text-[length:var(--alias-typography-body-text2-font-size)]",
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-card-body-color)]", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-nav-card-color-body)]", className)}
       {...props}
     />
   )
@@ -84,7 +84,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-[var(--component-card-border-radius)] border-t bg-[var(--alias-color-background-tertiary)]/50 px-[var(--alias-spacing-padding-md)] py-[var(--alias-spacing-padding-sm)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)] group-data-[size=sm]/card:py-2.5",
+        "flex items-center rounded-b-[var(--component-nav-card-dimension-radius)] border-t bg-[var(--alias-color-background-tertiary)]/50 px-[var(--alias-spacing-padding-md)] py-[var(--alias-spacing-padding-sm)] group-data-[size=sm]/card:px-[var(--alias-spacing-padding-sm)] group-data-[size=sm]/card:py-2.5",
         className
       )}
       {...props}
@@ -106,7 +106,7 @@ export interface MetricCardProps {
 }
 
 const metricVariants: Record<string, string> = {
-  default: "bg-[var(--component-card-background)] ring-[var(--alias-color-text-primary)]/10",
+  default: "bg-[var(--component-nav-card-color-bg)] ring-[var(--alias-color-text-primary)]/10",
   brand:   "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)] ring-[var(--alias-color-icon-brand)]",
   success: "bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] ring-[var(--alias-color-feedback-success-fg)]/20",
   warning: "bg-[var(--alias-color-feedback-warning-bg)] text-[var(--alias-color-feedback-warning-fg)] ring-[var(--alias-color-feedback-warning-fg)]/20",

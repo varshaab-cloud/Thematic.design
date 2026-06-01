@@ -75,14 +75,14 @@ function Textarea({
         onChange={handleChange}
         maxLength={maxChars}
         className={cn(
-          "w-full min-w-0 rounded-[var(--component-textarea-border-radius)] border border-[var(--component-textarea-border)] bg-[var(--component-textarea-background)]",
-          "px-2.5 py-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-textarea-text)] [transition:var(--alias-motion-transition-normal)] outline-none resize-y",
-          "placeholder:text-[var(--component-textarea-placeholder)]",
-          "focus-visible:border-[var(--component-textarea-border-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-textarea-border-focus)]/50",
-          "disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--component-textarea-background-disabled)] disabled:text-[var(--component-textarea-disabled-text)] disabled:opacity-50",
-          "read-only:bg-[var(--component-textarea-background-disabled)] read-only:cursor-default",
-          hasError && "border-[var(--component-textarea-border-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--component-textarea-border-error)]",
-          hasSuccess && !hasError && "border-[var(--component-textarea-border-success)] ring-3 ring-[var(--alias-color-feedback-success-border)]/30 focus-visible:border-[var(--component-textarea-border-success)]",
+          "w-full min-w-0 rounded-[var(--component-textarea-field-dimension-radius)] border border-[var(--component-textarea-field-color-stroke-default)] bg-[var(--component-textarea-field-color-bg-default)]",
+          "px-2.5 py-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-textarea-field-color-text-value)] [transition:var(--alias-motion-transition-normal)] outline-none resize-y",
+          "placeholder:text-[var(--component-textarea-field-color-text-placeholder)]",
+          "focus-visible:border-[var(--component-textarea-field-color-stroke-focus)] focus-visible:ring-3 focus-visible:ring-[var(--component-textarea-field-color-stroke-focus)]/50",
+          "disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-[var(--component-textarea-field-color-bg-disabled)] disabled:text-[var(--component-textarea-field-color-text-disabled)] disabled:opacity-50",
+          "read-only:bg-[var(--component-textarea-field-color-bg-disabled)] read-only:cursor-default",
+          hasError && "border-[var(--component-textarea-field-color-stroke-error)] ring-3 ring-[var(--alias-color-feedback-error-fg)]/20 focus-visible:border-[var(--component-textarea-field-color-stroke-error)]",
+          hasSuccess && !hasError && "border-[var(--component-textarea-field-color-stroke-default)] ring-3 ring-[var(--alias-color-feedback-success-border)]/30 focus-visible:border-[var(--component-textarea-field-color-stroke-default)]",
           autoResize && "resize-none overflow-hidden",
           className
         )}
