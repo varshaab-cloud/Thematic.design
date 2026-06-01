@@ -1217,7 +1217,7 @@
   --component-list-color-stroke: var(--alias-color-stroke-default);
   --component-list-color-item-bg-default: var(--alias-color-background-primary);
   --component-list-color-item-bg-hover: var(--alias-color-background-secondary);
-  --component-list-color-item-bg-selected: var(--alias-color-background-hover);
+  --component-list-color-item-bg-selected: var(--base-color-blue-100);
   --component-list-color-item-text-title-default: var(--alias-color-text-primary);
   --component-list-color-item-text-title-selected: var(--alias-color-text-brand);
   --component-list-color-item-text-description: var(--alias-color-text-subtle);

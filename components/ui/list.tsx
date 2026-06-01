@@ -41,7 +41,7 @@ function ListItem({
         "flex items-center gap-[var(--alias-spacing-inline-md)] px-[var(--alias-spacing-padding-sm)] py-2.5 text-[length:var(--alias-typography-body-text2-font-size)]",
         interactive &&
           "cursor-pointer [transition:var(--alias-motion-transition-normal)] hover:bg-[var(--component-list-color-item-bg-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
-        selected && "bg-[var(--component-list-color-item-bg-selected)]/8 text-[var(--component-list-color-item-text-title-selected)]",
+        selected && "border-l-2 border-[var(--alias-color-border-brand)] bg-[var(--component-list-color-item-bg-selected)] text-[var(--component-list-color-item-text-title-selected)] pl-[calc(var(--alias-spacing-padding-sm)-2px)]",
         disabled && "pointer-events-none opacity-50",
         className
       )}
