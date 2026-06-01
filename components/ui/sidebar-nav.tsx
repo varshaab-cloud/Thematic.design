@@ -76,7 +76,7 @@ function SidebarNav({
                 aria-label={collapsed ? item.label : undefined}
                 aria-current={item.active ? "page" : undefined}
                 className={cn(
-                  "flex items-center gap-2.5 rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] h-8 text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] w-full text-left",
+                  "relative flex items-center gap-2.5 rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] h-8 text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] w-full text-left after:absolute after:inset-x-0 after:-inset-y-[6px]",
                   "text-[var(--component-nav-sidebar-color-item-text-default)] hover:bg-[var(--component-nav-sidebar-color-item-bg-hover)] hover:text-[var(--component-nav-sidebar-color-item-text-hover)]",
                   item.active && "bg-[var(--component-nav-sidebar-color-item-bg-active)] text-[var(--component-nav-sidebar-color-item-text-active)] font-[number:var(--alias-typography-button-font-weight)] hover:bg-[var(--component-nav-sidebar-color-item-bg-active)]",
                   collapsed && "justify-center px-0"

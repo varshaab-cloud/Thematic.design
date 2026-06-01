@@ -83,7 +83,8 @@ function Slider({
             key={i}
             data-slot="slider-thumb"
             className={cn(
-              "block size-4 rounded-full border-2 border-[var(--component-slider-color-thumb-stroke)] bg-[var(--component-slider-color-thumb-bg)]",
+              "relative block size-4 rounded-full border-2 border-[var(--component-slider-color-thumb-stroke)] bg-[var(--component-slider-color-thumb-bg)]",
+              "after:absolute after:-inset-[14px] after:rounded-full",
               "[transition:var(--alias-motion-transition-normal)] outline-none cursor-pointer",
               "hover:border-[var(--alias-color-icon-brand)]",
               "focus-visible:ring-3 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:border-[var(--alias-color-border-active)]",
