@@ -8,18 +8,9 @@ const PAGE_SUB: React.CSSProperties = { fontSize: 15, color: '#666', lineHeight:
 const DIVIDER: React.CSSProperties = { height: 1, background: '#f0f0f0', margin: '32px 0', border: 'none' };
 
 // Navigate to another story from within the preview iframe.
-// Uses NAVIGATE_URL ("navigateUrl") — confirmed in storybook/dist/core-events.
-// This event is forwarded by the preview to the manager which then navigates.
-function navigateTo(title: string) {
-  const storyId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '--default';
-  const url = `?path=/story/${storyId}`;
-  const channel = (window as any).__STORYBOOK_ADDONS_CHANNEL__;
-  if (channel) {
-    // navigateUrl is the correct event for cross-frame navigation in Storybook 7+
-    channel.emit('navigateUrl', { url });
-    return;
-  }
-  // Fallback: direct parent URL manipulation
+// Directly manipulates the parent window URL — reliable across all Storybook versions.
+function navigateTo(storyId: string) {
+  const url = `/?path=/story/${storyId}`;
   if (window.parent !== window) {
     window.parent.location.href = url;
   }
@@ -29,7 +20,7 @@ function FoundationOverviewPage() {
   const cards = [
     {
       title: 'Colour',
-      storyId: 'Thematic design system/Foundation/Colour',
+      storyId: 'thematic-design-system-foundation-colour--default',
       description: 'Nine palette scales covering brand, feedback, and neutral. Base swatches → semantic roles → component slots.',
       stats: '92 base · 42 alias · 28 component',
       preview: (
@@ -42,7 +33,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Typography',
-      storyId: 'Thematic design system/Foundation/Typography',
+      storyId: 'thematic-design-system-foundation-typography--default',
       description: 'Open Sans across 14 styles — from 48px display headings to 10px captions, each with paired weight and line-height.',
       stats: '1 font family · 14 styles',
       preview: (
@@ -55,7 +46,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Spacing',
-      storyId: 'Thematic design system/Foundation/Spacing',
+      storyId: 'thematic-design-system-foundation-spacing--default',
       description: '10-step base scale (4px–80px) plus 15 alias tokens naming roles: inline, stack, padding, section, page.',
       stats: '10 base · 15 alias',
       preview: (
@@ -73,7 +64,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Shape',
-      storyId: 'Thematic design system/Foundation/Shape',
+      storyId: 'thematic-design-system-foundation-shape--default',
       description: 'Six border-radius steps from 2px sharp to 14px soft, plus full-round pill. All components reference these tokens.',
       stats: '6 steps · xs → xxl + pill',
       preview: (
@@ -86,7 +77,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Elevation',
-      storyId: 'Thematic design system/Foundation/Elevation',
+      storyId: 'thematic-design-system-foundation-elevation--default',
       description: 'Five shadow levels from shadow-01 (barely-there lift) to shadow-05 (full modal overlay depth).',
       stats: '5 levels · shadow-01 → shadow-05',
       preview: (
@@ -97,7 +88,7 @@ function FoundationOverviewPage() {
     },
     {
       title: 'Motion',
-      storyId: 'Thematic design system/Foundation/Motion & Focus',
+      storyId: 'thematic-design-system-foundation-motion-focus--default',
       description: 'Five durations (0ms–500ms) and four easing curves. Alias tokens cover fast/normal/slow/spring transitions.',
       stats: '5 durations · 4 easings',
       preview: (
@@ -116,25 +107,8 @@ function FoundationOverviewPage() {
       <div style={BREADCRUMB}>Foundation</div>
       <h1 style={PAGE_TITLE}>The building blocks</h1>
       <p style={PAGE_SUB}>
-        Seven properties, 309 tokens, one coherent system. Each property has a dedicated page — start here to understand what's available and how the layers connect.
+        1,351 tokens across three tiers — 140 base, 172 alias, 1,039 component. Each foundation has a dedicated page covering available values, token names, and usage guidance.
       </p>
-
-      {/* Token tier diagram */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-        {[
-          { label: 'Base · raw values', sub: 'Primitive constants' },
-          { label: 'Alias · semantic roles', sub: 'UI role names' },
-          { label: 'Component · slot overrides', sub: 'Component contracts' },
-        ].map((box, i) => (
-          <React.Fragment key={i}>
-            <div style={{ border: '1px solid #e5e5e5', borderRadius: 8, padding: 14, background: '#fafafa', flexShrink: 0 }}>
-              <div style={{ fontSize: 12, color: '#111', fontWeight: 500 }}>{box.label}</div>
-              <div style={{ fontSize: 10, color: '#999', marginTop: 4 }}>{box.sub}</div>
-            </div>
-            {i < 2 && <span style={{ color: '#bbb', fontSize: 16, flexShrink: 0 }}>→</span>}
-          </React.Fragment>
-        ))}
-      </div>
 
       <hr style={DIVIDER} />
 
