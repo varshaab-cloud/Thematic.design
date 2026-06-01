@@ -3,7 +3,41 @@
 import * as React from "react"
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, MoreHorizontal } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+
+// ─── PaginationButton ─────────────────────────────────────────────────────────
+// Dedicated button for pagination controls — uses pagination tokens directly
+// so that active, default, and disabled states are consistently token-driven.
+
+function PaginationButton({
+  active = false,
+  className,
+  disabled,
+  children,
+  ...props
+}: React.ComponentProps<"button"> & { active?: boolean }) {
+  return (
+    <button
+      disabled={disabled}
+      className={cn(
+        "inline-flex size-7 items-center justify-center select-none",
+        "rounded-[var(--component-nav-pagination-dimension-radius)]",
+        "border text-[length:var(--component-nav-pagination-typography-size)]",
+        "[transition:var(--alias-motion-transition-normal)] outline-none",
+        "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
+        "[&_svg]:size-3.5 [&_svg]:shrink-0",
+        active
+          ? "border-[var(--component-nav-pagination-color-stroke-active)] bg-[var(--component-nav-pagination-color-bg-active)] text-[var(--component-nav-pagination-color-text-active)] font-[number:var(--base-font-weight-medium)]"
+          : disabled
+          ? "border-[var(--component-nav-pagination-color-stroke-default)] bg-transparent text-[var(--component-nav-pagination-color-text-disabled)] cursor-not-allowed"
+          : "border-[var(--component-nav-pagination-color-stroke-default)] bg-transparent text-[var(--component-nav-pagination-color-text-default)] hover:bg-[var(--component-nav-pagination-color-bg-hover)] cursor-pointer",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -132,26 +166,22 @@ export function Pagination({
         )}
 
         {/* First page */}
-        <Button
-          variant="outline"
-          size="icon-sm"
+        <PaginationButton
           onClick={() => onPageChange(1)}
           disabled={isFirst}
           aria-label="First page"
         >
           <ChevronsLeft />
-        </Button>
+        </PaginationButton>
 
         {/* Prev page */}
-        <Button
-          variant="outline"
-          size="icon-sm"
+        <PaginationButton
           onClick={() => onPageChange(page - 1)}
           disabled={isFirst}
           aria-label="Previous page"
         >
           <ChevronLeft />
-        </Button>
+        </PaginationButton>
 
         {/* Page number buttons */}
         <div className="flex items-center gap-0.5">
@@ -165,41 +195,36 @@ export function Pagination({
                 <MoreHorizontal className="size-3.5" />
               </span>
             ) : (
-              <Button
+              <PaginationButton
                 key={item}
-                variant={item === page ? "default" : "ghost"}
-                size="icon-sm"
+                active={item === page}
                 onClick={() => onPageChange(item)}
                 aria-label={`Page ${item}`}
                 aria-current={item === page ? "page" : undefined}
               >
                 {item}
-              </Button>
+              </PaginationButton>
             )
           )}
         </div>
 
         {/* Next page */}
-        <Button
-          variant="outline"
-          size="icon-sm"
+        <PaginationButton
           onClick={() => onPageChange(page + 1)}
           disabled={isLast}
           aria-label="Next page"
         >
           <ChevronRight />
-        </Button>
+        </PaginationButton>
 
         {/* Last page */}
-        <Button
-          variant="outline"
-          size="icon-sm"
+        <PaginationButton
           onClick={() => onPageChange(totalPages)}
           disabled={isLast}
           aria-label="Last page"
         >
           <ChevronsRight />
-        </Button>
+        </PaginationButton>
       </div>
     </div>
   )

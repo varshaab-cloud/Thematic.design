@@ -133,7 +133,7 @@ export function CommandPalette({
             {/* Search input */}
             <div className="flex items-center gap-2.5 px-3 py-2.5 border-b border-[var(--component-command-color-stroke)]">
               <Search
-                className="shrink-0 text-[var(--component-feedback-badge-brand-color-text)]"
+                className="shrink-0 text-[var(--component-command-color-item-icon)]"
                 style={{ width: 16, height: 16 }}
               />
               <input
@@ -153,8 +153,8 @@ export function CommandPalette({
               <kbd
                 className={cn(
                   "hidden sm:inline-flex items-center gap-0.5 shrink-0",
-                  "text-[10px] text-[var(--component-feedback-badge-brand-color-text)]",
-                  "border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1 py-0.5"
+                  "text-[10px] text-[var(--component-command-color-item-shortcut)]",
+                  "border border-[var(--component-command-color-separator)] rounded px-1 py-0.5"
                 )}
               >
                 Esc
@@ -176,7 +176,7 @@ export function CommandPalette({
                   <p className="text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-subtle)]">
                     No results for &ldquo;{query}&rdquo;
                   </p>
-                  <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-feedback-badge-brand-color-text)]">
+                  <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-command-color-empty)]">
                     Try a different search term.
                   </p>
                 </div>
@@ -187,7 +187,7 @@ export function CommandPalette({
                     <p
                       className={cn(
                         "px-[var(--alias-spacing-padding-xs)] py-1 text-[10px] font-[number:var(--base-font-weight-semibold)] tracking-wider uppercase",
-                        "text-[var(--component-feedback-badge-brand-color-text)]"
+                        "text-[var(--component-command-color-group-heading)]"
                       )}
                     >
                       {group}
@@ -222,8 +222,8 @@ export function CommandPalette({
                               className={cn(
                                 "shrink-0 flex items-center justify-center",
                                 isActive
-                                  ? "text-[var(--alias-color-border-active)]"
-                                  : "text-[var(--component-feedback-badge-brand-color-text)]"
+                                  ? "text-[var(--component-command-color-item-indicator)]"
+                                  : "text-[var(--component-command-color-item-icon)]"
                               )}
                               style={{ width: 16, height: 16 }}
                             >
@@ -239,8 +239,8 @@ export function CommandPalette({
                                 className={cn(
                                   "block text-[length:var(--alias-typography-caption1-font-size)] truncate",
                                   isActive
-                                    ? "text-[var(--alias-color-border-active)]"
-                                    : "text-[var(--component-feedback-badge-brand-color-text)]"
+                                    ? "text-[var(--component-command-color-item-indicator)]"
+                                    : "text-[var(--component-command-color-item-description)]"
                                 )}
                               >
                                 {item.description}
@@ -252,8 +252,8 @@ export function CommandPalette({
                               className={cn(
                                 "shrink-0 text-[10px] border rounded px-1 py-0.5",
                                 isActive
-                                  ? "border-[var(--alias-color-background-hover)] text-[var(--alias-color-border-active)]"
-                                  : "border-[var(--component-feedback-badge-brand-color-bg)] text-[var(--component-feedback-badge-brand-color-text)]"
+                                  ? "border-[var(--component-command-color-separator)] text-[var(--component-command-color-item-indicator)]"
+                                  : "border-[var(--component-command-color-separator)] text-[var(--component-command-color-item-shortcut)]"
                               )}
                             >
                               {item.shortcut}
@@ -271,20 +271,20 @@ export function CommandPalette({
             <div
               className={cn(
                 "flex items-center gap-3 px-3 py-2 border-t border-[var(--component-command-color-stroke)]",
-                "text-[10px] text-[var(--component-feedback-badge-brand-color-text)]"
+                "text-[10px] text-[var(--component-command-color-group-heading)]"
               )}
             >
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">↑</kbd>
-                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">↓</kbd>
+                <kbd className="border border-[var(--component-command-color-separator)] rounded px-1">↑</kbd>
+                <kbd className="border border-[var(--component-command-color-separator)] rounded px-1">↓</kbd>
                 navigate
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">↵</kbd>
+                <kbd className="border border-[var(--component-command-color-separator)] rounded px-1">↵</kbd>
                 select
               </span>
               <span className="flex items-center gap-1">
-                <kbd className="border border-[var(--component-feedback-badge-brand-color-bg)] rounded px-1">Esc</kbd>
+                <kbd className="border border-[var(--component-command-color-separator)] rounded px-1">Esc</kbd>
                 close
               </span>
             </div>

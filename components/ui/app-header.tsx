@@ -24,7 +24,7 @@ export function AppHeader({
     <header
       data-slot="app-header"
       className={cn(
-        "flex items-center w-full bg-[var(--component-nav-header-color-bg)] px-[var(--alias-spacing-padding-md)] gap-[var(--alias-spacing-inline-md)]",
+        "flex items-center w-full bg-[var(--component-nav-header-color-bg)] px-[var(--alias-spacing-padding-md)] gap-[var(--alias-spacing-inline-md)] rounded-[var(--alias-radius-lg)]",
         sticky && "sticky top-0 z-50",
         bordered && "border-b border-[var(--component-nav-header-color-stroke)]",
         className
@@ -61,7 +61,7 @@ export function AppHeaderLogo({ name, src, className }: AppHeaderLogoProps) {
         <div
           className={cn(
             "w-7 h-7 rounded-[var(--base-radius-md)] flex items-center justify-center",
-            "bg-[var(--component-nav-header-color-bg)] text-[var(--component-nav-header-color-text-brand)]",
+            "bg-white/15 text-[var(--component-nav-header-color-text-brand)]",
             "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-bold)] leading-none select-none"
           )}
         >
@@ -321,7 +321,7 @@ export function AppHeaderUser({
           aria-label={`User menu for ${name}`}
           className={cn(
             "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-xs)] rounded-[var(--base-radius-md)]",
-            "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-tertiary)]",
+            "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-nav-header-color-text-nav)]",
             "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-input-field-color-stroke-focus)]",
             className
@@ -341,7 +341,7 @@ export function AppHeaderUser({
             {name}
           </span>
           <ChevronDown
-            className="text-[var(--component-input-field-color-text-placeholder)]"
+            className="text-[var(--component-nav-header-color-text-nav)] opacity-60"
             style={{ width: 14, height: 14 }}
           />
         </button>
