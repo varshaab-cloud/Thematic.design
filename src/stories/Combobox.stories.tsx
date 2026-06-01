@@ -5,7 +5,6 @@ import { Combobox } from "@/components/ui/combobox"
 const meta: Meta<typeof Combobox> = {
   title: "Forms and input/Combobox",
   component: Combobox,
-  tags: ["autodocs"],
   parameters: { layout: "centered" },
 }
 export default meta

@@ -1,0 +1,81 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as ComboboxStories from "./Combobox.stories"
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+<Canvas of={ComboboxStories.States} withToolbar={false} />
+
+A combobox combines a trigger button with a searchable dropdown list. Use it when users need to pick one option from a long list — typically more than ten items — and filtering by typing speeds up selection. For shorter, static lists where scanning is fast, use a [Select](/docs/forms-and-input-select--docs) instead.
+
+## States
+
+**Default** — The resting state. The trigger shows the placeholder text until a value is chosen.
+
+**Filled** — A value has been selected. A clear button (×) appears alongside the chevron so users can remove the selection without reopening the dropdown.
+
+**Error** — Shown when validation fails — for example, when a required field has no selection on form submit. The error message appears in red below the trigger.
+
+**Disabled** — The combobox cannot be opened. Always pair with helper text explaining why the field is unavailable and how to resolve it ("Contact admin to change.").
+
+## With descriptions
+
+<Canvas of={ComboboxStories.WithDescriptions} withToolbar={false} />
+
+Options can carry a secondary description line — useful when the label alone is ambiguous. Common uses: timezone offsets below a city name, a department below a person's name, or a plan feature summary below a plan tier name. Keep descriptions short (under 40 characters) so they don't wrap inside the dropdown.
+
+## Error state
+
+<Canvas of={ComboboxStories.WithError} withToolbar={false} />
+
+Validation errors appear as red text directly below the trigger. Trigger errors on form submit rather than on blur — combobox interactions are exploratory and surfacing errors mid-selection interrupts flow.
+
+## Disabled
+
+<Canvas of={ComboboxStories.Disabled} withToolbar={false} />
+
+Disabled comboboxes are read-only and cannot be interacted with. Use the `helperText` prop to explain the constraint so users know what to do next.
+
+## Usage guidelines
+
+**Choose combobox over select when** the list has more than ~10 items, the labels are long and benefit from search filtering, or users are likely to know what they're looking for before seeing the full list.
+
+**Choose select over combobox when** the list is short and scannable (under 10 items), the options need to be seen all at once to aid decision-making, or the interface is very compact (e.g. a table cell filter).
+
+**Clear button** — the × button appears only when a value is selected and the field is not disabled. Do not remove it: it gives users a one-click escape without having to reopen the dropdown.
+
+**Empty state** — always customise the `emptyText` prop to match the context ("No matching roles", "No country found") rather than leaving the generic fallback.
+
+## Playground
+
+<Controls of={ComboboxStories.Default} />
+
+## Accessibility
+
+The Combobox is built on Radix UI `PopoverPrimitive` combined with `CommandPrimitive`, giving it full keyboard support and correct ARIA semantics out of the box.
+
+**Built-in behaviour**
+
+- The trigger renders with `role="combobox"` and `aria-expanded` to communicate open/closed state to assistive technologies.
+- The search input inside the dropdown receives focus automatically when the popover opens.
+- `aria-invalid` is applied to the trigger whenever an `errorMessage` is present.
+- The clear button renders with `role="button"` and `aria-label="Clear selection"` so keyboard and screen reader users can remove the value without reopening the dropdown.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / away from the trigger |
+| `Enter` or `Space` | Opens the dropdown |
+| Type any character | Filters the list in real time via the search input |
+| `↑` / `↓` | Moves focus between matching options |
+| `Enter` | Selects the focused option and closes the dropdown |
+| `Escape` | Closes the dropdown without selecting |
+
+**Developer responsibilities**
+
+- **Always use a visible label** — pass the `label` prop so the field is announced correctly. Without a label, screen reader users have no context for what the field represents.
+- **Required fields** — set `required` so the asterisk renders alongside the label, and add `aria-required="true"` to the trigger if building a custom wrapper.
+- **Error messages** — the error text is rendered below the trigger. Wire up `aria-describedby` on the trigger pointing to the error element's `id` for reliable announcement on focus.
+- **Helper text** — provide `helperText` to set user expectations before submission; this reduces error frequency and avoids the need to explain constraints after failure.

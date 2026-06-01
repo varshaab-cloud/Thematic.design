@@ -173,12 +173,19 @@ function MetricCard({
 
       {/* Trend */}
       {(trend || trendValue) && (
-        <div className="flex items-center gap-[var(--alias-spacing-inline-xs)]">
+        <div
+          className="flex items-center gap-[var(--alias-spacing-inline-xs)]"
+          aria-label={[
+            trend === "up" ? "Up" : trend === "down" ? "Down" : trend === "neutral" ? "Neutral" : undefined,
+            trendValue,
+            trendLabel,
+          ].filter(Boolean).join(" ") || undefined}
+        >
           {TrendIcon && (
-            <TrendIcon className={cn("size-3.5 shrink-0", isBrand ? "text-white/70" : trendColor)} />
+            <TrendIcon aria-hidden="true" className={cn("size-3.5 shrink-0", isBrand ? "text-white/70" : trendColor)} />
           )}
           {trendValue && (
-            <span className={cn(
+            <span aria-hidden="true" className={cn(
               "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)]",
               isBrand ? "text-white/90" : trendColor
             )}>
@@ -186,7 +193,7 @@ function MetricCard({
             </span>
           )}
           {trendLabel && (
-            <span className={cn(
+            <span aria-hidden="true" className={cn(
               "text-[length:var(--alias-typography-caption1-font-size)]",
               isBrand ? "text-white/60" : "text-[var(--alias-color-text-subtle)]"
             )}>

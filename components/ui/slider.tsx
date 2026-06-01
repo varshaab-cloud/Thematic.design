@@ -28,6 +28,9 @@ function Slider({
   defaultValue,
   ...props
 }: SliderProps) {
+  const id = React.useId()
+  const labelId = label ? `${id}-label` : undefined
+  const helperId = helperText ? `${id}-helper` : undefined
   const currentValue = (value ?? defaultValue ?? [0]) as number[]
 
   return (
@@ -35,7 +38,12 @@ function Slider({
       {(label || showValue) && (
         <div className="flex items-center justify-between">
           {label && (
-            <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">{label}</label>
+            <label
+              id={labelId}
+              className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]"
+            >
+              {label}
+            </label>
           )}
           {showValue && (
             <span className="text-[length:var(--alias-typography-body-text2-font-size)] tabular-nums text-[var(--alias-color-text-subtle)]">
@@ -49,6 +57,8 @@ function Slider({
         data-slot="slider"
         value={value}
         defaultValue={defaultValue}
+        aria-labelledby={labelId}
+        aria-describedby={helperId}
         className={cn(
           "relative flex w-full touch-none items-center select-none",
           "data-[disabled]:opacity-50 data-[disabled]:pointer-events-none",
@@ -84,7 +94,7 @@ function Slider({
       </SliderPrimitive.Root>
 
       {helperText && (
-        <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)]">{helperText}</p>
+        <p id={helperId} className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-subtle)]">{helperText}</p>
       )}
     </div>
   )

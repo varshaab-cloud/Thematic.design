@@ -73,6 +73,7 @@ function Alert({
       <div
         data-slot="alert"
         role="alert"
+        aria-atomic="true"
         className={cn(alertVariants({ variant }), alertPaddingSizeClasses[size], alertIconSizeClasses[size], className)}
         {...props}
       />

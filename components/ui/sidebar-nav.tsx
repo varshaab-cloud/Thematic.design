@@ -60,7 +60,7 @@ function SidebarNav({
       )}
 
       {/* Nav sections */}
-      <nav className="flex-1 overflow-y-auto py-[var(--alias-spacing-padding-sm)] flex flex-col gap-[var(--alias-spacing-stack-md)]">
+      <nav aria-label="Main navigation" className="flex-1 overflow-y-auto py-[var(--alias-spacing-padding-sm)] flex flex-col gap-[var(--alias-spacing-stack-md)]">
         {sections.map((section, si) => (
           <div key={si} className="flex flex-col gap-0.5 px-[var(--alias-spacing-padding-xs)]">
             {section.title && !collapsed && (
@@ -73,6 +73,8 @@ function SidebarNav({
                 key={ii}
                 onClick={item.onClick}
                 title={collapsed ? item.label : undefined}
+                aria-label={collapsed ? item.label : undefined}
+                aria-current={item.active ? "page" : undefined}
                 className={cn(
                   "flex items-center gap-2.5 rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] h-8 text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] w-full text-left",
                   "text-[var(--component-nav-sidebar-color-item-text-default)] hover:bg-[var(--component-nav-sidebar-color-item-bg-hover)] hover:text-[var(--component-nav-sidebar-color-item-text-hover)]",

@@ -1,0 +1,73 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as MetricCardStories from "./MetricCard.stories"
+
+<Meta of={MetricCardStories} />
+
+# MetricCard
+
+<Canvas of={MetricCardStories.Variants} withToolbar={false} />
+
+A MetricCard displays a single KPI with its trend direction. Use metric cards in dashboards and summary pages where users need to quickly read a key number and understand whether it is moving in the right direction.
+
+Always show a trend label so the comparison period is clear ("vs last month", "vs last week"). Never show a trend arrow without a reference period — direction without context is meaningless.
+
+## Variants
+
+**Default** — A neutral surface for any quantitative metric. Works in any context.
+
+**Brand** — Use to highlight the most important or signature metric — typically the primary business KPI in a dashboard header. The solid brand-blue background commands the most visual weight in a grid.
+
+**Success** — Use when the metric reflects a healthy state (high uptime, strong conversion, low error rate). The green tint reinforces positive status.
+
+**Warning** — Use when a metric is approaching a threshold that requires attention but hasn't yet become critical. The amber tint signals "watch this".
+
+**Error** — Use when a metric reflects a critical or failing state (high error rate, failed payments, SLA breach). Reserve for genuinely actionable problems.
+
+## Default
+
+<Canvas of={MetricCardStories.Default} withToolbar={false} />
+
+Displays a label, a large value, and a trend row. The icon in the top-right corner gives a quick visual cue for the metric's domain — use icons sparingly and consistently (one per card, same icon style throughout the grid).
+
+## Brand
+
+<Canvas of={MetricCardStories.Brand} withToolbar={false} />
+
+The brand variant inverts the colour scheme to white text on the brand blue. Use for the single most important metric on a page — overusing it removes the emphasis.
+
+## Trend directions
+
+<Canvas of={MetricCardStories.TrendDirections} withToolbar={false} />
+
+The trend row combines an arrow icon, a delta value, and a comparison label. Choose direction semantics carefully — "up" does not always mean good. Churn going up is bad; revenue going up is good. If needed, use the `variant` prop to reinforce whether the direction is positive or negative:
+
+- Revenue +12.5% → `trend="up"` + default or success variant
+- Churn +0.4% → `trend="up"` + warning or error variant
+- No change → `trend="neutral"` + default variant
+
+## Without icon
+
+<Canvas of={MetricCardStories.WithoutIcon} withToolbar={false} />
+
+The `icon` prop is optional. Omit it for compact grids where icons add clutter, or when the label is already descriptive enough on its own.
+
+## Small size
+
+<Canvas of={MetricCardStories.Small} withToolbar={false} />
+
+Use `size="sm"` when fitting more cards into a constrained layout — for example, a sidebar summary row or a 4-column grid at narrow viewport widths. The value font size and padding are reduced; all content still renders.
+
+## Dashboard grid
+
+<Canvas of={MetricCardStories.Dashboard} withToolbar={false} />
+
+Arrange metric cards in a responsive grid (2–4 columns depending on viewport) at the top of a dashboard. Keep comparison periods consistent across all cards in the same view — mixing "vs last month" and "vs last year" in the same row makes trend comparisons misleading.
+
+## Accessibility
+
+**Developer responsibilities**
+
+- **Trend indicators** — the trend arrow and percentage are visual. Wrap the entire trend row in a `<span aria-label="Up 12.5% vs last month">` so screen reader users hear the full direction and magnitude in one announcement. Do not rely on the arrow icon alone.
+- **Colour-only meaning** — variant colours (success green, warning amber, error red) must not be the only signal. Always pair them with a clear label or icon so users who cannot distinguish colours still understand the state.
+- **Value format** — ensure large formatted numbers include a readable equivalent if the abbreviated form is ambiguous (e.g. "$48.3k" vs "$48,295"). For screen readers, consider an `aria-label` on the value element with the full unabbreviated figure.
+- **Heading hierarchy** — if `CardTitle` / the metric label should be part of the page outline, render it as a heading element at the appropriate level rather than a plain `<p>`.
