@@ -349,6 +349,93 @@
   --alias-spacing-page-md: 4rem;
   --alias-spacing-page-lg: 5rem;
 
+  /* Radius Aliases */
+  --alias-radius-xs: var(--base-radius-xs);
+  --alias-radius-sm: var(--base-radius-sm);
+  --alias-radius-md: var(--base-radius-md);
+  --alias-radius-lg: var(--base-radius-lg);
+  --alias-radius-xl: var(--base-radius-xl);
+  --alias-radius-full: 9999px;
+
+  /* Stroke Aliases — semantic names for component border tokens */
+  --alias-color-stroke-default: var(--alias-color-border-default);
+  --alias-color-stroke-active: var(--alias-color-border-active);
+  --alias-color-stroke-disabled: var(--alias-color-border-disabled);
+  --alias-color-stroke-brand: var(--alias-color-border-brand);
+  --alias-color-stroke-error: var(--alias-color-border-error);
+  --alias-color-border-subtle: #e3e3e0;
+
+  /* Elevation Aliases */
+  --alias-elevation-none: none;
+  --alias-elevation-1: var(--base-shadow-01);
+  --alias-elevation-2: var(--base-shadow-02);
+  --alias-elevation-3: var(--base-shadow-03);
+  --alias-elevation-5: var(--base-shadow-05);
+  --alias-elevation-md: var(--base-shadow-03);
+
+  /* Focus Ring */
+  --alias-focus-ring-color: var(--alias-color-border-active);
+  --alias-focus-ring-offset: 2px;
+  --alias-focus-ring: 0 0 0 3px rgba(28, 33, 220, 0.25);
+
+  /* Misc Colour Aliases */
+  --alias-color-background-inverse: #222222;
+  --alias-color-overlay-default: rgba(0, 0, 0, 0.5);
+  --alias-color-text-error: var(--semantic-color-error-800);
+  --alias-color-text-success: var(--semantic-color-success-800);
+  --alias-border-width: 1px;
+
+  /* Feedback Stroke Aliases */
+  --alias-color-feedback-error-stroke: var(--alias-color-border-error);
+  --alias-color-feedback-success-stroke: var(--alias-color-border-success);
+  --alias-color-feedback-warning-stroke: var(--alias-color-border-warning);
+  --alias-color-feedback-info-stroke: var(--alias-color-border-info);
+
+  /* Destructive Action Backgrounds */
+  --alias-color-action-destructive-bg-default: var(--semantic-color-error-700);
+  --alias-color-action-destructive-bg-hover: var(--semantic-color-error-800);
+  --alias-color-action-destructive-bg-active: #7f1d1d;
+
+  /* Typography Short-form Aliases */
+  --alias-typography-button-family: var(--alias-typography-button-font-family);
+  --alias-typography-button-size: var(--alias-typography-button-font-size);
+  --alias-typography-button-weight: var(--alias-typography-button-font-weight);
+
+  --alias-typography-label-family: var(--alias-typography-body-text2-font-family);
+  --alias-typography-label-size: var(--alias-typography-subheading2-font-size);
+  --alias-typography-label-weight: var(--alias-typography-subheading2-font-weight);
+  --alias-typography-label-line-height: var(--alias-typography-subheading2-line-height);
+
+  --alias-typography-helper-family: var(--alias-typography-caption1-font-family);
+  --alias-typography-helper-size: var(--alias-typography-caption1-font-size);
+  --alias-typography-helper-weight: var(--alias-typography-caption1-font-weight);
+  --alias-typography-helper-line-height: var(--alias-typography-caption1-line-height);
+
+  --alias-typography-badge-family: var(--alias-typography-caption1-font-family);
+  --alias-typography-badge-size: var(--alias-typography-caption1-font-size);
+  --alias-typography-badge-weight: var(--alias-typography-button-font-weight);
+  --alias-typography-badge-line-height: var(--alias-typography-caption1-line-height);
+
+  --alias-typography-body-1-family: var(--alias-typography-body-text1-font-family);
+  --alias-typography-body-1-size: var(--alias-typography-body-text1-font-size);
+  --alias-typography-body-1-weight: var(--alias-typography-body-text1-font-weight);
+  --alias-typography-body-1-line-height: var(--alias-typography-body-text1-line-height);
+
+  --alias-typography-body-2-family: var(--alias-typography-body-text2-font-family);
+  --alias-typography-body-2-size: var(--alias-typography-body-text2-font-size);
+  --alias-typography-body-2-weight: var(--alias-typography-body-text2-font-weight);
+  --alias-typography-body-2-line-height: var(--alias-typography-body-text2-line-height);
+
+  --alias-typography-heading-5-family: var(--alias-typography-heading5-font-family);
+  --alias-typography-heading-5-size: var(--alias-typography-heading5-font-size);
+  --alias-typography-heading-5-weight: var(--alias-typography-heading5-font-weight);
+  --alias-typography-heading-5-line-height: var(--alias-typography-heading5-line-height);
+
+  --alias-typography-heading-6-family: var(--alias-typography-heading6-font-family);
+  --alias-typography-heading-6-size: var(--alias-typography-heading6-font-size);
+  --alias-typography-heading-6-weight: var(--alias-typography-heading6-font-weight);
+  --alias-typography-heading-6-line-height: var(--alias-typography-heading6-line-height);
+
   /* === BRAND TOKENS (from 1.2) === */
 
   /* Cobalt — Primary */
