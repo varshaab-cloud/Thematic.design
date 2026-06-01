@@ -2,22 +2,22 @@ import { Meta } from "@storybook/addon-docs/blocks"
 
 <Meta title="Thematic Design System/Introduction" />
 
-<div style={{ fontFamily: "var(--font-sans, 'Open Sans', sans-serif)", maxWidth: 680, margin: "0 auto", padding: "56px 24px 80px" }}>
+<div style={{ fontFamily: "var(--font-sans, 'Open Sans', sans-serif)", maxWidth: 680, margin: "0 auto", padding: "40px 24px 56px" }}>
 
 {/* ── Header ── */}
-<div style={{ marginBottom: 56 }}>
-  <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#909090", margin: "0 0 20px" }}>
+<div style={{ marginBottom: 40 }}>
+  <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#909090", margin: "0 0 16px" }}>
     Thematic Design System
   </p>
   <h1 style={{ fontSize: 32, fontWeight: 700, lineHeight: 1.2, margin: "0 0 12px", color: "#111111", letterSpacing: "-0.02em" }}>
-    A design system for enterprise<br />and healthcare products
+    A design system for enterprise applications
   </h1>
-  <div style={{ width: 32, height: 2, background: "#e3e3e0", margin: "20px 0 0" }} />
+  <div style={{ width: 32, height: 2, background: "#e3e3e0", margin: "16px 0 0" }} />
 </div>
 
 {/* ── Intro ── */}
-<div style={{ marginBottom: 56 }}>
-  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 16px" }}>
+<div style={{ marginBottom: 40 }}>
+  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 14px" }}>
     Thematic is a design system designed for complex, information-rich applications where accuracy, consistency, and efficiency matter. It provides a shared language for designers, engineers, and AI-assisted workflows to build interfaces that remain clear and predictable as products evolve.
   </p>
   <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: 0 }}>
@@ -26,42 +26,46 @@ import { Meta } from "@storybook/addon-docs/blocks"
 </div>
 
 {/* ── Divider ── */}
-<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 56 }} />
+<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 40 }} />
 
-{/* ── Design Principles ── */}
-<div style={{ marginBottom: 56 }}>
-  <h2 style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#909090", margin: "0 0 32px" }}>
-    Design principles
+{/* ── Features ── */}
+<div style={{ marginBottom: 40 }}>
+  <h2 style={{ fontSize: 13, fontWeight: 600, color: "#333333", margin: "0 0 24px" }}>
+    Features
   </h2>
 
   <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
     {[
       {
-        title: "Hierarchy before decoration",
-        body: "Visual hierarchy should communicate structure before aesthetics. Typography, spacing, alignment, and layout establish priority and guide attention. Emphasis is used intentionally, ensuring primary actions remain clear while secondary functionality is revealed through progressive disclosure."
+        title: "Structure creates clarity",
+        body: "Complex workflows demand clear organisation. Hierarchy is established through typography, spacing, grouping, and layout, helping users understand relationships between information and identify what requires attention. Primary actions remain obvious, while secondary functionality is introduced through progressive disclosure, reducing visual noise without limiting capability."
       },
       {
         title: "Information density with clarity",
-        body: "Enterprise and healthcare workflows require access to meaningful information without unnecessary navigation. Components are designed to support data-rich experiences while maintaining scanability, readability, and clear relationships between content."
+        body: "Enterprise workflows require access to meaningful information without unnecessary navigation. Components are designed to support data-rich experiences while maintaining scanability, readability, and clear relationships between content."
       },
       {
         title: "Consistency builds trust",
         body: "Users should not need to relearn interactions from screen to screen. Common patterns, behaviours, terminology, and visual cues are applied consistently across the system, allowing attention to remain on the task rather than the interface."
       },
       {
-        title: "Accessible by default",
-        body: "Accessibility is a foundational requirement, not an enhancement. Components are designed and tested with keyboard navigation, assistive technologies, semantic structure, and contrast requirements in mind from the outset."
+        title: "Accessibility is a continuous practice",
+        body: "Accessibility is considered throughout the design and development process rather than treated as a final review step. Components are designed with keyboard interaction, semantic structure, focus management, and contrast requirements in mind, and the system continues to evolve as accessibility coverage expands and improves over time."
       },
       {
         title: "Systems over exceptions",
         body: "Design decisions are made systematically rather than individually. Shared foundations govern spacing, typography, colour, motion, and interaction behaviour, creating a cohesive experience that can scale across products and teams."
       },
-    ].map(({ title, body }, i, arr) => (
+      {
+        title: "Design tokens",
+        body: "Consistency is maintained through a three-tier token architecture. Foundation tokens define raw values, semantic tokens assign meaning, and component tokens provide implementation-specific behaviour. This separation allows brands, themes, and product variants to change at scale while preserving a consistent component model and interaction language."
+      },
+    ].map(({ title, body }, i) => (
       <div key={title} style={{
         display: "grid",
         gridTemplateColumns: "200px 1fr",
         gap: "0 32px",
-        padding: "24px 0",
+        padding: "18px 0",
         borderTop: i === 0 ? "none" : "1px solid #f0f0ee",
       }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: "#222222", margin: 0, lineHeight: 1.5, paddingTop: 2 }}>
@@ -76,17 +80,17 @@ import { Meta } from "@storybook/addon-docs/blocks"
 </div>
 
 {/* ── Divider ── */}
-<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 56 }} />
+<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 40 }} />
 
 {/* ── Visual Language ── */}
-<div style={{ marginBottom: 56 }}>
-  <h2 style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#909090", margin: "0 0 20px" }}>
+<div style={{ marginBottom: 40 }}>
+  <h2 style={{ fontSize: 13, fontWeight: 600, color: "#333333", margin: "0 0 16px" }}>
     Visual language
   </h2>
-  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 16px" }}>
+  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 14px" }}>
     The visual language prioritises clarity over expression.
   </p>
-  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 16px" }}>
+  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 14px" }}>
     Colour is used sparingly and purposefully. A single anchor colour identifies primary actions, active states, and key moments of emphasis, while neutral surfaces and controls carry the majority of the interface. This creates a predictable visual rhythm and makes important actions easier to locate.
   </p>
   <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: 0 }}>
@@ -95,17 +99,17 @@ import { Meta } from "@storybook/addon-docs/blocks"
 </div>
 
 {/* ── Divider ── */}
-<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 56 }} />
+<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 40 }} />
 
 {/* ── Documentation as a product ── */}
-<div style={{ marginBottom: 56 }}>
-  <h2 style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#909090", margin: "0 0 20px" }}>
+<div style={{ marginBottom: 40 }}>
+  <h2 style={{ fontSize: 13, fontWeight: 600, color: "#333333", margin: "0 0 16px" }}>
     Documentation as a product
   </h2>
-  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 16px" }}>
+  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 14px" }}>
     Thematic documentation is maintained as a source of truth for both people and AI systems.
   </p>
-  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 16px" }}>
+  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 14px" }}>
     For designers and engineers, documentation explains intent, usage, constraints, accessibility considerations, and implementation guidance. The objective is not only to describe components, but to explain the reasoning behind them so teams can make consistent decisions in new situations.
   </p>
   <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: 0 }}>
@@ -114,14 +118,14 @@ import { Meta } from "@storybook/addon-docs/blocks"
 </div>
 
 {/* ── Divider ── */}
-<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 56 }} />
+<div style={{ borderTop: "1px solid #e8e8e6", marginBottom: 40 }} />
 
 {/* ── Using Thematic ── */}
 <div>
-  <h2 style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#909090", margin: "0 0 20px" }}>
+  <h2 style={{ fontSize: 13, fontWeight: 600, color: "#333333", margin: "0 0 16px" }}>
     Using Thematic
   </h2>
-  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 32px" }}>
+  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#464646", margin: "0 0 24px" }}>
     The system is organised into a small set of layers. Start with the problem you are solving, then work downward from patterns to components and foundations. The system is designed to help teams make fewer decisions, not more.
   </p>
 
@@ -131,12 +135,12 @@ import { Meta } from "@storybook/addon-docs/blocks"
       { label: "Components", desc: "Reusable building blocks with documented behaviour and implementation guidance." },
       { label: "Patterns", desc: "How components work together to support common workflows." },
       { label: "Templates", desc: "Complete page structures and application layouts built from established patterns." },
-    ].map(({ label, desc }, i, arr) => (
+    ].map(({ label, desc }, i) => (
       <div key={label} style={{
         display: "grid",
         gridTemplateColumns: "120px 1fr",
         gap: "0 32px",
-        padding: "16px 0",
+        padding: "14px 0",
         borderTop: i === 0 ? "none" : "1px solid #f0f0ee",
         alignItems: "baseline",
       }}>
