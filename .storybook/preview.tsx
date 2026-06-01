@@ -5,7 +5,12 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 
 const preview: Preview = {
   parameters: {
-    docs: {},
+    docs: {
+      toc: {
+        headingSelector: "h2",
+        title: "Contents",
+      },
+    },
     layout: "centered",
     options: {
       storySort: {
