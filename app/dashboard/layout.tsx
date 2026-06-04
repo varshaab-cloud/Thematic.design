@@ -3,46 +3,67 @@
 import React from "react"
 import { usePathname, useRouter } from "next/navigation"
 import {
-  LayoutDashboard,
+  Home,
+  Clock,
+  Landmark,
+  Layers,
   Users,
-  BarChart2,
-  Settings,
-  FileText,
-  Inbox,
-  Bell,
+  Award,
+  CalendarClock,
+  CalendarDays,
+  Plane,
+  ClipboardPen,
+  CalendarHeart,
+  Truck,
+  Car,
+  AlertCircle,
+  Receipt,
+  User,
   LogOut,
-  Plug,
-  CreditCard,
-  ShieldCheck,
+  Menu,
 } from "lucide-react"
 import { SidebarNav } from "@/components/ui/sidebar-nav"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 // ─── Nav structure ────────────────────────────────────────────────────────────
 
 const NAV = [
   {
     items: [
-      { label: "Overview",  icon: <LayoutDashboard />, href: "/dashboard" },
-      { label: "Inbox",     icon: <Inbox />,           href: "/dashboard/inbox",  badge: 4 },
-      { label: "Reports",   icon: <BarChart2 />,        href: "/dashboard/reports" },
-      { label: "Documents", icon: <FileText />,         href: "/dashboard/documents" },
+      { label: "Home", icon: <Home />, href: "/dashboard" },
     ],
   },
   {
-    title: "Manage",
+    title: "Operations",
     items: [
-      { label: "Team",          icon: <Users />,       href: "/dashboard/team",          badge: 12 },
-      { label: "Notifications", icon: <Bell />,        href: "/dashboard/notifications" },
+      { label: "Attendance",    icon: <Clock />,         href: "/dashboard/attendance" },
+      { label: "Leaves & Att.", icon: <Plane />,         href: "/dashboard/leaves",  badge: 2 },
+      { label: "Shifts",        icon: <CalendarClock />, href: "/dashboard/shifts" },
+      { label: "Roster",        icon: <CalendarDays />,  href: "/dashboard/roster" },
     ],
   },
   {
-    title: "Settings",
+    title: "Administration",
     items: [
-      { label: "Integrations", icon: <Plug />,        href: "/dashboard/settings" },
-      { label: "Billing",      icon: <CreditCard />,  href: "/dashboard/settings" },
-      { label: "Security",     icon: <ShieldCheck />, href: "/dashboard/settings" },
-      { label: "Settings",     icon: <Settings />,    href: "/dashboard/settings" },
+      { label: "Employees",    icon: <Users />,    href: "/dashboard/employees" },
+      { label: "Branches",     icon: <Landmark />, href: "/dashboard/branches" },
+      { label: "Dept & Roles", icon: <Layers />,   href: "/dashboard/departments" },
+      { label: "Vendors",      icon: <Truck />,    href: "/dashboard/vendors" },
+    ],
+  },
+  {
+    title: "Admin",
+    collapsible: true,
+    items: [
+      { label: "Roles & Assignments", icon: <Award />, href: "/dashboard/roles" },
+    ],
+  },
+  {
+    title: "Parking",
+    collapsible: true,
+    items: [
+      { label: "Parking",      icon: <Car />,         href: "/dashboard/parking" },
+      { label: "Incidents",    icon: <AlertCircle />, href: "/dashboard/incidents" },
+      { label: "Parking Fees", icon: <Receipt />,     href: "/dashboard/parking-fees" },
     ],
   },
 ]
@@ -51,11 +72,13 @@ const NAV = [
 
 function Logo() {
   return (
-    <div className="flex items-center gap-2">
-      <div className="w-6 h-6 rounded-md bg-[var(--base-color-blue-800)] flex items-center justify-center shrink-0">
-        <span className="text-white text-[10px] font-bold leading-none">T</span>
-      </div>
-      <span className="text-sm font-semibold text-foreground tracking-tight">Thematic</span>
+    <div className="flex items-center gap-2.5 w-full">
+      <button className="text-[var(--alias-color-text-subtle)] hover:text-[var(--alias-color-text-primary)] transition-colors shrink-0">
+        <Menu className="size-4" />
+      </button>
+      <span className="text-sm font-semibold text-[var(--alias-color-text-primary)] truncate">
+        Safehalo Attendance
+      </span>
     </div>
   )
 }
@@ -63,22 +86,22 @@ function Logo() {
 // ─── User footer ──────────────────────────────────────────────────────────────
 
 function UserFooter() {
+  const router = useRouter()
   return (
-    <div className="flex items-center gap-2.5 w-full">
-      <Avatar className="h-7 w-7 shrink-0">
-        <AvatarFallback className="text-[10px] bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)] font-semibold">
-          VS
-        </AvatarFallback>
-      </Avatar>
-      <div className="flex-1 min-w-0">
-        <p className="text-xs font-medium text-foreground truncate">Varsha S.</p>
-        <p className="text-[10px] text-muted-foreground truncate">varsha@thematic.io</p>
-      </div>
+    <div className="flex flex-col gap-0.5">
       <button
-        className="shrink-0 text-muted-foreground hover:text-foreground transition-colors"
-        title="Sign out"
+        onClick={() => router.push("/dashboard/profile")}
+        className="flex items-center gap-2.5 px-2 h-8 rounded-md text-xs text-[var(--alias-color-text-secondary)] hover:bg-[var(--alias-color-background-tertiary)] hover:text-[var(--alias-color-text-primary)] transition-colors w-full text-left"
       >
-        <LogOut className="size-3.5" />
+        <User className="size-4 shrink-0" />
+        <span>Profile</span>
+      </button>
+      <button
+        onClick={() => router.push("/login")}
+        className="flex items-center gap-2.5 px-2 h-8 rounded-md text-xs text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--alias-color-feedback-error-bg)] transition-colors w-full text-left"
+      >
+        <LogOut className="size-4 shrink-0" />
+        <span>Logout</span>
       </button>
     </div>
   )
@@ -94,8 +117,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     ...section,
     items: section.items.map(item => ({
       ...item,
-      active:  item.href === pathname,
-      onClick: () => router.push(item.href),
+      active:  pathname === item.href,
+      onClick: () => router.push(item.href!),
     })),
   }))
 

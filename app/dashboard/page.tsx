@@ -1,214 +1,135 @@
 "use client"
 
-/**
- * app/dashboard/page.tsx
- *
- * The Overview dashboard screen.
- * Accessible at: http://localhost:3000/dashboard
- *
- * This file only contains the RIGHT-HAND content.
- * The sidebar comes from app/dashboard/layout.tsx automatically.
- *
- * To customise this page:
- *   - Edit the `kpiCards` array to change the metric values
- *   - Replace the <ChartPlaceholder> blocks with a real chart library
- *   - Replace `activityFeed` data with real API data
- */
-
-import React from "react"
-import {
-  Users,
-  FileText,
-  TrendingUp,
-  Bell,
-  Plus,
-  Filter,
-  Download,
-  ArrowUpRight,
-} from "lucide-react"
+import React, { useState } from "react"
+import { ChevronDown, ChevronRight, GitFork } from "lucide-react"
 import { MetricCard } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-// ─── KPI data ─────────────────────────────────────────────────────────────────
-// Edit these values to show your real metrics.
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
-const kpiCards = [
-  {
-    label:      "Monthly active users",
-    value:      "12,840",
-    trend:      "up"      as const,
-    trendValue: "+8.2%",
-    trendLabel: "vs last month",
-    icon:       <Users />,
-    variant:    "brand"   as const,
-  },
-  {
-    label:      "Projects completed",
-    value:      "284",
-    trend:      "up"      as const,
-    trendValue: "+12",
-    trendLabel: "this week",
-    icon:       <FileText />,
-    variant:    "default" as const,
-  },
-  {
-    label:      "Avg. response time",
-    value:      "1.4s",
-    trend:      "down"    as const,
-    trendValue: "−0.3s",
-    trendLabel: "improvement",
-    icon:       <TrendingUp />,
-    variant:    "success" as const,
-  },
-  {
-    label:      "Open issues",
-    value:      "37",
-    trend:      "neutral" as const,
-    trendValue: "No change",
-    icon:       <Bell />,
-    variant:    "warning" as const,
-  },
+const departments = [
+  { name: "Property Management", total: 24,   present: 0, absent: 24,   leave: 0 },
+  { name: "Security",            total: 64,   present: 0, absent: 64,   leave: 0 },
+  { name: "STP",                 total: 8,    present: 0, absent: 8,    leave: 0 },
+  { name: "Technical",           total: 33,   present: 0, absent: 33,   leave: 0 },
+  { name: "Housekeeping",        total: 41,   present: 0, absent: 41,   leave: 0 },
+  { name: "Waste Management",    total: 6,    present: 0, absent: 6,    leave: 0 },
+  { name: "Horticulture",        total: 10,   present: 0, absent: 10,   leave: 0 },
+  { name: "Parking Management",  total: 22,   present: 0, absent: 22,   leave: 0 },
+  { name: "Valetez",             total: 18,   present: 0, absent: 18,   leave: 0 },
+  { name: "Unassigned",          total: 1951, present: 0, absent: 1951, leave: 0, muted: true },
 ]
 
-// ─── Activity feed data ───────────────────────────────────────────────────────
-
-const activityFeed = [
-  { initials: "PS", name: "Priya Sharma",  action: "completed sprint review",       time: "2m ago",  color: "#C4C5F4" },
-  { initials: "JL", name: "James Lee",     action: "merged pull request #42",        time: "18m ago", color: "#DCFCE7" },
-  { initials: "MK", name: "Mia Kaur",      action: "created a new design token set", time: "1h ago",  color: "#FEF9C3" },
-  { initials: "TN", name: "Tom Nguyen",    action: "updated workspace settings",     time: "3h ago",  color: "#E0E7FF" },
-  { initials: "AR", name: "Ana Reyes",     action: "invited 2 new members",          time: "5h ago",  color: "#FCE7F3" },
-]
-
-// ─── Chart placeholder ────────────────────────────────────────────────────────
-// Replace this with Recharts, Chart.js, etc. when you're ready.
-
-function ChartPlaceholder({ label }: { label: string }) {
-  return (
-    <div className="flex items-center justify-center rounded-lg border-2 border-dashed border-[var(--base-color-gray-200)] bg-[var(--base-color-gray-75)] h-[200px]">
-      <span className="text-[10px] font-medium uppercase tracking-widest text-[var(--base-color-gray-500)]">
-        {label}
-      </span>
-    </div>
-  )
-}
+const orgTotal   = departments.reduce((s, d) => s + d.total,   0)
+const orgPresent = departments.reduce((s, d) => s + d.present, 0)
+const orgAbsent  = departments.reduce((s, d) => s + d.absent,  0)
+const orgLeave   = departments.reduce((s, d) => s + d.leave,   0)
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function DashboardPage() {
+  const [orgExpanded, setOrgExpanded] = useState(true)
+
   return (
-    <>
-      {/* ── Top header bar ── */}
-      <header className="h-14 shrink-0 border-b border-[var(--base-color-gray-200)] bg-white flex items-center justify-between px-6">
-        <div>
-          <p className="text-sm font-semibold text-foreground">Overview</p>
-          <p className="text-[11px] text-muted-foreground">Workspace activity at a glance</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm">
-            <Filter className="size-3.5" />
-            Filter
-          </Button>
-          <Button variant="outline" size="sm">
-            <Download className="size-3.5" />
-            Export
-          </Button>
-          <Button size="sm">
-            <Plus className="size-3.5" />
-            New report
-          </Button>
-        </div>
-      </header>
+    <div className="flex flex-col h-full overflow-hidden">
+      <div className="flex-1 overflow-y-auto p-8">
 
-      {/* ── Scrollable content ── */}
-      <main className="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
-
-        {/* KPI cards */}
-        <section>
-          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--base-color-gray-500)] mb-3">
-            Key metrics
+        {/* Page heading */}
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-[var(--alias-color-text-primary)]">Dashboard</h1>
+          <p className="text-sm text-[var(--alias-color-text-secondary)] mt-1">
+            Welcome,{" "}
+            <span className="font-semibold text-[var(--alias-color-text-primary)]">Shwetha Manager</span>
+            {" "}— Tuesday, 02 Jun 2026
           </p>
-          <div className="grid grid-cols-4 gap-3">
-            {kpiCards.map((card) => (
-              <MetricCard key={card.label} {...card} />
-            ))}
-          </div>
-        </section>
+        </div>
 
-        {/* Charts row */}
-        <section className="grid grid-cols-[2fr_1fr] gap-4">
+        {/* ── Pending tiles ── */}
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <MetricCard label="Pending Leaves"      value={1} variant="brand" />
+          <MetricCard label="Pending Att. Changes" value={1} variant="brand" />
+        </div>
 
-          {/* Main chart */}
-          <div className="bg-white rounded-xl border border-[var(--base-color-gray-200)] p-5">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <p className="text-sm font-semibold text-foreground">Activity over time</p>
-                <p className="text-[11px] text-muted-foreground">Daily active users — last 30 days</p>
-              </div>
-              {/* Time-range selector — swap TabsTrigger values to filter real data */}
-              <Tabs defaultValue="30d">
-                <TabsList>
-                  <TabsTrigger value="7d">7d</TabsTrigger>
-                  <TabsTrigger value="30d">30d</TabsTrigger>
-                  <TabsTrigger value="90d">90d</TabsTrigger>
-                </TabsList>
-              </Tabs>
+        {/* ── Org section ── */}
+        <div className="border border-[var(--alias-color-border-default)] rounded-xl bg-white overflow-hidden">
+
+          {/* Org header row */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--alias-color-border-subtle)]">
+            <button
+              onClick={() => setOrgExpanded(v => !v)}
+              className="flex items-center gap-2 text-sm font-semibold text-[var(--alias-color-text-primary)] hover:text-[var(--alias-color-text-brand)] transition-colors"
+            >
+              {orgExpanded
+                ? <ChevronDown className="size-4 text-[var(--alias-color-text-subtle)]" />
+                : <ChevronRight className="size-4 text-[var(--alias-color-text-subtle)]" />
+              }
+              <GitFork className="size-4 text-[var(--alias-color-text-subtle)] rotate-180" />
+              EcoWorld
+              <span className="text-[var(--alias-color-text-subtle)] font-normal">({orgTotal})</span>
+            </button>
+            <div className="flex items-center gap-4 text-xs text-[var(--alias-color-text-subtle)]">
+              <span>P: <span className="text-[var(--alias-color-feedback-success-fg)] font-medium">{orgPresent}</span></span>
+              <span>A: <span className="text-[var(--alias-color-feedback-error-fg)] font-medium">{orgAbsent}</span></span>
+              <span>L: <span className="text-[var(--alias-color-text-secondary)] font-medium">{orgLeave}</span></span>
             </div>
-            <ChartPlaceholder label="Line chart — swap in Recharts or Chart.js here" />
           </div>
 
-          {/* Breakdown chart */}
-          <div className="bg-white rounded-xl border border-[var(--base-color-gray-200)] p-5">
-            <div className="mb-4">
-              <p className="text-sm font-semibold text-foreground">Category split</p>
-              <p className="text-[11px] text-muted-foreground">Usage by feature area</p>
-            </div>
-            <ChartPlaceholder label="Donut chart — swap in Recharts here" />
-          </div>
-
-        </section>
-
-        {/* Activity feed */}
-        <section>
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--base-color-gray-500)]">
-              Recent activity
-            </p>
-            <Button variant="ghost" size="xs">
-              View all
-              <ArrowUpRight className="size-3" />
-            </Button>
-          </div>
-
-          <div className="bg-white rounded-xl border border-[var(--base-color-gray-200)] overflow-hidden">
-            {activityFeed.map((item, i) => (
-              <React.Fragment key={i}>
-                <div className="flex items-center gap-3 px-4 py-3">
-                  <Avatar className="h-8 w-8 shrink-0">
-                    <AvatarFallback
-                      className="text-[10px] font-semibold"
-                      style={{ backgroundColor: item.color }}
-                    >
-                      {item.initials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <p className="flex-1 text-xs text-foreground">
-                    <span className="font-medium">{item.name}</span>
-                    {" "}{item.action}
-                  </p>
-                  <Badge variant="outline" size="sm">{item.time}</Badge>
+          {orgExpanded && (
+            <>
+              {/* ── Stat tiles ── */}
+              <div className="grid grid-cols-4 gap-px bg-[var(--alias-color-border-subtle)] border-b border-[var(--alias-color-border-subtle)]">
+                <div className="bg-white px-6 py-4 text-center">
+                  <p className="text-xs text-[var(--alias-color-text-subtle)] mb-1">Total</p>
+                  <p className="text-2xl font-bold text-[var(--alias-color-text-primary)]">{orgTotal}</p>
                 </div>
-                {i < activityFeed.length - 1 && <Separator />}
-              </React.Fragment>
-            ))}
-          </div>
-        </section>
+                <div className="bg-[var(--alias-color-feedback-success-bg)] px-6 py-4 text-center">
+                  <p className="text-xs text-[var(--alias-color-feedback-success-fg)] mb-1">Present</p>
+                  <p className="text-2xl font-bold text-[var(--alias-color-feedback-success-fg)]">{orgPresent}</p>
+                </div>
+                <div className="bg-[var(--alias-color-feedback-error-bg)] px-6 py-4 text-center">
+                  <p className="text-xs text-[var(--alias-color-feedback-error-fg)] mb-1">Absent</p>
+                  <p className="text-2xl font-bold text-[var(--alias-color-feedback-error-fg)]">{orgAbsent}</p>
+                </div>
+                <div className="bg-[var(--alias-color-feedback-warning-bg)] px-6 py-4 text-center">
+                  <p className="text-xs text-[var(--alias-color-feedback-warning-fg)] mb-1">Leave</p>
+                  <p className="text-2xl font-bold text-[var(--alias-color-feedback-warning-fg)]">{orgLeave}</p>
+                </div>
+              </div>
 
-      </main>
-    </>
+              {/* ── Department table ── */}
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[var(--alias-color-background-secondary)] border-b border-[var(--alias-color-border-subtle)]">
+                    <th className="px-4 py-2.5 text-left text-xs font-semibold text-[var(--alias-color-text-secondary)] w-1/2">Department</th>
+                    <th className="px-4 py-2.5 text-right text-xs font-semibold text-[var(--alias-color-text-secondary)]">Total</th>
+                    <th className="px-4 py-2.5 text-right text-xs font-semibold text-[var(--alias-color-feedback-success-fg)]">Present</th>
+                    <th className="px-4 py-2.5 text-right text-xs font-semibold text-[var(--alias-color-feedback-error-fg)]">Absent</th>
+                    <th className="px-4 py-2.5 text-right text-xs font-semibold text-[var(--alias-color-feedback-warning-fg)]">Leave</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {departments.map((dept) => (
+                    <tr
+                      key={dept.name}
+                      className="border-b border-[var(--alias-color-border-subtle)] hover:bg-[var(--alias-color-background-secondary)] transition-colors last:border-0"
+                    >
+                      <td className={`px-4 py-2.5 font-medium ${dept.muted ? "text-[var(--alias-color-text-subtle)]" : "text-[var(--alias-color-text-primary)]"}`}>
+                        {dept.name}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-[var(--alias-color-text-secondary)]">{dept.total}</td>
+                      <td className="px-4 py-2.5 text-right text-[var(--alias-color-feedback-success-fg)]">{dept.present}</td>
+                      <td className={`px-4 py-2.5 text-right font-medium ${dept.absent > 0 ? "text-[var(--alias-color-feedback-error-fg)]" : "text-[var(--alias-color-text-subtle)]"}`}>
+                        {dept.absent}
+                      </td>
+                      <td className="px-4 py-2.5 text-right text-[var(--alias-color-text-subtle)]">{dept.leave}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
+        </div>
+
+      </div>
+    </div>
   )
 }
