@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 // ◆ design-lead
@@ -21,6 +22,8 @@ export interface NavItem {
 export interface NavSection {
   title?: string
   items: NavItem[]
+  collapsible?: boolean
+  defaultCollapsed?: boolean
 }
 
 export interface SidebarNavProps {
@@ -38,6 +41,16 @@ function SidebarNav({
   collapsed = false,
   className,
 }: SidebarNavProps) {
+  const [sectionCollapsed, setSectionCollapsed] = React.useState<Record<number, boolean>>(() => {
+    const init: Record<number, boolean> = {}
+    sections.forEach((s, i) => { if (s.collapsible && s.defaultCollapsed) init[i] = true })
+    return init
+  })
+
+  function toggleSection(i: number) {
+    setSectionCollapsed(prev => ({ ...prev, [i]: !prev[i] }))
+  }
+
   return (
     <aside
       data-slot="sidebar-nav"
@@ -61,14 +74,31 @@ function SidebarNav({
 
       {/* Nav sections */}
       <nav aria-label="Main navigation" className="flex-1 overflow-y-auto py-[var(--alias-spacing-padding-sm)] flex flex-col gap-[var(--alias-spacing-stack-md)]">
-        {sections.map((section, si) => (
+        {sections.map((section, si) => {
+          const isSectionCollapsed = !!sectionCollapsed[si]
+          return (
           <div key={si} className="flex flex-col gap-0.5 px-[var(--alias-spacing-padding-xs)]">
             {section.title && !collapsed && (
-              <p className="px-[var(--alias-spacing-padding-xs)] pb-1 text-[10px] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
-                {section.title}
-              </p>
+              section.collapsible ? (
+                <button
+                  onClick={() => toggleSection(si)}
+                  className="flex items-center justify-between px-[var(--alias-spacing-padding-xs)] pb-1 w-full group"
+                >
+                  <p className="text-[10px] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)] group-hover:text-[var(--alias-color-text-secondary)] transition-colors">
+                    {section.title}
+                  </p>
+                  {isSectionCollapsed
+                    ? <ChevronRight className="size-3 text-[var(--alias-color-text-subtle)]" />
+                    : <ChevronDown className="size-3 text-[var(--alias-color-text-subtle)]" />
+                  }
+                </button>
+              ) : (
+                <p className="px-[var(--alias-spacing-padding-xs)] pb-1 text-[10px] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
+                  {section.title}
+                </p>
+              )
             )}
-            {section.items.map((item, ii) => (
+            {!isSectionCollapsed && section.items.map((item, ii) => (
               <button
                 key={ii}
                 onClick={item.onClick}
@@ -106,7 +136,8 @@ function SidebarNav({
               </button>
             ))}
           </div>
-        ))}
+          )
+        })}
       </nav>
 
       {/* Footer slot */}
