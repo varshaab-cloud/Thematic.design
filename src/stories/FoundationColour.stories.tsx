@@ -280,11 +280,11 @@ const BRANDS: BrandDef[] = [
         role: 'Tertiary', hue: 'Sky', basePrefix: '--base-color-sky',
         brandPrefix: '--brand-terra-tertiary',
         stops: [
-          { stop: '100', hex: '#fffbeb' }, { stop: '200', hex: '#fef3c7' },
-          { stop: '300', hex: '#fde68a' }, { stop: '400', hex: '#fcd34d' },
-          { stop: '500', hex: '#f59e0b' }, { stop: '600', hex: '#b45309' },
-          { stop: '700', hex: '#92400e' }, { stop: '800', hex: '#6e3008' },
-          { stop: '900', hex: '#451d05' },
+          { stop: '100', hex: '#e0f2fe' }, { stop: '200', hex: '#bae6fd' },
+          { stop: '300', hex: '#7dd3fc' }, { stop: '400', hex: '#38bdf8' },
+          { stop: '500', hex: '#0ea5e9' }, { stop: '600', hex: '#0284c7' },
+          { stop: '700', hex: '#0369a1' }, { stop: '800', hex: '#075985' },
+          { stop: '900', hex: '#0c4a6e' },
         ],
       },
       {
