@@ -1743,4 +1743,61 @@
   --component-promptsuggestion-color-border:    var(--alias-color-border-default);
   --component-promptsuggestion-dimension-radius: var(--alias-radius-lg);
 
+  /* component-streamofthought (StreamOfThought) */
+  --component-streamofthought-color-bg:           var(--alias-color-background-secondary);
+  --component-streamofthought-color-border:       var(--alias-color-border-subtle);
+  --component-streamofthought-color-text:         var(--alias-color-text-secondary);
+  --component-streamofthought-color-text-subtle:  var(--alias-color-text-subtle);
+  --component-streamofthought-color-step-line:    var(--alias-color-border-default);
+  --component-streamofthought-color-step-dot:     var(--alias-color-icon-brand);
+  --component-streamofthought-color-step-dot-done: var(--alias-color-feedback-success-fg);
+  --component-streamofthought-dimension-radius:   var(--alias-radius-md);
+  --component-streamofthought-dimension-padding:  var(--alias-spacing-padding-sm);
+  --component-streamofthought-dimension-dot-size: 8px;
+
+  /* component-actionplan (ActionPlan) */
+  --component-actionplan-color-bg:            var(--alias-color-background-secondary);
+  --component-actionplan-color-border:        var(--alias-color-border-subtle);
+  --component-actionplan-color-text:          var(--alias-color-text-primary);
+  --component-actionplan-color-text-subtle:   var(--alias-color-text-subtle);
+  --component-actionplan-color-step-pending:  var(--alias-color-icon-secondary);
+  --component-actionplan-color-step-active:   var(--alias-color-icon-brand);
+  --component-actionplan-color-step-done:     var(--alias-color-feedback-success-fg);
+  --component-actionplan-color-step-error:    var(--alias-color-feedback-error-fg);
+  --component-actionplan-color-step-line:     var(--alias-color-border-default);
+  --component-actionplan-dimension-radius:    var(--alias-radius-md);
+  --component-actionplan-dimension-padding:   var(--alias-spacing-padding-sm);
+  --component-actionplan-dimension-step-size: 24px;
+
+  /* component-prompttemplate (PromptTemplates) */
+  --component-prompttemplate-color-bg:           var(--alias-color-background-primary);
+  --component-prompttemplate-color-bg-hover:     var(--alias-color-background-secondary);
+  --component-prompttemplate-color-border:       var(--alias-color-border-default);
+  --component-prompttemplate-color-text:         var(--alias-color-text-primary);
+  --component-prompttemplate-color-text-subtle:  var(--alias-color-text-subtle);
+  --component-prompttemplate-color-chip-bg:      var(--alias-color-background-secondary);
+  --component-prompttemplate-color-chip-text:    var(--alias-color-text-secondary);
+  --component-prompttemplate-color-chip-border:  var(--alias-color-border-subtle);
+  --component-prompttemplate-dimension-radius:   var(--alias-radius-md);
+  --component-prompttemplate-dimension-panel-width: 320px;
+
+  /* component-disclosure (Disclosure / AI badge) */
+  --component-disclosure-color-bg:      var(--alias-color-background-brand);
+  --component-disclosure-color-text:    var(--alias-color-text-inverse);
+  --component-disclosure-color-bg-subtle: var(--alias-color-background-secondary);
+  --component-disclosure-color-text-subtle: var(--alias-color-text-subtle);
+  --component-disclosure-color-border:  var(--alias-color-border-subtle);
+  --component-disclosure-dimension-radius: var(--alias-radius-sm);
+
+  /* component-resultvariation (ResultVariations) */
+  --component-resultvariation-color-bg:           var(--alias-color-background-primary);
+  --component-resultvariation-color-border:       var(--alias-color-border-default);
+  --component-resultvariation-color-tab-bg:       var(--alias-color-background-secondary);
+  --component-resultvariation-color-tab-active:   var(--alias-color-background-primary);
+  --component-resultvariation-color-tab-text:     var(--alias-color-text-secondary);
+  --component-resultvariation-color-tab-active-text: var(--alias-color-text-primary);
+  --component-resultvariation-color-tab-border:   var(--alias-color-border-default);
+  --component-resultvariation-dimension-radius:   var(--alias-radius-lg);
+  --component-resultvariation-dimension-tab-radius: var(--alias-radius-md);
+
 }

@@ -1,0 +1,70 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as SOT  from "./AIStreamOfThought.stories"
+import * as AP   from "./AIActionPlan.stories"
+import * as DB   from "./AIDisclosure.stories"
+import * as PT   from "./AIPromptTemplates.stories"
+import * as RV   from "./AIResultVariations.stories"
+
+<Meta title="AI / Conversation/Patterns overview" />
+
+# AI / Conversation — Pattern overview
+
+Five governor and trust-builder patterns grounded in [The Shape of AI](https://www.shapeof.ai) and [AI UX Patterns](https://www.aiuxpatterns.com/patterns.html) pattern libraries.
+
+---
+
+## StreamOfThought
+
+<Canvas of={SOT.Expanded} withToolbar={false} />
+
+Exposes the model's internal reasoning chain as a collapsible step list. Different from AgentStatus (single current-status label) — StreamOfThought shows the full log of *how* the model arrived at its answer. Use it when your product promises reasoning transparency or when users need to audit AI decisions.
+
+**Key rules:** always starts collapsed to reduce noise; expand on user interaction or when the reasoning is unusually long. Label is always "Thinking" or a more specific verb ("Reasoning", "Planning") — never "Processing". Steps stream in via the `aria-live="polite"` log region.
+
+---
+
+## ActionPlan
+
+<Canvas of={AP.AwaitingConfirmation} withToolbar={false} />
+
+Shows the steps an agent *will take* before it executes them, giving the user a chance to confirm or cancel. This is the primary human-in-the-loop checkpoint for multi-step agentic tasks. Always pair it with a clear Confirm and Cancel action.
+
+**Key rules:** never skip this for destructive or irreversible actions (sending email, deleting data, making API calls with side effects). The confirm button is primary; cancel is ghost. Once confirmed, transition to `executing` state so the user can track progress.
+
+---
+
+## DisclosureBadge
+
+<Canvas of={DB.AllVariants} withToolbar={false} />
+
+Marks content as AI-generated. Required for any externally-shareable AI output; strongly recommended everywhere else. Three variants: `filled` (strong marking, use on prominent cards), `subtle` (default, use below message bubbles), `ghost` (inline in prose, minimal footprint).
+
+**Key rules:** never use colour alone — the badge always includes a text label. Tooltip explains what the badge means. Custom labels ("AI summary", "AI draft") are encouraged over the generic default when context makes them clearer.
+
+---
+
+## PromptTemplates
+
+<Canvas of={PT.InComposerToolbar} withToolbar={false} />
+
+A searchable template library accessed from the ChatInput toolbar. Solves the blank-canvas problem for power users who repeat similar prompts. Templates support `{{placeholder}}` variable markers in content. Pinned templates appear at the top of the list.
+
+**Key rules:** the trigger is a compact toolbar chip, not a full button — it should not compete with Send. Search filters by title, description, and content. Selecting a template pastes its content into the composer; the user can edit before sending.
+
+---
+
+## ResultVariations
+
+<Canvas of={RV.Tabs} withToolbar={false} />
+
+Presents multiple AI-generated alternatives for the same prompt, letting the user choose the one that best fits their needs. Available in `tabs` (best for 2–4 variations with short labels) and `carousel` (sequential browsing, better for mobile or narrow layouts).
+
+**Key rules:** always show a "Use this" action per variation; reflect the selected state with a checkmark. Variations should have meaningful labels ("Concise", "Detailed", "Bullet points") — not just "Option 1/2/3". The selected variation ID is controlled so the parent can wire it to the message thread.
+
+---
+
+## Pattern sources
+
+- [The Shape of AI — Governors](https://www.shapeof.ai/pattern-types/governors) (Stream of Thought, Action Plan, Controls, Variations)
+- [The Shape of AI — Trust builders](https://www.shapeof.ai/pattern-types/trust-builders) (Disclosure)
+- [AI UX Patterns — Authoring](https://www.aiuxpatterns.com/patterns.html) (Prompt Templates, Result Variations)
