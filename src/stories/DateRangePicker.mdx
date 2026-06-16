@@ -36,3 +36,28 @@ Use `minDate` and `maxDate` to constrain valid selections — for example, preve
 Selecting works in two clicks: first click sets the start date, second click sets the end date. If the user clicks an end date earlier than the start, the range is automatically swapped. A hover preview shows the would-be range before the second click is committed.
 
 Always provide a `placeholder` that describes the expected input in context — "Select billing period" is clearer than the generic default. Show the selected range in a human-readable format (`MMM D, YYYY – MMM D, YYYY`) so users can confirm their selection at a glance without reopening the picker.
+
+## Accessibility
+
+The range picker pairs a trigger button with a Radix UI `Popover` containing the calendar; the popover handles focus trapping and dismissal.
+
+**Built-in behaviour**
+
+- Opening moves focus into the calendar; closing returns focus to the trigger.
+- Month navigation controls expose `aria-label`s ("Previous month", "Next month").
+- `Escape` closes the popover.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Enter` / `Space` | Opens the popover from the trigger |
+| `Arrow keys` | Move between days in the calendar grid |
+| `Enter` | Selects the focused date (start, then end) |
+| `Escape` | Closes the popover and returns focus to the trigger |
+
+**Developer responsibilities**
+
+- **Label the field** — give the trigger a visible label and an `aria-label` naming the range (e.g. "Booking date range").
+- **Announce the selected range** — surface the chosen start/end dates as text near the field, not calendar colour alone.
+- **Explain the two-step selection** — make clear via helper text that the first selection sets the start date and the second sets the end.

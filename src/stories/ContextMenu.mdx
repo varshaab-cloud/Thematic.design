@@ -32,3 +32,28 @@ Label groups with a `ContextMenuLabel` when the items below the label need extra
 ## Playground
 
 <Controls of={Stories.Default} />
+
+## Accessibility
+
+ContextMenu is built on Radix UI's `ContextMenu`, which implements the WAI-ARIA menu pattern with correct roles, focus management, and dismissal.
+
+**Built-in behaviour**
+
+- Opens on right-click (or the platform context-menu gesture); items expose `role="menuitem"`.
+- Focus moves into the menu on open and returns to the trigger on close.
+- `Escape` closes the menu.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Shift + F10` / `Menu` key | Opens the context menu for the focused element |
+| `Arrow Up` / `Arrow Down` | Move between menu items |
+| `Enter` / `Space` | Activates the focused item |
+| `Escape` | Closes the menu |
+
+**Developer responsibilities**
+
+- **Provide a keyboard path** — a menu opened only by right-click is invisible to keyboard users; ensure `Shift+F10` works (Radix handles this) and that important actions also exist elsewhere.
+- **Label destructive items clearly** — and pair irreversible actions with confirmation, as elsewhere in the system.
+- **Supplement, do not hide** — a right-click menu should not be the only route to an important action.

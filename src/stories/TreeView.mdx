@@ -34,3 +34,29 @@ Wire the `onSelect` callback to external state to respond to selection changes �
 Keep nesting shallow wherever possible — three to four levels is usually the practical limit before the indentation becomes difficult to parse. For very deep hierarchies, consider a breadcrumb or column-based navigation instead.
 
 The `defaultExpanded` prop accepts an array of node IDs that should be open on first render. Use it to surface the most relevant part of the tree without forcing the user to expand multiple levels manually.
+
+## Accessibility
+
+TreeView implements the WAI-ARIA tree pattern: the container is `role="tree"`, nodes are `role="treeitem"` with `aria-selected` and `aria-expanded`, and nested levels are wrapped in `role="group"`.
+
+**Built-in behaviour**
+
+- Expandable nodes expose `aria-expanded` (`true`/`false`); leaf nodes omit it.
+- Selected nodes reflect `aria-selected`.
+- Child groups are wrapped in `role="group"` so depth is conveyed.
+- Decorative expand/collapse icons are `aria-hidden="true"`.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Arrow Up` / `Arrow Down` | Move between visible nodes |
+| `Arrow Right` | Expand a collapsed node, or move to its first child |
+| `Arrow Left` | Collapse an expanded node, or move to its parent |
+| `Enter` / `Space` | Select or activate the focused node |
+
+**Developer responsibilities**
+
+- **Single tab stop** — the tree is one tab stop with roving focus between nodes, not one stop per node.
+- **Label the tree** — provide an `aria-label` describing its contents (e.g. "File browser").
+- **Name from text** — each treeitem's accessible name should come from its label text, not an icon alone.

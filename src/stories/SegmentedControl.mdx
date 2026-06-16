@@ -46,3 +46,26 @@ Stretches the control to fill its container, with each segment sharing equal wid
 ## Playground
 
 <Controls of={SegmentedControlStories.Default} />
+
+## Accessibility
+
+The control implements the WAI-ARIA radio group pattern: the container is `role="radiogroup"` and each option is `role="radio"` with `aria-checked`.
+
+**Built-in behaviour**
+
+- Only one option is checked at a time; `aria-checked` updates on selection.
+- A disabled group is reflected with `aria-disabled`.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` | Moves focus into the group (to the checked option) |
+| `Arrow keys` | Move selection between options |
+| `Space` | Selects the focused option |
+
+**Developer responsibilities**
+
+- **Label the group** — provide `aria-label` or `aria-labelledby` on the radiogroup so its purpose is announced (e.g. "View mode").
+- **Keep labels short and parallel** — each segment's text is its accessible name; never ship an icon-only segment without an `aria-label`.
+- **Roving focus** — only the selected option stays in the tab order; the rest are reachable via arrow keys, matching the radio pattern.

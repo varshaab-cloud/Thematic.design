@@ -36,3 +36,18 @@ Always mark the last `TimelineItem` and `TimelineIcon` with the `last` prop — 
 Use `TimelineTime` to communicate when the event occurred. Relative timestamps ("2 minutes ago") work well for recent activity feeds; absolute timestamps ("09:41") suit audit logs where precision matters.
 
 Keep descriptions concise — one or two lines. For events with rich detail, link to a detail view from the title rather than expanding inline.
+
+## Accessibility
+
+A timeline is a sequence of events read in order, so it maps to an ordered list semantically.
+
+**Built-in behaviour**
+
+- Content renders in DOM order, matching the visual and reading order.
+
+**Developer responsibilities**
+
+- **Use list semantics** — render the sequence as `<ol>`/`<li>` so screen readers announce position and count ("3 of 7").
+- **Hide decorative markers** — dots, connector lines, and status icons carry no meaning; mark them `aria-hidden="true"`.
+- **State status in text** — if a step's state (complete, current, upcoming) is shown by colour or icon, also include it as visible or visually-hidden text.
+- **Do not rely on colour alone** — event status must be distinguishable without colour (WCAG 1.4.1).
