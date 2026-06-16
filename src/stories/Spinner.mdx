@@ -42,3 +42,19 @@ Pair a `sm` spinner with a short status message to give users both a visual sign
 ## Playground
 
 <Controls of={SpinnerStories.Default} />
+
+## Accessibility
+
+The spinner renders with `role="status"` and an `aria-label`, so assistive tech announces loading without requiring focus.
+
+**Built-in behaviour**
+
+- `role="status"` creates a polite live region; the `aria-label` (e.g. "Loading") provides the accessible name.
+- The animated graphic itself carries no semantic meaning.
+
+**Developer responsibilities**
+
+- **Give it a meaningful label** — set the label to describe what is loading (e.g. "Loading results") rather than a generic "Loading".
+- **Do not trap focus** — a spinner is a status indicator, not an interactive element; it should not receive focus.
+- **Pair with text for long waits** — for waits beyond a couple of seconds, show visible text alongside.
+- **Respect reduced motion** — honour `prefers-reduced-motion` by reducing or replacing the spin animation.

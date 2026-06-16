@@ -39,3 +39,26 @@ The full composition: avatar, title, description, and a trailing chevron icon �
 - Keep list items scannable — one primary label (`ListItemTitle`) and one optional secondary label (`ListItemDescription`) per row.
 - Use `ListDivider` to separate sections, not every item. The `divide-y` on `List` already provides item-level separation.
 - For disabled rows, pass `disabled` to `ListItem` — it removes pointer events and reduces opacity, keeping the row in the DOM for layout consistency.
+
+## Accessibility
+
+List items expose selection and disabled state via `aria-selected` and `aria-disabled`; non-interactive dividers use `role="separator"`.
+
+**Built-in behaviour**
+
+- Selectable items reflect state with `aria-selected`.
+- Unavailable items set `aria-disabled` and are skipped by activation.
+- Dividers are exposed as `role="separator"` so they are not read as content.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` | Moves focus to interactive items |
+| `Enter` / `Space` | Activates or selects the focused item |
+
+**Developer responsibilities**
+
+- **Use the right container role** — for a single-select option list use `role="listbox"` with `role="option"` children; for a plain content list, native `<ul>`/`<li>` is correct and needs no ARIA.
+- **Do not disable silently** — pair `aria-disabled` items with context explaining why they are unavailable.
+- **Keep separators decorative** — never place meaningful content inside a `role="separator"` element.

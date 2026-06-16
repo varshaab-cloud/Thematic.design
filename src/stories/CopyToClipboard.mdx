@@ -30,3 +30,25 @@ When `children` is provided, the component wraps the content and appends the cop
 ## Playground
 
 <Controls of={CopyToClipboardStories.Default} />
+
+## Accessibility
+
+The control renders a native `<button>` with an `aria-label`, so it gets keyboard focus, `Enter`/`Space` activation, and `role="button"` for free.
+
+**Built-in behaviour**
+
+- The trigger exposes an `aria-label` describing the action (e.g. "Copy to clipboard").
+- Copy success is reflected visually via an icon/label change.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Tab` / `Shift+Tab` | Moves focus to / from the button |
+| `Enter` or `Space` | Copies the value to the clipboard |
+
+**Developer responsibilities**
+
+- **Announce the result** — visual-only feedback is invisible to screen-reader users. Render the "Copied" confirmation inside a container with `aria-live="polite"` (or `role="status"`) so the change is announced.
+- **Label the action, not the value** — keep the `aria-label` on the verb ("Copy API key"), not the raw string being copied.
+- **Keep focus on the trigger** — do not move focus on copy, so keyboard users stay oriented.

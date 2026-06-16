@@ -40,3 +40,27 @@ For forms, wrap the picker in a label element or use `aria-labelledby` to associ
 ## Playground
 
 <Controls of={Stories.Default} />
+
+## Accessibility
+
+The time picker pairs a trigger button (with an `aria-label`) and a Radix UI `Popover` panel; the popover manages focus and dismissal.
+
+**Built-in behaviour**
+
+- The trigger's `aria-label` reflects the current value or placeholder.
+- Opening moves focus into the panel; `Escape` closes it and returns focus to the trigger.
+
+**Keyboard interaction**
+
+| Key | Behaviour |
+|---|---|
+| `Enter` / `Space` | Opens the popover |
+| `Arrow keys` | Move between time options |
+| `Enter` | Selects the focused time |
+| `Escape` | Closes the popover |
+
+**Developer responsibilities**
+
+- **Name the field** — give the trigger a visible label and an `aria-label` (e.g. "Start time").
+- **State the format** — communicate the expected format (12h/24h) in helper text.
+- **Announce selection** — ensure the chosen time appears as text on the trigger, not only as a highlight in the panel.
