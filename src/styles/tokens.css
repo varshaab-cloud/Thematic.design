@@ -1661,4 +1661,86 @@
   --component-time-picker-dropdown-typography-column-label-weight: var(--alias-typography-caption1-font-weight);
   --component-time-picker-dropdown-typography-column-label-line-height: var(--alias-typography-caption1-line-height);
 
+  /* ─────────────────────────────────────────────────────────────
+     AI / Conversation components
+     ───────────────────────────────────────────────────────────── */
+
+  /* component-message (MessageBubble) */
+  --component-message-assistant-color-bg:     var(--alias-color-background-secondary);
+  --component-message-assistant-color-text:   var(--alias-color-text-primary);
+  --component-message-assistant-color-border: var(--alias-color-border-subtle);
+  --component-message-user-color-bg:          var(--alias-color-background-brand);
+  --component-message-user-color-text:        var(--alias-color-text-inverse);
+  --component-message-user-color-border:      transparent;
+  --component-message-system-color-bg:        var(--alias-color-background-tertiary);
+  --component-message-system-color-text:      var(--alias-color-text-subtle);
+  --component-message-system-color-border:    var(--alias-color-border-default);
+  --component-message-dimension-radius:       var(--alias-radius-lg);
+  --component-message-dimension-padding:      var(--alias-spacing-padding-md);
+  --component-message-dimension-max-width:    640px;
+  --component-message-streaming-color-cursor: var(--alias-color-background-brand);
+
+  /* component-composer (ChatInput) */
+  --component-composer-color-bg:           var(--alias-color-background-primary);
+  --component-composer-color-border:       var(--alias-color-border-default);
+  --component-composer-color-border-focus: var(--alias-color-border-active);
+  --component-composer-color-border-error: var(--alias-color-border-error);
+  --component-composer-color-text:         var(--alias-color-text-primary);
+  --component-composer-color-placeholder:  var(--alias-color-text-subtle);
+  --component-composer-color-toolbar-bg:   var(--alias-color-background-secondary);
+  --component-composer-dimension-radius:   var(--alias-radius-lg);
+  --component-composer-dimension-padding:  var(--alias-spacing-padding-sm);
+  --component-composer-dimension-gap:      var(--alias-spacing-inline-sm);
+
+  /* component-streaming (StreamingText / TypingIndicator) */
+  --component-streaming-color-dot:        var(--alias-color-background-brand);
+  --component-streaming-color-cursor:     var(--alias-color-background-brand);
+  --component-streaming-dimension-dot-size: 6px;
+
+  /* component-messageactions (MessageActions) */
+  --component-messageactions-color-bg:       transparent;
+  --component-messageactions-color-bg-hover: var(--alias-color-background-secondary);
+  --component-messageactions-color-border:   var(--alias-color-border-subtle);
+
+  /* component-attachment (AttachmentPreview) */
+  --component-attachment-color-bg:              var(--alias-color-background-secondary);
+  --component-attachment-color-border:          var(--alias-color-border-default);
+  --component-attachment-color-text:            var(--alias-color-text-secondary);
+  --component-attachment-color-text-secondary:  var(--alias-color-text-subtle);
+  --component-attachment-color-progress:        var(--alias-color-background-brand);
+  --component-attachment-color-error-bg:        var(--alias-color-feedback-error-bg);
+  --component-attachment-color-error-text:      var(--alias-color-feedback-error-fg);
+  --component-attachment-dimension-radius:      var(--alias-radius-md);
+  --component-attachment-dimension-thumb-size:  48px;
+
+  /* component-voice (VoiceInput) */
+  --component-voice-color-idle:       var(--alias-color-icon-secondary);
+  --component-voice-color-recording:  var(--alias-color-feedback-error-fg);
+  --component-voice-color-bg:         var(--alias-color-background-secondary);
+  --component-voice-color-bg-recording: var(--alias-color-feedback-error-bg);
+  --component-voice-dimension-size:   40px;
+
+  /* component-agentstatus (AgentStatus / ToolCall) */
+  --component-agentstatus-color-bg:      var(--alias-color-background-secondary);
+  --component-agentstatus-color-text:    var(--alias-color-text-secondary);
+  --component-agentstatus-color-icon:    var(--alias-color-icon-brand);
+  --component-agentstatus-color-border:  var(--alias-color-border-subtle);
+  --component-agentstatus-color-detail-bg: var(--alias-color-background-tertiary);
+  --component-agentstatus-dimension-radius:  var(--alias-radius-md);
+  --component-agentstatus-dimension-padding: var(--alias-spacing-padding-sm);
+
+  /* component-citation (SourceCitation) */
+  --component-citation-color-marker-bg:   var(--alias-color-background-brand);
+  --component-citation-color-marker-text: var(--alias-color-text-inverse);
+  --component-citation-color-source-bg:   var(--alias-color-background-secondary);
+  --component-citation-color-source-border: var(--alias-color-border-subtle);
+  --component-citation-dimension-radius:  var(--alias-radius-sm);
+
+  /* component-promptsuggestion (PromptSuggestions) */
+  --component-promptsuggestion-color-bg:       var(--alias-color-background-primary);
+  --component-promptsuggestion-color-bg-hover:  var(--alias-color-background-secondary);
+  --component-promptsuggestion-color-text:      var(--alias-color-text-primary);
+  --component-promptsuggestion-color-border:    var(--alias-color-border-default);
+  --component-promptsuggestion-dimension-radius: var(--alias-radius-lg);
+
 }

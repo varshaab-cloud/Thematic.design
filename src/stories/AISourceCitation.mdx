@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AISourceCitation.stories"
+
+<Meta of={Stories} />
+
+# SourceCitation
+
+<Canvas of={Stories.InlineWithList} withToolbar={false} />
+
+Inline numbered references and their corresponding source list. Sources must always be visible — never hidden behind an additional click. This is a core AI transparency requirement.
+
+## CitationMarker
+
+<Canvas of={Stories.InlineMarkers} withToolbar={false} />
+
+A small superscript-style chip that embeds inline in message text. Each marker:
+
+- Shows the source index number.
+- Has an `aria-label` describing the source ("Source 1: Token Architecture").
+- When `href` is provided, renders as an anchor that opens in a new tab.
+- On hover / focus shows a Tooltip with the title and excerpt.
+
+## SourceList
+
+<Canvas of={Stories.SourceListFull} withToolbar={false} />
+
+Renders below the message as an ordered list of all referenced sources. Each item includes the index marker, title (linked if a URL is provided), and an optional excerpt. The list is always visible — do not collapse or hide it behind a toggle.
+
+## When to use
+
+Use SourceCitation whenever the assistant response includes factual claims backed by retrieved content. Use `CitationMarker` inline in the prose, then render a `SourceList` immediately below the message bubble.
+
+## When not to use
+
+Do not use for generated content that is not grounded in retrieved sources. Using false citation markers undermines user trust.
+
+## Accessibility
+
+- Each `CitationMarker` has an `aria-label` that names the source — screen readers can identify references without seeing the visual badge.
+- Source links use `target="_blank"` with `rel="noopener noreferrer"` and include a visible `ExternalLink` icon labelled "Opens in new tab".
+- The `SourceList` has `aria-label` matching its heading so it is identifiable as a landmark in the accessibility tree.
+- Do not hide the source list behind a disclosure — users with screen readers should not have to navigate to a separate control to access citation content.

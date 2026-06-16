@@ -1,0 +1,66 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AIChatInput.stories"
+
+<Meta of={Stories} />
+
+# ChatInput (Composer)
+
+<Canvas of={Stories.Empty} withToolbar={false} />
+
+The multimodal message entry area. Supports text, image, file/document, and voice input. A single Send/Stop control flips state while the assistant is generating so users can always cancel.
+
+## Anatomy
+
+```
+[ attachment chips row (when files present) ]
+[ textarea — auto-growing ]
+[ attach · mic · toolbar slot       char count · send / stop ]
+```
+
+## Text input
+
+Auto-growing textarea. `Enter` sends; `Shift+Enter` inserts a newline. The textarea grows up to a `max-height` of 200 px, then scrolls. Pass `maxChars` to show a live character counter.
+
+## Send / Stop
+
+<Canvas of={Stories.Streaming} withToolbar={false} />
+
+While `isStreaming={true}` the Send button is replaced by a destructive Stop button. This is the primary keyboard-reachable stop control — always visible and never hidden behind a menu.
+
+## Attachments
+
+<Canvas of={Stories.WithAttachments} withToolbar={false} />
+
+Files are shown as chips above the textarea with name, upload progress, and an inline remove control. Error chips (upload failed, too large) use error surface tokens and an alert icon. The hidden `<input type="file">` is triggered via the Attach button; never opened with a click on a visible button that navigates away.
+
+## Voice
+
+<Canvas of={Stories.WithVoice} withToolbar={false} />
+
+Show `showVoice={true}` to expose the mic toggle. The mic button uses `aria-pressed` and flips its icon and colour when `isRecording`. Recording state is announced via the button's `aria-label`.
+
+## States
+
+<Canvas of={Stories.WithCharLimit} withToolbar={false} />
+<Canvas of={Stories.OverLimit} withToolbar={false} />
+<Canvas of={Stories.ErrorState} withToolbar={false} />
+<Canvas of={Stories.DisabledState} withToolbar={false} />
+
+## Toolbar slot
+
+Pass custom content to `toolbarSlot` to add controls like ModelSelector inline in the bottom bar.
+
+## Accessibility
+
+- The textarea has `aria-label="Message input"`, `aria-multiline="true"`, and `aria-invalid` when in error/over-limit state.
+- Character count is wrapped in `aria-live="polite" aria-atomic="true"` so screen readers announce the count as users type.
+- The Stop button is always keyboard-reachable (never disabled while streaming); labelled "Stop generating".
+- The hidden file `<input>` is `aria-hidden="true"` and `tabIndex={-1}` — never in the focus order.
+- Mic button uses `aria-pressed` to convey recording state; `aria-label` changes to "Stop recording" while active.
+- Error messages use `role="alert"` for immediate announcement.
+- 44×44 px minimum touch targets for all toolbar icon buttons.
+- Respects `prefers-reduced-motion` — no transition classes are tied to animation.
+
+## Playground
+
+<Controls of={Stories.Playground} />

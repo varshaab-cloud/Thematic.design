@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AIPromptSuggestions.stories"
+
+<Meta of={Stories} />
+
+# PromptSuggestions
+
+<Canvas of={Stories.EmptyState} withToolbar={false} />
+
+Tappable suggested-prompt chips shown in the empty/onboarding state of a conversational AI view, or as contextual follow-up suggestions after a response. Reduces the blank-page problem by giving users concrete starting points.
+
+## Layouts
+
+<Canvas of={Stories.WrapLayout} withToolbar={false} />
+
+**Wrap** — chips flow naturally across multiple lines. Best for the empty thread state where horizontal space is available.
+
+<Canvas of={Stories.ColumnLayout} withToolbar={false} />
+
+**Column** — full-width stacked list. Best in a narrower panel or when suggestions have longer descriptions.
+
+## When to use
+
+- **Empty thread** — show immediately when no messages exist. Pair with a heading like "What can I help you with?".
+- **Follow-up suggestions** — optionally render 2–3 chips after an assistant response to guide the next step.
+- **Onboarding** — set user expectations about what the assistant can do.
+
+## When not to use
+
+Do not show suggestions during an active streaming response. Hide or disable them until the response completes.
+
+## Accessibility
+
+- The suggestions container uses `role="list"` with `aria-label` so it is announced as a list.
+- Each chip uses `role="listitem"` and is a `<button>` — keyboard-focusable and activatable with `Enter`/`Space`.
+- All chips have visible focus rings via `focus-visible:ring-2`.
+- Icons are `aria-hidden="true"` — the label text carries the full accessible name.
+- Suggestions are not required reading; placing them below the main heading and before the composer ensures logical focus order without disrupting the primary task.
+
+## Playground
+
+<Controls of={Stories.Playground} />

@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AIMessageBubble.stories"
+
+<Meta of={Stories} />
+
+# MessageBubble
+
+<Canvas of={Stories.AllVariants} withToolbar={false} />
+
+A single conversational turn. MessageBubble renders one message from a `user`, `assistant`, or `system`. It handles streaming state, error state, and edited labels so the consumer only needs to pass props.
+
+## Variants
+
+**`assistant`** — Left-aligned with avatar. Uses the secondary surface to keep visual weight low; the user's bubble anchors attention.
+
+**`user`** — Right-aligned. Uses the brand fill colour to clearly distinguish the user's turn from the assistant's.
+
+**`system`** — Centred, full-width, italic notice. Used for conversation housekeeping ("Context cleared", "New session started"). Does not render an avatar.
+
+## States
+
+<Canvas of={Stories.AssistantStreaming} withToolbar={false} />
+
+**Streaming** — Appends an animated blinking cursor after the last character while `isStreaming={true}`. The cursor is `aria-hidden`; the live region wrapping the message thread announces new tokens.
+
+<Canvas of={Stories.AssistantError} withToolbar={false} />
+
+**Error** — Applies error surface and foreground tokens; prepends a warning icon. Always show a clear, actionable message — never just "Error".
+
+<Canvas of={Stories.UserEdited} withToolbar={false} />
+
+**Edited** — Adds an "edited" label and optional timestamp in the message footer. Shown after a user edits and resends a message.
+
+## Composition
+
+MessageBubble renders an Avatar internally. Pass `avatarSrc` for a real photo and `avatarFallback` for initials. For the assistant, the default fallback is "AI"; for the user, "You".
+
+## Accessibility
+
+- The message bubble itself does not set `aria-live`. Wrap the **full message thread** in `role="log"` with `aria-live="polite"` and `aria-atomic="false"` so screen readers announce new tokens as they arrive — never the whole thread.
+- Batch announcements: debounce the live region update to every 2–4 seconds during streaming so screen readers are not flooded per token.
+- The **streaming cursor** is `aria-hidden="true"` — purely decorative.
+- The **system variant** uses `role="status"` which announces changes politely and does not interrupt reading flow.
+- Error state must include an actionable description — do not rely on colour alone.
+- Ensure `avatarFallback` is meaningful; the Avatar `alt` defaults to the `name` prop.
+
+## Playground
+
+<Controls of={Stories.Playground} />

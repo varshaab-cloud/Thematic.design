@@ -1,0 +1,47 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AIAgentStatus.stories"
+
+<Meta of={Stories} />
+
+# AgentStatus / ToolCall
+
+<Canvas of={Stories.AllStates} withToolbar={false} />
+
+Shows what the assistant is doing between when a user sends a message and when the response arrives. Honest, specific labels are required — never use "Working on it…" or "Please wait".
+
+## When to use
+
+Show AgentStatus whenever the assistant performs a non-trivial operation:
+
+- **Thinking / reasoning** — model is generating internally before responding.
+- **Tool running** — model has called a tool (web search, code execution, API call). Use the exact tool name: "Calling get_weather", not "Fetching data".
+- **Done** — tool completed successfully. Transition to a done state before collapsing so users know it finished.
+- **Error** — tool failed. Show the reason; never silently hide the failure.
+
+## Expandable detail
+
+<Canvas of={Stories.ToolRunning} withToolbar={false} />
+
+Pass `expandable` and `detail` to let the user see the raw tool call parameters. This supports AI transparency — power users and developers should be able to inspect what was called and with what arguments.
+
+## States
+
+<Canvas of={Stories.Thinking} withToolbar={false} />
+<Canvas of={Stories.ToolDone} withToolbar={false} />
+<Canvas of={Stories.ToolError} withToolbar={false} />
+
+## When not to use
+
+Do not use AgentStatus for simple text generation — the streaming cursor in MessageBubble is sufficient. Reserve AgentStatus for operations that involve tool calls or extended reasoning phases.
+
+## Accessibility
+
+- Uses `role="status"` with `aria-live="polite"` and `aria-atomic="true"` so the label is announced when it changes.
+- The label must be human-readable and specific. Screen-reader users rely on this announcement to understand what the assistant is doing.
+- The spinner is `aria-hidden="true"` — only the text label is announced.
+- The expand toggle uses `aria-expanded` and `aria-label` ("Show details" / "Hide details").
+- Error state uses error surface tokens and an alert icon — never only colour.
+
+## Playground
+
+<Controls of={Stories.Playground} />

@@ -1,0 +1,61 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks"
+import * as Stories from "./AIAttachmentVoice.stories"
+
+<Meta of={Stories} />
+
+# Multimodal — AttachmentPreview & VoiceInput
+
+Components for attaching files/images and recording voice, composing into the ChatInput toolbar.
+
+---
+
+## AttachmentPreview
+
+<Canvas of={Stories.AttachmentAllStates} withToolbar={false} />
+
+Displays a single attached file or image as a card with a thumbnail, file name, size, upload progress, and a remove control.
+
+**States**
+
+| State | When |
+|-------|------|
+| `ready` | File uploaded and ready to send |
+| `uploading` | Upload in progress — shows a progress bar |
+| `error` | Upload failed with a recoverable error |
+| `too-large` | File exceeds the size limit |
+
+**File types** — pass `fileType` to render an appropriate icon: `image`, `pdf`, `doc`, `spreadsheet`, `other`.
+
+**Accessibility**
+
+- The whole card has an `aria-label` describing the file name and current state.
+- The upload progress bar uses `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`.
+- Error state communicates the problem in text — never by colour alone.
+- The remove button has an `aria-label` naming the specific file being removed.
+
+---
+
+## VoiceInput
+
+<Canvas of={Stories.VoiceAllStates} withToolbar={false} />
+
+A mic toggle button with animated ring indicators for the recording state. Handles the full lifecycle from idle through to permission errors.
+
+**States**
+
+| State | Meaning |
+|-------|---------|
+| `idle` | Ready to record |
+| `recording` | Actively recording — pulsing ring; button flips to MicOff |
+| `processing` | Audio is being transcribed — spinner shown; button disabled |
+| `error` | Recording failed — show retry; use `onToggle` to retry |
+| `permission-denied` | Mic access blocked — button disabled; tooltip explains |
+
+**Respects `prefers-reduced-motion`** — the pulsing ring animation on recording state will stop if the user has reduced-motion set in their OS. The state is still indicated by the icon and colour change.
+
+**Accessibility**
+
+- Uses `aria-pressed` to convey recording on/off state.
+- `aria-label` changes per state so screen readers announce the current action and what pressing the button will do.
+- `processing` and `permission-denied` states are `disabled` — no keyboard interaction while the button cannot do anything useful.
+- The waveform ring animation is `aria-hidden="true"` — purely decorative.
