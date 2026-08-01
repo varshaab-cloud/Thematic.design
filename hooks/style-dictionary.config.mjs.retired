@@ -1,0 +1,21 @@
+export default {
+  source: ['tokens/tokens.json'],
+  platforms: {
+    css: {
+      transformGroup: 'css',
+      buildPath: 'src/styles/',
+      files: [{
+        destination: 'tokens.css',
+        format: 'css/variables',
+        options: {
+          outputReferences: true
+        }
+      }]
+    }
+  }
+}
+// RETIRED. This config reads tokens/tokens.json, which no longer exists — the pipeline
+// has not run since the token model was reworked, and src/styles/tokens.css has been
+// maintained directly ever since. The direction is now reversed: tokens.css is the source
+// and the JSON files are generated from it by scripts/token-export.cjs. Kept for reference
+// in case the build-from-JSON approach is ever restored.

@@ -24,7 +24,6 @@ function findRepoRoot(start) {
   }
 }
 const REPO = findRepoRoot(ROOT);
-const TOKENS_JSON = path.join(REPO, "src/styles/tokens.json");
 
 // Normalise a value for comparison. Without this, `10px` and `0.625rem` are treated as
 // different values even though they are identical, so a font-size expressed in rem is

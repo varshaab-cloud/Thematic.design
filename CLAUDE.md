@@ -9,12 +9,19 @@ Instructions for any AI assistant working in this repo. Read this first.
    generated, structured index of all 48 components is in
    `DESIGN.generated.md`. Don't guess a component's intended use — read it.
 2. **Use tokens only — never raw values.** Every color, spacing, radius, font, shadow,
-   and motion value must reference a token via `var(--…)`. The token source of truth is
-   `src/styles/tokens.css` (CSS) and `tokens.dtcg.json` (reference-based DTCG).
+   and motion value must reference a token via `var(--…)`.
+   - **`src/styles/tokens.css` is the single source of truth.** Edit tokens there.
+     `tokens.json` and `tokens.dtcg.json` are generated exports — do not edit them by
+     hand; run `npm run tokens` after changing `tokens.css`.
    - Tiers: `base` (primitives) → `semantic` / `alias` / `brand` → `component`.
    - Prefer the closest meaningful tier: component tokens for component styling, alias
      tokens for shared roles, base only when nothing else fits.
    - Never hardcode a hex, rgb, px, or rem that a token already exists for.
+   - **Never reference a token that doesn't exist.** An undefined `var()` fails silently —
+     the browser drops the declaration and the element renders unstyled, with no error.
+     Component token names are family-based (`--component-feedback-alert-*`, not
+     `--component-alert-*`); check `tokens.css` rather than guessing. The audit catches
+     these, but only if you run it.
 3. **Compose from existing components.** Build from `components/ui/`. Do not invent new
    primitives; if something genuinely new is needed, propose it for review rather than
    shipping a one-off.
@@ -24,23 +31,38 @@ Instructions for any AI assistant working in this repo. Read this first.
 
 ## Before committing
 
-Run the token audit and fix all errors:
-
 ```bash
-node scripts/token-audit.cjs components/ui   # library must be 0 errors
+npm run verify   # token audit + generated files up to date
 ```
 
-- **Errors** = hardcoded colors, or values that already have a token. These must be fixed.
-- **Warnings** = one-off dimensions with no token (e.g. a `[400px]` max-width). Acceptable,
-  but prefer a token if a suitable one exists.
-- **Zero errors required** for the component library before commit. (Demo/wireframe screens
-  under `src/stories/` and `app/` are mockups and are not gated.)
+This must pass. It runs two checks:
+
+**Token audit** — `npm run audit`
+
+- **Errors** = undefined token references, hardcoded colors, or values that already have
+  a usable token. These must be fixed.
+- **Warnings** = one-off dimensions with no suitable token (e.g. a `[400px]` max-width).
+  Acceptable, but prefer a token if a suitable one exists.
+- **Zero errors required** for the component library. (Demo/wireframe screens under
+  `src/stories/` and `app/` are mockups and are not gated.)
+- If the output starts with a warning about reading tokens, the audit is running without
+  its token map and a clean result means nothing. Fix that first.
+
+**Generated files** — regenerate whenever their sources change:
+
+```bash
+npm run tokens         # tokens.css → tokens.json + tokens.dtcg.json
+npm run design-index   # component .mdx + source → DESIGN.generated.md
+```
+
+Both have a `:check` variant that fails if the committed file is stale.
 
 ## Quick reference
 
 | Need | Where |
 |------|-------|
 | What a component is for | `src/stories/<Component>.mdx` |
-| All components at a glance | `DESIGN.generated.md` |
-| Token values & references | `src/styles/tokens.css`, `tokens.dtcg.json` |
-| Check for hardcoded values | `node scripts/token-audit.cjs <path>` |
+| All components at a glance | `DESIGN.generated.md` *(generated)* |
+| Token values & references | `src/styles/tokens.css` *(source of truth)* |
+| Token exports for tooling | `tokens.json`, `tokens.dtcg.json` *(generated)* |
+| Check everything before commit | `npm run verify` |
