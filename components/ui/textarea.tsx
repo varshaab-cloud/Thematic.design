@@ -59,7 +59,7 @@ function Textarea({
 
       {/* Label */}
       {label && (
-        <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
+        <label className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-primary)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </label>

@@ -40,7 +40,7 @@ function Slider({
           {label && (
             <label
               id={labelId}
-              className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]"
+              className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-primary)]"
             >
               {label}
             </label>

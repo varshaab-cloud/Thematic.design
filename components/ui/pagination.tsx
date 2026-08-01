@@ -26,7 +26,7 @@ function PaginationButton({
         "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50",
         "[&_svg]:size-3.5 [&_svg]:shrink-0",
         active
-          ? "border-[var(--component-nav-pagination-color-stroke-active)] bg-[var(--component-nav-pagination-color-bg-active)] text-[var(--component-nav-pagination-color-text-active)] font-[number:var(--base-font-weight-medium)]"
+          ? "border-[var(--component-nav-pagination-color-stroke-active)] bg-[var(--component-nav-pagination-color-bg-active)] text-[var(--component-nav-pagination-color-text-active)] font-[number:var(--alias-typography-weight-medium)]"
           : disabled
           ? "border-[var(--component-nav-pagination-color-stroke-default)] bg-transparent text-[var(--component-nav-pagination-color-text-disabled)] cursor-not-allowed"
           : "border-[var(--component-nav-pagination-color-stroke-default)] bg-transparent text-[var(--component-nav-pagination-color-text-default)] hover:bg-[var(--component-nav-pagination-color-bg-hover)] cursor-pointer",
@@ -129,11 +129,11 @@ export function Pagination({
         ) : (
           <>
             Showing{" "}
-            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-nav-pagination-color-text-default)]">
+            <span className="font-[number:var(--alias-typography-weight-medium)] text-[var(--component-nav-pagination-color-text-default)]">
               {rangeStart}–{rangeEnd}
             </span>{" "}
             of{" "}
-            <span className="font-[number:var(--base-font-weight-medium)] text-[var(--component-nav-pagination-color-text-default)]">{total}</span>{" "}
+            <span className="font-[number:var(--alias-typography-weight-medium)] text-[var(--component-nav-pagination-color-text-default)]">{total}</span>{" "}
             {rowLabel}
           </>
         )}

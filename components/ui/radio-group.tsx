@@ -70,7 +70,7 @@ function RadioGroupField({
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {label && (
-        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)]">
+        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-input-label-color-text-default)]">
           {label}
           {required && <span className="text-[var(--alias-color-feedback-error-fg)] ml-1">*</span>}
         </p>
@@ -147,7 +147,7 @@ function RadioGroupItem({
           {label && (
             <label
               htmlFor={id}
-              className={cn(sc.label, "font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)] cursor-pointer leading-none pt-0.5")}
+              className={cn(sc.label, "font-[number:var(--alias-typography-weight-medium)] text-[var(--component-input-label-color-text-default)] cursor-pointer leading-none pt-0.5")}
             >
               {label}
             </label>
@@ -169,7 +169,7 @@ function RadioGroupLabel({
   return (
     <p
       data-slot="radio-group-label"
-      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)] mb-1", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-input-label-color-text-default)] mb-1", className)}
       {...props}
     />
   )

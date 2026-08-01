@@ -420,7 +420,7 @@ export default function EmployeesPage() {
                       </button>
                       <button
                         onClick={() => removeEmployee(emp.id)}
-                        className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--semantic-color-error-200)] transition-colors"
+                        className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--base-color-feedback-error-200)] transition-colors"
                       >
                         <Trash2 className="size-3.5" />
                       </button>

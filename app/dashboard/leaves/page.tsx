@@ -461,10 +461,10 @@ function LeavesTab() {
                   <td className="px-4 py-3 text-[var(--alias-color-text-secondary)]">{l.reason}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
-                      <button onClick={() => approve(l.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] hover:bg-[var(--semantic-color-success-200)] transition-colors">
+                      <button onClick={() => approve(l.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] hover:bg-[var(--base-color-feedback-success-200)] transition-colors">
                         <Check className="size-3.5" />
                       </button>
-                      <button onClick={() => reject(l.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--semantic-color-error-200)] transition-colors">
+                      <button onClick={() => reject(l.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--base-color-feedback-error-200)] transition-colors">
                         <X className="size-3.5" />
                       </button>
                     </div>
@@ -509,7 +509,7 @@ function LeavesTab() {
                       <button onClick={() => openEdit(l)} className="p-1.5 rounded-md bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)] hover:bg-[var(--base-color-blue-200)] transition-colors">
                         <Pencil className="size-3.5" />
                       </button>
-                      <button onClick={() => setLeaves(prev => prev.filter(x => x.id !== l.id))} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--semantic-color-error-200)] transition-colors">
+                      <button onClick={() => setLeaves(prev => prev.filter(x => x.id !== l.id))} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--base-color-feedback-error-200)] transition-colors">
                         <Trash2 className="size-3.5" />
                       </button>
                     </div>
@@ -591,10 +591,10 @@ function AttChangesTab() {
                   <td className="px-4 py-3 text-[var(--alias-color-text-secondary)]">{c.requestedBy}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
-                      <button onClick={() => approve(c.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] hover:bg-[var(--semantic-color-success-200)] transition-colors">
+                      <button onClick={() => approve(c.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-success-bg)] text-[var(--alias-color-feedback-success-fg)] hover:bg-[var(--base-color-feedback-success-200)] transition-colors">
                         <Check className="size-3.5" />
                       </button>
-                      <button onClick={() => reject(c.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--semantic-color-error-200)] transition-colors">
+                      <button onClick={() => reject(c.id)} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--base-color-feedback-error-200)] transition-colors">
                         <X className="size-3.5" />
                       </button>
                     </div>

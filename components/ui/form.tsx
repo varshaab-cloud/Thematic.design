@@ -94,7 +94,7 @@ function FormLabel({
     <label
       htmlFor={id}
       className={cn(
-        "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-input-label-color-text-default)]",
+        "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-input-label-color-text-default)]",
         error && "text-[var(--component-input-helper-color-text-error)]",
         className
       )}
@@ -163,7 +163,7 @@ function FormSection({
     <div className={cn("flex flex-col gap-[var(--alias-spacing-stack-md)]", className)}>
       {(title || description) && (
         <div className="flex flex-col gap-0.5 pb-3 border-b border-[var(--alias-color-border-default)]">
-          {title && <h3 className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-input-label-color-text-default)]">{title}</h3>}
+          {title && <h3 className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-semibold)] text-[var(--component-input-label-color-text-default)]">{title}</h3>}
           {description && <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-input-helper-color-text-default)]">{description}</p>}
         </div>
       )}

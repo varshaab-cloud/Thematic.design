@@ -87,7 +87,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="alert-title"
       className={cn(
-        "font-[number:var(--base-font-weight-medium)] group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)]",
+        "font-[number:var(--alias-typography-weight-medium)] group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-[var(--alias-color-text-primary)]",
         alertTitleSizeClasses[size],
         className
       )}

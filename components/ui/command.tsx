@@ -25,7 +25,7 @@ function Command({
     <CommandPrimitive
       data-slot="command"
       className={cn(
-        "flex size-full flex-col overflow-hidden rounded-[var(--base-radius-md)]! bg-[var(--component-command-color-bg)] p-[var(--alias-spacing-inline-xs)] text-[var(--component-command-color-item-text-default)]",
+        "flex size-full flex-col overflow-hidden rounded-[var(--alias-radius-md)]! bg-[var(--component-command-color-bg)] p-[var(--alias-spacing-inline-xs)] text-[var(--component-command-color-item-text-default)]",
         className
       )}
       {...props}
@@ -54,7 +54,7 @@ function CommandDialog({
       </DialogHeader>
       <DialogContent
         className={cn(
-          "top-1/3 translate-y-0 overflow-hidden rounded-[var(--base-radius-xl)]! p-0",
+          "top-1/3 translate-y-0 overflow-hidden rounded-[var(--alias-radius-xl)]! p-0",
           className
         )}
         showCloseButton={showCloseButton}
@@ -71,7 +71,7 @@ function CommandInput({
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
     <div data-slot="command-input-wrapper" className="p-1 pb-0">
-      <InputGroup className="h-8! rounded-[var(--base-radius-lg)]! border-[var(--alias-color-border-default)]/30 bg-[var(--alias-color-background-secondary)] shadow-none! *:data-[slot=input-group-addon]:pl-2!">
+      <InputGroup className="h-8! rounded-[var(--alias-radius-lg)]! border-[var(--alias-color-border-default)]/30 bg-[var(--alias-color-background-secondary)] shadow-none! *:data-[slot=input-group-addon]:pl-2!">
         <CommandPrimitive.Input
           data-slot="command-input"
           className={cn(
@@ -125,7 +125,7 @@ function CommandGroup({
     <CommandPrimitive.Group
       data-slot="command-group"
       className={cn(
-        "overflow-hidden p-[var(--alias-spacing-inline-xs)] text-[var(--component-command-color-item-text-default)] **:[[cmdk-group-heading]]:px-[var(--alias-spacing-padding-xs)] **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-[length:var(--alias-typography-caption1-font-size)] **:[[cmdk-group-heading]]:font-[number:var(--base-font-weight-medium)] **:[[cmdk-group-heading]]:text-[var(--component-command-color-group-heading)]",
+        "overflow-hidden p-[var(--alias-spacing-inline-xs)] text-[var(--component-command-color-item-text-default)] **:[[cmdk-group-heading]]:px-[var(--alias-spacing-padding-xs)] **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-[length:var(--alias-typography-caption1-font-size)] **:[[cmdk-group-heading]]:font-[number:var(--alias-typography-weight-medium)] **:[[cmdk-group-heading]]:text-[var(--component-command-color-group-heading)]",
         className
       )}
       {...props}
@@ -155,7 +155,7 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "group/command-item relative flex cursor-default items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-body-text2-font-size)] outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-selected:bg-[var(--component-command-color-item-bg-selected)] data-selected:text-[var(--component-command-color-item-text-default)] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "group/command-item relative flex cursor-default items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--alias-radius-md)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-body-text2-font-size)] outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-selected:bg-[var(--component-command-color-item-bg-selected)] data-selected:text-[var(--component-command-color-item-text-default)] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

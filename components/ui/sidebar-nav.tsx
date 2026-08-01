@@ -84,7 +84,7 @@ function SidebarNav({
                   onClick={() => toggleSection(si)}
                   className="flex items-center justify-between px-[var(--alias-spacing-padding-xs)] pb-1 w-full group"
                 >
-                  <p className="text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)] group-hover:text-[var(--alias-color-text-secondary)] transition-colors">
+                  <p className="text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--alias-typography-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)] group-hover:text-[var(--alias-color-text-secondary)] transition-colors">
                     {section.title}
                   </p>
                   {isSectionCollapsed
@@ -93,7 +93,7 @@ function SidebarNav({
                   }
                 </button>
               ) : (
-                <p className="px-[var(--alias-spacing-padding-xs)] pb-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
+                <p className="px-[var(--alias-spacing-padding-xs)] pb-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--alias-typography-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
                   {section.title}
                 </p>
               )
@@ -106,7 +106,7 @@ function SidebarNav({
                 aria-label={collapsed ? item.label : undefined}
                 aria-current={item.active ? "page" : undefined}
                 className={cn(
-                  "relative flex items-center gap-2.5 rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] h-8 text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] w-full text-left after:absolute after:inset-x-0 after:-inset-y-[6px]",
+                  "relative flex items-center gap-2.5 rounded-[var(--alias-radius-md)] px-[var(--alias-spacing-padding-xs)] h-8 text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)] w-full text-left after:absolute after:inset-x-0 after:-inset-y-[6px]",
                   "text-[var(--component-nav-sidebar-color-item-text-default)] hover:bg-[var(--component-nav-sidebar-color-item-bg-hover)] hover:text-[var(--component-nav-sidebar-color-item-text-hover)]",
                   item.active && "bg-[var(--component-nav-sidebar-color-item-bg-active)] text-[var(--component-nav-sidebar-color-item-text-active)] font-[number:var(--alias-typography-button-font-weight)] hover:bg-[var(--component-nav-sidebar-color-item-bg-active)]",
                   collapsed && "justify-center px-0"
@@ -123,7 +123,7 @@ function SidebarNav({
                     <span className="truncate flex-1">{item.label}</span>
                     {item.badge !== undefined && (
                       <span className={cn(
-                        "ml-auto text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] tabular-nums rounded-full px-1.5 py-0.5",
+                        "ml-auto text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--alias-typography-weight-medium)] tabular-nums rounded-full px-1.5 py-0.5",
                         item.active
                           ? "bg-[var(--component-feedback-badge-brand-color-bg)] text-white"
                           : "bg-[var(--component-feedback-badge-neutral-color-bg)] text-[var(--alias-color-text-subtle)]"

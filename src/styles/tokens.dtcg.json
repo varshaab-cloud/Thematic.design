@@ -464,6 +464,160 @@
           "$value": "#0d0b09",
           "$type": "color"
         }
+      },
+      "feedback": {
+        "success": {
+          "100": {
+            "$value": "#f0fdf4",
+            "$type": "color"
+          },
+          "200": {
+            "$value": "#dcfce7",
+            "$type": "color"
+          },
+          "300": {
+            "$value": "#bbf7d0",
+            "$type": "color"
+          },
+          "400": {
+            "$value": "#86efac",
+            "$type": "color"
+          },
+          "500": {
+            "$value": "#4ade80",
+            "$type": "color"
+          },
+          "600": {
+            "$value": "#16a34a",
+            "$type": "color"
+          },
+          "700": {
+            "$value": "#15803d",
+            "$type": "color"
+          },
+          "800": {
+            "$value": "#166534",
+            "$type": "color"
+          },
+          "900": {
+            "$value": "#14532d",
+            "$type": "color"
+          }
+        },
+        "info": {
+          "100": {
+            "$value": "#f0f9ff",
+            "$type": "color"
+          },
+          "200": {
+            "$value": "#e0f2fe",
+            "$type": "color"
+          },
+          "300": {
+            "$value": "#bae6fd",
+            "$type": "color"
+          },
+          "400": {
+            "$value": "#7dd3fc",
+            "$type": "color"
+          },
+          "500": {
+            "$value": "#38bdf8",
+            "$type": "color"
+          },
+          "600": {
+            "$value": "#0284c7",
+            "$type": "color"
+          },
+          "700": {
+            "$value": "#0369a1",
+            "$type": "color"
+          },
+          "800": {
+            "$value": "#075985",
+            "$type": "color"
+          },
+          "900": {
+            "$value": "#0c4a6e",
+            "$type": "color"
+          }
+        },
+        "warning": {
+          "100": {
+            "$value": "#fffbeb",
+            "$type": "color"
+          },
+          "200": {
+            "$value": "#fef3c7",
+            "$type": "color"
+          },
+          "300": {
+            "$value": "#fde68a",
+            "$type": "color"
+          },
+          "400": {
+            "$value": "#fcd34d",
+            "$type": "color"
+          },
+          "500": {
+            "$value": "#fbbf24",
+            "$type": "color"
+          },
+          "600": {
+            "$value": "#d97706",
+            "$type": "color"
+          },
+          "700": {
+            "$value": "#b45309",
+            "$type": "color"
+          },
+          "800": {
+            "$value": "#92400e",
+            "$type": "color"
+          },
+          "900": {
+            "$value": "#78350f",
+            "$type": "color"
+          }
+        },
+        "error": {
+          "100": {
+            "$value": "#fff5f5",
+            "$type": "color"
+          },
+          "200": {
+            "$value": "#fee2e2",
+            "$type": "color"
+          },
+          "300": {
+            "$value": "#fecaca",
+            "$type": "color"
+          },
+          "400": {
+            "$value": "#fca5a5",
+            "$type": "color"
+          },
+          "500": {
+            "$value": "#f87171",
+            "$type": "color"
+          },
+          "600": {
+            "$value": "#dc2626",
+            "$type": "color"
+          },
+          "700": {
+            "$value": "#b91c1c",
+            "$type": "color"
+          },
+          "800": {
+            "$value": "#991b1b",
+            "$type": "color"
+          },
+          "900": {
+            "$value": "#7f1d1d",
+            "$type": "color"
+          }
+        }
       }
     },
     "font": {
@@ -691,162 +845,6 @@
       }
     }
   },
-  "semantic": {
-    "color": {
-      "success": {
-        "100": {
-          "$value": "#f0fdf4",
-          "$type": "color"
-        },
-        "200": {
-          "$value": "#dcfce7",
-          "$type": "color"
-        },
-        "300": {
-          "$value": "#bbf7d0",
-          "$type": "color"
-        },
-        "400": {
-          "$value": "#86efac",
-          "$type": "color"
-        },
-        "500": {
-          "$value": "#4ade80",
-          "$type": "color"
-        },
-        "600": {
-          "$value": "#16a34a",
-          "$type": "color"
-        },
-        "700": {
-          "$value": "#15803d",
-          "$type": "color"
-        },
-        "800": {
-          "$value": "#166534",
-          "$type": "color"
-        },
-        "900": {
-          "$value": "#14532d",
-          "$type": "color"
-        }
-      },
-      "info": {
-        "100": {
-          "$value": "#f0f9ff",
-          "$type": "color"
-        },
-        "200": {
-          "$value": "#e0f2fe",
-          "$type": "color"
-        },
-        "300": {
-          "$value": "#bae6fd",
-          "$type": "color"
-        },
-        "400": {
-          "$value": "#7dd3fc",
-          "$type": "color"
-        },
-        "500": {
-          "$value": "#38bdf8",
-          "$type": "color"
-        },
-        "600": {
-          "$value": "#0284c7",
-          "$type": "color"
-        },
-        "700": {
-          "$value": "#0369a1",
-          "$type": "color"
-        },
-        "800": {
-          "$value": "#075985",
-          "$type": "color"
-        },
-        "900": {
-          "$value": "#0c4a6e",
-          "$type": "color"
-        }
-      },
-      "warning": {
-        "100": {
-          "$value": "#fffbeb",
-          "$type": "color"
-        },
-        "200": {
-          "$value": "#fef3c7",
-          "$type": "color"
-        },
-        "300": {
-          "$value": "#fde68a",
-          "$type": "color"
-        },
-        "400": {
-          "$value": "#fcd34d",
-          "$type": "color"
-        },
-        "500": {
-          "$value": "#fbbf24",
-          "$type": "color"
-        },
-        "600": {
-          "$value": "#d97706",
-          "$type": "color"
-        },
-        "700": {
-          "$value": "#b45309",
-          "$type": "color"
-        },
-        "800": {
-          "$value": "#92400e",
-          "$type": "color"
-        },
-        "900": {
-          "$value": "#78350f",
-          "$type": "color"
-        }
-      },
-      "error": {
-        "100": {
-          "$value": "#fff5f5",
-          "$type": "color"
-        },
-        "200": {
-          "$value": "#fee2e2",
-          "$type": "color"
-        },
-        "300": {
-          "$value": "#fecaca",
-          "$type": "color"
-        },
-        "400": {
-          "$value": "#fca5a5",
-          "$type": "color"
-        },
-        "500": {
-          "$value": "#f87171",
-          "$type": "color"
-        },
-        "600": {
-          "$value": "#dc2626",
-          "$type": "color"
-        },
-        "700": {
-          "$value": "#b91c1c",
-          "$type": "color"
-        },
-        "800": {
-          "$value": "#991b1b",
-          "$type": "color"
-        },
-        "900": {
-          "$value": "#7f1d1d",
-          "$type": "color"
-        }
-      }
-    }
-  },
   "alias": {
     "color": {
       "text": {
@@ -879,11 +877,11 @@
           "$type": "color"
         },
         "error": {
-          "$value": "{semantic.color.error.800}",
+          "$value": "{base.color.feedback.error.800}",
           "$type": "color"
         },
         "success": {
-          "$value": "{semantic.color.success.800}",
+          "$value": "{base.color.feedback.success.800}",
           "$type": "color"
         }
       },
@@ -937,19 +935,19 @@
           "$type": "color"
         },
         "success": {
-          "$value": "{semantic.color.success.600}",
+          "$value": "{base.color.feedback.success.600}",
           "$type": "color"
         },
         "info": {
-          "$value": "{semantic.color.info.600}",
+          "$value": "{base.color.feedback.info.600}",
           "$type": "color"
         },
         "error": {
-          "$value": "{semantic.color.error.600}",
+          "$value": "{base.color.feedback.error.600}",
           "$type": "color"
         },
         "warning": {
-          "$value": "{semantic.color.warning.600}",
+          "$value": "{base.color.feedback.warning.600}",
           "$type": "color"
         },
         "subtle": {
@@ -978,15 +976,15 @@
       "feedback": {
         "success": {
           "fg": {
-            "$value": "{semantic.color.success.800}",
+            "$value": "{base.color.feedback.success.800}",
             "$type": "color"
           },
           "bg": {
-            "$value": "{semantic.color.success.100}",
+            "$value": "{base.color.feedback.success.100}",
             "$type": "color"
           },
           "border": {
-            "$value": "{semantic.color.success.400}",
+            "$value": "{base.color.feedback.success.400}",
             "$type": "color"
           },
           "stroke": {
@@ -996,15 +994,15 @@
         },
         "info": {
           "fg": {
-            "$value": "{semantic.color.info.800}",
+            "$value": "{base.color.feedback.info.800}",
             "$type": "color"
           },
           "bg": {
-            "$value": "{semantic.color.info.100}",
+            "$value": "{base.color.feedback.info.100}",
             "$type": "color"
           },
           "border": {
-            "$value": "{semantic.color.info.400}",
+            "$value": "{base.color.feedback.info.400}",
             "$type": "color"
           },
           "stroke": {
@@ -1014,15 +1012,15 @@
         },
         "warning": {
           "fg": {
-            "$value": "{semantic.color.warning.800}",
+            "$value": "{base.color.feedback.warning.800}",
             "$type": "color"
           },
           "bg": {
-            "$value": "{semantic.color.warning.100}",
+            "$value": "{base.color.feedback.warning.100}",
             "$type": "color"
           },
           "border": {
-            "$value": "{semantic.color.warning.400}",
+            "$value": "{base.color.feedback.warning.400}",
             "$type": "color"
           },
           "stroke": {
@@ -1032,15 +1030,15 @@
         },
         "error": {
           "fg": {
-            "$value": "{semantic.color.error.800}",
+            "$value": "{base.color.feedback.error.800}",
             "$type": "color"
           },
           "bg": {
-            "$value": "{semantic.color.error.100}",
+            "$value": "{base.color.feedback.error.100}",
             "$type": "color"
           },
           "border": {
-            "$value": "{semantic.color.error.400}",
+            "$value": "{base.color.feedback.error.400}",
             "$type": "color"
           },
           "stroke": {
@@ -1081,11 +1079,11 @@
         "destructive": {
           "bg": {
             "default": {
-              "$value": "{semantic.color.error.700}",
+              "$value": "{base.color.feedback.error.700}",
               "$type": "color"
             },
             "hover": {
-              "$value": "{semantic.color.error.800}",
+              "$value": "{base.color.feedback.error.800}",
               "$type": "color"
             },
             "active": {
@@ -1459,6 +1457,30 @@
           }
         }
       },
+      "family": {
+        "primary": {
+          "$value": "{base.font.family.primary}",
+          "$type": "fontFamily"
+        }
+      },
+      "weight": {
+        "regular": {
+          "$value": "{base.font.weight.regular}",
+          "$type": "fontWeight"
+        },
+        "medium": {
+          "$value": "{base.font.weight.medium}",
+          "$type": "fontWeight"
+        },
+        "semibold": {
+          "$value": "{base.font.weight.semibold}",
+          "$type": "fontWeight"
+        },
+        "bold": {
+          "$value": "{base.font.weight.bold}",
+          "$type": "fontWeight"
+        }
+      },
       "label": {
         "family": {
           "$value": "{alias.typography.body.text2.font.family}",
@@ -1671,6 +1693,10 @@
       },
       "3": {
         "$value": "{base.shadow.03}",
+        "$type": "shadow"
+      },
+      "4": {
+        "$value": "{base.shadow.04}",
         "$type": "shadow"
       },
       "5": {

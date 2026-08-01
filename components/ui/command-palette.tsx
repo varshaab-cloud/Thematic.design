@@ -126,7 +126,7 @@ export function CommandPalette({
           <div
             className={cn(
               "bg-[var(--component-command-color-bg)] border border-[var(--component-command-color-stroke)]",
-              "rounded-[var(--base-radius-lg)] shadow-xl",
+              "rounded-[var(--alias-radius-lg)] shadow-xl",
               "max-h-[400px] overflow-hidden flex flex-col"
             )}
           >
@@ -186,7 +186,7 @@ export function CommandPalette({
                     {/* Group label */}
                     <p
                       className={cn(
-                        "px-[var(--alias-spacing-padding-xs)] py-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-semibold)] tracking-wider uppercase",
+                        "px-[var(--alias-spacing-padding-xs)] py-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--alias-typography-weight-semibold)] tracking-wider uppercase",
                         "text-[var(--component-command-color-group-heading)]"
                       )}
                     >
@@ -205,7 +205,7 @@ export function CommandPalette({
                           aria-selected={isActive}
                           data-active={isActive}
                           className={cn(
-                            "w-full flex items-center gap-2.5 px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-padding-xs)] rounded-[var(--base-radius-sm)]",
+                            "w-full flex items-center gap-2.5 px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-padding-xs)] rounded-[var(--alias-radius-sm)]",
                             "text-left text-[length:var(--alias-typography-body-text2-font-size)] [transition:var(--alias-motion-transition-normal)]",
                             isActive
                               ? "bg-[var(--component-command-color-item-bg-selected)] text-[var(--component-command-color-item-text-default)]"
@@ -231,7 +231,7 @@ export function CommandPalette({
                             </span>
                           )}
                           <span className="flex-1 min-w-0">
-                            <span className="block font-[number:var(--base-font-weight-medium)] truncate">
+                            <span className="block font-[number:var(--alias-typography-weight-medium)] truncate">
                               {item.label}
                             </span>
                             {item.description && (

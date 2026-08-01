@@ -82,7 +82,7 @@ function CopyToClipboard({
     >
       {icon}
       {state === "copied" && (
-        <span className="ml-1 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)]">Copied</span>
+        <span className="ml-1 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)]">Copied</span>
       )}
     </button>
   )

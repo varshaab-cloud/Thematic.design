@@ -150,7 +150,7 @@ function ContextMenuLabel({
       data-slot="context-menu-label"
       data-inset={inset}
       className={cn(
-        "px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-subtle)] data-inset:pl-7",
+        "px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-subtle)] data-inset:pl-7",
         className
       )}
       {...props}

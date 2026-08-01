@@ -34,7 +34,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-text":   "var(--component-feedback-toast-info-color-text)",
           "--normal-border": "var(--component-feedback-toast-info-color-stroke)",
           "--border-radius": "var(--component-feedback-toast-shared-dimension-radius)",
-          "--font-family":   "var(--base-font-family-primary)",
+          "--font-family":   "var(--alias-typography-family-primary)",
           "--success-bg":    "var(--component-feedback-toast-success-color-bg)",
           "--success-border":"var(--component-feedback-toast-success-color-stroke)",
           "--error-bg":      "var(--component-feedback-toast-error-color-bg)",

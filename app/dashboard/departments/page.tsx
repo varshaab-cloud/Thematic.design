@@ -480,7 +480,7 @@ export default function DepartmentsPage() {
                           <button onClick={() => openEditDept(dept)} className="p-1.5 rounded-md bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)] hover:bg-[var(--base-color-blue-200)] transition-colors">
                             <Pencil className="size-3.5" />
                           </button>
-                          <button onClick={() => setDepartments(prev => prev.filter(d => d.id !== dept.id))} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--semantic-color-error-200)] transition-colors">
+                          <button onClick={() => setDepartments(prev => prev.filter(d => d.id !== dept.id))} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--base-color-feedback-error-200)] transition-colors">
                             <Trash2 className="size-3.5" />
                           </button>
                         </div>
@@ -533,7 +533,7 @@ export default function DepartmentsPage() {
                           <button onClick={() => openEditRole(role)} className="p-1.5 rounded-md bg-[var(--base-color-blue-100)] text-[var(--base-color-blue-800)] hover:bg-[var(--base-color-blue-200)] transition-colors">
                             <Pencil className="size-3.5" />
                           </button>
-                          <button onClick={() => setRoles(prev => prev.filter(r => r.id !== role.id))} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--semantic-color-error-200)] transition-colors">
+                          <button onClick={() => setRoles(prev => prev.filter(r => r.id !== role.id))} className="p-1.5 rounded-md bg-[var(--alias-color-feedback-error-bg)] text-[var(--alias-color-feedback-error-fg)] hover:bg-[var(--base-color-feedback-error-200)] transition-colors">
                             <Trash2 className="size-3.5" />
                           </button>
                         </div>

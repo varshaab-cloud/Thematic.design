@@ -4,7 +4,7 @@
 > Token namespaces and relationships are derived from source, so they cannot drift
 > from the system. Prose fields are lifted verbatim from each component's `.mdx`.
 
-> Coverage: **54 components** · **1598 tokens** defined in `tokens.css`.
+> Coverage: **54 components** · **1604 tokens** defined in `tokens.css`.
 
 ---
 

@@ -101,7 +101,7 @@ function FileUpload({
       />
 
       <div className="flex flex-col items-center gap-[var(--alias-spacing-inline-xs)]">
-        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-file-upload-color-label)]">
+        <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-file-upload-color-label)]">
           Drop files here
         </p>
         <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--alias-color-text-tertiary)]">or</p>

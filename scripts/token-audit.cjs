@@ -228,6 +228,40 @@ function nearestToken(unknown) {
 
 const VAR_REF = /var\(\s*(--[a-z0-9-]+)/gi;
 
+// ---- tier discipline ----
+// The three-tier model only pays off if components stay on the top tier. A component
+// reaching straight into --base-* skips the layer where meaning lives, so a rebrand or
+// theme change silently misses it: the alias moves, the component does not. It also
+// reads as a deliberate exception when it is nearly always an oversight — card.tsx was
+// pulling a raw feedback hex for its trend arrows, which is how the up and down arrows
+// ended up on two different stops of the same ramp.
+//
+// Only enforced inside components/ui. Token definitions legitimately reference lower
+// tiers (that is what the chain is), and demo screens are not gated.
+const PRIMITIVE_TIER = /^--(base|semantic)-/;
+// Match on the path relative to the repo, since `file` may be absolute or already
+// relative depending on what the scan was pointed at — requiring a leading separator
+// silently matched nothing when the audit was run as `token-audit.cjs components/ui`.
+const isLibraryFile = (file) =>
+  path.relative(REPO, path.resolve(file)).split(path.sep).join("/").startsWith("components/ui/");
+
+// Point at the alias that already wraps this primitive, so the fix is a lookup rather
+// than a judgement call. Where several aliases wrap the same primitive the choice is
+// genuinely the author's, so list a couple rather than pretending there is one answer.
+function aliasFor(primitive) {
+  const wrappers = [];
+  for (const [name, raw] of rawDefs) {
+    if (!/^--alias-/.test(name)) continue;
+    if (new RegExp(`var\\(\\s*${primitive}\\s*\\)`).test(raw)) wrappers.push(name);
+  }
+  if (!wrappers.length) {
+    return `no alias wraps this primitive — add one, or keep the literal if it is genuinely component-specific`;
+  }
+  const shown = wrappers.slice(0, 2).map((w) => `var(${w})`).join(" or ");
+  const more = wrappers.length > 2 ? ` (+${wrappers.length - 2} more)` : "";
+  return `use ${shown}${more} — components should not reference the primitive tier directly`;
+}
+
 // ---- allowlist: values that are fine literal ----
 const OK = /^(0|0px|0rem|0ms|0s|transparent|currentcolor|inherit|initial|unset|none|auto|100%|50%|1px)$/i;
 const inVar = (line, idx) => {
@@ -261,11 +295,15 @@ for (const file of walk(ROOT)) {
     const L = i + 1;
     let m;
 
-    // undefined token references (errors)
+    // undefined token references (errors) + tier violations (warnings)
     VAR_REF.lastIndex = 0;
     while ((m = VAR_REF.exec(ln))) {
       if (RUNTIME_VAR.test(m[1])) continue;
-      if (!definedTokens.has(m[1])) add(errors, file, L, m.index + 1, "undefined token reference", `var(${m[1]})`, nearestToken(m[1]));
+      if (!definedTokens.has(m[1])) {
+        add(errors, file, L, m.index + 1, "undefined token reference", `var(${m[1]})`, nearestToken(m[1]));
+      } else if (isLibraryFile(file) && PRIMITIVE_TIER.test(m[1])) {
+        add(warnings, file, L, m.index + 1, "primitive tier in component", `var(${m[1]})`, aliasFor(m[1]));
+      }
     }
 
     // colors (errors)

@@ -55,20 +55,20 @@ export function AppHeaderLogo({ name, src, className }: AppHeaderLogoProps) {
         <img
           src={src}
           alt={name}
-          className="w-7 h-7 rounded-[var(--base-radius-md)] object-contain"
+          className="w-7 h-7 rounded-[var(--alias-radius-md)] object-contain"
         />
       ) : (
         <div
           className={cn(
-            "w-7 h-7 rounded-[var(--base-radius-md)] flex items-center justify-center",
+            "w-7 h-7 rounded-[var(--alias-radius-md)] flex items-center justify-center",
             "bg-white/15 text-[var(--component-nav-header-color-text-brand)]",
-            "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-bold)] leading-none select-none"
+            "text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-bold)] leading-none select-none"
           )}
         >
           T
         </div>
       )}
-      <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-nav-header-color-text-brand)] tracking-tight">
+      <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-semibold)] text-[var(--component-nav-header-color-text-brand)] tracking-tight">
         {name}
       </span>
     </div>
@@ -112,7 +112,7 @@ export function AppHeaderNavItem({
   className,
 }: AppHeaderNavItemProps) {
   const sharedClass = cn(
-    "relative flex items-center h-full px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] [transition:var(--alias-motion-transition-normal)]",
+    "relative flex items-center h-full px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] [transition:var(--alias-motion-transition-normal)]",
     "outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-input-field-color-stroke-focus)]",
     active
       ? "text-[var(--component-nav-header-color-text-brand)]"
@@ -178,7 +178,7 @@ export function AppHeaderSearch({
         data-slot="app-header-search"
         onClick={onSearchClick}
         className={cn(
-          "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-sm)] rounded-[var(--base-radius-md)]",
+          "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-sm)] rounded-[var(--alias-radius-md)]",
           "border border-[var(--component-nav-header-color-stroke)] bg-[var(--component-input-field-color-bg-default)]",
           "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-input-field-color-text-placeholder)]",
           "hover:border-[var(--alias-color-border-default)] hover:bg-[var(--component-nav-header-color-bg)] [transition:var(--alias-motion-transition-normal)]",
@@ -199,7 +199,7 @@ export function AppHeaderSearch({
     <div
       data-slot="app-header-search"
       className={cn(
-        "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-sm)] rounded-[var(--base-radius-md)]",
+        "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-sm)] rounded-[var(--alias-radius-md)]",
         "border border-[var(--component-nav-header-color-stroke)] bg-[var(--component-input-field-color-bg-default)]",
         "focus-within:border-[var(--component-input-field-color-stroke-focus)] focus-within:bg-[var(--component-nav-header-color-bg)] focus-within:ring-2 focus-within:ring-[var(--alias-color-background-hover)]",
         "[transition:var(--alias-motion-transition-normal)]",
@@ -262,7 +262,7 @@ export function AppHeaderNotifications({
       onClick={onClick}
       aria-label={count > 0 ? `${count} notifications` : "Notifications"}
       className={cn(
-        "relative flex items-center justify-center w-8 h-8 rounded-[var(--base-radius-md)]",
+        "relative flex items-center justify-center w-8 h-8 rounded-[var(--alias-radius-md)]",
         "text-[var(--component-nav-header-color-text-nav)] hover:text-[var(--component-nav-header-color-text-brand)]",
         "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-input-field-color-stroke-focus)]",
@@ -275,7 +275,7 @@ export function AppHeaderNotifications({
           className={cn(
             "absolute top-1 right-1 flex items-center justify-center",
             "min-w-[var(--component-feedback-badge-count-dimension-min-width)] h-4 px-1 rounded-full",
-            "bg-[var(--component-feedback-badge-error-color-bg)] text-[var(--component-feedback-badge-error-color-text)] text-[9px] font-[number:var(--base-font-weight-semibold)] leading-none",
+            "bg-[var(--component-feedback-badge-error-color-bg)] text-[var(--component-feedback-badge-error-color-text)] text-[9px] font-[number:var(--alias-typography-weight-semibold)] leading-none",
             "select-none pointer-events-none"
           )}
         >
@@ -320,7 +320,7 @@ export function AppHeaderUser({
           data-slot="app-header-user"
           aria-label={`User menu for ${name}`}
           className={cn(
-            "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-xs)] rounded-[var(--base-radius-md)]",
+            "flex items-center gap-[var(--alias-spacing-inline-sm)] h-8 px-[var(--alias-spacing-padding-xs)] rounded-[var(--alias-radius-md)]",
             "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--component-nav-header-color-text-nav)]",
             "hover:bg-[var(--alias-color-background-tertiary)] [transition:var(--alias-motion-transition-normal)]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-input-field-color-stroke-focus)]",
@@ -332,12 +332,12 @@ export function AppHeaderUser({
             className={cn(
               "w-6 h-6 rounded-full flex items-center justify-center shrink-0",
               "bg-[var(--component-avatar-color-bg)] text-[var(--component-avatar-color-text)]",
-              "text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-semibold)] select-none"
+              "text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--alias-typography-weight-semibold)] select-none"
             )}
           >
             {initials}
           </span>
-          <span className="hidden sm:block font-[number:var(--base-font-weight-medium)] truncate max-w-[120px]">
+          <span className="hidden sm:block font-[number:var(--alias-typography-weight-medium)] truncate max-w-[120px]">
             {name}
           </span>
           <ChevronDown
@@ -352,9 +352,9 @@ export function AppHeaderUser({
           align="end"
           sideOffset={6}
           className={cn(
-            "z-50 min-w-[180px] rounded-[var(--base-radius-md)]",
+            "z-50 min-w-[180px] rounded-[var(--alias-radius-md)]",
             "border border-[var(--component-nav-header-color-stroke)] bg-[var(--alias-color-background-primary)]",
-            "shadow-[var(--base-shadow-04)] p-[var(--alias-spacing-inline-xs)]",
+            "shadow-[var(--alias-elevation-4)] p-[var(--alias-spacing-inline-xs)]",
             "text-[length:var(--alias-typography-body-text2-font-size)] text-[var(--alias-color-text-secondary)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
@@ -363,7 +363,7 @@ export function AppHeaderUser({
         >
           {/* User info */}
           <div className="px-2 py-1.5 mb-1 border-b border-[var(--alias-color-background-tertiary)]">
-            <p className="font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-secondary)] truncate">{name}</p>
+            <p className="font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-secondary)] truncate">{name}</p>
             {email && (
               <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-input-field-color-text-placeholder)] truncate">{email}</p>
             )}
@@ -372,7 +372,7 @@ export function AppHeaderUser({
           <DropdownMenuPrimitive.Item
             onSelect={onProfile}
             className={cn(
-              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
+              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--alias-radius-sm)]",
               "cursor-pointer outline-none",
               "hover:bg-[var(--alias-color-background-tertiary)] focus:bg-[var(--alias-color-background-tertiary)]",
               "text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
@@ -384,7 +384,7 @@ export function AppHeaderUser({
           <DropdownMenuPrimitive.Item
             onSelect={onSettings}
             className={cn(
-              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
+              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--alias-radius-sm)]",
               "cursor-pointer outline-none",
               "hover:bg-[var(--alias-color-background-tertiary)] focus:bg-[var(--alias-color-background-tertiary)]",
               "text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"
@@ -398,7 +398,7 @@ export function AppHeaderUser({
           <DropdownMenuPrimitive.Item
             onSelect={onSignOut}
             className={cn(
-              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--base-radius-sm)]",
+              "flex items-center gap-[var(--alias-spacing-inline-sm)] px-[var(--alias-spacing-padding-xs)] py-1.5 rounded-[var(--alias-radius-sm)]",
               "cursor-pointer outline-none",
               "hover:bg-[var(--alias-color-background-tertiary)] focus:bg-[var(--alias-color-background-tertiary)]",
               "text-[var(--alias-color-text-tertiary)] [transition:var(--alias-motion-transition-normal)]"

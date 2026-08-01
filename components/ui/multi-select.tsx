@@ -108,7 +108,7 @@ function MultiSelect({
           align="start"
           sideOffset={4}
           className={cn(
-            "z-50 min-w-[var(--radix-popover-trigger-width)] overflow-hidden rounded-[var(--base-radius-sm)] border border-[var(--alias-color-border-default)] bg-[var(--component-multi-select-dropdown-color-bg)] shadow-[var(--component-multi-select-dropdown-elevation)]",
+            "z-50 min-w-[var(--radix-popover-trigger-width)] overflow-hidden rounded-[var(--alias-radius-sm)] border border-[var(--alias-color-border-default)] bg-[var(--component-multi-select-dropdown-color-bg)] shadow-[var(--component-multi-select-dropdown-elevation)]",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2"
@@ -128,7 +128,7 @@ function MultiSelect({
                   aria-selected={isSelected}
                   onClick={() => toggleOption(option.value)}
                   className={cn(
-                    "flex cursor-pointer items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-button-font-size)] text-[var(--alias-color-text-primary)] select-none",
+                    "flex cursor-pointer items-center gap-[var(--alias-spacing-inline-sm)] rounded-[var(--alias-radius-md)] px-[var(--alias-spacing-padding-xs)] py-1.5 text-[length:var(--alias-typography-button-font-size)] text-[var(--alias-color-text-primary)] select-none",
                     "hover:bg-[var(--component-multi-select-option-color-bg-hover)]",
                     isSelected && "bg-[var(--component-multi-select-option-color-bg-selected)]"
                   )}

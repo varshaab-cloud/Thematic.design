@@ -170,7 +170,7 @@ function DropdownMenuLabel({
       data-slot="dropdown-menu-label"
       data-inset={inset}
       className={cn(
-        "px-1.5 py-[var(--alias-spacing-inline-xs)] text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-dropdown-menu-color-label)] data-inset:pl-7",
+        "px-1.5 py-[var(--alias-spacing-inline-xs)] text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-dropdown-menu-color-label)] data-inset:pl-7",
         className
       )}
       {...props}

@@ -25,14 +25,14 @@ const buttonVariants = cva(
       size: {
         default:
           "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-[var(--alias-spacing-inline-xs)] rounded-[var(--base-radius-md)] px-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-button-font-size)] in-data-[slot=button-group]:rounded-[var(--base-radius-lg)] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-[var(--alias-spacing-inline-xs)] rounded-[var(--base-radius-md)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-[var(--base-radius-lg)] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        xs: "h-6 gap-[var(--alias-spacing-inline-xs)] rounded-[var(--alias-radius-md)] px-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-button-font-size)] in-data-[slot=button-group]:rounded-[var(--alias-radius-lg)] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-[var(--alias-spacing-inline-xs)] rounded-[var(--alias-radius-md)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-[var(--alias-radius-lg)] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
         lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
         icon: "size-8",
         "icon-xs":
-          "size-6 rounded-[var(--base-radius-md)] in-data-[slot=button-group]:rounded-[var(--base-radius-lg)] [&_svg:not([class*='size-'])]:size-3",
+          "size-6 rounded-[var(--alias-radius-md)] in-data-[slot=button-group]:rounded-[var(--alias-radius-lg)] [&_svg:not([class*='size-'])]:size-3",
         "icon-sm":
-          "size-7 rounded-[var(--base-radius-md)] in-data-[slot=button-group]:rounded-[var(--base-radius-lg)]",
+          "size-7 rounded-[var(--alias-radius-md)] in-data-[slot=button-group]:rounded-[var(--alias-radius-lg)]",
         "icon-lg": "size-9",
       },
     },

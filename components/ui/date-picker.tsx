@@ -180,7 +180,7 @@ export function Calendar({
           <ChevronLeft className="size-4" />
         </button>
 
-        <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] text-[var(--component-date-picker-calendar-color-month-year)]">
+        <span className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-semibold)] text-[var(--component-date-picker-calendar-color-month-year)]">
           {MONTH_NAMES[viewMonth]} {viewYear}
         </span>
 
@@ -205,7 +205,7 @@ export function Calendar({
           <div
             key={day}
             aria-hidden="true"
-            className="flex h-8 items-center justify-center text-[11px] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-picker-calendar-color-weekday-label)]"
+            className="flex h-8 items-center justify-center text-[11px] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-date-picker-calendar-color-weekday-label)]"
           >
             {day}
           </div>

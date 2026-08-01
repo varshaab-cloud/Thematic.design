@@ -105,7 +105,7 @@ function TimelineTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="timeline-title"
-      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] leading-none text-[var(--component-timeline-color-text-title)]", className)}
+      className={cn("text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] leading-none text-[var(--component-timeline-color-text-title)]", className)}
       {...props}
     />
   )

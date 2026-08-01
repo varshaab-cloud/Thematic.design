@@ -170,7 +170,7 @@ function TreeNode({ node, depth }: TreeNodeProps) {
         {/* Badge */}
         {node.badge !== undefined && (
           <span
-            className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--component-tree-view-color-badge-bg)] px-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] tabular-nums text-[var(--component-tree-view-color-badge-text)]"
+            className="ml-auto flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--component-tree-view-color-badge-bg)] px-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--alias-typography-weight-medium)] tabular-nums text-[var(--component-tree-view-color-badge-text)]"
             data-slot="tree-node-badge"
           >
             {node.badge}

@@ -51,7 +51,7 @@ function SegmentedControl({
       data-slot="segmented-control"
       aria-disabled={disabled || undefined}
       className={cn(
-        "inline-flex items-center rounded-[var(--base-radius-md)] bg-[var(--component-segmented-control-color-container-bg)] [transition:var(--alias-motion-transition-normal)]",
+        "inline-flex items-center rounded-[var(--alias-radius-md)] bg-[var(--component-segmented-control-color-container-bg)] [transition:var(--alias-motion-transition-normal)]",
         sizes.container,
         fullWidth && "flex w-full",
         disabled && "pointer-events-none opacity-50",
@@ -69,7 +69,7 @@ function SegmentedControl({
             disabled={disabled}
             onClick={() => !disabled && onChange(option.value)}
             className={cn(
-              "relative inline-flex shrink-0 items-center justify-center rounded-[calc(var(--base-radius-md)-2px)] font-[number:var(--alias-typography-button-font-weight)] whitespace-nowrap [transition:var(--alias-motion-transition-normal)] outline-none select-none",
+              "relative inline-flex shrink-0 items-center justify-center rounded-[calc(var(--alias-radius-md)-2px)] font-[number:var(--alias-typography-button-font-weight)] whitespace-nowrap [transition:var(--alias-motion-transition-normal)] outline-none select-none",
               "focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]/50 focus-visible:ring-offset-1",
               sizes.segment,
               fullWidth && "flex-1",

@@ -204,51 +204,58 @@
   --base-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --base-easing-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* === SEMANTIC TOKENS (from 1.2) === */
+  /* === BASE TOKENS — feedback ramps === */
+  /* These were previously named --semantic-*, which inverted the usual design-token
+     vocabulary: they hold raw hex with no role attached, so they are primitives, not
+     semantics. The role layer is `alias` (--alias-color-feedback-success-fg and so on),
+     which is what components should reference. Renamed to sit inside --base-color-* and
+     make the tier model honest.
+     Sourced from the Tailwind palette rather than the brand ramps above, which is why
+     the system carries both a --base-color-green-* and a feedback success scale. */
 
   /* Success */
-  --semantic-color-success-100: #f0fdf4;
-  --semantic-color-success-200: #dcfce7;
-  --semantic-color-success-300: #bbf7d0;
-  --semantic-color-success-400: #86efac;
-  --semantic-color-success-500: #4ade80;
-  --semantic-color-success-600: #16a34a;
-  --semantic-color-success-700: #15803d;
-  --semantic-color-success-800: #166534;
-  --semantic-color-success-900: #14532d;
+  --base-color-feedback-success-100: #f0fdf4;
+  --base-color-feedback-success-200: #dcfce7;
+  --base-color-feedback-success-300: #bbf7d0;
+  --base-color-feedback-success-400: #86efac;
+  --base-color-feedback-success-500: #4ade80;
+  --base-color-feedback-success-600: #16a34a;
+  --base-color-feedback-success-700: #15803d;
+  --base-color-feedback-success-800: #166534;
+  --base-color-feedback-success-900: #14532d;
 
   /* Info */
-  --semantic-color-info-100: #f0f9ff;
-  --semantic-color-info-200: #e0f2fe;
-  --semantic-color-info-300: #bae6fd;
-  --semantic-color-info-400: #7dd3fc;
-  --semantic-color-info-500: #38bdf8;
-  --semantic-color-info-600: #0284c7;
-  --semantic-color-info-700: #0369a1;
-  --semantic-color-info-800: #075985;
-  --semantic-color-info-900: #0c4a6e;
+  --base-color-feedback-info-100: #f0f9ff;
+  --base-color-feedback-info-200: #e0f2fe;
+  --base-color-feedback-info-300: #bae6fd;
+  --base-color-feedback-info-400: #7dd3fc;
+  --base-color-feedback-info-500: #38bdf8;
+  --base-color-feedback-info-600: #0284c7;
+  --base-color-feedback-info-700: #0369a1;
+  --base-color-feedback-info-800: #075985;
+  --base-color-feedback-info-900: #0c4a6e;
 
   /* Warning */
-  --semantic-color-warning-100: #fffbeb;
-  --semantic-color-warning-200: #fef3c7;
-  --semantic-color-warning-300: #fde68a;
-  --semantic-color-warning-400: #fcd34d;
-  --semantic-color-warning-500: #fbbf24;
-  --semantic-color-warning-600: #d97706;
-  --semantic-color-warning-700: #b45309;
-  --semantic-color-warning-800: #92400e;
-  --semantic-color-warning-900: #78350f;
+  --base-color-feedback-warning-100: #fffbeb;
+  --base-color-feedback-warning-200: #fef3c7;
+  --base-color-feedback-warning-300: #fde68a;
+  --base-color-feedback-warning-400: #fcd34d;
+  --base-color-feedback-warning-500: #fbbf24;
+  --base-color-feedback-warning-600: #d97706;
+  --base-color-feedback-warning-700: #b45309;
+  --base-color-feedback-warning-800: #92400e;
+  --base-color-feedback-warning-900: #78350f;
 
   /* Error */
-  --semantic-color-error-100: #fff5f5;
-  --semantic-color-error-200: #fee2e2;
-  --semantic-color-error-300: #fecaca;
-  --semantic-color-error-400: #fca5a5;
-  --semantic-color-error-500: #f87171;
-  --semantic-color-error-600: #dc2626;
-  --semantic-color-error-700: #b91c1c;
-  --semantic-color-error-800: #991b1b;
-  --semantic-color-error-900: #7f1d1d;
+  --base-color-feedback-error-100: #fff5f5;
+  --base-color-feedback-error-200: #fee2e2;
+  --base-color-feedback-error-300: #fecaca;
+  --base-color-feedback-error-400: #fca5a5;
+  --base-color-feedback-error-500: #f87171;
+  --base-color-feedback-error-600: #dc2626;
+  --base-color-feedback-error-700: #b91c1c;
+  --base-color-feedback-error-800: #991b1b;
+  --base-color-feedback-error-900: #7f1d1d;
 
   /* === ALIAS TOKENS (from 1.2) === */
 
@@ -274,10 +281,10 @@
   --alias-color-border-active: #1c21dc;
   --alias-color-border-disabled: #b1b1b1;
   --alias-color-border-brand: var(--base-color-blue-800);
-  --alias-color-border-success: var(--semantic-color-success-600);
-  --alias-color-border-info: var(--semantic-color-info-600);
-  --alias-color-border-error: var(--semantic-color-error-600);
-  --alias-color-border-warning: var(--semantic-color-warning-600);
+  --alias-color-border-success: var(--base-color-feedback-success-600);
+  --alias-color-border-info: var(--base-color-feedback-info-600);
+  --alias-color-border-error: var(--base-color-feedback-error-600);
+  --alias-color-border-warning: var(--base-color-feedback-warning-600);
 
   /* Icon */
   --alias-color-icon-primary: #222222;
@@ -286,18 +293,18 @@
   --alias-color-icon-brand: #171cbe;
 
   /* Feedback */
-  --alias-color-feedback-success-fg: var(--semantic-color-success-800);
-  --alias-color-feedback-success-bg: var(--semantic-color-success-100);
-  --alias-color-feedback-success-border: var(--semantic-color-success-400);
-  --alias-color-feedback-info-fg: var(--semantic-color-info-800);
-  --alias-color-feedback-info-bg: var(--semantic-color-info-100);
-  --alias-color-feedback-info-border: var(--semantic-color-info-400);
-  --alias-color-feedback-warning-fg: var(--semantic-color-warning-800);
-  --alias-color-feedback-warning-bg: var(--semantic-color-warning-100);
-  --alias-color-feedback-warning-border: var(--semantic-color-warning-400);
-  --alias-color-feedback-error-fg: var(--semantic-color-error-800);
-  --alias-color-feedback-error-bg: var(--semantic-color-error-100);
-  --alias-color-feedback-error-border: var(--semantic-color-error-400);
+  --alias-color-feedback-success-fg: var(--base-color-feedback-success-800);
+  --alias-color-feedback-success-bg: var(--base-color-feedback-success-100);
+  --alias-color-feedback-success-border: var(--base-color-feedback-success-400);
+  --alias-color-feedback-info-fg: var(--base-color-feedback-info-800);
+  --alias-color-feedback-info-bg: var(--base-color-feedback-info-100);
+  --alias-color-feedback-info-border: var(--base-color-feedback-info-400);
+  --alias-color-feedback-warning-fg: var(--base-color-feedback-warning-800);
+  --alias-color-feedback-warning-bg: var(--base-color-feedback-warning-100);
+  --alias-color-feedback-warning-border: var(--base-color-feedback-warning-400);
+  --alias-color-feedback-error-fg: var(--base-color-feedback-error-800);
+  --alias-color-feedback-error-bg: var(--base-color-feedback-error-100);
+  --alias-color-feedback-error-border: var(--base-color-feedback-error-400);
 
   /* Typography Aliases */
   --alias-typography-heading1-font-family: 'Open Sans', sans-serif;
@@ -397,6 +404,19 @@
   --alias-elevation-3: var(--base-shadow-03);
   --alias-elevation-5: var(--base-shadow-05);
   --alias-elevation-md: var(--base-shadow-03);
+  --alias-elevation-4: var(--base-shadow-04);
+
+  /* Standalone weight and family roles. The --alias-typography-<style>-* sets above
+     describe complete text styles (heading1, caption2 and so on), which is the right
+     abstraction when a component is rendering one of those styles. But components often
+     need to set weight alone — a label emphasised inside an otherwise inherited style —
+     and with no alias for that, 64 call sites were reaching into --base-font-weight-*
+     directly and bypassing the tier model. */
+  --alias-typography-family-primary:  var(--base-font-family-primary);
+  --alias-typography-weight-regular:  var(--base-font-weight-regular);
+  --alias-typography-weight-medium:   var(--base-font-weight-medium);
+  --alias-typography-weight-semibold: var(--base-font-weight-semibold);
+  --alias-typography-weight-bold:     var(--base-font-weight-bold);
 
   /* Focus Ring */
   --alias-focus-ring-color: var(--alias-color-border-active);
@@ -406,8 +426,8 @@
   /* Misc Colour Aliases */
   --alias-color-background-inverse: #222222;
   --alias-color-overlay-default: rgba(0, 0, 0, 0.5);
-  --alias-color-text-error: var(--semantic-color-error-800);
-  --alias-color-text-success: var(--semantic-color-success-800);
+  --alias-color-text-error: var(--base-color-feedback-error-800);
+  --alias-color-text-success: var(--base-color-feedback-success-800);
   --alias-border-width: 1px;
 
   /* Feedback Stroke Aliases */
@@ -417,8 +437,8 @@
   --alias-color-feedback-info-stroke: var(--alias-color-border-info);
 
   /* Destructive Action Backgrounds */
-  --alias-color-action-destructive-bg-default: var(--semantic-color-error-700);
-  --alias-color-action-destructive-bg-hover: var(--semantic-color-error-800);
+  --alias-color-action-destructive-bg-default: var(--base-color-feedback-error-700);
+  --alias-color-action-destructive-bg-hover: var(--base-color-feedback-error-800);
   --alias-color-action-destructive-bg-active: #7f1d1d;
 
   /* Typography Short-form Aliases */

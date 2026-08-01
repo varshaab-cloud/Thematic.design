@@ -87,7 +87,7 @@ function ListItemTitle({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="list-item-title"
-      className={cn("truncate font-[number:var(--base-font-weight-medium)] text-[var(--component-list-color-item-text-title-default)]", className)}
+      className={cn("truncate font-[number:var(--alias-typography-weight-medium)] text-[var(--component-list-color-item-text-title-default)]", className)}
       {...props}
     />
   )

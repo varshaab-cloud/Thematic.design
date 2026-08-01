@@ -95,7 +95,7 @@ function DefaultEmptyState() {
       <div className="flex size-10 items-center justify-center rounded-full bg-[var(--alias-color-background-tertiary)]">
         <Search className="size-5 text-[var(--alias-color-text-subtle)]" />
       </div>
-      <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">No results</p>
+      <p className="text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-primary)]">No results</p>
       <p className="text-[length:var(--alias-typography-caption1-font-size)] text-[var(--component-nav-pagination-color-text-default)]">
         Try adjusting your search or filters.
       </p>
@@ -286,7 +286,7 @@ export function DataTable<TData, TValue>({
 
             {/* Selection badge */}
             {selectable && selectedCount > 0 && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--component-table-color-row-bg-selected)]/40 bg-[var(--component-table-color-row-bg-selected)] px-2.5 py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-primary)]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--component-table-color-row-bg-selected)]/40 bg-[var(--component-table-color-row-bg-selected)] px-2.5 py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-primary)]">
                 {selectedCount} selected
                 <button
                   onClick={() => table.resetRowSelection()}
@@ -321,7 +321,7 @@ export function DataTable<TData, TValue>({
                         scope="col"
                         style={{ width: header.column.columnDef.size }}
                         className={cn(
-                          "px-[var(--alias-spacing-padding-sm)] py-2.5 text-left text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-table-color-header-text)] select-none",
+                          "px-[var(--alias-spacing-padding-sm)] py-2.5 text-left text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--component-table-color-header-text)] select-none",
                           canSort && "cursor-pointer hover:text-[var(--alias-color-text-primary)] [transition:var(--alias-motion-transition-normal)]"
                         )}
                         onClick={canSort ? header.column.getToggleSortingHandler() : undefined}

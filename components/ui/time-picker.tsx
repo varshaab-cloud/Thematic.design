@@ -134,7 +134,7 @@ function TimePicker({
           aria-label={displayValue || placeholder}
           data-slot="time-picker-trigger"
           className={cn(
-            "inline-flex h-9 w-full items-center justify-between gap-[var(--alias-spacing-inline-sm)] rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-trigger-color-stroke-default)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)]",
+            "inline-flex h-9 w-full items-center justify-between gap-[var(--alias-spacing-inline-sm)] rounded-[var(--alias-radius-md)] border border-[var(--component-time-picker-trigger-color-stroke-default)] bg-[var(--alias-color-background-primary)] px-[var(--alias-spacing-padding-sm)] text-[length:var(--alias-typography-button-font-size)] [transition:var(--alias-motion-transition-normal)]",
             "hover:border-[var(--alias-color-border-disabled)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--alias-color-border-active)]",
             "disabled:cursor-not-allowed disabled:opacity-50",
             !displayValue && "text-[var(--component-time-picker-dropdown-color-item-text-default)]/50",
@@ -152,17 +152,17 @@ function TimePicker({
           sideOffset={4}
           align="start"
           className={cn(
-            "z-50 rounded-[var(--base-radius-md)] border border-[var(--component-time-picker-dropdown-color-stroke)] bg-[var(--component-time-picker-dropdown-color-bg)] p-[var(--alias-spacing-padding-xs)] text-[var(--component-time-picker-dropdown-color-item-text-default)] shadow-[var(--base-shadow-04)] outline-none",
+            "z-50 rounded-[var(--alias-radius-md)] border border-[var(--component-time-picker-dropdown-color-stroke)] bg-[var(--component-time-picker-dropdown-color-bg)] p-[var(--alias-spacing-padding-xs)] text-[var(--component-time-picker-dropdown-color-item-text-default)] shadow-[var(--alias-elevation-4)] outline-none",
             "duration-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
           )}
         >
           <div className="flex items-start gap-[var(--alias-spacing-inline-sm)]">
             {/* Hours column */}
             <div className="flex flex-col gap-0.5">
-              <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-subtle)]">
+              <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-subtle)]">
                 {use12Hour ? "HR" : "HH"}
               </p>
-              <div className="flex max-h-48 flex-col gap-px overflow-y-auto rounded-[var(--base-radius-sm)]" style={{ scrollbarWidth: "none" }}>
+              <div className="flex max-h-48 flex-col gap-px overflow-y-auto rounded-[var(--alias-radius-sm)]" style={{ scrollbarWidth: "none" }}>
                 {hourOptions.map((h) => {
                   const isSelected = use12Hour ? displayHour12 === h : currentHours === h
                   return (
@@ -172,7 +172,7 @@ function TimePicker({
                       type="button"
                       onClick={() => handleHourSelect(h)}
                       className={cn(
-                        "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
+                        "w-10 rounded-[var(--alias-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
                         isSelected
                           ? "bg-[var(--component-time-picker-dropdown-color-item-bg-selected)] text-[var(--component-time-picker-dropdown-color-item-text-selected)]"
                           : "hover:bg-[var(--component-time-picker-dropdown-color-item-bg-hover)]"
@@ -187,7 +187,7 @@ function TimePicker({
 
             {/* Separator */}
             <div className="flex flex-col items-center">
-              <p className="py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-transparent select-none">:</p>
+              <p className="py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-transparent select-none">:</p>
               <div className="flex h-48 items-center justify-center">
                 <span className="text-lg font-light text-[var(--component-time-picker-dropdown-color-column-separator)]">:</span>
               </div>
@@ -195,8 +195,8 @@ function TimePicker({
 
             {/* Minutes column */}
             <div className="flex flex-col gap-0.5">
-              <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--alias-color-text-subtle)]">MM</p>
-              <div className="flex max-h-48 flex-col gap-px overflow-y-auto rounded-[var(--base-radius-sm)]" style={{ scrollbarWidth: "none" }}>
+              <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-[var(--alias-color-text-subtle)]">MM</p>
+              <div className="flex max-h-48 flex-col gap-px overflow-y-auto rounded-[var(--alias-radius-sm)]" style={{ scrollbarWidth: "none" }}>
                 {minuteOptions.map((m) => {
                   const isSelected = currentMinutes === m
                   return (
@@ -206,7 +206,7 @@ function TimePicker({
                       type="button"
                       onClick={() => handleMinuteSelect(m)}
                       className={cn(
-                        "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
+                        "w-10 rounded-[var(--alias-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] tabular-nums [transition:var(--alias-motion-transition-normal)]",
                         isSelected
                           ? "bg-[var(--component-time-picker-dropdown-color-item-bg-selected)] text-[var(--component-time-picker-dropdown-color-item-text-selected)]"
                           : "hover:bg-[var(--component-time-picker-dropdown-color-item-bg-hover)]"
@@ -222,7 +222,7 @@ function TimePicker({
             {/* AM/PM column */}
             {use12Hour && (
               <div className="flex flex-col gap-0.5">
-                <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] text-transparent select-none">–</p>
+                <p className="px-1 py-0.5 text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] text-transparent select-none">–</p>
                 <div className="flex flex-col gap-[var(--alias-spacing-stack-xs)] pt-1">
                   {(["AM", "PM"] as const).map((p) => (
                     <button
@@ -230,7 +230,7 @@ function TimePicker({
                       type="button"
                       onClick={() => handlePeriodToggle(p)}
                       className={cn(
-                        "w-10 rounded-[var(--base-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] [transition:var(--alias-motion-transition-normal)]",
+                        "w-10 rounded-[var(--alias-radius-sm)] px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-center text-[length:var(--alias-typography-button-font-size)] font-[number:var(--alias-typography-button-font-weight)] [transition:var(--alias-motion-transition-normal)]",
                         period === p
                           ? "bg-[var(--component-time-picker-dropdown-color-item-bg-selected)] text-[var(--component-time-picker-dropdown-color-item-text-selected)]"
                           : "hover:bg-[var(--component-time-picker-dropdown-color-item-bg-hover)] text-[var(--alias-color-text-subtle)]"

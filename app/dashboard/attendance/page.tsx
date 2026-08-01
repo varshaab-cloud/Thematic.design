@@ -81,7 +81,7 @@ function statusVariant(s: Status): "success"|"error"|"warning"|"secondary" {
 
 function dayColor(code: string) {
   if (code === "P") return "bg-[var(--alias-color-feedback-success-fg)] text-white"
-  if (code === "L") return "bg-[var(--semantic-color-warning-400)] text-white"
+  if (code === "L") return "bg-[var(--base-color-feedback-warning-400)] text-white"
   if (code === "W") return "bg-[var(--alias-color-background-tertiary)] text-[var(--alias-color-text-secondary)] border border-[var(--alias-color-border-default)]"
   if (code === "A") return "bg-[var(--alias-color-feedback-error-fg)] text-white"
   return "bg-[var(--alias-color-background-tertiary)] text-[var(--alias-color-text-subtle)]"
@@ -112,7 +112,7 @@ function EditDrawer({
       {/* Header */}
       <div className="flex items-start gap-3 px-4 py-3 border-b border-[var(--alias-color-border-subtle)] shrink-0">
         <Avatar className="h-10 w-10 shrink-0">
-          <AvatarFallback className="text-sm font-semibold bg-[var(--semantic-color-warning-200)] text-[var(--semantic-color-warning-800)]">
+          <AvatarFallback className="text-sm font-semibold bg-[var(--base-color-feedback-warning-200)] text-[var(--base-color-feedback-warning-800)]">
             {initials(employee.name)}
           </AvatarFallback>
         </Avatar>
@@ -254,13 +254,13 @@ function EditDrawer({
       <div className="border-t border-[var(--alias-color-border-default)] px-4 py-3 flex items-center gap-2 shrink-0 bg-white">
         <Button
           size="sm"
-          className="bg-[var(--alias-color-feedback-success-fg)] text-white border-[var(--alias-color-feedback-success-fg)] hover:bg-[var(--semantic-color-success-700)]"
+          className="bg-[var(--alias-color-feedback-success-fg)] text-white border-[var(--alias-color-feedback-success-fg)] hover:bg-[var(--base-color-feedback-success-700)]"
         >
           Save &amp; Approve
         </Button>
         <Button
           size="sm"
-          className="bg-[var(--semantic-color-warning-600)] text-white border-[var(--semantic-color-warning-600)] hover:bg-[var(--semantic-color-warning-700)]"
+          className="bg-[var(--base-color-feedback-warning-600)] text-white border-[var(--base-color-feedback-warning-600)] hover:bg-[var(--base-color-feedback-warning-700)]"
         >
           Save changes
         </Button>

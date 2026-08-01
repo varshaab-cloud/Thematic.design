@@ -76,7 +76,7 @@ function StepCircle({ index, state, label }: StepCircleProps) {
       aria-current={state === "current" ? "step" : undefined}
       aria-label={ariaLabel}
       className={cn(
-        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--component-stepper-dimension-step-radius)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-semibold)] [transition:var(--alias-motion-transition-normal)]",
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--component-stepper-dimension-step-radius)] text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-semibold)] [transition:var(--alias-motion-transition-normal)]",
         state === "completed" && [
           "bg-[var(--component-stepper-color-step-completed-bg)] text-[var(--component-stepper-color-step-completed-text)]",
         ],
@@ -142,7 +142,7 @@ export function Stepper({
               <div className={cn("pb-6 pt-0.5", isLast && "pb-0")}>
                 <p
                   className={cn(
-                    "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--base-font-weight-medium)] leading-tight",
+                    "text-[length:var(--alias-typography-body-text2-font-size)] font-[number:var(--alias-typography-weight-medium)] leading-tight",
                     state === "current"
                       ? "text-[var(--component-stepper-color-label-active)]"
                       : state === "completed"
@@ -183,7 +183,7 @@ export function Stepper({
               <StepCircle index={index} state={state} label={step.label} />
               <p
                 className={cn(
-                  "mt-2 max-w-[80px] text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--base-font-weight-medium)] leading-tight",
+                  "mt-2 max-w-[80px] text-center text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] leading-tight",
                   state === "current"
                     ? "text-[var(--component-stepper-color-label-active)]"
                     : state === "completed"
