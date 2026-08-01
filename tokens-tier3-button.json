@@ -1,0 +1,328 @@
+{
+  "component-button": {
+    "primary": {
+      "color": {
+        "bg": {
+          "default": {
+            "$value": "{alias-color.background.brand}",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.background.brand-dark}",
+            "$type": "color"
+          },
+          "active": {
+            "$value": "{alias-color.background.brand-dark}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          }
+        },
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.inverse}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          }
+        },
+        "stroke": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "focus": {
+            "$value": "{alias-focus.ring.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "typography": {
+        "family": {
+          "$value": "{alias-typography.button.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.button.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.button.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.button.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "dimension": {
+        "padding-x": {
+          "$value": "{alias-spacing.padding.lg}",
+          "$type": "dimension"
+        },
+        "padding-y": {
+          "$value": "{alias-spacing.padding.sm}",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{alias-radius.md}",
+          "$type": "dimension"
+        }
+      },
+      "elevation": {
+        "default": {
+          "$value": "none",
+          "$type": "boxShadow"
+        }
+      }
+    },
+    "secondary": {
+      "color": {
+        "bg": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.background.hover}",
+            "$type": "color"
+          },
+          "active": {
+            "$value": "{alias-color.background.hover}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "transparent",
+            "$type": "color"
+          }
+        },
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.brand}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          }
+        },
+        "stroke": {
+          "default": {
+            "$value": "{alias-color.stroke.brand}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.stroke.disabled}",
+            "$type": "color"
+          },
+          "focus": {
+            "$value": "{alias-focus.ring.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "typography": {
+        "family": {
+          "$value": "{alias-typography.button.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.button.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.button.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.button.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "dimension": {
+        "padding-x": {
+          "$value": "{alias-spacing.padding.lg}",
+          "$type": "dimension"
+        },
+        "padding-y": {
+          "$value": "{alias-spacing.padding.sm}",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{alias-radius.md}",
+          "$type": "dimension"
+        }
+      },
+      "elevation": {
+        "default": {
+          "$value": "none",
+          "$type": "boxShadow"
+        }
+      }
+    },
+    "ghost": {
+      "color": {
+        "bg": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          },
+          "active": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "transparent",
+            "$type": "color"
+          }
+        },
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.brand}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          }
+        },
+        "stroke": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "focus": {
+            "$value": "{alias-focus.ring.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "typography": {
+        "family": {
+          "$value": "{alias-typography.button.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.button.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.button.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.button.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "dimension": {
+        "padding-x": {
+          "$value": "{alias-spacing.padding.lg}",
+          "$type": "dimension"
+        },
+        "padding-y": {
+          "$value": "{alias-spacing.padding.sm}",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{alias-radius.md}",
+          "$type": "dimension"
+        }
+      },
+      "elevation": {
+        "default": {
+          "$value": "none",
+          "$type": "boxShadow"
+        }
+      }
+    },
+    "destructive": {
+      "color": {
+        "bg": {
+          "default": {
+            "$value": "{alias-color.action.destructive.bg.default}",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.action.destructive.bg.hover}",
+            "$type": "color"
+          },
+          "active": {
+            "$value": "{alias-color.action.destructive.bg.active}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          }
+        },
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.inverse}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          }
+        },
+        "stroke": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "focus": {
+            "$value": "{alias-focus.ring.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "typography": {
+        "family": {
+          "$value": "{alias-typography.button.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.button.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.button.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.button.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "dimension": {
+        "padding-x": {
+          "$value": "{alias-spacing.padding.lg}",
+          "$type": "dimension"
+        },
+        "padding-y": {
+          "$value": "{alias-spacing.padding.sm}",
+          "$type": "dimension"
+        },
+        "radius": {
+          "$value": "{alias-radius.md}",
+          "$type": "dimension"
+        }
+      },
+      "elevation": {
+        "default": {
+          "$value": "none",
+          "$type": "boxShadow"
+        }
+      }
+    }
+  }
+}

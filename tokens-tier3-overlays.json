@@ -1,0 +1,558 @@
+{
+  "component-popover": {
+    "color": {
+      "bg": {
+        "$value": "{alias-color.background.primary}",
+        "$type": "color"
+      },
+      "stroke": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "title": {
+        "$value": "{alias-color.text.primary}",
+        "$type": "color"
+      },
+      "description": {
+        "$value": "{alias-color.text.secondary}",
+        "$type": "color"
+      }
+    },
+    "dimension": {
+      "padding": {
+        "$value": "{alias-spacing.padding.md}",
+        "$type": "dimension"
+      },
+      "radius": {
+        "$value": "{alias-radius.lg}",
+        "$type": "dimension"
+      },
+      "gap": {
+        "$value": "{alias-spacing.stack.xs}",
+        "$type": "dimension"
+      }
+    },
+    "elevation": {
+      "$value": "{alias-elevation.3}",
+      "$type": "boxShadow"
+    },
+    "typography": {
+      "title": {
+        "family": {
+          "$value": "{alias-typography.body.1.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.body.1.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.label.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.body.1.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "description": {
+        "family": {
+          "$value": "{alias-typography.body.2.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.body.2.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.body.2.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.body.2.line-height}",
+          "$type": "lineHeights"
+        }
+      }
+    }
+  },
+  "component-dialog": {
+    "color": {
+      "overlay": {
+        "$value": "{alias-color.overlay.default}",
+        "$type": "color"
+      },
+      "bg": {
+        "$value": "{alias-color.background.primary}",
+        "$type": "color"
+      },
+      "stroke": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "footer-bg": {
+        "$value": "{alias-color.background.secondary}",
+        "$type": "color"
+      },
+      "title": {
+        "$value": "{alias-color.text.primary}",
+        "$type": "color"
+      },
+      "description": {
+        "$value": "{alias-color.text.secondary}",
+        "$type": "color"
+      }
+    },
+    "dimension": {
+      "padding": {
+        "$value": "{alias-spacing.padding.lg}",
+        "$type": "dimension"
+      },
+      "footer-padding": {
+        "$value": "{alias-spacing.padding.md}",
+        "$type": "dimension"
+      },
+      "radius": {
+        "$value": "{alias-radius.xl}",
+        "$type": "dimension"
+      },
+      "gap-title": {
+        "$value": "{alias-spacing.stack.xs}",
+        "$type": "dimension"
+      },
+      "max-width": {
+        "$value": "{alias-spacing.page.lg}",
+        "$type": "dimension"
+      }
+    },
+    "elevation": {
+      "$value": "{alias-elevation.5}",
+      "$type": "boxShadow"
+    },
+    "typography": {
+      "title": {
+        "family": {
+          "$value": "{alias-typography.heading.5.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.heading.5.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.heading.5.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.heading.5.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "description": {
+        "family": {
+          "$value": "{alias-typography.body.2.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.body.2.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.body.2.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.body.2.line-height}",
+          "$type": "lineHeights"
+        }
+      }
+    }
+  },
+  "component-sheet": {
+    "color": {
+      "overlay": {
+        "$value": "{alias-color.overlay.default}",
+        "$type": "color"
+      },
+      "bg": {
+        "$value": "{alias-color.background.primary}",
+        "$type": "color"
+      },
+      "stroke": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "footer-bg": {
+        "$value": "{alias-color.background.secondary}",
+        "$type": "color"
+      },
+      "title": {
+        "$value": "{alias-color.text.primary}",
+        "$type": "color"
+      },
+      "description": {
+        "$value": "{alias-color.text.secondary}",
+        "$type": "color"
+      }
+    },
+    "dimension": {
+      "padding": {
+        "$value": "{alias-spacing.padding.lg}",
+        "$type": "dimension"
+      },
+      "footer-padding": {
+        "$value": "{alias-spacing.padding.md}",
+        "$type": "dimension"
+      },
+      "gap-title": {
+        "$value": "{alias-spacing.stack.xs}",
+        "$type": "dimension"
+      }
+    },
+    "elevation": {
+      "$value": "{alias-elevation.5}",
+      "$type": "boxShadow"
+    },
+    "typography": {
+      "title": {
+        "family": {
+          "$value": "{alias-typography.heading.5.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.heading.5.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.heading.5.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.heading.5.line-height}",
+          "$type": "lineHeights"
+        }
+      },
+      "description": {
+        "family": {
+          "$value": "{alias-typography.body.2.family}",
+          "$type": "fontFamilies"
+        },
+        "size": {
+          "$value": "{alias-typography.body.2.size}",
+          "$type": "fontSizes"
+        },
+        "weight": {
+          "$value": "{alias-typography.body.2.weight}",
+          "$type": "fontWeights"
+        },
+        "line-height": {
+          "$value": "{alias-typography.body.2.line-height}",
+          "$type": "lineHeights"
+        }
+      }
+    }
+  },
+  "component-dropdown-menu": {
+    "color": {
+      "bg": {
+        "$value": "{alias-color.background.primary}",
+        "$type": "color"
+      },
+      "stroke": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "shadow": {
+        "$value": "{alias-elevation.3}",
+        "$type": "boxShadow"
+      },
+      "radius": {
+        "$value": "{alias-radius.md}",
+        "$type": "dimension"
+      },
+      "item": {
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.primary}",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.text.primary}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          },
+          "destructive": {
+            "$value": "{alias-color.text.error}",
+            "$type": "color"
+          }
+        },
+        "bg": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{alias-color.icon.secondary}",
+            "$type": "color"
+          },
+          "destructive": {
+            "$value": "{alias-color.text.error}",
+            "$type": "color"
+          }
+        },
+        "indicator": {
+          "$value": "{alias-color.icon.brand}",
+          "$type": "color"
+        }
+      },
+      "label": {
+        "$value": "{alias-color.text.subtle}",
+        "$type": "color"
+      },
+      "separator": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "shortcut": {
+        "$value": "{alias-color.text.subtle}",
+        "$type": "color"
+      }
+    },
+    "dimension": {
+      "padding-x": {
+        "$value": "{alias-spacing.padding.xs}",
+        "$type": "dimension"
+      },
+      "padding-y": {
+        "$value": "{alias-spacing.padding.xs}",
+        "$type": "dimension"
+      },
+      "item-height": {
+        "$value": "{alias-spacing.section.md}",
+        "$type": "dimension"
+      },
+      "item-px": {
+        "$value": "{alias-spacing.padding.sm}",
+        "$type": "dimension"
+      },
+      "icon-size": {
+        "$value": "{alias-spacing.stack.md}",
+        "$type": "dimension"
+      },
+      "gap-icon": {
+        "$value": "{alias-spacing.inline.sm}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "component-context-menu": {
+    "color": {
+      "bg": {
+        "$value": "{alias-color.background.primary}",
+        "$type": "color"
+      },
+      "stroke": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "shadow": {
+        "$value": "{alias-elevation.3}",
+        "$type": "boxShadow"
+      },
+      "radius": {
+        "$value": "{alias-radius.md}",
+        "$type": "dimension"
+      },
+      "item": {
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.primary}",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.text.primary}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          },
+          "destructive": {
+            "$value": "{alias-color.text.error}",
+            "$type": "color"
+          }
+        },
+        "bg": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "hover": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{alias-color.icon.secondary}",
+            "$type": "color"
+          },
+          "destructive": {
+            "$value": "{alias-color.text.error}",
+            "$type": "color"
+          }
+        },
+        "indicator": {
+          "$value": "{alias-color.icon.brand}",
+          "$type": "color"
+        }
+      },
+      "label": {
+        "$value": "{alias-color.text.subtle}",
+        "$type": "color"
+      },
+      "separator": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "shortcut": {
+        "$value": "{alias-color.text.subtle}",
+        "$type": "color"
+      }
+    },
+    "dimension": {
+      "padding-x": {
+        "$value": "{alias-spacing.padding.xs}",
+        "$type": "dimension"
+      },
+      "padding-y": {
+        "$value": "{alias-spacing.padding.xs}",
+        "$type": "dimension"
+      },
+      "item-height": {
+        "$value": "{alias-spacing.section.md}",
+        "$type": "dimension"
+      },
+      "item-px": {
+        "$value": "{alias-spacing.padding.sm}",
+        "$type": "dimension"
+      },
+      "icon-size": {
+        "$value": "{alias-spacing.stack.md}",
+        "$type": "dimension"
+      },
+      "gap-icon": {
+        "$value": "{alias-spacing.inline.sm}",
+        "$type": "dimension"
+      }
+    }
+  },
+  "component-command": {
+    "color": {
+      "bg": {
+        "$value": "{alias-color.background.primary}",
+        "$type": "color"
+      },
+      "stroke": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "item": {
+        "text": {
+          "default": {
+            "$value": "{alias-color.text.primary}",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "{alias-color.text.disabled}",
+            "$type": "color"
+          }
+        },
+        "description": {
+          "$value": "{alias-color.text.subtle}",
+          "$type": "color"
+        },
+        "bg": {
+          "default": {
+            "$value": "transparent",
+            "$type": "color"
+          },
+          "selected": {
+            "$value": "{alias-color.background.tertiary}",
+            "$type": "color"
+          }
+        },
+        "icon": {
+          "$value": "{alias-color.icon.secondary}",
+          "$type": "color"
+        },
+        "indicator": {
+          "$value": "{alias-color.icon.brand}",
+          "$type": "color"
+        },
+        "shortcut": {
+          "$value": "{alias-color.text.subtle}",
+          "$type": "color"
+        }
+      },
+      "group-heading": {
+        "$value": "{alias-color.text.subtle}",
+        "$type": "color"
+      },
+      "separator": {
+        "$value": "{alias-color.stroke.default}",
+        "$type": "color"
+      },
+      "empty": {
+        "$value": "{alias-color.text.subtle}",
+        "$type": "color"
+      }
+    },
+    "dimension": {
+      "padding-x": {
+        "$value": "{alias-spacing.padding.xs}",
+        "$type": "dimension"
+      },
+      "padding-y": {
+        "$value": "{alias-spacing.padding.xs}",
+        "$type": "dimension"
+      },
+      "item-height": {
+        "$value": "{alias-spacing.section.md}",
+        "$type": "dimension"
+      },
+      "item-px": {
+        "$value": "{alias-spacing.padding.sm}",
+        "$type": "dimension"
+      },
+      "icon-size": {
+        "$value": "{alias-spacing.stack.md}",
+        "$type": "dimension"
+      },
+      "gap-icon": {
+        "$value": "{alias-spacing.inline.sm}",
+        "$type": "dimension"
+      },
+      "radius": {
+        "$value": "{alias-radius.xl}",
+        "$type": "dimension"
+      },
+      "group-heading-px": {
+        "$value": "{alias-spacing.padding.sm}",
+        "$type": "dimension"
+      }
+    },
+    "elevation": {
+      "$value": "{alias-elevation.5}",
+      "$type": "boxShadow"
+    }
+  }
+}

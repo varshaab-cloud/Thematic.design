@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    margin: 0; padding: 24px;
+    background: #fff;
+    color: #1a1a1a;
+  }
+  h2 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+  p  { margin: 0 0 20px; font-size: 12px; color: #666; line-height: 1.5; }
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #1518a6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  button:disabled { background: #aaa; cursor: default; }
+  #log {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #444;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    min-height: 60px;
+  }
+  .done  { color: #16a34a; font-weight: 600; }
+  .error { color: #dc2626; font-weight: 600; }
+</style>
+</head>
+<body>
+  <h2>Thematic Token Push</h2>
+  <p>Creates 5 Variable collections in this file:<br>
+     <strong>Base</strong> · <strong>Brand / Cobalt</strong> · <strong>Brand / Terra</strong> · <strong>Alias</strong> · <strong>Components</strong></p>
+  <button id="btn" onclick="push()">Push 1,301 Variables →</button>
+  <div id="log"></div>
+
+<script>
+  function push() {
+    document.getElementById('btn').disabled = true;
+    document.getElementById('log').textContent = 'Starting...';
+    parent.postMessage({ pluginMessage: { type: 'push' } }, '*');
+  }
+
+  window.onmessage = (e) => {
+    const msg = e.data.pluginMessage;
+    if (!msg) return;
+    const log = document.getElementById('log');
+    if (msg.type === 'log') {
+      log.textContent = msg.text;
+    } else if (msg.type === 'done') {
+      log.textContent = msg.text;
+      log.className = 'done';
+    } else if (msg.type === 'error') {
+      log.textContent = '❌ ' + msg.text;
+      log.className = 'error';
+      document.getElementById('btn').disabled = false;
+    }
+  };
+</script>
+</body>
+</html>

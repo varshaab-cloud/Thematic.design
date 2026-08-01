@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    font-size: 12px; color: #1a1a1a; background: #fff; padding: 20px;
+  }
+
+  .header { margin-bottom: 16px; }
+  .header h2 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .header p  { font-size: 11px; color: #666; line-height: 1.5; }
+
+  .legend {
+    display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 10px; color: #666; background: #f5f5f5;
+    padding: 3px 8px; border-radius: 99px;
+  }
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,.1);
+  }
+
+  .btn {
+    display: block; width: 100%; padding: 9px 12px; border: none;
+    border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+  }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .btn-primary { background: #1518a6; color: #fff; }
+  .btn-primary:hover:not(:disabled) { background: #111487; }
+  .btn-success { background: #16a34a; color: #fff; }
+  .btn-success:hover:not(:disabled) { background: #15803d; }
+
+  #results-wrap {
+    margin-top: 14px; max-height: 280px; overflow-y: auto;
+    border: 1px solid #e5e5e5; border-radius: 6px; display: none;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    position: sticky; top: 0; background: #f7f7f7; font-size: 10px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: .05em;
+    color: #888; padding: 6px 10px; text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: 5px 10px; vertical-align: middle; }
+  td.name { font-size: 11px; font-family: monospace; color: #333; }
+  .fam-slate { color: #64748b; font-weight: 600; }
+  .fam-blue  { color: #1518a6; font-weight: 600; }
+  .sw-wrap { display: flex; align-items: center; gap: 5px; }
+  .sw {
+    width: 16px; height: 16px; border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.12); flex-shrink: 0;
+  }
+  .hex { font-size: 10px; color: #777; font-family: monospace; }
+  .arr { color: #ccc; text-align: center; }
+
+  #apply-row { margin-top: 10px; display: none; }
+
+  #status {
+    margin-top: 12px; font-size: 11px; color: #444; line-height: 1.9;
+    padding: 8px 10px; background: #f7f7f7; border-radius: 6px;
+    display: none; max-height: 140px; overflow-y: auto; white-space: pre-wrap;
+  }
+  #status.ok    { background: #f0fdf4; color: #15803d; }
+  #status.error { background: #fff5f5; color: #dc2626; }
+
+  #debug-box {
+    margin-top: 14px; border: 1px dashed #e0e0e0; border-radius: 6px;
+    overflow: hidden; display: none;
+  }
+  .debug-hdr {
+    background: #fafafa; padding: 8px 12px; font-size: 11px;
+    font-weight: 600; color: #555; border-bottom: 1px solid #efefef;
+    display: flex; justify-content: space-between;
+  }
+  .debug-hdr span { font-weight: 400; color: #aaa; font-size: 10px; }
+  #debug-list {
+    font-size: 10px; color: #888; line-height: 1.8; padding: 8px 12px;
+    max-height: 160px; overflow-y: auto; font-family: monospace;
+  }
+  .spacer { height: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2>Thematic — Apply Cobalt Brand</h2>
+  <p>Remaps <strong>slate</strong> and <strong>blue</strong> Color Styles to MayThematic cobalt values. This updates every component that references these styles.</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="dot" style="background:#1518a6"></div>
+    slate/900 → cobalt primary
+  </div>
+  <div class="legend-item">
+    <div class="dot" style="background:#3a3dee"></div>
+    blue/500 → cobalt 500
+  </div>
+  <div class="legend-item">
+    <div class="dot" style="background:#909090"></div>
+    slate/500 → neutral gray
+  </div>
+</div>
+
+<button class="btn btn-primary" id="btn-scan" onclick="scan()">🔍 Scan Color Styles</button>
+
+<div id="results-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Style</th>
+        <th>Current</th>
+        <th></th>
+        <th>New (Cobalt)</th>
+      </tr>
+    </thead>
+    <tbody id="results-body"></tbody>
+  </table>
+</div>
+
+<div id="apply-row">
+  <div class="spacer"></div>
+  <button class="btn btn-success" id="btn-apply" onclick="applyBrand()">
+    ✦ Apply Cobalt Brand — <span id="match-count">0</span> styles
+  </button>
+</div>
+
+<div id="status"></div>
+
+<div id="debug-box">
+  <div class="debug-hdr">
+    All Color Style names found
+    <span id="debug-count"></span>
+  </div>
+  <div id="debug-list"></div>
+</div>
+
+<script>
+  function scan() {
+    setStatus('Scanning…', 'neutral');
+    document.getElementById('btn-scan').disabled = true;
+    parent.postMessage({ pluginMessage: { type: 'scan' } }, '*');
+  }
+
+  function applyBrand() {
+    document.getElementById('btn-apply').disabled = true;
+    setStatus('Applying…', 'neutral');
+    parent.postMessage({ pluginMessage: { type: 'apply' } }, '*');
+  }
+
+  function sw(hex) {
+    return '<div class="sw" style="background:' + hex + '"></div>';
+  }
+
+  function famClass(family) {
+    return family === 'slate' ? 'fam-slate' : 'fam-blue';
+  }
+
+  function setStatus(text, kind) {
+    var el = document.getElementById('status');
+    el.style.display = 'block';
+    el.className = kind === 'ok' ? 'ok' : kind === 'error' ? 'error' : '';
+    el.textContent = text;
+  }
+
+  window.onmessage = function(e) {
+    var msg = e.data.pluginMessage;
+    if (!msg) return;
+
+    if (msg.type === 'scanResult') {
+      document.getElementById('btn-scan').disabled = false;
+
+      // Always show full debug list
+      var debugBox  = document.getElementById('debug-box');
+      var debugList = document.getElementById('debug-list');
+      debugBox.style.display = 'block';
+      document.getElementById('debug-count').textContent =
+        (msg.allNames ? msg.allNames.length : 0) + ' found';
+      debugList.textContent = msg.allNames ? msg.allNames.join('\n') : '(none)';
+
+      if (!msg.matches || msg.matches.length === 0) {
+        setStatus('No slate/* or blue/* Color Styles matched.\nCheck the list below — the families may use different names.', 'error');
+        return;
+      }
+
+      var tbody = document.getElementById('results-body');
+      tbody.innerHTML = '';
+      for (var i = 0; i < msg.matches.length; i++) {
+        var m = msg.matches[i];
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td class="name"><span class="' + famClass(m.family) + '">' +
+            m.family + '</span>/' + m.stop + '</td>' +
+          '<td><div class="sw-wrap">' + sw(m.currentHex) +
+            '<span class="hex">' + m.currentHex + '</span></div></td>' +
+          '<td class="arr">→</td>' +
+          '<td><div class="sw-wrap">' + sw(m.newHex) +
+            '<span class="hex">' + m.newHex + '</span></div></td>';
+        tbody.appendChild(tr);
+      }
+
+      document.getElementById('results-wrap').style.display = 'block';
+      document.getElementById('match-count').textContent = msg.matches.length;
+      document.getElementById('apply-row').style.display = 'block';
+      setStatus(
+        'Found ' + msg.matches.length + ' styles to update — review and apply.',
+        'neutral'
+      );
+    }
+
+    else if (msg.type === 'progress') {
+      var el = document.getElementById('status');
+      el.style.display = 'block';
+      el.textContent += (el.textContent ? '\n' : '') + msg.text;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    else if (msg.type === 'done') {
+      setStatus(
+        '✅ Done — ' + msg.updated + ' Color Style' + (msg.updated !== 1 ? 's' : '') +
+        ' updated.\nAll components using slate or blue fills now show Cobalt brand colors.',
+        'ok'
+      );
+      document.getElementById('apply-row').style.display = 'none';
+    }
+
+    else if (msg.type === 'error') {
+      setStatus('❌ ' + msg.text, 'error');
+      document.getElementById('btn-scan').disabled = false;
+    }
+  };
+</script>
+</body>
+</html>

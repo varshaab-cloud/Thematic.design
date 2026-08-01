@@ -1,0 +1,9 @@
+{
+  "name": "Thematic - Apply Brand to shadcn/ui",
+  "id": "thematic-shadcn-brand-001",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page"
+}

@@ -1,0 +1,62 @@
+<svg width="680" height="632" viewBox="0 0 680 632" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="680" height="632" fill="#ffffff"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<rect x="270" y="24" width="140" height="44" rx="10" fill="#378ADD" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="46" text-anchor="middle" dominant-baseline="central" font-size="16" font-weight="500" fill="#ffffff">Button</text>
+
+<line x1="340" y1="68" x2="340" y2="90" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="340" y1="176" x2="340" y2="194" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="340" y1="280" x2="340" y2="298" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="340" y1="384" x2="340" y2="402" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="340" y1="488" x2="340" y2="506" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="70" y="92" width="540" height="84" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="1"/>
+<circle cx="100" cy="134" r="12" fill="#CECBF6"/>
+<text x="100" y="134" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#3C3489">1</text>
+<text x="124" y="126" font-size="14" font-weight="500" fill="#534AB7">Intent</text>
+<text x="124" y="148" font-size="12" fill="#5F5E5A">why &amp; when to use it</text>
+<line x1="318" y1="106" x2="318" y2="162" stroke="#E0DED6" stroke-width="0.5"/>
+<text x="336" y="118" font-size="12" fill="#5F5E5A" font-family="monospace">purpose: trigger an action</text>
+<text x="336" y="140" font-size="12" fill="#5F5E5A" font-family="monospace">use: submit · confirm · open</text>
+<text x="336" y="162" font-size="12" fill="#5F5E5A" font-family="monospace">avoid: static info · tab nav</text>
+
+<rect x="70" y="196" width="540" height="84" rx="8" fill="#ffffff" stroke="#BA7517" stroke-width="1"/>
+<circle cx="100" cy="238" r="12" fill="#FAC775"/>
+<text x="100" y="238" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#633806">2</text>
+<text x="124" y="230" font-size="14" font-weight="500" fill="#BA7517">Rules</text>
+<text x="124" y="252" font-size="12" fill="#5F5E5A">what it must obey</text>
+<line x1="318" y1="210" x2="318" y2="266" stroke="#E0DED6" stroke-width="0.5"/>
+<text x="336" y="222" font-size="12" fill="#5F5E5A" font-family="monospace">use_tokens_only</text>
+<text x="336" y="244" font-size="12" fill="#5F5E5A" font-family="monospace">no_hardcoded_colors</text>
+<text x="336" y="266" font-size="12" fill="#5F5E5A" font-family="monospace">no_hardcoded_spacing</text>
+
+<rect x="70" y="300" width="540" height="84" rx="8" fill="#ffffff" stroke="#D85A30" stroke-width="1"/>
+<circle cx="100" cy="342" r="12" fill="#F5C4B3"/>
+<text x="100" y="342" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#712B13">3</text>
+<text x="124" y="334" font-size="14" font-weight="500" fill="#D85A30">Relationships</text>
+<text x="124" y="356" font-size="12" fill="#5F5E5A">what it works with</text>
+<line x1="318" y1="314" x2="318" y2="370" stroke="#E0DED6" stroke-width="0.5"/>
+<text x="336" y="336" font-size="12" fill="#5F5E5A" font-family="monospace">with: Input · Select · Dialog · Form</text>
+<text x="336" y="358" font-size="12" fill="#5F5E5A" font-family="monospace">children: Icon · Spinner</text>
+
+<rect x="70" y="404" width="540" height="84" rx="8" fill="#ffffff" stroke="#1D9E75" stroke-width="1"/>
+<circle cx="100" cy="446" r="12" fill="#9FE1CB"/>
+<text x="100" y="446" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#085041">4</text>
+<text x="124" y="438" font-size="14" font-weight="500" fill="#0F6E56">Configuration</text>
+<text x="124" y="460" font-size="12" fill="#5F5E5A">how it's set up</text>
+<line x1="318" y1="418" x2="318" y2="474" stroke="#E0DED6" stroke-width="0.5"/>
+<text x="336" y="430" font-size="12" fill="#5F5E5A" font-family="monospace">appearance · size · type: string</text>
+<text x="336" y="452" font-size="12" fill="#5F5E5A" font-family="monospace">loading · disabled: boolean</text>
+<text x="336" y="474" font-size="12" fill="#5F5E5A" font-family="monospace">onClick: callback · ariaLabel: string</text>
+
+<rect x="70" y="508" width="540" height="84" rx="8" fill="#ffffff" stroke="#378ADD" stroke-width="1"/>
+<circle cx="100" cy="550" r="12" fill="#B5D4F4"/>
+<text x="100" y="550" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#0C447C">5</text>
+<text x="124" y="542" font-size="14" font-weight="500" fill="#185FA5">Tokens</text>
+<text x="124" y="564" font-size="12" fill="#5F5E5A">the concrete values</text>
+<line x1="318" y1="522" x2="318" y2="578" stroke="#E0DED6" stroke-width="0.5"/>
+<text x="336" y="534" font-size="12" fill="#5F5E5A" font-family="monospace">color-button-primary-*</text>
+<text x="336" y="556" font-size="12" fill="#5F5E5A" font-family="monospace">spacing-button-padding-*</text>
+<text x="336" y="578" font-size="12" fill="#5F5E5A" font-family="monospace">radius · elevation · transition</text>
+</svg>
