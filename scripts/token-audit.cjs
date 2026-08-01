@@ -9,8 +9,22 @@
 const fs = require("fs");
 const path = require("path");
 
+// SCAN root = what the user asked us to audit (may be a subfolder like components/ui).
+// REPO root = where the token definitions live. These are different whenever the audit
+// is pointed at a subdirectory, and conflating them means we look for tokens.css inside
+// components/ui, find nothing, and flag every var() in the library as undefined.
 const ROOT = process.argv[2] || process.cwd();
-const TOKENS_JSON = path.join(ROOT, "src/styles/tokens.json");
+function findRepoRoot(start) {
+  let dir = path.resolve(start);
+  for (;;) {
+    if (fs.existsSync(path.join(dir, "package.json"))) return dir;
+    const up = path.dirname(dir);
+    if (up === dir) return path.resolve(start);
+    dir = up;
+  }
+}
+const REPO = findRepoRoot(ROOT);
+const TOKENS_JSON = path.join(REPO, "src/styles/tokens.json");
 
 // ---- build value -> [token] map for suggestions ----
 let valueToTokens = {};
@@ -42,6 +56,50 @@ function walk(dir, out = []) {
   return out;
 }
 
+// ---- build the set of DEFINED custom properties ----
+// A var() reference only resolves at runtime if the property is declared somewhere in
+// the project's own CSS. Referencing an undefined token fails silently — the browser
+// drops the declaration and the element renders unstyled, with no console error and no
+// build failure. That makes it strictly harder to catch than a hardcoded value, which
+// at least renders something. Hence: ERROR level.
+const DEF_RE = /^\s*(--[a-z0-9-]+)\s*:/gim;
+function collectCssFiles(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name)) collectCssFiles(path.join(dir, e.name), out); }
+    else if (/\.(css|scss)$/.test(e.name)) out.push(path.join(dir, e.name));
+  }
+  return out;
+}
+const definedTokens = new Set();
+const definitionFiles = collectCssFiles(REPO);
+for (const f of definitionFiles) {
+  const src = fs.readFileSync(f, "utf8");
+  let d; DEF_RE.lastIndex = 0;
+  while ((d = DEF_RE.exec(src))) definedTokens.add(d[1]);
+}
+
+// Some custom properties are injected at runtime by libraries rather than declared in
+// CSS, so they will never appear in a stylesheet and must not be reported. Radix sets
+// --radix-* on its floating elements (trigger width, transform origin); Tailwind uses
+// --tw-* internally for composed utilities.
+const RUNTIME_VAR = /^--(radix|tw)-/;
+
+// "did you mean" — rank defined tokens by how many dash-segments they share with the
+// unknown one. Catches the common case of a wrong family segment, e.g.
+// --component-alert-color-bg  →  --component-feedback-alert-color-bg
+function nearestToken(unknown) {
+  const want = new Set(unknown.split("-").filter(Boolean));
+  let best = null, bestScore = 0;
+  for (const t of definedTokens) {
+    let score = 0;
+    for (const seg of t.split("-")) if (want.has(seg)) score++;
+    if (score > bestScore) { bestScore = score; best = t; }
+  }
+  return bestScore >= 3 ? `did you mean var(${best})?` : "token is not defined in any stylesheet";
+}
+
+const VAR_REF = /var\(\s*(--[a-z0-9-]+)/gi;
+
 // ---- allowlist: values that are fine literal ----
 const OK = /^(0|0px|0rem|0ms|0s|transparent|currentcolor|inherit|initial|unset|none|auto|100%|50%|1px)$/i;
 const inVar = (line, idx) => {
@@ -72,6 +130,13 @@ for (const file of walk(ROOT)) {
   lines.forEach((ln, i) => {
     const L = i + 1;
     let m;
+
+    // undefined token references (errors)
+    VAR_REF.lastIndex = 0;
+    while ((m = VAR_REF.exec(ln))) {
+      if (RUNTIME_VAR.test(m[1])) continue;
+      if (!definedTokens.has(m[1])) add(errors, file, L, m.index + 1, "undefined token reference", `var(${m[1]})`, nearestToken(m[1]));
+    }
 
     // colors (errors)
     HEX.lastIndex = 0;
@@ -108,6 +173,21 @@ for (const file of walk(ROOT)) {
         DURATION.lastIndex = 0;
         while ((m = DURATION.exec(ln))) { if (!OK.test(m[0]) && !inVar(ln, m.index)) add(warnings, file, L, m.index + 1, "raw duration", m[0], suggest(m[0])); }
       }
+    }
+  });
+}
+
+// ---- validate the token chain itself ----
+// tokens.css is exempt from the hardcoded-value rules (it is where literals belong),
+// but its var() references still have to resolve. A broken link here silently breaks
+// every component downstream of it, so the chain is worth checking on its own.
+for (const f of definitionFiles) {
+  if (!SKIP_FILES.has(path.basename(f))) continue; // already covered by the main scan
+  fs.readFileSync(f, "utf8").split("\n").forEach((ln, i) => {
+    let m; VAR_REF.lastIndex = 0;
+    while ((m = VAR_REF.exec(ln))) {
+      if (RUNTIME_VAR.test(m[1])) continue;
+      if (!definedTokens.has(m[1])) add(errors, f, i + 1, m.index + 1, "broken token chain", `var(${m[1]})`, nearestToken(m[1]));
     }
   });
 }
