@@ -134,7 +134,7 @@ function CalendarMonth({
         {DAYS.map((d) => (
           <span
             key={d}
-            className="text-center text-[10px] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-range-picker-trigger-color-text-placeholder)] py-[var(--alias-spacing-inline-xs)]"
+            className="text-center text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] text-[var(--component-date-range-picker-trigger-color-text-placeholder)] py-[var(--alias-spacing-inline-xs)]"
           >
             {d}
           </span>
@@ -343,7 +343,7 @@ export function DateRangePicker({
           {/* Presets column */}
           {presets && presets.length > 0 && (
             <div className="flex flex-col gap-0.5 p-[var(--alias-spacing-padding-xs)] border-r border-[var(--component-date-range-picker-trigger-color-stroke-default)] min-w-[140px]">
-              <p className="px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-[10px] font-[number:var(--base-font-weight-semibold)] uppercase tracking-wider text-[var(--component-date-range-picker-trigger-color-text-placeholder)]">
+              <p className="px-[var(--alias-spacing-padding-xs)] py-[var(--alias-spacing-inline-xs)] text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-semibold)] uppercase tracking-wider text-[var(--component-date-range-picker-trigger-color-text-placeholder)]">
                 Presets
               </p>
               {presets.map((preset) => {

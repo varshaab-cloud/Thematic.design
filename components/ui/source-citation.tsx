@@ -39,7 +39,7 @@ function CitationMarker({
   const content = (
     <span
       className={cn(
-        "inline-flex h-[1.1em] min-w-[1.1em] cursor-default items-center justify-center rounded-[var(--component-citation-dimension-radius)] bg-[var(--component-citation-color-marker-bg)] px-0.5 text-[10px] font-semibold leading-none text-[var(--component-citation-color-marker-text)] align-middle",
+        "inline-flex h-[1.1em] min-w-[1.1em] cursor-default items-center justify-center rounded-[var(--component-citation-dimension-radius)] bg-[var(--component-citation-color-marker-bg)] px-0.5 text-[length:var(--alias-typography-caption2-font-size)] font-semibold leading-none text-[var(--component-citation-color-marker-text)] align-middle",
         className
       )}
       aria-label={`Source ${index}: ${title}`}
@@ -100,7 +100,7 @@ function SourceList({
           <li key={c.index} className="flex items-start gap-[var(--alias-spacing-inline-sm)]">
             {/* Index chip */}
             <span
-              className="mt-0.5 shrink-0 inline-flex h-[1.1em] min-w-[1.1em] items-center justify-center rounded-[var(--component-citation-dimension-radius)] bg-[var(--component-citation-color-marker-bg)] px-0.5 text-[10px] font-semibold leading-none text-[var(--component-citation-color-marker-text)]"
+              className="mt-0.5 shrink-0 inline-flex h-[1.1em] min-w-[1.1em] items-center justify-center rounded-[var(--component-citation-dimension-radius)] bg-[var(--component-citation-color-marker-bg)] px-0.5 text-[length:var(--alias-typography-caption2-font-size)] font-semibold leading-none text-[var(--component-citation-color-marker-text)]"
               aria-hidden="true"
             >
               {c.index}

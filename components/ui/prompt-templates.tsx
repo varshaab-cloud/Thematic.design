@@ -149,7 +149,7 @@ function PromptTemplates({
           {/* Pinned */}
           {pinned.length > 0 && (
             <div>
-              <p className="px-2 pb-0.5 pt-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--alias-color-text-subtle)]">
+              <p className="px-2 pb-0.5 pt-1 text-[length:var(--alias-typography-caption2-font-size)] font-semibold uppercase tracking-wide text-[var(--alias-color-text-subtle)]">
                 Pinned
               </p>
               {pinned.map((t) => (
@@ -165,7 +165,7 @@ function PromptTemplates({
             return (
               <div key={cat}>
                 {categories.length > 1 && (
-                  <p className="px-2 pb-0.5 pt-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--alias-color-text-subtle)]">
+                  <p className="px-2 pb-0.5 pt-2 text-[length:var(--alias-typography-caption2-font-size)] font-semibold uppercase tracking-wide text-[var(--alias-color-text-subtle)]">
                     {cat}
                   </p>
                 )}

@@ -104,7 +104,7 @@ function MessageBubble({
       {(isAssistant || isUser) && (
         <Avatar className="mt-1 size-8 shrink-0">
           {avatarSrc && <AvatarImage src={avatarSrc} alt={name ?? variant} />}
-          <AvatarFallback className="text-[10px] font-semibold">
+          <AvatarFallback className="text-[length:var(--alias-typography-caption2-font-size)] font-semibold">
             {avatarFallback ?? (isAssistant ? "AI" : "You")}
           </AvatarFallback>
         </Avatar>

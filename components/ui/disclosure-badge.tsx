@@ -21,7 +21,7 @@ const disclosureVariants = cva(
         ghost:  "text-[var(--component-disclosure-color-text-subtle)] px-0 py-0",
       },
       size: {
-        sm: "text-[10px] font-medium [&_svg]:size-2.5",
+        sm: "text-[length:var(--alias-typography-caption2-font-size)] font-medium [&_svg]:size-2.5",
         md: "text-[length:var(--alias-typography-body-text3-font-size)] font-medium [&_svg]:size-3",
       },
     },

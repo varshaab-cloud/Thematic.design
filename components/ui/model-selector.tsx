@@ -68,7 +68,7 @@ function ModelSelector({
               <span className="font-medium">
                 {m.name}
                 {m.recommended && (
-                  <span className="ml-1.5 text-[10px] font-normal text-[var(--alias-color-text-subtle)]">
+                  <span className="ml-1.5 text-[length:var(--alias-typography-caption2-font-size)] font-normal text-[var(--alias-color-text-subtle)]">
                     recommended
                   </span>
                 )}

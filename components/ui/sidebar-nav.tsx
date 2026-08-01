@@ -84,7 +84,7 @@ function SidebarNav({
                   onClick={() => toggleSection(si)}
                   className="flex items-center justify-between px-[var(--alias-spacing-padding-xs)] pb-1 w-full group"
                 >
-                  <p className="text-[10px] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)] group-hover:text-[var(--alias-color-text-secondary)] transition-colors">
+                  <p className="text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)] group-hover:text-[var(--alias-color-text-secondary)] transition-colors">
                     {section.title}
                   </p>
                   {isSectionCollapsed
@@ -93,7 +93,7 @@ function SidebarNav({
                   }
                 </button>
               ) : (
-                <p className="px-[var(--alias-spacing-padding-xs)] pb-1 text-[10px] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
+                <p className="px-[var(--alias-spacing-padding-xs)] pb-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] uppercase tracking-widest text-[var(--alias-color-text-subtle)]">
                   {section.title}
                 </p>
               )
@@ -123,7 +123,7 @@ function SidebarNav({
                     <span className="truncate flex-1">{item.label}</span>
                     {item.badge !== undefined && (
                       <span className={cn(
-                        "ml-auto text-[10px] font-[number:var(--base-font-weight-medium)] tabular-nums rounded-full px-1.5 py-0.5",
+                        "ml-auto text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-medium)] tabular-nums rounded-full px-1.5 py-0.5",
                         item.active
                           ? "bg-[var(--component-feedback-badge-brand-color-bg)] text-white"
                           : "bg-[var(--component-feedback-badge-neutral-color-bg)] text-[var(--alias-color-text-subtle)]"

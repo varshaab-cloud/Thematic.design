@@ -58,8 +58,8 @@ function Spinner({
         strokeWidth={px * 0.1}
         stroke={
           variant === "brand"
-            ? "var(--component-spinner-color-arc-arc)"
-            : "var(--component-spinner-color-arc-track)"
+            ? "var(--component-spinner-color-arc-on-brand)"
+            : "var(--component-spinner-color-track)"
         }
         opacity={0.3}
       />
@@ -71,7 +71,7 @@ function Spinner({
         strokeWidth={px * 0.1}
         stroke={
           variant === "brand"
-            ? "var(--component-spinner-color-arc-arc)"
+            ? "var(--component-spinner-color-arc-on-brand)"
             : "var(--component-spinner-color-arc)"
         }
         strokeLinecap="round"

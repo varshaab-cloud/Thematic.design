@@ -188,7 +188,7 @@ export function AppHeaderSearch({
       >
         <Search style={{ width: 14, height: 14 }} />
         <span className="text-[length:var(--alias-typography-body-text2-font-size)]">{placeholder}</span>
-        <kbd className="ml-1 hidden sm:inline-flex items-center text-[10px] border border-[var(--component-nav-header-color-stroke)] rounded px-1 leading-4">
+        <kbd className="ml-1 hidden sm:inline-flex items-center text-[length:var(--alias-typography-caption2-font-size)] border border-[var(--component-nav-header-color-stroke)] rounded px-1 leading-4">
           ⌘K
         </kbd>
       </button>
@@ -274,7 +274,7 @@ export function AppHeaderNotifications({
         <span
           className={cn(
             "absolute top-1 right-1 flex items-center justify-center",
-            "min-w-[16px] h-4 px-1 rounded-full",
+            "min-w-[var(--component-feedback-badge-count-dimension-min-width)] h-4 px-1 rounded-full",
             "bg-[var(--component-feedback-badge-error-color-bg)] text-[var(--component-feedback-badge-error-color-text)] text-[9px] font-[number:var(--base-font-weight-semibold)] leading-none",
             "select-none pointer-events-none"
           )}
@@ -332,7 +332,7 @@ export function AppHeaderUser({
             className={cn(
               "w-6 h-6 rounded-full flex items-center justify-center shrink-0",
               "bg-[var(--component-avatar-color-bg)] text-[var(--component-avatar-color-text)]",
-              "text-[10px] font-[number:var(--base-font-weight-semibold)] select-none"
+              "text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-semibold)] select-none"
             )}
           >
             {initials}

@@ -153,7 +153,7 @@ export function CommandPalette({
               <kbd
                 className={cn(
                   "hidden sm:inline-flex items-center gap-0.5 shrink-0",
-                  "text-[10px] text-[var(--component-command-color-item-shortcut)]",
+                  "text-[length:var(--alias-typography-caption2-font-size)] text-[var(--component-command-color-item-shortcut)]",
                   "border border-[var(--component-command-color-separator)] rounded px-1 py-0.5"
                 )}
               >
@@ -186,7 +186,7 @@ export function CommandPalette({
                     {/* Group label */}
                     <p
                       className={cn(
-                        "px-[var(--alias-spacing-padding-xs)] py-1 text-[10px] font-[number:var(--base-font-weight-semibold)] tracking-wider uppercase",
+                        "px-[var(--alias-spacing-padding-xs)] py-1 text-[length:var(--alias-typography-caption2-font-size)] font-[number:var(--base-font-weight-semibold)] tracking-wider uppercase",
                         "text-[var(--component-command-color-group-heading)]"
                       )}
                     >
@@ -250,7 +250,7 @@ export function CommandPalette({
                           {item.shortcut && (
                             <kbd
                               className={cn(
-                                "shrink-0 text-[10px] border rounded px-1 py-0.5",
+                                "shrink-0 text-[length:var(--alias-typography-caption2-font-size)] border rounded px-1 py-0.5",
                                 isActive
                                   ? "border-[var(--component-command-color-separator)] text-[var(--component-command-color-item-indicator)]"
                                   : "border-[var(--component-command-color-separator)] text-[var(--component-command-color-item-shortcut)]"
@@ -271,7 +271,7 @@ export function CommandPalette({
             <div
               className={cn(
                 "flex items-center gap-3 px-3 py-2 border-t border-[var(--component-command-color-stroke)]",
-                "text-[10px] text-[var(--component-command-color-group-heading)]"
+                "text-[length:var(--alias-typography-caption2-font-size)] text-[var(--component-command-color-group-heading)]"
               )}
             >
               <span className="flex items-center gap-1">

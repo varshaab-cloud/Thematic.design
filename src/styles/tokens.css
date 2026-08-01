@@ -190,6 +190,20 @@
   --base-border-width: 1px;
   --base-border-style: solid;
 
+  /* Motion — durations (source: tokens-base.json → base-duration) */
+  --base-duration-instant: 0ms;
+  --base-duration-fast:    100ms;
+  --base-duration-normal:  200ms;
+  --base-duration-slow:    300ms;
+  --base-duration-slower:  500ms;
+
+  /* Motion — easing curves (source: tokens-base.json → base-easing) */
+  --base-easing-linear:      linear;
+  --base-easing-ease-in:     cubic-bezier(0.4, 0, 1, 1);
+  --base-easing-ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --base-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --base-easing-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+
   /* === SEMANTIC TOKENS (from 1.2) === */
 
   /* Success */
@@ -446,6 +460,32 @@
   --alias-typography-heading-6-size: var(--alias-typography-heading6-font-size);
   --alias-typography-heading-6-weight: var(--alias-typography-heading6-font-weight);
   --alias-typography-heading-6-line-height: var(--alias-typography-heading6-line-height);
+
+  /* Radio — a radio control is always fully round; declared explicitly so the
+     component references a token rather than a literal rounded-full utility. */
+  --component-input-radio-dimension-radius: var(--alias-radius-full);
+
+  /* Scroll area — the scrollbar thumb is a passive affordance, so it uses the
+     default border colour rather than a foreground or brand token. */
+  --component-scroll-area-scrollbar-thumb-bg: var(--alias-color-border-default);
+
+  /* Motion (source: tokens-tier2.json → alias-motion)
+     Components consume these in a `transition:` shorthand slot, e.g.
+     [transition:var(--alias-motion-transition-normal)], so each transition token
+     resolves to a complete shorthand — property, duration, easing — not a bare
+     duration. A duration alone would be valid CSS but would silently apply the
+     browser default easing, which is why these are composed here rather than at
+     the call site. Easing tokens are exposed separately for the cases that need
+     to compose their own transition. */
+  --alias-motion-easing-default: var(--base-easing-ease-out);
+  --alias-motion-easing-fade:    var(--base-easing-ease-in-out);
+  --alias-motion-easing-spring:  var(--base-easing-spring);
+
+  --alias-motion-transition-fast:   all var(--base-duration-fast)   var(--alias-motion-easing-default);
+  --alias-motion-transition-normal: all var(--base-duration-normal) var(--alias-motion-easing-default);
+  --alias-motion-transition-slow:   all var(--base-duration-slow)   var(--alias-motion-easing-default);
+  --alias-motion-transition-fade:   all var(--base-duration-normal) var(--alias-motion-easing-fade);
+  --alias-motion-transition-spring: all var(--base-duration-slow)   var(--alias-motion-easing-spring);
 
   /* === BRAND TOKENS (from 1.2) === */
 
@@ -741,6 +781,9 @@
   --component-feedback-badge-shared-dimension-padding-y: var(--alias-spacing-inline-xs);
   --component-feedback-badge-shared-dimension-radius: var(--alias-radius-full);
   --component-feedback-badge-shared-dimension-gap-icon: var(--alias-spacing-inline-xs);
+  /* Notification count badge — sized to stay circular at a single digit and grow with
+     the label beyond that, so min-width is its own token rather than a spacing step. */
+  --component-feedback-badge-count-dimension-min-width: 16px;
   --component-feedback-toast-success-color-bg: var(--alias-color-background-primary);
   --component-feedback-toast-success-color-stroke: var(--alias-color-feedback-success-stroke);
   --component-feedback-toast-success-color-text: var(--alias-color-text-primary);
@@ -983,13 +1026,17 @@
   --component-switch-color-thumb-default: var(--alias-color-background-primary);
   --component-switch-color-thumb-disabled: var(--alias-color-background-secondary);
   --component-switch-color-focus: var(--alias-focus-ring-color);
-  --component-switch-dimension-track-width: var(--alias-spacing-stack-lg);
-  --component-switch-dimension-track-height: var(--alias-spacing-stack-sm);
+  /* Track dimensions are literals rather than alias references: the switch geometry is
+     a fixed ratio that does not correspond to any spacing step, and the previous alias
+     mapping had drifted from what the component actually rendered (token said 24×12,
+     component shipped 32×18.4). These values match the shipped component exactly. */
+  --component-switch-dimension-track-width: 32px;
+  --component-switch-dimension-track-height: 18.4px;
   --component-switch-dimension-thumb-size: var(--alias-spacing-padding-sm);
   --component-switch-dimension-radius: var(--alias-radius-full);
   --component-switch-dimension-focus-offset: var(--alias-focus-ring-offset);
-  --component-switch-dimension-sm-track-width: var(--alias-spacing-padding-lg);
-  --component-switch-dimension-sm-track-height: var(--alias-spacing-inline-sm);
+  --component-switch-dimension-sm-track-width: 24px;
+  --component-switch-dimension-sm-track-height: 14px;
 
   /* component-slider */
   --component-slider-color-track: var(--alias-color-background-tertiary);

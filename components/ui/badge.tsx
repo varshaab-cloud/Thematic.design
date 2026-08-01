@@ -23,7 +23,7 @@ const badgeVariants = cva(
         brand:   "bg-[var(--alias-color-background-brand)] text-[var(--alias-color-text-inverse)]",
       },
       size: {
-        sm: "h-4 px-1.5 text-[10px]",
+        sm: "h-4 px-1.5 text-[length:var(--alias-typography-caption2-font-size)]",
         md: "h-5 px-[var(--alias-spacing-padding-xs)] text-[length:var(--alias-typography-caption1-font-size)]",
         lg: "h-6 px-2.5 text-[length:var(--alias-typography-body-text2-font-size)]",
       },

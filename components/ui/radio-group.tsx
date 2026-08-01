@@ -36,7 +36,7 @@ const itemSizeConfig = {
   lg: {
     indicator: "size-5",
     dot: "size-2",
-    label: "text-[16px]",
+    label: "text-[length:var(--alias-typography-subheading1-font-size)]",
     description: "text-[13px]",
     gap: "gap-3",
     mt: "mt-0.5",
@@ -120,7 +120,7 @@ function RadioGroupItem({
         data-slot="radio-group-item"
         className={cn(
           // Base
-          sc.mt, sc.indicator, "shrink-0 rounded-[var(--component-input-radio-color-stroke-default-radius)] border border-[var(--component-input-radio-color-stroke-default)] bg-[var(--component-input-radio-color-bg-default)]",
+          sc.mt, sc.indicator, "shrink-0 rounded-[var(--component-input-radio-dimension-radius)] border border-[var(--component-input-radio-color-stroke-default)] bg-[var(--component-input-radio-color-bg-default)]",
           "[transition:var(--alias-motion-transition-normal)] outline-none cursor-pointer",
           // Hover
           "hover:border-[var(--component-input-radio-color-stroke-checked)]",

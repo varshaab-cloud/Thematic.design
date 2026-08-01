@@ -230,7 +230,7 @@ export function Calendar({
                   disabled={disabled}
                   onClick={() => !disabled && onChange(date)}
                   className={cn(
-                    "mx-auto flex h-9 w-9 items-center justify-center rounded-full text-[14px] [transition:var(--alias-motion-transition-normal)]",
+                    "mx-auto flex h-9 w-9 items-center justify-center rounded-full text-[length:var(--alias-typography-subheading2-font-size)] [transition:var(--alias-motion-transition-normal)]",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-date-picker-trigger-color-stroke-focus)]",
                     // Base text colour
                     isCurrentMonth

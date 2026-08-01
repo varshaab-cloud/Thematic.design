@@ -75,7 +75,7 @@ function StreamingText({
       )}
       {isStopped && (
         <span
-          className="ml-1 inline-flex items-center gap-0.5 rounded bg-[var(--alias-color-background-tertiary)] px-1 py-0.5 text-[10px] text-[var(--alias-color-text-subtle)]"
+          className="ml-1 inline-flex items-center gap-0.5 rounded bg-[var(--alias-color-background-tertiary)] px-1 py-0.5 text-[length:var(--alias-typography-caption2-font-size)] text-[var(--alias-color-text-subtle)]"
           aria-label="Generation stopped"
         >
           stopped
