@@ -11,7 +11,11 @@
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "audit": "node scripts/token-audit.cjs components/ui",
+    "design-index": "node scripts/design-index.cjs",
+    "design-index:check": "node scripts/design-index.cjs --check",
+    "verify": "node scripts/token-audit.cjs components/ui && node scripts/design-index.cjs --check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
