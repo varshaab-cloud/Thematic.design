@@ -47,6 +47,44 @@ The confirm button must use a specific verb and noun together, matching what wil
 
 Avoid the words "permanently", "forever", "irreversible", and "warning" in dialog copy. State the consequence directly instead — "can't be undone" carries the same meaning without the alarm that makes experienced users second-guess routine operations.
 
+## Composition
+
+Dialog is a set of composable parts, not a single component. Assemble it from `Dialog`, `DialogTrigger`, `DialogContent`, `DialogHeader`, `DialogTitle`, `DialogDescription`, `DialogFooter`, and `DialogClose`. Each part is a thin wrapper over the matching Radix primitive.
+
+```tsx
+<Dialog>
+  <DialogTrigger asChild><Button>Invite member</Button></DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Invite a team member</DialogTitle>
+      <DialogDescription>They'll get an email with a join link.</DialogDescription>
+    </DialogHeader>
+    {/* form fields */}
+    <DialogFooter>
+      <DialogClose asChild><Button variant="ghost">Cancel</Button></DialogClose>
+      <Button>Send invite</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+**What the component owns**
+
+- **The portal and overlay.** `DialogContent` renders its own `DialogPortal` and `DialogOverlay` — do not add them yourself. Content is portalled to the document body, so it escapes any parent `overflow` or stacking context.
+- **The close button.** `DialogContent` renders a ghost icon Button in the top-right corner by default. Pass `showCloseButton={false}` to suppress it — do so when the footer already provides an explicit Cancel.
+- **Positioning, sizing, and animation.** The panel is centred, capped at `sm:max-w-sm`, and animated on open and close. Override the width with `className` on `DialogContent`; do not reposition it.
+- **Focus trapping, scroll locking, and ARIA wiring.** Inherited from Radix. `DialogTitle` and `DialogDescription` are automatically wired as the `aria-labelledby` and `aria-describedby` targets.
+
+**What the consumer provides**
+
+- **The trigger**, via `DialogTrigger asChild` wrapping your own Button. Or control the dialog externally with the `open` and `onOpenChange` props on `Dialog`.
+- **Footer actions.** `DialogFooter` is a layout container only — it supplies no buttons. Wrap the cancel action in `DialogClose asChild` so it closes without a handler.
+- **`DialogTitle` and `DialogDescription`**, always. They are the accessible name and description; omitting them breaks screen reader announcement.
+
+**Choosing between Dialog and AlertDialog**
+
+`AlertDialog` is a separate export built on `AlertDialogPrimitive`. It renders `role="alertdialog"` and cannot be dismissed by overlay click or `Escape`. Use it only when an explicit decision is required; use `Dialog` everywhere else.
+
 ## Accessibility
 
 Dialog and AlertDialog are built on Radix UI's `DialogPrimitive` and `AlertDialogPrimitive`, which handle focus trapping, scroll locking, and ARIA roles automatically.

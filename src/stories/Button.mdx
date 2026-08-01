@@ -67,9 +67,22 @@ Stretches the button to fill its container. Use in mobile layouts, card footers,
 
 Combines multiple outline buttons into a connected control (e.g. a segmented filter or view toggle). Remove the shared border and border-radius on inner buttons so they read as a single unit.
 
-## Playground
+## Composition
 
-<Controls of={ButtonStories.Primary} />
+Button renders a native `<button>` element. Passing `asChild` swaps it for Radix's `Slot`, which merges all button styling and props onto whatever single child you provide — use this to render a button-styled `<a>` or a Next.js `<Link>` without nesting interactive elements.
+
+**What the component owns**
+
+- **The loading spinner.** When `isLoading` is `true`, Button renders a `Loader2` icon from `lucide-react` with a spin animation before the label. The label stays visible — the spinner is prepended, not swapped in. Do not pass your own spinner.
+- **Disabling during load.** `isLoading` sets `disabled` automatically. There is no need to pass both.
+- **Icon sizing and spacing.** Any `svg` child is sized to match the button size (16px default, 12px at `xs`, 14px at `sm`) and given `pointer-events-none` and `shrink-0`. Do not set a size class on the icon; the component handles it.
+- **Styling hooks.** Button emits `data-slot="button"`, `data-variant`, and `data-size` so parent components can target it without class-name coupling.
+
+**What the consumer provides**
+
+- **Icons**, as children from `lucide-react`. Mark them with `data-icon="inline-start"` or `data-icon="inline-end"` so the component can tighten the padding on that side.
+- **The label**, as a text child. For icon-only buttons, pass the icon plus a `<span className="sr-only">` label, and use an `icon` size variant.
+- **Grouping.** Wrapping buttons in a container with `data-slot="button-group"` adjusts the inner corner radii so the set reads as one connected control.
 
 ## Accessibility
 
@@ -88,3 +101,7 @@ The Button renders a native `<button>` element, which gives it keyboard focus, `
 - **Loading state** — when `isLoading` is `true`, add `aria-busy="true"` and `aria-label="Saving…"` (or similar) so screen readers announce the in-progress state rather than reading a spinner icon.
 - **Disabled buttons** — the native `disabled` attribute removes the button from the tab order. If you need a disabled button to remain focusable (so a tooltip can explain why), use `aria-disabled="true"` instead and suppress the click handler manually.
 - **Destructive actions** — pair the destructive button with a confirmation dialog so keyboard-only and screen-reader users have the same safety gate as pointer users.
+
+## Playground
+
+<Controls of={ButtonStories.Primary} />

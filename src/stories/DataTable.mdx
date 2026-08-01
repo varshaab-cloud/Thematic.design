@@ -55,6 +55,26 @@ Every DataTable has four states that must all be designed before implementation:
 
 Lay out the toolbar with search and filter controls on the left and export with the primary call to action on the right. There is one primary action per toolbar at most. Export must respect any active filters — exporting the full unfiltered dataset when a filter is in effect is a common mistake that damages user trust in the data they receive.
 
+## Composition
+
+DataTable wraps TanStack Table and renders native HTML table elements. It composes Button and Checkbox from the library internally, and uses `lucide-react` icons for sort, pagination, search, and the column toggle.
+
+**What the component owns**
+
+- **All table state.** Sorting, filtering, pagination, column visibility, and row selection are managed internally through TanStack's row models. Do not lift this state unless you need to persist it.
+- **The search input.** Set `searchable` and the component renders and wires the input itself. `globalFilterColumn` narrows the search to one column; omitting it searches all string columns.
+- **The selection column.** Set `selectable` and the checkbox column is injected as the first column — do not add it to your `columns` array. `onSelectionChange` fires with the selected row objects.
+- **Loading skeletons.** Set `isLoading` and the component renders `skeletonRows` placeholder rows matching the real column count, so the layout does not reflow when data arrives.
+- **Pagination controls.** Rendered from `pageSizeOptions` and `defaultPageSize`. The first, previous, next, and last controls are built in.
+- **The column visibility toggle.** Set `columnToggle` to render it.
+
+**What the consumer provides**
+
+- **`columns`** — a TanStack `ColumnDef` array. This is where cell rendering lives: identity cells, Badge status cells, right-aligned numerics, and the row actions DropdownMenu are all defined here, not inside DataTable.
+- **`data`** — the row array. Fetching, caching, and error handling are the consumer's responsibility; DataTable renders whatever it is given.
+- **`emptyState`** — an optional `ReactNode` that replaces the table body when `data` is empty. Without it, a default centred message is shown.
+- **Error state.** DataTable has no error variant. Render an Alert with a retry action above or in place of the table when a fetch fails.
+
 ## Accessibility
 
 DataTable uses native HTML table elements with TanStack Table managing sort and selection state.
