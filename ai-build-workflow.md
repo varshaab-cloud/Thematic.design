@@ -98,6 +98,27 @@ Vercel deploys `main` automatically.
 
 ---
 
+## Where tokens are involved, step by step
+
+Tokens are everywhere in this workflow — but the AI mostly does not handle them
+directly, and that is the design working as intended.
+
+| Step | Tokens' role |
+|---|---|
+| 1. Prompt | None — you describe content and behaviour, never tokens |
+| 2. Component selection | Metadata — each index entry names the component's token namespace and count |
+| 3. Reading the spec | States are described in token terms (error state = error surface tokens) |
+| 4. Building the page | **Inherited.** Each component already carries its tokens internally — `<Button variant="destructive">` pulls 65 token references in without the AI writing one. Only page-level layout styling touches tokens directly, and there the rule is alias tier: `var(--alias-spacing-section-md)`, never `24px` |
+| 5. Rendering | **Executed.** `globals.css` imports `tokens.css`; the browser resolves every chain — component → alias → brand → base → value — live at render |
+| 6. `npm run verify` | **Checked.** No hardcoded values, no references to tokens that don't exist, index fresh |
+
+The AI touches tokens first-hand in exactly two places: page-level layout (alias tier
+only), and Case B, where a new component or token means editing `tokens.css` at the
+correct tier before the gate will pass.
+
+The division of labour in one line: **you prompt content, components carry tokens,
+`tokens.css` carries values — and verify guarantees the three layers never got mixed.**
+
 ## The loop in one line
 
 ```
