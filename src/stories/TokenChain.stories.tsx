@@ -26,7 +26,7 @@ function resolve(name: string, depth = 0): string {
 }
 const isColor = (v: string) => /^#|^rgba?\(|^hsla?\(/.test(v.trim());
 const tierOf = (n: string) =>
-  n.startsWith("--component-") ? "component" : n.startsWith("--alias-") ? "alias" : n.startsWith("--brand-") ? "brand" : "base";
+  n.startsWith("--component-") ? "component" : n.startsWith("--alias-") ? "alias" : "base";
 
 /** The path THROUGH the clicked token: what it resolves to (descendants) plus what
  *  resolves to it (ancestors). Not the full connected component — that lights up
@@ -62,7 +62,7 @@ function Chip({ name, active, dimmed, onClick, register }: {
 }) {
   const value = FLAT[name] ?? "";
   const final = resolve(name);
-  const label = name.replace(/^--(component|alias|brand|base)-/, "");
+  const label = name.replace(/^--(component|alias|base)-/, "");
   return (
     <div ref={register} onClick={onClick} title={`${name}\n= ${value}`} style={{
       display: "flex", alignItems: "center", gap: 6, padding: "5px 8px",
@@ -87,7 +87,6 @@ function Chip({ name, active, dimmed, onClick, register }: {
 const TIER_META: Record<string, { label: string; blurb: string }> = {
   component: { label: "Component", blurb: "What the component's CSS references. Never holds a value." },
   alias: { label: "Alias", blurb: "Semantic roles — what each value is for." },
-  brand: { label: "Brand", blurb: "Which base values are ours. Swap this tier to rebrand." },
   base: { label: "Base", blurb: "Raw values. The only tier allowed to hold literals." },
 };
 
@@ -103,7 +102,7 @@ export function TokenChainExplorer({ prefix, filters }: { prefix: string; filter
     .filter((k) => k.startsWith(prefix))
     .filter((k) => !filter || k.includes(`-${filter}-`));
   const edges: [string, string][] = [];
-  const tiers: Record<string, Set<string>> = { component: new Set(compTokens), alias: new Set(), brand: new Set(), base: new Set() };
+  const tiers: Record<string, Set<string>> = { component: new Set(compTokens), alias: new Set(), base: new Set() };
   const queue = [...compTokens];
   const seen = new Set(queue);
   while (queue.length) {
@@ -141,7 +140,7 @@ export function TokenChainExplorer({ prefix, filters }: { prefix: string; filter
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prefix, filter, selected, compTokens.length]);
 
-  const cols: (keyof typeof TIER_META)[] = ["component", "alias", "brand", "base"];
+  const cols: (keyof typeof TIER_META)[] = ["component", "alias", "base"];
 
   return (
     <div style={{ fontFamily: "'Open Sans', system-ui, sans-serif", padding: "8px 4px" }}>
@@ -164,7 +163,7 @@ export function TokenChainExplorer({ prefix, filters }: { prefix: string; filter
         </div>
       )}
 
-      <div ref={stageRef} style={{ position: "relative", display: "grid", gridTemplateColumns: "1.5fr 1.2fr 0.9fr 1fr", gap: 28 }}>
+      <div ref={stageRef} style={{ position: "relative", display: "grid", gridTemplateColumns: "1.4fr 1.1fr 1fr", gap: 28 }}>
         <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }}>
           {lines.map((l, i) => {
             const on = lit ? lit.has(l.a) && lit.has(l.b) : false;

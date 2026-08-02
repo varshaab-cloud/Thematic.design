@@ -109,7 +109,7 @@ directly, and that is the design working as intended.
 | 2. Component selection | Metadata — each index entry names the component's token namespace and count |
 | 3. Reading the spec | States are described in token terms (error state = error surface tokens) |
 | 4. Building the page | **Inherited.** Each component already carries its tokens internally — `<Button variant="destructive">` pulls 65 token references in without the AI writing one. Only page-level layout styling touches tokens directly, and there the rule is alias tier: `var(--alias-spacing-section-md)`, never `24px` |
-| 5. Rendering | **Executed.** `globals.css` imports `tokens.css`; the browser resolves every chain — component → alias → brand → base → value — live at render |
+| 5. Rendering | **Executed.** `globals.css` imports `tokens.css`; the browser resolves every chain — component → alias → base → value — live at render |
 | 6. `npm run verify` | **Checked.** No hardcoded values, no references to tokens that don't exist, index fresh |
 
 The AI touches tokens first-hand in exactly two places: page-level layout (alias tier

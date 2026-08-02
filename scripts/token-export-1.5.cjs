@@ -77,11 +77,7 @@ function templated(name) {
       ? `${TITLE(set.replace("base-", ""))} step ${tail.join(" ")}`
       : TITLE(tail.join(" "));
     return label.trim() +
-      ". Raw palette value — reference an alias or brand token rather than using this directly.";
-  }
-  if (tier === "brand") {
-    return `${TITLE(set.replace("brand-", ""))} ${tail.join(" ")}`.trim() +
-      ". Part of a brand ramp; swapping brands replaces this tier without touching components.";
+      ". Raw palette value — reference an alias token rather than using this directly.";
   }
   // The alias tier is mostly hand-written, because that is where meaning lives. Two
   // groups are exceptions: typography styles are 92 tokens across a fixed set of text
@@ -132,7 +128,7 @@ function resolve(v, depth = 0) {
 // tokens 1.4. The stylesheet already declares its own grouping in section comments
 // (`/* component-date-range-picker */`), so read those rather than infer.
 const DECLARED_SETS = [
-  ...new Set([...css.matchAll(/\/\*\s*((?:base|brand|alias|component|semantic)-[a-z-]+)/g)].map((m) => m[1])),
+  ...new Set([...css.matchAll(/\/\*\s*((?:base|alias|component|semantic)-[a-z-]+)/g)].map((m) => m[1])),
 ].sort((a, b) => b.length - a.length); // longest first, so the most specific prefix wins
 
 const ALL_PATHS = new Set();

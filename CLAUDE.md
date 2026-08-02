@@ -14,7 +14,7 @@ Instructions for any AI assistant working in this repo. Read this first.
      Everything in `tokens 1.5/` (flat, DTCG, Tokens Studio) is generated — do not edit
      by hand; run `npm run tokens` after changing `tokens.css`. Descriptions live in
      `token-descriptions.json`. `tokens-retired/` and `tokens 1.4/` are frozen history.
-   - Tiers: `base` (primitives) → `semantic` / `alias` / `brand` → `component`.
+   - Tiers: `base` (primitives) → `semantic` / `alias` → `component`. There is no brand tier; brand-role aliases (`--alias-color-background-brand`) point straight at base.
    - Prefer the closest meaningful tier: component tokens for component styling, alias
      tokens for shared roles, base only when nothing else fits.
    - Never hardcode a hex, rgb, px, or rem that a token already exists for.

@@ -64,7 +64,7 @@ const html = `<!DOCTYPE html>
   .pill.on { border-color: #1c21dc; background: #eef0ff; }
 
   /* wires sit behind the columns: svg at z-0, columns at z-1, chips opaque */
-  .stage { position: relative; display: grid; grid-template-columns: 1.5fr 1.2fr 0.9fr 1fr; gap: 30px; }
+  .stage { position: relative; display: grid; grid-template-columns: 1.4fr 1.1fr 1fr; gap: 30px; }
   svg.wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 0; }
   .col { min-width: 0; display: flex; flex-direction: column; position: relative; z-index: 1; }
   .colhead { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #464646; margin-bottom: 4px; }
@@ -124,12 +124,11 @@ function resolve(name, d = 0) {
   return v;
 }
 const isColor = v => /^#|^rgba?\\(|^hsla?\\(/.test(String(v).trim());
-const tierOf = n => n.startsWith('--component-') ? 'component' : n.startsWith('--alias-') ? 'alias' : n.startsWith('--brand-') ? 'brand' : 'base';
+const tierOf = n => n.startsWith('--component-') ? 'component' : n.startsWith('--alias-') ? 'alias' : 'base';
 
 const TIERS = [
   ['component', 'Component', "What the component's CSS references. Never holds a value."],
   ['alias', 'Alias', 'Semantic roles — what each value is for.'],
-  ['brand', 'Brand', 'Which base values are ours. Swap this tier to rebrand.'],
   ['base', 'Base', 'Raw values. The only tier allowed to hold literals.'],
 ];
 
@@ -159,7 +158,7 @@ function buildGraph() {
   const comp = Object.keys(TOKENS)
     .filter(k => k.startsWith(current.prefix))
     .filter(k => !filter || k.slice(current.prefix.length).split('-')[0] === filter);
-  const tiers = { component: new Set(comp), alias: new Set(), brand: new Set(), base: new Set() };
+  const tiers = { component: new Set(comp), alias: new Set(), base: new Set() };
   const edges = [];
   const q = [...comp], seen = new Set(comp);
   while (q.length) {
@@ -238,27 +237,10 @@ function renderGraph() {
     const chips = document.createElement('div'); chips.className = 'chips';
     const names = [...tiers[tier]].sort();
     if (!names.length) chips.innerHTML = \`<div class="empty">no \${tier} tokens in this chain</div>\`;
-    // Brand tokens are stops on a ramp, not peers: cobalt-primary-800 and -900 are two
-    // intensities of one brand colour. Listed flat they read as two separate brands, so
-    // the column groups by <brand>-<ramp> with a header, and chips show only the stop.
-    let lastGroup = null;
     for (const name of names) {
-      if (tier === 'brand') {
-        const parts = name.replace('--brand-', '').split('-');
-        const group = parts.slice(0, -1).join(' · ');
-        if (group !== lastGroup) {
-          lastGroup = group;
-          const h = document.createElement('div');
-          h.style.cssText = 'font-size:9.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#909090;margin:6px 0 1px;';
-          h.textContent = group + ' ramp';
-          chips.append(h);
-        }
-      }
       const el = document.createElement('div'); el.className = 'chip';
       const fin = resolve(name);
-      const short = tier === 'brand'
-        ? name.split('-').pop()
-        : name.replace(/^--(component|alias|brand|base)-/, '');
+      const short = name.replace(/^--(component|alias|base)-/, '');
       el.title = \`\${name}\\n= \${TOKENS[name] ?? ''}\`;
       el.innerHTML =
         (isColor(fin) ? \`<span class="sw" style="background:\${fin}"></span>\` : '') +

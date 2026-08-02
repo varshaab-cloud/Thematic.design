@@ -20,8 +20,6 @@
       "component-input",
       "component-scroll",
       "alias-motion",
-      "brand-cobalt",
-      "brand-terra",
       "component-button",
       "component-feedback",
       "component-nav",
@@ -80,582 +78,582 @@
     "black": {
       "$value": "#000000",
       "$type": "color",
-      "$description": "Black. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Black. Raw palette value — reference an alias token rather than using this directly."
     },
     "white": {
       "$value": "#ffffff",
       "$type": "color",
-      "$description": "White. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "White. Raw palette value — reference an alias token rather than using this directly."
     },
     "gray": {
       "75": {
         "$value": "#f5f5f3",
         "$type": "color",
-        "$description": "Gray 75. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 75. Raw palette value — reference an alias token rather than using this directly."
       },
       "100": {
         "$value": "#eeeeec",
         "$type": "color",
-        "$description": "Gray 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#e3e3e0",
         "$type": "color",
-        "$description": "Gray 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#d5d5d5",
         "$type": "color",
-        "$description": "Gray 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#b1b1b1",
         "$type": "color",
-        "$description": "Gray 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#909090",
         "$type": "color",
-        "$description": "Gray 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#5e5e5e",
         "$type": "color",
-        "$description": "Gray 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#464646",
         "$type": "color",
-        "$description": "Gray 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#222222",
         "$type": "color",
-        "$description": "Gray 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gray 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "blue": {
       "100": {
         "$value": "#c4c5f4",
         "$type": "color",
-        "$description": "Blue 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#aaacf0",
         "$type": "color",
-        "$description": "Blue 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#9194eb",
         "$type": "color",
-        "$description": "Blue 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#6e71e6",
         "$type": "color",
-        "$description": "Blue 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#3a3dee",
         "$type": "color",
-        "$description": "Blue 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#1c21dc",
         "$type": "color",
-        "$description": "Blue 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#171cbe",
         "$type": "color",
-        "$description": "Blue 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#1518a6",
         "$type": "color",
-        "$description": "Blue 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#111487",
         "$type": "color",
-        "$description": "Blue 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Blue 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "red": {
       "100": {
         "$value": "#ffe2e2",
         "$type": "color",
-        "$description": "Red 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#ffb9bb",
         "$type": "color",
-        "$description": "Red 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#ff999c",
         "$type": "color",
-        "$description": "Red 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#f55658",
         "$type": "color",
-        "$description": "Red 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#d21a26",
         "$type": "color",
-        "$description": "Red 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#ab121b",
         "$type": "color",
-        "$description": "Red 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#81070d",
         "$type": "color",
-        "$description": "Red 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#640204",
         "$type": "color",
-        "$description": "Red 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Red 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "green": {
       "100": {
         "$value": "#dcfce7",
         "$type": "color",
-        "$description": "Green 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#bbf7d0",
         "$type": "color",
-        "$description": "Green 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#86efac",
         "$type": "color",
-        "$description": "Green 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#4ade80",
         "$type": "color",
-        "$description": "Green 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#16a34a",
         "$type": "color",
-        "$description": "Green 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#15803d",
         "$type": "color",
-        "$description": "Green 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#166534",
         "$type": "color",
-        "$description": "Green 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#14532d",
         "$type": "color",
-        "$description": "Green 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Green 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "teal": {
       "100": {
         "$value": "#ccfbf1",
         "$type": "color",
-        "$description": "Teal 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#99f6e4",
         "$type": "color",
-        "$description": "Teal 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#5eead4",
         "$type": "color",
-        "$description": "Teal 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#2dd4bf",
         "$type": "color",
-        "$description": "Teal 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#14b8a6",
         "$type": "color",
-        "$description": "Teal 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#0d9488",
         "$type": "color",
-        "$description": "Teal 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#0f766e",
         "$type": "color",
-        "$description": "Teal 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#115e59",
         "$type": "color",
-        "$description": "Teal 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#134e4a",
         "$type": "color",
-        "$description": "Teal 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Teal 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "sky": {
       "100": {
         "$value": "#e0f2fe",
         "$type": "color",
-        "$description": "Sky 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#bae6fd",
         "$type": "color",
-        "$description": "Sky 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#7dd3fc",
         "$type": "color",
-        "$description": "Sky 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#38bdf8",
         "$type": "color",
-        "$description": "Sky 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#0ea5e9",
         "$type": "color",
-        "$description": "Sky 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#0284c7",
         "$type": "color",
-        "$description": "Sky 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#0369a1",
         "$type": "color",
-        "$description": "Sky 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#075985",
         "$type": "color",
-        "$description": "Sky 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#0c4a6e",
         "$type": "color",
-        "$description": "Sky 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sky 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "rose": {
       "100": {
         "$value": "#fdf2f8",
         "$type": "color",
-        "$description": "Rose 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#fce7f3",
         "$type": "color",
-        "$description": "Rose 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#fbcfe8",
         "$type": "color",
-        "$description": "Rose 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#f9a8d4",
         "$type": "color",
-        "$description": "Rose 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#f472b6",
         "$type": "color",
-        "$description": "Rose 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#db2777",
         "$type": "color",
-        "$description": "Rose 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#be185d",
         "$type": "color",
-        "$description": "Rose 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#9d174d",
         "$type": "color",
-        "$description": "Rose 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#831843",
         "$type": "color",
-        "$description": "Rose 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Rose 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "slate": {
       "50": {
         "$value": "#f8fafc",
         "$type": "color",
-        "$description": "Slate 50. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 50. Raw palette value — reference an alias token rather than using this directly."
       },
       "100": {
         "$value": "#f1f5f9",
         "$type": "color",
-        "$description": "Slate 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#e2e8f0",
         "$type": "color",
-        "$description": "Slate 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#cbd5e1",
         "$type": "color",
-        "$description": "Slate 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#94a3b8",
         "$type": "color",
-        "$description": "Slate 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#64748b",
         "$type": "color",
-        "$description": "Slate 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#475569",
         "$type": "color",
-        "$description": "Slate 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#334155",
         "$type": "color",
-        "$description": "Slate 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#1e293b",
         "$type": "color",
-        "$description": "Slate 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#0f172a",
         "$type": "color",
-        "$description": "Slate 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Slate 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "emerald": {
       "100": {
         "$value": "#ecfdf5",
         "$type": "color",
-        "$description": "Emerald 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#d1fae5",
         "$type": "color",
-        "$description": "Emerald 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#a7f3d0",
         "$type": "color",
-        "$description": "Emerald 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#6ee7b7",
         "$type": "color",
-        "$description": "Emerald 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#34d399",
         "$type": "color",
-        "$description": "Emerald 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#166534",
         "$type": "color",
-        "$description": "Emerald 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#14532d",
         "$type": "color",
-        "$description": "Emerald 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#0f3d22",
         "$type": "color",
-        "$description": "Emerald 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#0a2718",
         "$type": "color",
-        "$description": "Emerald 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Emerald 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "sienna": {
       "100": {
         "$value": "#fff7ed",
         "$type": "color",
-        "$description": "Sienna 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#ffedd5",
         "$type": "color",
-        "$description": "Sienna 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#fed7aa",
         "$type": "color",
-        "$description": "Sienna 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#fdba74",
         "$type": "color",
-        "$description": "Sienna 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#c2521a",
         "$type": "color",
-        "$description": "Sienna 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#a3400f",
         "$type": "color",
-        "$description": "Sienna 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#823010",
         "$type": "color",
-        "$description": "Sienna 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#61210b",
         "$type": "color",
-        "$description": "Sienna 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#401407",
         "$type": "color",
-        "$description": "Sienna 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sienna 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "gold": {
       "100": {
         "$value": "#fffbeb",
         "$type": "color",
-        "$description": "Gold 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#fef3c7",
         "$type": "color",
-        "$description": "Gold 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#fde68a",
         "$type": "color",
-        "$description": "Gold 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#fcd34d",
         "$type": "color",
-        "$description": "Gold 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#f59e0b",
         "$type": "color",
-        "$description": "Gold 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#b45309",
         "$type": "color",
-        "$description": "Gold 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#92400e",
         "$type": "color",
-        "$description": "Gold 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#6e3008",
         "$type": "color",
-        "$description": "Gold 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#451d05",
         "$type": "color",
-        "$description": "Gold 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Gold 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "sand": {
       "50": {
         "$value": "#fdfcf8",
         "$type": "color",
-        "$description": "Sand 50. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 50. Raw palette value — reference an alias token rather than using this directly."
       },
       "100": {
         "$value": "#f5f2ea",
         "$type": "color",
-        "$description": "Sand 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "#e8e2d5",
         "$type": "color",
-        "$description": "Sand 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "#cec6b4",
         "$type": "color",
-        "$description": "Sand 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "#a89e8c",
         "$type": "color",
-        "$description": "Sand 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "#7a7265",
         "$type": "color",
-        "$description": "Sand 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "#504a40",
         "$type": "color",
-        "$description": "Sand 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "#35302a",
         "$type": "color",
-        "$description": "Sand 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "#1e1a15",
         "$type": "color",
-        "$description": "Sand 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "#0d0b09",
         "$type": "color",
-        "$description": "Sand 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Sand 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "overlay": {
       "scrim": {
         "$value": "rgba(0, 0, 0, 0.5)",
         "$type": "color",
-        "$description": "Overlay Scrim. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Raw scrim value. Black at 50% — a tinted neutral would shift the hue of content beneath it."
       }
     },
     "feedback": {
@@ -663,188 +661,188 @@
         "100": {
           "$value": "#f0fdf4",
           "$type": "color",
-          "$description": "Feedback Success 100. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 100. Raw palette value — reference an alias token rather than using this directly."
         },
         "200": {
           "$value": "#dcfce7",
           "$type": "color",
-          "$description": "Feedback Success 200. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 200. Raw palette value — reference an alias token rather than using this directly."
         },
         "300": {
           "$value": "#bbf7d0",
           "$type": "color",
-          "$description": "Feedback Success 300. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 300. Raw palette value — reference an alias token rather than using this directly."
         },
         "400": {
           "$value": "#86efac",
           "$type": "color",
-          "$description": "Feedback Success 400. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 400. Raw palette value — reference an alias token rather than using this directly."
         },
         "500": {
           "$value": "#4ade80",
           "$type": "color",
-          "$description": "Feedback Success 500. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 500. Raw palette value — reference an alias token rather than using this directly."
         },
         "600": {
           "$value": "#16a34a",
           "$type": "color",
-          "$description": "Feedback Success 600. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 600. Raw palette value — reference an alias token rather than using this directly."
         },
         "700": {
           "$value": "#15803d",
           "$type": "color",
-          "$description": "Feedback Success 700. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 700. Raw palette value — reference an alias token rather than using this directly."
         },
         "800": {
           "$value": "#166534",
           "$type": "color",
-          "$description": "Feedback Success 800. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 800. Raw palette value — reference an alias token rather than using this directly."
         },
         "900": {
           "$value": "#14532d",
           "$type": "color",
-          "$description": "Feedback Success 900. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Success 900. Raw palette value — reference an alias token rather than using this directly."
         }
       },
       "info": {
         "100": {
           "$value": "#f0f9ff",
           "$type": "color",
-          "$description": "Feedback Info 100. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 100. Raw palette value — reference an alias token rather than using this directly."
         },
         "200": {
           "$value": "#e0f2fe",
           "$type": "color",
-          "$description": "Feedback Info 200. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 200. Raw palette value — reference an alias token rather than using this directly."
         },
         "300": {
           "$value": "#bae6fd",
           "$type": "color",
-          "$description": "Feedback Info 300. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 300. Raw palette value — reference an alias token rather than using this directly."
         },
         "400": {
           "$value": "#7dd3fc",
           "$type": "color",
-          "$description": "Feedback Info 400. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 400. Raw palette value — reference an alias token rather than using this directly."
         },
         "500": {
           "$value": "#38bdf8",
           "$type": "color",
-          "$description": "Feedback Info 500. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 500. Raw palette value — reference an alias token rather than using this directly."
         },
         "600": {
           "$value": "#0284c7",
           "$type": "color",
-          "$description": "Feedback Info 600. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 600. Raw palette value — reference an alias token rather than using this directly."
         },
         "700": {
           "$value": "#0369a1",
           "$type": "color",
-          "$description": "Feedback Info 700. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 700. Raw palette value — reference an alias token rather than using this directly."
         },
         "800": {
           "$value": "#075985",
           "$type": "color",
-          "$description": "Feedback Info 800. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 800. Raw palette value — reference an alias token rather than using this directly."
         },
         "900": {
           "$value": "#0c4a6e",
           "$type": "color",
-          "$description": "Feedback Info 900. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Info 900. Raw palette value — reference an alias token rather than using this directly."
         }
       },
       "warning": {
         "100": {
           "$value": "#fffbeb",
           "$type": "color",
-          "$description": "Feedback Warning 100. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 100. Raw palette value — reference an alias token rather than using this directly."
         },
         "200": {
           "$value": "#fef3c7",
           "$type": "color",
-          "$description": "Feedback Warning 200. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 200. Raw palette value — reference an alias token rather than using this directly."
         },
         "300": {
           "$value": "#fde68a",
           "$type": "color",
-          "$description": "Feedback Warning 300. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 300. Raw palette value — reference an alias token rather than using this directly."
         },
         "400": {
           "$value": "#fcd34d",
           "$type": "color",
-          "$description": "Feedback Warning 400. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 400. Raw palette value — reference an alias token rather than using this directly."
         },
         "500": {
           "$value": "#fbbf24",
           "$type": "color",
-          "$description": "Feedback Warning 500. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 500. Raw palette value — reference an alias token rather than using this directly."
         },
         "600": {
           "$value": "#d97706",
           "$type": "color",
-          "$description": "Feedback Warning 600. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 600. Raw palette value — reference an alias token rather than using this directly."
         },
         "700": {
           "$value": "#b45309",
           "$type": "color",
-          "$description": "Feedback Warning 700. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 700. Raw palette value — reference an alias token rather than using this directly."
         },
         "800": {
           "$value": "#92400e",
           "$type": "color",
-          "$description": "Feedback Warning 800. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 800. Raw palette value — reference an alias token rather than using this directly."
         },
         "900": {
           "$value": "#78350f",
           "$type": "color",
-          "$description": "Feedback Warning 900. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Warning 900. Raw palette value — reference an alias token rather than using this directly."
         }
       },
       "error": {
         "100": {
           "$value": "#fff5f5",
           "$type": "color",
-          "$description": "Feedback Error 100. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 100. Raw palette value — reference an alias token rather than using this directly."
         },
         "200": {
           "$value": "#fee2e2",
           "$type": "color",
-          "$description": "Feedback Error 200. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 200. Raw palette value — reference an alias token rather than using this directly."
         },
         "300": {
           "$value": "#fecaca",
           "$type": "color",
-          "$description": "Feedback Error 300. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 300. Raw palette value — reference an alias token rather than using this directly."
         },
         "400": {
           "$value": "#fca5a5",
           "$type": "color",
-          "$description": "Feedback Error 400. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 400. Raw palette value — reference an alias token rather than using this directly."
         },
         "500": {
           "$value": "#f87171",
           "$type": "color",
-          "$description": "Feedback Error 500. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 500. Raw palette value — reference an alias token rather than using this directly."
         },
         "600": {
           "$value": "#dc2626",
           "$type": "color",
-          "$description": "Feedback Error 600. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 600. Raw palette value — reference an alias token rather than using this directly."
         },
         "700": {
           "$value": "#b91c1c",
           "$type": "color",
-          "$description": "Feedback Error 700. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 700. Raw palette value — reference an alias token rather than using this directly."
         },
         "800": {
           "$value": "#991b1b",
           "$type": "color",
-          "$description": "Feedback Error 800. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 800. Raw palette value — reference an alias token rather than using this directly."
         },
         "900": {
           "$value": "#7f1d1d",
           "$type": "color",
-          "$description": "Feedback Error 900. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Feedback Error 900. Raw palette value — reference an alias token rather than using this directly."
         }
       }
     }
@@ -854,76 +852,76 @@
       "primary": {
         "$value": "'Open Sans', sans-serif",
         "$type": "fontFamily",
-        "$description": "Family Primary. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Family Primary. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "weight": {
       "regular": {
         "$value": "400",
         "$type": "fontWeight",
-        "$description": "Weight Regular. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Weight Regular. Raw palette value — reference an alias token rather than using this directly."
       },
       "medium": {
         "$value": "500",
         "$type": "fontWeight",
-        "$description": "Weight Medium. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Weight Medium. Raw palette value — reference an alias token rather than using this directly."
       },
       "semibold": {
         "$value": "600",
         "$type": "fontWeight",
-        "$description": "Weight Semibold. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Weight Semibold. Raw palette value — reference an alias token rather than using this directly."
       },
       "bold": {
         "$value": "700",
         "$type": "fontWeight",
-        "$description": "Weight Bold. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Weight Bold. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "size": {
       "100": {
         "$value": "0.625rem",
         "$type": "dimension",
-        "$description": "Size 100. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 100. Raw palette value — reference an alias token rather than using this directly."
       },
       "200": {
         "$value": "0.75rem",
         "$type": "dimension",
-        "$description": "Size 200. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 200. Raw palette value — reference an alias token rather than using this directly."
       },
       "300": {
         "$value": "0.875rem",
         "$type": "dimension",
-        "$description": "Size 300. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 300. Raw palette value — reference an alias token rather than using this directly."
       },
       "400": {
         "$value": "1rem",
         "$type": "dimension",
-        "$description": "Size 400. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 400. Raw palette value — reference an alias token rather than using this directly."
       },
       "500": {
         "$value": "1.875rem",
         "$type": "dimension",
-        "$description": "Size 500. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 500. Raw palette value — reference an alias token rather than using this directly."
       },
       "600": {
         "$value": "2rem",
         "$type": "dimension",
-        "$description": "Size 600. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 600. Raw palette value — reference an alias token rather than using this directly."
       },
       "700": {
         "$value": "2.25rem",
         "$type": "dimension",
-        "$description": "Size 700. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 700. Raw palette value — reference an alias token rather than using this directly."
       },
       "800": {
         "$value": "2.625rem",
         "$type": "dimension",
-        "$description": "Size 800. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 800. Raw palette value — reference an alias token rather than using this directly."
       },
       "900": {
         "$value": "3rem",
         "$type": "dimension",
-        "$description": "Size 900. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Size 900. Raw palette value — reference an alias token rather than using this directly."
       }
     },
     "line": {
@@ -931,12 +929,12 @@
         "relaxed": {
           "$value": "1.5rem",
           "$type": "dimension",
-          "$description": "Line Height Relaxed. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Line Height Relaxed. Raw palette value — reference an alias token rather than using this directly."
         },
         "tight": {
           "$value": "1.25rem",
           "$type": "dimension",
-          "$description": "Line Height Tight. Raw palette value — reference an alias or brand token rather than using this directly."
+          "$description": "Line Height Tight. Raw palette value — reference an alias token rather than using this directly."
         }
       }
     }
@@ -945,89 +943,89 @@
     "1": {
       "$value": "0.25rem",
       "$type": "dimension",
-      "$description": "Spacing step 1. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 1. Raw palette value — reference an alias token rather than using this directly."
     },
     "2": {
       "$value": "0.5rem",
       "$type": "dimension",
-      "$description": "Spacing step 2. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 2. Raw palette value — reference an alias token rather than using this directly."
     },
     "3": {
       "$value": "0.75rem",
       "$type": "dimension",
-      "$description": "Spacing step 3. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 3. Raw palette value — reference an alias token rather than using this directly."
     },
     "4": {
       "$value": "1rem",
       "$type": "dimension",
-      "$description": "Spacing step 4. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 4. Raw palette value — reference an alias token rather than using this directly."
     },
     "5": {
       "$value": "1.5rem",
       "$type": "dimension",
-      "$description": "Spacing step 5. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 5. Raw palette value — reference an alias token rather than using this directly."
     },
     "6": {
       "$value": "2rem",
       "$type": "dimension",
-      "$description": "Spacing step 6. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 6. Raw palette value — reference an alias token rather than using this directly."
     },
     "7": {
       "$value": "2.5rem",
       "$type": "dimension",
-      "$description": "Spacing step 7. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 7. Raw palette value — reference an alias token rather than using this directly."
     },
     "8": {
       "$value": "3rem",
       "$type": "dimension",
-      "$description": "Spacing step 8. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 8. Raw palette value — reference an alias token rather than using this directly."
     },
     "9": {
       "$value": "4rem",
       "$type": "dimension",
-      "$description": "Spacing step 9. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 9. Raw palette value — reference an alias token rather than using this directly."
     },
     "10": {
       "$value": "5rem",
       "$type": "dimension",
-      "$description": "Spacing step 10. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Spacing step 10. Raw palette value — reference an alias token rather than using this directly."
     }
   },
   "base-radius": {
     "xs": {
       "$value": "2px",
       "$type": "dimension",
-      "$description": "Xs. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Xs. Raw palette value — reference an alias token rather than using this directly."
     },
     "sm": {
       "$value": "4px",
       "$type": "dimension",
-      "$description": "Sm. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Sm. Raw palette value — reference an alias token rather than using this directly."
     },
     "md": {
       "$value": "6px",
       "$type": "dimension",
-      "$description": "Md. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Md. Raw palette value — reference an alias token rather than using this directly."
     },
     "lg": {
       "$value": "8px",
       "$type": "dimension",
-      "$description": "Lg. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Lg. Raw palette value — reference an alias token rather than using this directly."
     },
     "xl": {
       "$value": "10px",
       "$type": "dimension",
-      "$description": "Xl. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Xl. Raw palette value — reference an alias token rather than using this directly."
     },
     "xxl": {
       "$value": "14px",
       "$type": "dimension",
-      "$description": "Xxl. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Xxl. Raw palette value — reference an alias token rather than using this directly."
     },
     "full": {
       "$value": "9999px",
       "$type": "dimension",
-      "$description": "Full. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Raw fully-round value. A large constant rather than a percentage, so it pills a rectangle of any aspect ratio instead of ellipsing it."
     }
   },
   "base-shadow": {
@@ -1043,7 +1041,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Shadow step 01. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Shadow step 01. Raw palette value — reference an alias token rather than using this directly."
     },
     "02": {
       "$value": [
@@ -1065,7 +1063,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Shadow step 02. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Shadow step 02. Raw palette value — reference an alias token rather than using this directly."
     },
     "03": {
       "$value": [
@@ -1087,7 +1085,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Shadow step 03. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Shadow step 03. Raw palette value — reference an alias token rather than using this directly."
     },
     "04": {
       "$value": [
@@ -1109,7 +1107,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Shadow step 04. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Shadow step 04. Raw palette value — reference an alias token rather than using this directly."
     },
     "05": {
       "$value": [
@@ -1131,77 +1129,77 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Shadow step 05. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Shadow step 05. Raw palette value — reference an alias token rather than using this directly."
     }
   },
   "base-border": {
     "width": {
       "$value": "1px",
       "$type": "dimension",
-      "$description": "Width. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "The standard hairline width used throughout the system."
     },
     "style": {
       "$value": "solid",
       "$type": "other",
-      "$description": "Style. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "The standard border style. Solid everywhere; dashed and dotted borders are not part of the visual language."
     }
   },
   "base-duration": {
     "instant": {
       "$value": "0ms",
       "$type": "duration",
-      "$description": "Instant. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Zero duration. Use to disable a transition explicitly rather than omitting the property."
     },
     "fast": {
       "$value": "100ms",
       "$type": "duration",
-      "$description": "Fast. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Fast — hover and other immediate feedback."
     },
     "normal": {
       "$value": "200ms",
       "$type": "duration",
-      "$description": "Normal. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "The default duration for most state changes."
     },
     "slow": {
       "$value": "300ms",
       "$type": "duration",
-      "$description": "Slow. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Slow, for movements large enough that the eye needs to track them."
     },
     "slower": {
       "$value": "500ms",
       "$type": "duration",
-      "$description": "Slower. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Slowest. Reserve for entrances of large surfaces; anything routine at this speed feels sluggish."
     }
   },
   "base-easing": {
     "linear": {
       "$value": "linear",
       "$type": "cubicBezier",
-      "$description": "Linear. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Constant speed. Correct for continuous motion such as a spinner, wrong for anything that starts and stops."
     },
     "ease": {
       "in": {
         "$value": "cubic-bezier(0.4, 0, 1, 1)",
         "$type": "cubicBezier",
-        "$description": "Ease In. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Accelerating. For elements leaving the screen."
       },
       "out": {
         "$value": "cubic-bezier(0, 0, 0.2, 1)",
         "$type": "cubicBezier",
-        "$description": "Ease Out. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Decelerating. For elements entering — they arrive rather than stop."
       }
     },
     "ease-in": {
       "out": {
         "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
         "$type": "cubicBezier",
-        "$description": "Ease In Out. Raw palette value — reference an alias or brand token rather than using this directly."
+        "$description": "Symmetric. For elements that move from one place to another and stay on screen throughout."
       }
     },
     "spring": {
       "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
       "$type": "cubicBezier",
-      "$description": "Spring. Raw palette value — reference an alias or brand token rather than using this directly."
+      "$description": "Overshoots slightly before settling, giving movement a sense of weight."
     }
   },
   "alias-color": {
@@ -1209,37 +1207,37 @@
       "primary": {
         "$value": "{base-color.black}",
         "$type": "color",
-        "$description": "Text Primary. Semantic role — reference this rather than the value beneath it."
+        "$description": "Default text colour. Use for body copy and anything the reader is meant to actually read."
       },
       "secondary": {
         "$value": "{base-color.gray.900}",
         "$type": "color",
-        "$description": "Text Secondary. Semantic role — reference this rather than the value beneath it."
+        "$description": "Supporting text that sits alongside primary content — helper text, metadata, timestamps. Still fully legible, just lower in the hierarchy."
       },
       "tertiary": {
         "$value": "{base-color.gray.700}",
         "$type": "color",
-        "$description": "Text Tertiary. Semantic role — reference this rather than the value beneath it."
+        "$description": "Third-level text. Use sparingly; if three levels of text hierarchy are not clearly distinguishable in context, the layout is doing too much."
       },
       "subtle": {
         "$value": "{base-color.gray.600}",
         "$type": "color",
-        "$description": "Text Subtle. Semantic role — reference this rather than the value beneath it."
+        "$description": "The quietest readable text. Placeholder-adjacent content such as counts, units, and inline hints."
       },
       "disabled": {
         "$value": "{base-color.gray.500}",
         "$type": "color",
-        "$description": "Text Disabled. Semantic role — reference this rather than the value beneath it."
+        "$description": "Text in a disabled control. Deliberately fails normal contrast expectations to signal non-interactivity — never use it for content the user needs to read."
       },
       "inverse": {
         "$value": "{base-color.white}",
         "$type": "color",
-        "$description": "Text Inverse. Semantic role — reference this rather than the value beneath it."
+        "$description": "Text on a dark or saturated surface, such as a primary button or brand banner."
       },
       "brand": {
-        "$value": "{brand-cobalt.primary.900}",
+        "$value": "{base-color.blue.900}",
         "$type": "color",
-        "$description": "Text Brand. Semantic role — reference this rather than the value beneath it."
+        "$description": "Text that carries brand identity — a link, a brand wordmark, an active nav label. Not for body copy."
       },
       "error": {
         "$value": "{base-color.feedback.error.800}",
@@ -1256,27 +1254,27 @@
       "primary": {
         "$value": "{base-color.white}",
         "$type": "color",
-        "$description": "Background Primary. Semantic role — reference this rather than the value beneath it."
+        "$description": "The base canvas. Most of the interface sits on this."
       },
       "secondary": {
         "$value": "{base-color.gray.75}",
         "$type": "color",
-        "$description": "Background Secondary. Semantic role — reference this rather than the value beneath it."
+        "$description": "A raised or grouped surface — cards, panels, the assistant's message bubble. Warm off-white rather than grey, so it reads as a surface rather than a shadow."
       },
       "tertiary": {
         "$value": "{base-color.gray.100}",
         "$type": "color",
-        "$description": "Background Tertiary. Semantic role — reference this rather than the value beneath it."
+        "$description": "The third surface level, for nested groupings and inset areas. Rarely needed; reach for spacing or a border before a third fill."
       },
       "brand": {
-        "$value": "{brand-cobalt.primary.800}",
+        "$value": "{base-color.blue.800}",
         "$type": "color",
-        "$description": "Background Brand. Semantic role — reference this rather than the value beneath it."
+        "$description": "The single accent fill. Reserved for the one primary action in a view and for active states — its scarcity is what makes it read as important."
       },
       "hover": {
         "$value": "{base-color.blue.100}",
         "$type": "color",
-        "$description": "Background Hover. Semantic role — reference this rather than the value beneath it."
+        "$description": "Hover wash for otherwise unfilled interactive rows and menu items. Tinted toward the brand hue so hover feels connected to the accent rather than a generic grey."
       },
       "inverse": {
         "$value": "{base-color.gray.900}",
@@ -1286,51 +1284,51 @@
     },
     "background-brand": {
       "dark": {
-        "$value": "{brand-cobalt.primary.900}",
+        "$value": "{base-color.blue.900}",
         "$type": "color",
-        "$description": "Background Brand Dark. Semantic role — reference this rather than the value beneath it."
+        "$description": "The pressed and hovered form of the brand fill. Darker rather than lighter, so the control appears to recede under the cursor."
       }
     },
     "border": {
       "default": {
         "$value": "{base-color.gray.300}",
         "$type": "color",
-        "$description": "Border Default. Semantic role — reference this rather than the value beneath it."
+        "$description": "The standard hairline between regions. Should be visible without being the first thing the eye lands on."
       },
       "active": {
         "$value": "{base-color.blue.600}",
         "$type": "color",
-        "$description": "Border Active. Semantic role — reference this rather than the value beneath it."
+        "$description": "Border for a focused or selected control. Carries the brand hue so focus is unmistakably intentional."
       },
       "disabled": {
         "$value": "{base-color.gray.400}",
         "$type": "color",
-        "$description": "Border Disabled. Semantic role — reference this rather than the value beneath it."
+        "$description": "Border on a disabled control. Lower contrast than default, matching the muted fill it accompanies."
       },
       "brand": {
         "$value": "{base-color.blue.800}",
         "$type": "color",
-        "$description": "Border Brand. Semantic role — reference this rather than the value beneath it."
+        "$description": "Brand-coloured border for outlined controls that need brand emphasis without a brand fill."
       },
       "success": {
         "$value": "{base-color.feedback.success.600}",
         "$type": "color",
-        "$description": "Border Success. Semantic role — reference this rather than the value beneath it."
+        "$description": "Border on a success surface. Never the only signal — pair with an icon and text."
       },
       "info": {
         "$value": "{base-color.feedback.info.600}",
         "$type": "color",
-        "$description": "Border Info. Semantic role — reference this rather than the value beneath it."
+        "$description": "Border on an informational surface. Never the only signal — pair with an icon and text."
       },
       "error": {
         "$value": "{base-color.feedback.error.600}",
         "$type": "color",
-        "$description": "Border Error. Semantic role — reference this rather than the value beneath it."
+        "$description": "Border on an error surface or invalid field. Never the only signal — pair with an icon and an actionable message."
       },
       "warning": {
         "$value": "{base-color.feedback.warning.600}",
         "$type": "color",
-        "$description": "Border Warning. Semantic role — reference this rather than the value beneath it."
+        "$description": "Border on a warning surface. Never the only signal — pair with an icon and text."
       },
       "subtle": {
         "$value": "{base-color.gray.200}",
@@ -1342,22 +1340,22 @@
       "primary": {
         "$value": "{base-color.gray.900}",
         "$type": "color",
-        "$description": "Icon Primary. Semantic role — reference this rather than the value beneath it."
+        "$description": "Default icon colour. Slightly lighter than primary text, because icon strokes read heavier than glyphs at the same value."
       },
       "secondary": {
         "$value": "{base-color.gray.700}",
         "$type": "color",
-        "$description": "Icon Secondary. Semantic role — reference this rather than the value beneath it."
+        "$description": "Supporting icons — decorative affordances, inactive toolbar items."
       },
       "disabled": {
         "$value": "{base-color.gray.400}",
         "$type": "color",
-        "$description": "Icon Disabled. Semantic role — reference this rather than the value beneath it."
+        "$description": "Icon in a disabled control."
       },
       "brand": {
-        "$value": "{brand-cobalt.primary.700}",
+        "$value": "{base-color.blue.700}",
         "$type": "color",
-        "$description": "Icon Brand. Semantic role — reference this rather than the value beneath it."
+        "$description": "Icon carrying brand emphasis, such as an active nav item or a brand-marked action."
       }
     },
     "feedback": {
@@ -1365,17 +1363,17 @@
         "fg": {
           "$value": "{base-color.feedback.success.800}",
           "$type": "color",
-          "$description": "Feedback Success Fg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Text and icon colour on a success surface. Dark enough to meet contrast against the matching background token."
         },
         "bg": {
           "$value": "{base-color.feedback.success.100}",
           "$type": "color",
-          "$description": "Feedback Success Bg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Background for a success message. Pale enough that foreground text remains the dominant element."
         },
         "border": {
           "$value": "{base-color.feedback.success.400}",
           "$type": "color",
-          "$description": "Feedback Success Border. Semantic role — reference this rather than the value beneath it."
+          "$description": "Border for a success surface, mid-ramp so it separates the surface without competing with its text."
         },
         "stroke": {
           "$value": "{alias-color.border.success}",
@@ -1387,17 +1385,17 @@
         "fg": {
           "$value": "{base-color.feedback.info.800}",
           "$type": "color",
-          "$description": "Feedback Info Fg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Text and icon colour on an informational surface."
         },
         "bg": {
           "$value": "{base-color.feedback.info.100}",
           "$type": "color",
-          "$description": "Feedback Info Bg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Background for an informational message. Use for context and explanation, not for anything the user must act on."
         },
         "border": {
           "$value": "{base-color.feedback.info.400}",
           "$type": "color",
-          "$description": "Feedback Info Border. Semantic role — reference this rather than the value beneath it."
+          "$description": "Border for an informational surface."
         },
         "stroke": {
           "$value": "{alias-color.border.info}",
@@ -1409,17 +1407,17 @@
         "fg": {
           "$value": "{base-color.feedback.warning.800}",
           "$type": "color",
-          "$description": "Feedback Warning Fg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Text and icon colour on a warning surface."
         },
         "bg": {
           "$value": "{base-color.feedback.warning.100}",
           "$type": "color",
-          "$description": "Feedback Warning Bg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Background for a warning — something that needs attention but is not yet a failure."
         },
         "border": {
           "$value": "{base-color.feedback.warning.400}",
           "$type": "color",
-          "$description": "Feedback Warning Border. Semantic role — reference this rather than the value beneath it."
+          "$description": "Border for a warning surface."
         },
         "stroke": {
           "$value": "{alias-color.border.warning}",
@@ -1431,17 +1429,17 @@
         "fg": {
           "$value": "{base-color.feedback.error.800}",
           "$type": "color",
-          "$description": "Feedback Error Fg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Text and icon colour on an error surface."
         },
         "bg": {
           "$value": "{base-color.feedback.error.100}",
           "$type": "color",
-          "$description": "Feedback Error Bg. Semantic role — reference this rather than the value beneath it."
+          "$description": "Background for an error message. Reserve for actual failures; overuse trains people to ignore it."
         },
         "border": {
           "$value": "{base-color.feedback.error.400}",
           "$type": "color",
-          "$description": "Feedback Error Border. Semantic role — reference this rather than the value beneath it."
+          "$description": "Border for an error surface or invalid field."
         },
         "stroke": {
           "$value": "{alias-color.border.error}",
@@ -1481,7 +1479,7 @@
       "default": {
         "$value": "{base-color.overlay.scrim}",
         "$type": "color",
-        "$description": "Overlay Default. Semantic role — reference this rather than the value beneath it."
+        "$description": "Scrim behind modals and sheets. Neutral black rather than a tinted neutral, because a warm scrim shifts the hue of the content beneath it."
       }
     },
     "action": {
@@ -2093,85 +2091,85 @@
       "xs": {
         "$value": "{base-spacing.1}",
         "$type": "dimension",
-        "$description": "Inline Xs. Semantic role — reference this rather than the value beneath it."
+        "$description": "Tightest horizontal gap — between an icon and its label, or between adjacent inline tags."
       },
       "sm": {
         "$value": "{base-spacing.2}",
         "$type": "dimension",
-        "$description": "Inline Sm. Semantic role — reference this rather than the value beneath it."
+        "$description": "Standard horizontal gap between related inline elements."
       },
       "md": {
         "$value": "{base-spacing.3}",
         "$type": "dimension",
-        "$description": "Inline Md. Semantic role — reference this rather than the value beneath it."
+        "$description": "Horizontal gap between distinct inline groups, such as two button clusters in a toolbar."
       }
     },
     "stack": {
       "xs": {
         "$value": "{base-spacing.2}",
         "$type": "dimension",
-        "$description": "Stack Xs. Semantic role — reference this rather than the value beneath it."
+        "$description": "Tightest vertical rhythm — a label sitting directly above its input."
       },
       "sm": {
         "$value": "{base-spacing.3}",
         "$type": "dimension",
-        "$description": "Stack Sm. Semantic role — reference this rather than the value beneath it."
+        "$description": "Vertical gap between closely related stacked elements, such as an input and its helper text."
       },
       "md": {
         "$value": "{base-spacing.4}",
         "$type": "dimension",
-        "$description": "Stack Md. Semantic role — reference this rather than the value beneath it."
+        "$description": "Standard vertical gap between form fields and stacked content blocks."
       },
       "lg": {
         "$value": "{base-spacing.5}",
         "$type": "dimension",
-        "$description": "Stack Lg. Semantic role — reference this rather than the value beneath it."
+        "$description": "Vertical gap between distinct groups within a section."
       }
     },
     "padding": {
       "xs": {
         "$value": "{base-spacing.2}",
         "$type": "dimension",
-        "$description": "Padding Xs. Semantic role — reference this rather than the value beneath it."
+        "$description": "Internal padding for compact controls — small badges, dense table cells."
       },
       "sm": {
         "$value": "{base-spacing.3}",
         "$type": "dimension",
-        "$description": "Padding Sm. Semantic role — reference this rather than the value beneath it."
+        "$description": "Internal padding for standard controls such as inputs and buttons."
       },
       "md": {
         "$value": "{base-spacing.4}",
         "$type": "dimension",
-        "$description": "Padding Md. Semantic role — reference this rather than the value beneath it."
+        "$description": "Internal padding for containers — cards, dialogs, panels."
       },
       "lg": {
         "$value": "{base-spacing.5}",
         "$type": "dimension",
-        "$description": "Padding Lg. Semantic role — reference this rather than the value beneath it."
+        "$description": "Generous internal padding for prominent surfaces where breathing room is the point."
       }
     },
     "section": {
       "md": {
         "$value": "{base-spacing.6}",
         "$type": "dimension",
-        "$description": "Section Md. Semantic role — reference this rather than the value beneath it."
+        "$description": "Vertical separation between sections of a page."
       },
       "lg": {
         "$value": "{base-spacing.8}",
         "$type": "dimension",
-        "$description": "Section Lg. Semantic role — reference this rather than the value beneath it."
+        "$description": "Vertical separation between major sections that should read as distinct areas."
       }
     },
     "page": {
       "md": {
         "$value": "{base-spacing.9}",
         "$type": "dimension",
-        "$description": "Page Md. Semantic role — reference this rather than the value beneath it."
+        "$description": "Page-level margin for standard layouts."
       },
       "lg": {
         "$value": "{base-spacing.10}",
         "$type": "dimension",
-        "$description": "Page Lg. Semantic role — reference this rather than the value beneath it."
+        "$description": "Page-level margin for wide or editorial layouts."
       }
     }
   },
@@ -2179,32 +2177,32 @@
     "xs": {
       "$value": "{base-radius.xs}",
       "$type": "dimension",
-      "$description": "Xs. Semantic role — reference this rather than the value beneath it."
+      "$description": "Sharpest radius. For small elements where a larger curve would look bulbous — checkboxes, tight tags."
     },
     "sm": {
       "$value": "{base-radius.sm}",
       "$type": "dimension",
-      "$description": "Sm. Semantic role — reference this rather than the value beneath it."
+      "$description": "Small radius for compact controls."
     },
     "md": {
       "$value": "{base-radius.md}",
       "$type": "dimension",
-      "$description": "Md. Semantic role — reference this rather than the value beneath it."
+      "$description": "The default radius. Buttons, inputs, and most controls use this."
     },
     "lg": {
       "$value": "{base-radius.lg}",
       "$type": "dimension",
-      "$description": "Lg. Semantic role — reference this rather than the value beneath it."
+      "$description": "Larger radius for containers — cards, panels, popovers."
     },
     "xl": {
       "$value": "{base-radius.xl}",
       "$type": "dimension",
-      "$description": "Xl. Semantic role — reference this rather than the value beneath it."
+      "$description": "Softest rectangular radius, for large surfaces such as modals."
     },
     "full": {
       "$value": "{base-radius.full}",
       "$type": "dimension",
-      "$description": "Full. Semantic role — reference this rather than the value beneath it."
+      "$description": "Fully round. Pills, avatars, toggle thumbs. A large constant rather than 50%, so it stays a pill on any aspect ratio."
     }
   },
   "alias-elevation": {
@@ -2220,7 +2218,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "1. Semantic role — reference this rather than the value beneath it."
+      "$description": "Barely-there lift. Hover on an otherwise flat card."
     },
     "2": {
       "$value": [
@@ -2242,7 +2240,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "2. Semantic role — reference this rather than the value beneath it."
+      "$description": "Resting elevation for cards and raised surfaces."
     },
     "3": {
       "$value": [
@@ -2264,7 +2262,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "3. Semantic role — reference this rather than the value beneath it."
+      "$description": "Dropdowns, popovers, and menus — floating above content but anchored to a trigger."
     },
     "4": {
       "$value": [
@@ -2286,7 +2284,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "4. Semantic role — reference this rather than the value beneath it."
+      "$description": "High elevation for detached floating surfaces."
     },
     "5": {
       "$value": [
@@ -2308,12 +2306,12 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "5. Semantic role — reference this rather than the value beneath it."
+      "$description": "Maximum elevation, for modals and sheets that sit above a scrim."
     },
     "none": {
       "$value": "none",
       "$type": "other",
-      "$description": "None. Semantic role — reference this rather than the value beneath it."
+      "$description": "No shadow. An explicit token rather than omitting the property, so a component can flatten a surface that would otherwise inherit elevation."
     },
     "md": {
       "$value": [
@@ -2335,31 +2333,31 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Md. Semantic role — reference this rather than the value beneath it."
+      "$description": "Alias of elevation-3, kept for components that describe elevation by size rather than by level."
     }
   },
   "alias-focus-ring": {
     "color": {
       "$value": "{alias-color.border.active}",
       "$type": "color",
-      "$description": "Ring Color. Semantic role — reference this rather than the value beneath it."
+      "$description": "Focus ring colour. Carries the brand hue so focus reads as deliberate rather than as an error."
     },
     "offset": {
       "$value": "{base-radius.xs}",
       "$type": "dimension",
-      "$description": "Ring Offset. Semantic role — reference this rather than the value beneath it."
+      "$description": "Gap between the control and its focus ring, so the ring stays legible against the control's own border."
     },
     "width": {
       "$value": "3px",
       "$type": "dimension",
-      "$description": "Ring Width. Semantic role — reference this rather than the value beneath it."
+      "$description": "Thickness of the focus ring. Wide enough to be unmissable at a glance, which is the entire job of a focus indicator."
     }
   },
   "alias-focus": {
     "ring": {
       "$value": "0 0 0 var(--alias-focus-ring-width) color-mix(in srgb, var(--base-color-blue-600) 25%, transparent)",
       "$type": "other",
-      "$description": "Ring. Semantic role — reference this rather than the value beneath it."
+      "$description": "The complete focus indicator. Applied on focus-visible so it appears for keyboard users without following the mouse."
     }
   },
   "alias-border": {
@@ -2872,434 +2870,44 @@
       "default": {
         "$value": "{base-easing.ease.out}",
         "$type": "cubicBezier",
-        "$description": "Easing Default. Semantic role — reference this rather than the value beneath it."
+        "$description": "Standard easing. Decelerating, so movement arrives gently rather than stopping dead."
       },
       "fade": {
         "$value": "{base-easing.ease-in.out}",
         "$type": "cubicBezier",
-        "$description": "Easing Fade. Semantic role — reference this rather than the value beneath it."
+        "$description": "Symmetric easing for opacity changes, where there is no sense of physical arrival to soften."
       },
       "spring": {
         "$value": "{base-easing.spring}",
         "$type": "cubicBezier",
-        "$description": "Easing Spring. Semantic role — reference this rather than the value beneath it."
+        "$description": "Slight overshoot, for elements that should feel physical — a toggle thumb, a drawer catching."
       }
     },
     "transition": {
       "fast": {
         "$value": "all var(--base-duration-fast) var(--alias-motion-easing-default)",
         "$type": "other",
-        "$description": "Transition Fast. Semantic role — reference this rather than the value beneath it."
+        "$description": "Quick transition for immediate feedback such as hover. Fast enough to feel instant while still smoothing the change."
       },
       "normal": {
         "$value": "all var(--base-duration-normal) var(--alias-motion-easing-default)",
         "$type": "other",
-        "$description": "Transition Normal. Semantic role — reference this rather than the value beneath it."
+        "$description": "The default transition. Use unless there is a reason not to."
       },
       "slow": {
         "$value": "all var(--base-duration-slow) var(--alias-motion-easing-default)",
         "$type": "other",
-        "$description": "Transition Slow. Semantic role — reference this rather than the value beneath it."
+        "$description": "Deliberate transition for larger movements — a panel opening, a layout shift the user should be able to follow."
       },
       "fade": {
         "$value": "all var(--base-duration-normal) var(--alias-motion-easing-fade)",
         "$type": "other",
-        "$description": "Transition Fade. Semantic role — reference this rather than the value beneath it."
+        "$description": "Transition for opacity-only changes, paired with the fade easing curve."
       },
       "spring": {
         "$value": "all var(--base-duration-slow) var(--alias-motion-easing-spring)",
         "$type": "other",
-        "$description": "Transition Spring. Semantic role — reference this rather than the value beneath it."
-      }
-    }
-  },
-  "brand-cobalt": {
-    "primary": {
-      "100": {
-        "$value": "{base-color.blue.100}",
-        "$type": "color",
-        "$description": "Cobalt primary 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.blue.200}",
-        "$type": "color",
-        "$description": "Cobalt primary 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.blue.300}",
-        "$type": "color",
-        "$description": "Cobalt primary 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.blue.400}",
-        "$type": "color",
-        "$description": "Cobalt primary 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.blue.500}",
-        "$type": "color",
-        "$description": "Cobalt primary 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.blue.600}",
-        "$type": "color",
-        "$description": "Cobalt primary 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.blue.700}",
-        "$type": "color",
-        "$description": "Cobalt primary 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.blue.800}",
-        "$type": "color",
-        "$description": "Cobalt primary 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.blue.900}",
-        "$type": "color",
-        "$description": "Cobalt primary 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    },
-    "secondary": {
-      "100": {
-        "$value": "{base-color.teal.100}",
-        "$type": "color",
-        "$description": "Cobalt secondary 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.teal.200}",
-        "$type": "color",
-        "$description": "Cobalt secondary 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.teal.300}",
-        "$type": "color",
-        "$description": "Cobalt secondary 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.teal.400}",
-        "$type": "color",
-        "$description": "Cobalt secondary 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.teal.500}",
-        "$type": "color",
-        "$description": "Cobalt secondary 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.teal.600}",
-        "$type": "color",
-        "$description": "Cobalt secondary 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.teal.700}",
-        "$type": "color",
-        "$description": "Cobalt secondary 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.teal.800}",
-        "$type": "color",
-        "$description": "Cobalt secondary 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.teal.900}",
-        "$type": "color",
-        "$description": "Cobalt secondary 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    },
-    "tertiary": {
-      "100": {
-        "$value": "{base-color.rose.100}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.rose.200}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.rose.300}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.rose.400}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.rose.500}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.rose.600}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.rose.700}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.rose.800}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.rose.900}",
-        "$type": "color",
-        "$description": "Cobalt tertiary 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    },
-    "neutral": {
-      "50": {
-        "$value": "{base-color.slate.50}",
-        "$type": "color",
-        "$description": "Cobalt neutral 50. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "100": {
-        "$value": "{base-color.slate.100}",
-        "$type": "color",
-        "$description": "Cobalt neutral 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.slate.200}",
-        "$type": "color",
-        "$description": "Cobalt neutral 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.slate.300}",
-        "$type": "color",
-        "$description": "Cobalt neutral 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.slate.400}",
-        "$type": "color",
-        "$description": "Cobalt neutral 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.slate.500}",
-        "$type": "color",
-        "$description": "Cobalt neutral 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.slate.600}",
-        "$type": "color",
-        "$description": "Cobalt neutral 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.slate.700}",
-        "$type": "color",
-        "$description": "Cobalt neutral 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.slate.800}",
-        "$type": "color",
-        "$description": "Cobalt neutral 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.slate.900}",
-        "$type": "color",
-        "$description": "Cobalt neutral 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    }
-  },
-  "brand-terra": {
-    "primary": {
-      "100": {
-        "$value": "{base-color.emerald.100}",
-        "$type": "color",
-        "$description": "Terra primary 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.emerald.200}",
-        "$type": "color",
-        "$description": "Terra primary 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.emerald.300}",
-        "$type": "color",
-        "$description": "Terra primary 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.emerald.400}",
-        "$type": "color",
-        "$description": "Terra primary 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.emerald.500}",
-        "$type": "color",
-        "$description": "Terra primary 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.emerald.600}",
-        "$type": "color",
-        "$description": "Terra primary 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.emerald.700}",
-        "$type": "color",
-        "$description": "Terra primary 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.emerald.800}",
-        "$type": "color",
-        "$description": "Terra primary 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.emerald.900}",
-        "$type": "color",
-        "$description": "Terra primary 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    },
-    "secondary": {
-      "100": {
-        "$value": "{base-color.sienna.100}",
-        "$type": "color",
-        "$description": "Terra secondary 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.sienna.200}",
-        "$type": "color",
-        "$description": "Terra secondary 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.sienna.300}",
-        "$type": "color",
-        "$description": "Terra secondary 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.sienna.400}",
-        "$type": "color",
-        "$description": "Terra secondary 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.sienna.500}",
-        "$type": "color",
-        "$description": "Terra secondary 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.sienna.600}",
-        "$type": "color",
-        "$description": "Terra secondary 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.sienna.700}",
-        "$type": "color",
-        "$description": "Terra secondary 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.sienna.800}",
-        "$type": "color",
-        "$description": "Terra secondary 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.sienna.900}",
-        "$type": "color",
-        "$description": "Terra secondary 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    },
-    "tertiary": {
-      "100": {
-        "$value": "{base-color.sky.100}",
-        "$type": "color",
-        "$description": "Terra tertiary 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.sky.200}",
-        "$type": "color",
-        "$description": "Terra tertiary 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.sky.300}",
-        "$type": "color",
-        "$description": "Terra tertiary 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.sky.400}",
-        "$type": "color",
-        "$description": "Terra tertiary 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.sky.500}",
-        "$type": "color",
-        "$description": "Terra tertiary 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.sky.600}",
-        "$type": "color",
-        "$description": "Terra tertiary 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.sky.700}",
-        "$type": "color",
-        "$description": "Terra tertiary 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.sky.800}",
-        "$type": "color",
-        "$description": "Terra tertiary 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.sky.900}",
-        "$type": "color",
-        "$description": "Terra tertiary 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      }
-    },
-    "neutral": {
-      "50": {
-        "$value": "{base-color.sand.50}",
-        "$type": "color",
-        "$description": "Terra neutral 50. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "100": {
-        "$value": "{base-color.sand.100}",
-        "$type": "color",
-        "$description": "Terra neutral 100. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "200": {
-        "$value": "{base-color.sand.200}",
-        "$type": "color",
-        "$description": "Terra neutral 200. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "300": {
-        "$value": "{base-color.sand.300}",
-        "$type": "color",
-        "$description": "Terra neutral 300. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "400": {
-        "$value": "{base-color.sand.400}",
-        "$type": "color",
-        "$description": "Terra neutral 400. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "500": {
-        "$value": "{base-color.sand.500}",
-        "$type": "color",
-        "$description": "Terra neutral 500. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "600": {
-        "$value": "{base-color.sand.600}",
-        "$type": "color",
-        "$description": "Terra neutral 600. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "700": {
-        "$value": "{base-color.sand.700}",
-        "$type": "color",
-        "$description": "Terra neutral 700. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "800": {
-        "$value": "{base-color.sand.800}",
-        "$type": "color",
-        "$description": "Terra neutral 800. Part of a brand ramp; swapping brands replaces this tier without touching components."
-      },
-      "900": {
-        "$value": "{base-color.sand.900}",
-        "$type": "color",
-        "$description": "Terra neutral 900. Part of a brand ramp; swapping brands replaces this tier without touching components."
+        "$description": "Transition with overshoot, for controls that benefit from feeling physical."
       }
     }
   },

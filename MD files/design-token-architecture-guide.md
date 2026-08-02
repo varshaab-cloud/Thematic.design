@@ -1,7 +1,7 @@
 # Setting up a design token architecture
 
 A portable, start-to-finish guide, generalised from building Thematic.design's token
-system (1,607 tokens, 4 tiers, 3 generated outputs). Written so you can follow it in a
+system (1,533 tokens, 3 tiers — brand evaluated and removed, 3 generated outputs). Written so you can follow it in a
 new codebase without any Thematic-specific context.
 
 ---

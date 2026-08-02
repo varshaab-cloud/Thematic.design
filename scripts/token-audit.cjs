@@ -250,7 +250,7 @@ const VAR_REF = /var\(\s*(--[a-z0-9-]+)/gi;
 //  - zero, which is unitless and scale-independent
 //  - composites (color-mix, calc, multi-part shadows) — these compose primitives rather
 //    than replacing them, and are checked by the undefined-reference rule instead
-const DELEGATING_TIER = /^--(brand|alias|component)-/;
+const DELEGATING_TIER = /^--(alias|component)-/;
 const LITERAL_OK = /^(transparent|none|auto|inherit|initial|unset|currentcolor|0|0px|0rem|0ms)$/i;
 const IS_COMPOSITE = (v) => /var\(|color-mix|calc\(|,/.test(v);
 // A raw colour above base is the worst case — it cannot follow a rebrand at all — so it
@@ -381,18 +381,10 @@ for (const [name, raw] of rawDefs) {
   // a switch track width, because both happen to be 32px. Silence is more useful than a
   // wrong answer here: most component dimensions are genuinely component-specific and
   // have no business being promoted to base.
-  // A brand-flavoured alias should point at --brand-*, not at the --base-* colour it
-  // happens to equal. Both render identically today; only the brand target survives a
-  // rebrand, which is the entire reason the brand tier exists.
   const fam = tokenFamily(name);
-  const preferBrand = /brand/.test(name);
   const same = (valueToTokens[norm(v)] || [])
-    .filter((t) => /^--(base|brand)-/.test(t))
-    .filter((t) => tokenFamily(t) === fam)
-    .sort((a, b) => {
-      const aB = /^--brand-/.test(a) ? 0 : 1, bB = /^--brand-/.test(b) ? 0 : 1;
-      return preferBrand ? aB - bB : bB - aB;
-    });
+    .filter((t) => /^--base-/.test(t))
+    .filter((t) => tokenFamily(t) === fam);
 
   const kind = RAW_COLOR.test(v) ? "raw colour above base tier" : "literal above base tier";
   const sugg = same.length
