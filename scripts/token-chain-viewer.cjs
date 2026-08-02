@@ -146,7 +146,12 @@ function variantsOf(c) {
     const s = k.slice(c.prefix.length).split('-')[0];
     segs[s] = (segs[s] || 0) + 1;
   }
-  const cands = Object.entries(segs).filter(([, n]) => n >= 3).map(([s]) => s);
+  // color/dimension/typography/elevation are property groups, not variants — a token
+  // named ...-dimension-radius has no variant segment at all. Offering them as pills
+  // reads as nonsense ("variant: dimension"), so they are excluded before deciding
+  // whether the remainder genuinely partitions the component.
+  const PROP = new Set(['color', 'dimension', 'typography', 'elevation', 'shadow', 'motion']);
+  const cands = Object.entries(segs).filter(([s, n]) => n >= 3 && !PROP.has(s)).map(([s]) => s);
   return cands.length >= 2 ? cands : [];
 }
 
