@@ -1619,7 +1619,7 @@
   --component-textarea-field-dimension-padding-x: var(--alias-spacing-padding-md);
   --component-textarea-field-dimension-padding-y: var(--alias-spacing-padding-sm);
   --component-textarea-field-dimension-radius: var(--alias-radius-md);
-  --component-textarea-field-dimension-stroke-width: 1px;
+  --component-textarea-field-dimension-stroke-width: var(--base-border-width);
   --component-textarea-field-dimension-min-height: 80px;
   --component-textarea-field-elevation-default: var(--alias-elevation-none);
   --component-textarea-field-elevation-focus: var(--alias-focus-ring);
@@ -1640,7 +1640,7 @@
   --component-date-range-picker-trigger-dimension-padding-x: var(--alias-spacing-padding-md);
   --component-date-range-picker-trigger-dimension-padding-y: var(--alias-spacing-padding-sm);
   --component-date-range-picker-trigger-dimension-radius: var(--alias-radius-md);
-  --component-date-range-picker-trigger-dimension-stroke-width: 1px;
+  --component-date-range-picker-trigger-dimension-stroke-width: var(--base-border-width);
   --component-date-range-picker-trigger-dimension-min-height: 40px;
   --component-date-range-picker-trigger-dimension-icon-size: 16px;
   --component-date-range-picker-trigger-typography-family: var(--alias-typography-body-text2-font-family);
@@ -1712,7 +1712,7 @@
   --component-time-picker-trigger-dimension-padding-x: var(--alias-spacing-padding-md);
   --component-time-picker-trigger-dimension-padding-y: var(--alias-spacing-padding-sm);
   --component-time-picker-trigger-dimension-radius: var(--alias-radius-md);
-  --component-time-picker-trigger-dimension-stroke-width: 1px;
+  --component-time-picker-trigger-dimension-stroke-width: var(--base-border-width);
   --component-time-picker-trigger-dimension-min-height: 40px;
   --component-time-picker-trigger-dimension-icon-size: 16px;
   --component-time-picker-trigger-typography-family: var(--alias-typography-body-text2-font-family);
@@ -1733,7 +1733,7 @@
   --component-time-picker-dropdown-dimension-item-height: 36px;
   --component-time-picker-dropdown-dimension-item-px: var(--alias-spacing-padding-md);
   --component-time-picker-dropdown-dimension-radius: var(--alias-radius-md);
-  --component-time-picker-dropdown-dimension-stroke-width: 1px;
+  --component-time-picker-dropdown-dimension-stroke-width: var(--base-border-width);
   --component-time-picker-dropdown-elevation: var(--alias-elevation-md);
   --component-time-picker-dropdown-typography-item-family: var(--alias-typography-body-text2-font-family);
   --component-time-picker-dropdown-typography-item-size: var(--alias-typography-body-text2-font-size);

@@ -238,6 +238,25 @@ const VAR_REF = /var\(\s*(--[a-z0-9-]+)/gi;
 //
 // Only enforced inside components/ui. Token definitions legitimately reference lower
 // tiers (that is what the chain is), and demo screens are not gated.
+// ---- tier delegation ----
+// Only the base tier should hold raw values. A brand, alias or component token that
+// carries a literal has stopped delegating, which quietly severs everything below it:
+// before this check, 98 alias tokens held hardcoded values and changing a base colour
+// moved 11 tokens downstream instead of 44. The tier looked right and did nothing.
+//
+// Not every literal is a fault, so three things are exempt:
+//  - CSS keywords (transparent, none, auto) — there is no primitive to point at, and a
+//    --base-shadow-none holding `none` would add a hop without adding meaning
+//  - zero, which is unitless and scale-independent
+//  - composites (color-mix, calc, multi-part shadows) — these compose primitives rather
+//    than replacing them, and are checked by the undefined-reference rule instead
+const DELEGATING_TIER = /^--(brand|alias|component)-/;
+const LITERAL_OK = /^(transparent|none|auto|inherit|initial|unset|currentcolor|0|0px|0rem|0ms)$/i;
+const IS_COMPOSITE = (v) => /var\(|color-mix|calc\(|,/.test(v);
+// A raw colour above base is the worst case — it cannot follow a rebrand at all — so it
+// is reported distinctly from a stray dimension.
+const RAW_COLOR = /^(#[0-9a-f]{3,8}|rgba?\(|hsla?\()/i;
+
 const PRIMITIVE_TIER = /^--(base|semantic)-/;
 // Match on the path relative to the repo, since `file` may be absolute or already
 // relative depending on what the scan was pointed at — requiring a leading separator
@@ -343,6 +362,43 @@ for (const file of walk(ROOT)) {
       }
     }
   });
+}
+
+// ---- tier delegation: literals above the base tier ----
+for (const [name, raw] of rawDefs) {
+  if (!DELEGATING_TIER.test(name)) continue;
+  const v = raw.trim();
+  if (IS_COMPOSITE(v) || LITERAL_OK.test(v)) continue;
+
+  const file = definitionFiles.find((f) => new RegExp(`^\\s*${name}\\s*:`, "m").test(fs.readFileSync(f, "utf8")));
+  if (!file) continue;
+  const line = fs.readFileSync(file, "utf8").split("\n").findIndex((l) => new RegExp(`^\\s*${name}\\s*:`).test(l)) + 1;
+
+  // Suggest a primitive that already holds this value, matching the property family so a
+  // typography token is not offered a spacing token of the same size.
+  // Only ever suggest a token from the same property family. Falling back to any token
+  // with a matching value produces confident nonsense — offering --base-font-size-600 for
+  // a switch track width, because both happen to be 32px. Silence is more useful than a
+  // wrong answer here: most component dimensions are genuinely component-specific and
+  // have no business being promoted to base.
+  // A brand-flavoured alias should point at --brand-*, not at the --base-* colour it
+  // happens to equal. Both render identically today; only the brand target survives a
+  // rebrand, which is the entire reason the brand tier exists.
+  const fam = tokenFamily(name);
+  const preferBrand = /brand/.test(name);
+  const same = (valueToTokens[norm(v)] || [])
+    .filter((t) => /^--(base|brand)-/.test(t))
+    .filter((t) => tokenFamily(t) === fam)
+    .sort((a, b) => {
+      const aB = /^--brand-/.test(a) ? 0 : 1, bB = /^--brand-/.test(b) ? 0 : 1;
+      return preferBrand ? aB - bB : bB - aB;
+    });
+
+  const kind = RAW_COLOR.test(v) ? "raw colour above base tier" : "literal above base tier";
+  const sugg = same.length
+    ? `use var(${same[0]}) — this tier should delegate, not hold values`
+    : `no ${fam || "matching"} token holds this value — fine if the dimension is specific to this component`;
+  add(warnings, file, line, 1, kind, `${name}: ${v}`, sugg);
 }
 
 // ---- validate the token chain itself ----

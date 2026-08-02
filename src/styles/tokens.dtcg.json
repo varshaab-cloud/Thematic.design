@@ -6603,7 +6603,7 @@
               },
               "stroke": {
                 "width": {
-                  "$value": "1px",
+                  "$value": "{base.border.width}",
                   "$type": "dimension"
                 }
               },
@@ -7007,7 +7007,7 @@
           },
           "stroke": {
             "width": {
-              "$value": "1px",
+              "$value": "{base.border.width}",
               "$type": "dimension"
             }
           },
@@ -7238,7 +7238,7 @@
             },
             "stroke": {
               "width": {
-                "$value": "1px",
+                "$value": "{base.border.width}",
                 "$type": "dimension"
               }
             },
@@ -7348,7 +7348,7 @@
             },
             "stroke": {
               "width": {
-                "$value": "1px",
+                "$value": "{base.border.width}",
                 "$type": "dimension"
               }
             }
