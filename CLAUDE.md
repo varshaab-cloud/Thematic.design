@@ -11,8 +11,9 @@ Instructions for any AI assistant working in this repo. Read this first.
 2. **Use tokens only — never raw values.** Every color, spacing, radius, font, shadow,
    and motion value must reference a token via `var(--…)`.
    - **`src/styles/tokens.css` is the single source of truth.** Edit tokens there.
-     `tokens.json` and `tokens.dtcg.json` are generated exports — do not edit them by
-     hand; run `npm run tokens` after changing `tokens.css`.
+     Everything in `tokens 1.5/` (flat, DTCG, Tokens Studio) is generated — do not edit
+     by hand; run `npm run tokens` after changing `tokens.css`. Descriptions live in
+     `token-descriptions.json`. `tokens-retired/` and `tokens 1.4/` are frozen history.
    - Tiers: `base` (primitives) → `semantic` / `alias` / `brand` → `component`.
    - Prefer the closest meaningful tier: component tokens for component styling, alias
      tokens for shared roles, base only when nothing else fits.
@@ -51,7 +52,7 @@ This must pass. It runs two checks:
 **Generated files** — regenerate whenever their sources change:
 
 ```bash
-npm run tokens         # tokens.css → tokens.json + tokens.dtcg.json
+npm run tokens         # tokens.css + token-descriptions.json → tokens 1.5/
 npm run design-index   # component .mdx + source → DESIGN.generated.md
 ```
 
@@ -64,5 +65,6 @@ Both have a `:check` variant that fails if the committed file is stale.
 | What a component is for | `src/stories/<Component>.mdx` |
 | All components at a glance | `DESIGN.generated.md` *(generated)* |
 | Token values & references | `src/styles/tokens.css` *(source of truth)* |
-| Token exports for tooling | `tokens.json`, `tokens.dtcg.json` *(generated)* |
+| Token descriptions | `token-descriptions.json` *(hand-written)* |
+| Token exports (flat / DTCG / Figma) | `tokens 1.5/` *(generated)* |
 | Check everything before commit | `npm run verify` |

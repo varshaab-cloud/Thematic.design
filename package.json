@@ -15,11 +15,9 @@
     "audit": "node scripts/token-audit.cjs components/ui",
     "design-index": "node scripts/design-index.cjs",
     "design-index:check": "node scripts/design-index.cjs --check",
-    "verify": "node scripts/token-audit.cjs components/ui && node scripts/token-export.cjs --check && node scripts/token-export-1.5.cjs --check && node scripts/design-index.cjs --check",
-    "tokens": "node scripts/token-export.cjs",
-    "tokens:check": "node scripts/token-export.cjs --check",
-    "tokens:1.5": "node scripts/token-export-1.5.cjs",
-    "tokens:1.5:check": "node scripts/token-export-1.5.cjs --check"
+    "verify": "node scripts/token-audit.cjs components/ui && node scripts/token-export-1.5.cjs --check && node scripts/design-index.cjs --check",
+    "tokens": "node scripts/token-export-1.5.cjs",
+    "tokens:check": "node scripts/token-export-1.5.cjs --check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
