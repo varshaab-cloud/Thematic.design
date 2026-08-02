@@ -28,18 +28,20 @@ const isColor = (v: string) => /^#|^rgba?\(|^hsla?\(/.test(v.trim());
 const tierOf = (n: string) =>
   n.startsWith("--component-") ? "component" : n.startsWith("--alias-") ? "alias" : n.startsWith("--brand-") ? "brand" : "base";
 
-/** Everything upstream and downstream of a token, for highlight-on-click. */
+/** The path THROUGH the clicked token: what it resolves to (descendants) plus what
+ *  resolves to it (ancestors). Not the full connected component — that lights up
+ *  sibling tokens that merely share an alias, which reads as noise. */
 function connected(start: string, edges: [string, string][]): Set<string> {
-  const out = new Set([start]);
+  const down = new Set([start]), up = new Set([start]);
   let grew = true;
   while (grew) {
     grew = false;
     for (const [a, b] of edges) {
-      if (out.has(a) && !out.has(b)) { out.add(b); grew = true; }
-      if (out.has(b) && !out.has(a)) { out.add(a); grew = true; }
+      if (down.has(a) && !down.has(b)) { down.add(b); grew = true; }
+      if (up.has(b) && !up.has(a)) { up.add(a); grew = true; }
     }
   }
-  return out;
+  return new Set([...down, ...up]);
 }
 
 const MONO: React.CSSProperties = { fontFamily: "Menlo, Consolas, monospace" };

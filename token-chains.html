@@ -145,17 +145,22 @@ function buildGraph() {
   return { tiers, edges };
 }
 
+/* The highlight answers "where does this token's value come from, and who uses it" —
+   the path THROUGH the clicked token. Descendants: what it resolves to. Ancestors: what
+   resolves to it. Crucially NOT siblings: clicking bg-checked must not light
+   bg-indeterminate just because both use the same alias. (Click the alias itself to see
+   everything that shares it — that is when siblings are the answer.) */
 function connectedSet(start, edges) {
-  const out = new Set([start]);
+  const down = new Set([start]), up = new Set([start]);
   let grew = true;
   while (grew) {
     grew = false;
     for (const [a, b] of edges) {
-      if (out.has(a) && !out.has(b)) { out.add(b); grew = true; }
-      if (out.has(b) && !out.has(a)) { out.add(a); grew = true; }
+      if (down.has(a) && !down.has(b)) { down.add(b); grew = true; }
+      if (up.has(b) && !up.has(a)) { up.add(a); grew = true; }
     }
   }
-  return out;
+  return new Set([...down, ...up]);
 }
 
 function renderNav(q = '') {
@@ -224,7 +229,7 @@ function renderGraph() {
       const el = document.createElement('div'); el.className = 'chip';
       const fin = resolve(name);
       const short = tier === 'brand'
-        ? 'stop ' + name.split('-').pop()
+        ? name.split('-').pop()
         : name.replace(/^--(component|alias|brand|base)-/, '');
       el.title = `${name}\n= ${TOKENS[name] ?? ''}`;
       el.innerHTML =
