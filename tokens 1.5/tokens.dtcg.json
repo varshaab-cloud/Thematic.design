@@ -578,7 +578,7 @@
       "scrim": {
         "$value": "rgba(0, 0, 0, 0.5)",
         "$type": "color",
-        "$description": "Raw scrim value. Black at 50% — a tinted neutral would shift the hue of content beneath it."
+        "$description": "Overlay Scrim. Raw palette value — reference an alias or brand token rather than using this directly."
       }
     },
     "feedback": {
@@ -950,7 +950,7 @@
     "full": {
       "$value": "9999px",
       "$type": "dimension",
-      "$description": "Raw fully-round value. A large constant rather than a percentage, so it pills a rectangle of any aspect ratio instead of ellipsing it."
+      "$description": "Full. Raw palette value — reference an alias or brand token rather than using this directly."
     }
   },
   "base-shadow": {
@@ -1061,70 +1061,70 @@
     "width": {
       "$value": "1px",
       "$type": "dimension",
-      "$description": "The standard hairline width used throughout the system."
+      "$description": "Width. Raw palette value — reference an alias or brand token rather than using this directly."
     },
     "style": {
       "$value": "solid",
       "$type": "other",
-      "$description": "The standard border style. Solid everywhere; dashed and dotted borders are not part of the visual language."
+      "$description": "Style. Raw palette value — reference an alias or brand token rather than using this directly."
     }
   },
   "base-duration": {
     "instant": {
       "$value": "0ms",
       "$type": "duration",
-      "$description": "Zero duration. Use to disable a transition explicitly rather than omitting the property."
+      "$description": "Instant. Raw palette value — reference an alias or brand token rather than using this directly."
     },
     "fast": {
       "$value": "100ms",
       "$type": "duration",
-      "$description": "Fast — hover and other immediate feedback."
+      "$description": "Fast. Raw palette value — reference an alias or brand token rather than using this directly."
     },
     "normal": {
       "$value": "200ms",
       "$type": "duration",
-      "$description": "The default duration for most state changes."
+      "$description": "Normal. Raw palette value — reference an alias or brand token rather than using this directly."
     },
     "slow": {
       "$value": "300ms",
       "$type": "duration",
-      "$description": "Slow, for movements large enough that the eye needs to track them."
+      "$description": "Slow. Raw palette value — reference an alias or brand token rather than using this directly."
     },
     "slower": {
       "$value": "500ms",
       "$type": "duration",
-      "$description": "Slowest. Reserve for entrances of large surfaces; anything routine at this speed feels sluggish."
+      "$description": "Slower. Raw palette value — reference an alias or brand token rather than using this directly."
     }
   },
   "base-easing": {
     "linear": {
       "$value": "linear",
       "$type": "cubicBezier",
-      "$description": "Constant speed. Correct for continuous motion such as a spinner, wrong for anything that starts and stops."
+      "$description": "Linear. Raw palette value — reference an alias or brand token rather than using this directly."
     },
     "ease": {
       "in": {
         "$value": "cubic-bezier(0.4, 0, 1, 1)",
         "$type": "cubicBezier",
-        "$description": "Accelerating. For elements leaving the screen."
+        "$description": "Ease In. Raw palette value — reference an alias or brand token rather than using this directly."
       },
       "out": {
         "$value": "cubic-bezier(0, 0, 0.2, 1)",
         "$type": "cubicBezier",
-        "$description": "Decelerating. For elements entering — they arrive rather than stop."
+        "$description": "Ease Out. Raw palette value — reference an alias or brand token rather than using this directly."
       }
     },
     "ease-in": {
       "out": {
         "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
         "$type": "cubicBezier",
-        "$description": "Symmetric. For elements that move from one place to another and stay on screen throughout."
+        "$description": "Ease In Out. Raw palette value — reference an alias or brand token rather than using this directly."
       }
     },
     "spring": {
       "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
       "$type": "cubicBezier",
-      "$description": "Overshoots slightly before settling, giving movement a sense of weight."
+      "$description": "Spring. Raw palette value — reference an alias or brand token rather than using this directly."
     }
   },
   "alias-color": {
@@ -1132,37 +1132,37 @@
       "primary": {
         "$value": "{base-color.black}",
         "$type": "color",
-        "$description": "Default text colour. Use for body copy and anything the reader is meant to actually read."
+        "$description": "Text Primary. Semantic role — reference this rather than the value beneath it."
       },
       "secondary": {
         "$value": "{base-color.gray.900}",
         "$type": "color",
-        "$description": "Supporting text that sits alongside primary content — helper text, metadata, timestamps. Still fully legible, just lower in the hierarchy."
+        "$description": "Text Secondary. Semantic role — reference this rather than the value beneath it."
       },
       "tertiary": {
         "$value": "{base-color.gray.700}",
         "$type": "color",
-        "$description": "Third-level text. Use sparingly; if three levels of text hierarchy are not clearly distinguishable in context, the layout is doing too much."
+        "$description": "Text Tertiary. Semantic role — reference this rather than the value beneath it."
       },
       "subtle": {
         "$value": "{base-color.gray.600}",
         "$type": "color",
-        "$description": "The quietest readable text. Placeholder-adjacent content such as counts, units, and inline hints."
+        "$description": "Text Subtle. Semantic role — reference this rather than the value beneath it."
       },
       "disabled": {
         "$value": "{base-color.gray.500}",
         "$type": "color",
-        "$description": "Text in a disabled control. Deliberately fails normal contrast expectations to signal non-interactivity — never use it for content the user needs to read."
+        "$description": "Text Disabled. Semantic role — reference this rather than the value beneath it."
       },
       "inverse": {
         "$value": "{base-color.white}",
         "$type": "color",
-        "$description": "Text on a dark or saturated surface, such as a primary button or brand banner."
+        "$description": "Text Inverse. Semantic role — reference this rather than the value beneath it."
       },
       "brand": {
         "$value": "{brand-cobalt.primary.900}",
         "$type": "color",
-        "$description": "Text that carries brand identity — a link, a brand wordmark, an active nav label. Not for body copy."
+        "$description": "Text Brand. Semantic role — reference this rather than the value beneath it."
       },
       "error": {
         "$value": "{base-color.feedback.error.800}",
@@ -1179,27 +1179,27 @@
       "primary": {
         "$value": "{base-color.white}",
         "$type": "color",
-        "$description": "The base canvas. Most of the interface sits on this."
+        "$description": "Background Primary. Semantic role — reference this rather than the value beneath it."
       },
       "secondary": {
         "$value": "{base-color.gray.75}",
         "$type": "color",
-        "$description": "A raised or grouped surface — cards, panels, the assistant's message bubble. Warm off-white rather than grey, so it reads as a surface rather than a shadow."
+        "$description": "Background Secondary. Semantic role — reference this rather than the value beneath it."
       },
       "tertiary": {
         "$value": "{base-color.gray.100}",
         "$type": "color",
-        "$description": "The third surface level, for nested groupings and inset areas. Rarely needed; reach for spacing or a border before a third fill."
+        "$description": "Background Tertiary. Semantic role — reference this rather than the value beneath it."
       },
       "brand": {
         "$value": "{brand-cobalt.primary.800}",
         "$type": "color",
-        "$description": "The single accent fill. Reserved for the one primary action in a view and for active states — its scarcity is what makes it read as important."
+        "$description": "Background Brand. Semantic role — reference this rather than the value beneath it."
       },
       "hover": {
         "$value": "{base-color.blue.100}",
         "$type": "color",
-        "$description": "Hover wash for otherwise unfilled interactive rows and menu items. Tinted toward the brand hue so hover feels connected to the accent rather than a generic grey."
+        "$description": "Background Hover. Semantic role — reference this rather than the value beneath it."
       },
       "inverse": {
         "$value": "{base-color.gray.900}",
@@ -1211,49 +1211,49 @@
       "dark": {
         "$value": "{brand-cobalt.primary.900}",
         "$type": "color",
-        "$description": "The pressed and hovered form of the brand fill. Darker rather than lighter, so the control appears to recede under the cursor."
+        "$description": "Background Brand Dark. Semantic role — reference this rather than the value beneath it."
       }
     },
     "border": {
       "default": {
         "$value": "{base-color.gray.300}",
         "$type": "color",
-        "$description": "The standard hairline between regions. Should be visible without being the first thing the eye lands on."
+        "$description": "Border Default. Semantic role — reference this rather than the value beneath it."
       },
       "active": {
         "$value": "{base-color.blue.600}",
         "$type": "color",
-        "$description": "Border for a focused or selected control. Carries the brand hue so focus is unmistakably intentional."
+        "$description": "Border Active. Semantic role — reference this rather than the value beneath it."
       },
       "disabled": {
         "$value": "{base-color.gray.400}",
         "$type": "color",
-        "$description": "Border on a disabled control. Lower contrast than default, matching the muted fill it accompanies."
+        "$description": "Border Disabled. Semantic role — reference this rather than the value beneath it."
       },
       "brand": {
         "$value": "{base-color.blue.800}",
         "$type": "color",
-        "$description": "Brand-coloured border for outlined controls that need brand emphasis without a brand fill."
+        "$description": "Border Brand. Semantic role — reference this rather than the value beneath it."
       },
       "success": {
         "$value": "{base-color.feedback.success.600}",
         "$type": "color",
-        "$description": "Border on a success surface. Never the only signal — pair with an icon and text."
+        "$description": "Border Success. Semantic role — reference this rather than the value beneath it."
       },
       "info": {
         "$value": "{base-color.feedback.info.600}",
         "$type": "color",
-        "$description": "Border on an informational surface. Never the only signal — pair with an icon and text."
+        "$description": "Border Info. Semantic role — reference this rather than the value beneath it."
       },
       "error": {
         "$value": "{base-color.feedback.error.600}",
         "$type": "color",
-        "$description": "Border on an error surface or invalid field. Never the only signal — pair with an icon and an actionable message."
+        "$description": "Border Error. Semantic role — reference this rather than the value beneath it."
       },
       "warning": {
         "$value": "{base-color.feedback.warning.600}",
         "$type": "color",
-        "$description": "Border on a warning surface. Never the only signal — pair with an icon and text."
+        "$description": "Border Warning. Semantic role — reference this rather than the value beneath it."
       },
       "subtle": {
         "$value": "{base-color.gray.200}",
@@ -1265,22 +1265,22 @@
       "primary": {
         "$value": "{base-color.gray.900}",
         "$type": "color",
-        "$description": "Default icon colour. Slightly lighter than primary text, because icon strokes read heavier than glyphs at the same value."
+        "$description": "Icon Primary. Semantic role — reference this rather than the value beneath it."
       },
       "secondary": {
         "$value": "{base-color.gray.700}",
         "$type": "color",
-        "$description": "Supporting icons — decorative affordances, inactive toolbar items."
+        "$description": "Icon Secondary. Semantic role — reference this rather than the value beneath it."
       },
       "disabled": {
         "$value": "{base-color.gray.400}",
         "$type": "color",
-        "$description": "Icon in a disabled control."
+        "$description": "Icon Disabled. Semantic role — reference this rather than the value beneath it."
       },
       "brand": {
         "$value": "{brand-cobalt.primary.700}",
         "$type": "color",
-        "$description": "Icon carrying brand emphasis, such as an active nav item or a brand-marked action."
+        "$description": "Icon Brand. Semantic role — reference this rather than the value beneath it."
       }
     },
     "feedback": {
@@ -1288,17 +1288,17 @@
         "fg": {
           "$value": "{base-color.feedback.success.800}",
           "$type": "color",
-          "$description": "Text and icon colour on a success surface. Dark enough to meet contrast against the matching background token."
+          "$description": "Feedback Success Fg. Semantic role — reference this rather than the value beneath it."
         },
         "bg": {
           "$value": "{base-color.feedback.success.100}",
           "$type": "color",
-          "$description": "Background for a success message. Pale enough that foreground text remains the dominant element."
+          "$description": "Feedback Success Bg. Semantic role — reference this rather than the value beneath it."
         },
         "border": {
           "$value": "{base-color.feedback.success.400}",
           "$type": "color",
-          "$description": "Border for a success surface, mid-ramp so it separates the surface without competing with its text."
+          "$description": "Feedback Success Border. Semantic role — reference this rather than the value beneath it."
         },
         "stroke": {
           "$value": "{alias-color.border.success}",
@@ -1310,17 +1310,17 @@
         "fg": {
           "$value": "{base-color.feedback.info.800}",
           "$type": "color",
-          "$description": "Text and icon colour on an informational surface."
+          "$description": "Feedback Info Fg. Semantic role — reference this rather than the value beneath it."
         },
         "bg": {
           "$value": "{base-color.feedback.info.100}",
           "$type": "color",
-          "$description": "Background for an informational message. Use for context and explanation, not for anything the user must act on."
+          "$description": "Feedback Info Bg. Semantic role — reference this rather than the value beneath it."
         },
         "border": {
           "$value": "{base-color.feedback.info.400}",
           "$type": "color",
-          "$description": "Border for an informational surface."
+          "$description": "Feedback Info Border. Semantic role — reference this rather than the value beneath it."
         },
         "stroke": {
           "$value": "{alias-color.border.info}",
@@ -1332,17 +1332,17 @@
         "fg": {
           "$value": "{base-color.feedback.warning.800}",
           "$type": "color",
-          "$description": "Text and icon colour on a warning surface."
+          "$description": "Feedback Warning Fg. Semantic role — reference this rather than the value beneath it."
         },
         "bg": {
           "$value": "{base-color.feedback.warning.100}",
           "$type": "color",
-          "$description": "Background for a warning — something that needs attention but is not yet a failure."
+          "$description": "Feedback Warning Bg. Semantic role — reference this rather than the value beneath it."
         },
         "border": {
           "$value": "{base-color.feedback.warning.400}",
           "$type": "color",
-          "$description": "Border for a warning surface."
+          "$description": "Feedback Warning Border. Semantic role — reference this rather than the value beneath it."
         },
         "stroke": {
           "$value": "{alias-color.border.warning}",
@@ -1354,17 +1354,17 @@
         "fg": {
           "$value": "{base-color.feedback.error.800}",
           "$type": "color",
-          "$description": "Text and icon colour on an error surface."
+          "$description": "Feedback Error Fg. Semantic role — reference this rather than the value beneath it."
         },
         "bg": {
           "$value": "{base-color.feedback.error.100}",
           "$type": "color",
-          "$description": "Background for an error message. Reserve for actual failures; overuse trains people to ignore it."
+          "$description": "Feedback Error Bg. Semantic role — reference this rather than the value beneath it."
         },
         "border": {
           "$value": "{base-color.feedback.error.400}",
           "$type": "color",
-          "$description": "Border for an error surface or invalid field."
+          "$description": "Feedback Error Border. Semantic role — reference this rather than the value beneath it."
         },
         "stroke": {
           "$value": "{alias-color.border.error}",
@@ -1404,7 +1404,7 @@
       "default": {
         "$value": "{base-color.overlay.scrim}",
         "$type": "color",
-        "$description": "Scrim behind modals and sheets. Neutral black rather than a tinted neutral, because a warm scrim shifts the hue of the content beneath it."
+        "$description": "Overlay Default. Semantic role — reference this rather than the value beneath it."
       }
     },
     "action": {
@@ -2016,85 +2016,85 @@
       "xs": {
         "$value": "{base-spacing.1}",
         "$type": "dimension",
-        "$description": "Tightest horizontal gap — between an icon and its label, or between adjacent inline tags."
+        "$description": "Inline Xs. Semantic role — reference this rather than the value beneath it."
       },
       "sm": {
         "$value": "{base-spacing.2}",
         "$type": "dimension",
-        "$description": "Standard horizontal gap between related inline elements."
+        "$description": "Inline Sm. Semantic role — reference this rather than the value beneath it."
       },
       "md": {
         "$value": "{base-spacing.3}",
         "$type": "dimension",
-        "$description": "Horizontal gap between distinct inline groups, such as two button clusters in a toolbar."
+        "$description": "Inline Md. Semantic role — reference this rather than the value beneath it."
       }
     },
     "stack": {
       "xs": {
         "$value": "{base-spacing.2}",
         "$type": "dimension",
-        "$description": "Tightest vertical rhythm — a label sitting directly above its input."
+        "$description": "Stack Xs. Semantic role — reference this rather than the value beneath it."
       },
       "sm": {
         "$value": "{base-spacing.3}",
         "$type": "dimension",
-        "$description": "Vertical gap between closely related stacked elements, such as an input and its helper text."
+        "$description": "Stack Sm. Semantic role — reference this rather than the value beneath it."
       },
       "md": {
         "$value": "{base-spacing.4}",
         "$type": "dimension",
-        "$description": "Standard vertical gap between form fields and stacked content blocks."
+        "$description": "Stack Md. Semantic role — reference this rather than the value beneath it."
       },
       "lg": {
         "$value": "{base-spacing.5}",
         "$type": "dimension",
-        "$description": "Vertical gap between distinct groups within a section."
+        "$description": "Stack Lg. Semantic role — reference this rather than the value beneath it."
       }
     },
     "padding": {
       "xs": {
         "$value": "{base-spacing.2}",
         "$type": "dimension",
-        "$description": "Internal padding for compact controls — small badges, dense table cells."
+        "$description": "Padding Xs. Semantic role — reference this rather than the value beneath it."
       },
       "sm": {
         "$value": "{base-spacing.3}",
         "$type": "dimension",
-        "$description": "Internal padding for standard controls such as inputs and buttons."
+        "$description": "Padding Sm. Semantic role — reference this rather than the value beneath it."
       },
       "md": {
         "$value": "{base-spacing.4}",
         "$type": "dimension",
-        "$description": "Internal padding for containers — cards, dialogs, panels."
+        "$description": "Padding Md. Semantic role — reference this rather than the value beneath it."
       },
       "lg": {
         "$value": "{base-spacing.5}",
         "$type": "dimension",
-        "$description": "Generous internal padding for prominent surfaces where breathing room is the point."
+        "$description": "Padding Lg. Semantic role — reference this rather than the value beneath it."
       }
     },
     "section": {
       "md": {
         "$value": "{base-spacing.6}",
         "$type": "dimension",
-        "$description": "Vertical separation between sections of a page."
+        "$description": "Section Md. Semantic role — reference this rather than the value beneath it."
       },
       "lg": {
         "$value": "{base-spacing.8}",
         "$type": "dimension",
-        "$description": "Vertical separation between major sections that should read as distinct areas."
+        "$description": "Section Lg. Semantic role — reference this rather than the value beneath it."
       }
     },
     "page": {
       "md": {
         "$value": "{base-spacing.9}",
         "$type": "dimension",
-        "$description": "Page-level margin for standard layouts."
+        "$description": "Page Md. Semantic role — reference this rather than the value beneath it."
       },
       "lg": {
         "$value": "{base-spacing.10}",
         "$type": "dimension",
-        "$description": "Page-level margin for wide or editorial layouts."
+        "$description": "Page Lg. Semantic role — reference this rather than the value beneath it."
       }
     }
   },
@@ -2102,32 +2102,32 @@
     "xs": {
       "$value": "{base-radius.xs}",
       "$type": "dimension",
-      "$description": "Sharpest radius. For small elements where a larger curve would look bulbous — checkboxes, tight tags."
+      "$description": "Xs. Semantic role — reference this rather than the value beneath it."
     },
     "sm": {
       "$value": "{base-radius.sm}",
       "$type": "dimension",
-      "$description": "Small radius for compact controls."
+      "$description": "Sm. Semantic role — reference this rather than the value beneath it."
     },
     "md": {
       "$value": "{base-radius.md}",
       "$type": "dimension",
-      "$description": "The default radius. Buttons, inputs, and most controls use this."
+      "$description": "Md. Semantic role — reference this rather than the value beneath it."
     },
     "lg": {
       "$value": "{base-radius.lg}",
       "$type": "dimension",
-      "$description": "Larger radius for containers — cards, panels, popovers."
+      "$description": "Lg. Semantic role — reference this rather than the value beneath it."
     },
     "xl": {
       "$value": "{base-radius.xl}",
       "$type": "dimension",
-      "$description": "Softest rectangular radius, for large surfaces such as modals."
+      "$description": "Xl. Semantic role — reference this rather than the value beneath it."
     },
     "full": {
       "$value": "{base-radius.full}",
       "$type": "dimension",
-      "$description": "Fully round. Pills, avatars, toggle thumbs. A large constant rather than 50%, so it stays a pill on any aspect ratio."
+      "$description": "Full. Semantic role — reference this rather than the value beneath it."
     }
   },
   "alias-elevation": {
@@ -2143,7 +2143,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Barely-there lift. Hover on an otherwise flat card."
+      "$description": "1. Semantic role — reference this rather than the value beneath it."
     },
     "2": {
       "$value": [
@@ -2165,7 +2165,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Resting elevation for cards and raised surfaces."
+      "$description": "2. Semantic role — reference this rather than the value beneath it."
     },
     "3": {
       "$value": [
@@ -2187,7 +2187,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Dropdowns, popovers, and menus — floating above content but anchored to a trigger."
+      "$description": "3. Semantic role — reference this rather than the value beneath it."
     },
     "4": {
       "$value": [
@@ -2209,7 +2209,7 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "High elevation for detached floating surfaces."
+      "$description": "4. Semantic role — reference this rather than the value beneath it."
     },
     "5": {
       "$value": [
@@ -2231,12 +2231,12 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Maximum elevation, for modals and sheets that sit above a scrim."
+      "$description": "5. Semantic role — reference this rather than the value beneath it."
     },
     "none": {
       "$value": "none",
       "$type": "other",
-      "$description": "No shadow. An explicit token rather than omitting the property, so a component can flatten a surface that would otherwise inherit elevation."
+      "$description": "None. Semantic role — reference this rather than the value beneath it."
     },
     "md": {
       "$value": [
@@ -2258,31 +2258,31 @@
         }
       ],
       "$type": "boxShadow",
-      "$description": "Alias of elevation-3, kept for components that describe elevation by size rather than by level."
+      "$description": "Md. Semantic role — reference this rather than the value beneath it."
     }
   },
   "alias-focus-ring": {
     "color": {
       "$value": "{alias-color.border.active}",
       "$type": "color",
-      "$description": "Focus ring colour. Carries the brand hue so focus reads as deliberate rather than as an error."
+      "$description": "Ring Color. Semantic role — reference this rather than the value beneath it."
     },
     "offset": {
       "$value": "{base-radius.xs}",
       "$type": "dimension",
-      "$description": "Gap between the control and its focus ring, so the ring stays legible against the control's own border."
+      "$description": "Ring Offset. Semantic role — reference this rather than the value beneath it."
     },
     "width": {
       "$value": "3px",
       "$type": "dimension",
-      "$description": "Thickness of the focus ring. Wide enough to be unmissable at a glance, which is the entire job of a focus indicator."
+      "$description": "Ring Width. Semantic role — reference this rather than the value beneath it."
     }
   },
   "alias-focus": {
     "ring": {
       "$value": "0 0 0 var(--alias-focus-ring-width) color-mix(in srgb, var(--base-color-blue-600) 25%, transparent)",
       "$type": "other",
-      "$description": "The complete focus indicator. Applied on focus-visible so it appears for keyboard users without following the mouse."
+      "$description": "Ring. Semantic role — reference this rather than the value beneath it."
     }
   },
   "alias-border": {
@@ -2795,44 +2795,44 @@
       "default": {
         "$value": "{base-easing.ease.out}",
         "$type": "cubicBezier",
-        "$description": "Standard easing. Decelerating, so movement arrives gently rather than stopping dead."
+        "$description": "Easing Default. Semantic role — reference this rather than the value beneath it."
       },
       "fade": {
         "$value": "{base-easing.ease-in.out}",
         "$type": "cubicBezier",
-        "$description": "Symmetric easing for opacity changes, where there is no sense of physical arrival to soften."
+        "$description": "Easing Fade. Semantic role — reference this rather than the value beneath it."
       },
       "spring": {
         "$value": "{base-easing.spring}",
         "$type": "cubicBezier",
-        "$description": "Slight overshoot, for elements that should feel physical — a toggle thumb, a drawer catching."
+        "$description": "Easing Spring. Semantic role — reference this rather than the value beneath it."
       }
     },
     "transition": {
       "fast": {
         "$value": "all var(--base-duration-fast) var(--alias-motion-easing-default)",
         "$type": "other",
-        "$description": "Quick transition for immediate feedback such as hover. Fast enough to feel instant while still smoothing the change."
+        "$description": "Transition Fast. Semantic role — reference this rather than the value beneath it."
       },
       "normal": {
         "$value": "all var(--base-duration-normal) var(--alias-motion-easing-default)",
         "$type": "other",
-        "$description": "The default transition. Use unless there is a reason not to."
+        "$description": "Transition Normal. Semantic role — reference this rather than the value beneath it."
       },
       "slow": {
         "$value": "all var(--base-duration-slow) var(--alias-motion-easing-default)",
         "$type": "other",
-        "$description": "Deliberate transition for larger movements — a panel opening, a layout shift the user should be able to follow."
+        "$description": "Transition Slow. Semantic role — reference this rather than the value beneath it."
       },
       "fade": {
         "$value": "all var(--base-duration-normal) var(--alias-motion-easing-fade)",
         "$type": "other",
-        "$description": "Transition for opacity-only changes, paired with the fade easing curve."
+        "$description": "Transition Fade. Semantic role — reference this rather than the value beneath it."
       },
       "spring": {
         "$value": "all var(--base-duration-slow) var(--alias-motion-easing-spring)",
         "$type": "other",
-        "$description": "Transition with overshoot, for controls that benefit from feeling physical."
+        "$description": "Transition Spring. Semantic role — reference this rather than the value beneath it."
       }
     }
   },
