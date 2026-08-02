@@ -520,7 +520,7 @@ function PaletteRow({ roleData }: { roleData: PaletteRole }) {
               <span style={{ fontSize: 10, color: '#888', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label} · {stop.stop}</span>
             </div>
             <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#1c21dc', margin: '0 0 2px', fontWeight: 600, wordBreak: 'break-all' }}>
-              {roleData.brandPrefix}-{stop.stop}
+              {roleData.basePrefix}-{stop.stop}
             </p>
             <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#aaa', margin: '0 0 2px', wordBreak: 'break-all' }}>
               → {roleData.basePrefix}-{stop.stop}
@@ -579,14 +579,16 @@ function BrandPaletteDetail({ activeBrand, setActiveBrand }: {
       }}>
         <p style={{ fontSize: 12, fontWeight: 600, color: '#555', margin: '0 0 4px' }}>Token naming pattern</p>
         <p style={{ fontSize: 11, color: '#888', margin: 0, lineHeight: 1.6 }}>
-          <code style={{ fontFamily: 'monospace', background: '#eee', padding: '1px 5px', borderRadius: 3 }}>
-            --brand-{activeBrand}-{'{role}'}-{'{stop}'}
-          </code>
-          {' '}references{' '}
+          These palettes are curated selections from the base ramps —{' '}
           <code style={{ fontFamily: 'monospace', background: '#eee', padding: '1px 5px', borderRadius: 3 }}>
             --base-color-{'{hue}'}-{'{stop}'}
           </code>
-          . Use brand alias tokens in components — never reference base tokens directly.
+          . There is no separate brand tier: brand-role aliases such as{' '}
+          <code style={{ fontFamily: 'monospace', background: '#eee', padding: '1px 5px', borderRadius: 3 }}>
+            --alias-color-background-brand
+          </code>
+          {' '}point straight at base, so rebranding means repointing those aliases.
+          Components reference alias and component tokens — never base directly.
         </p>
       </div>
     </div>
