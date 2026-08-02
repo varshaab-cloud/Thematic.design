@@ -465,6 +465,12 @@
           "$type": "color"
         }
       },
+      "overlay": {
+        "scrim": {
+          "$value": "rgba(0, 0, 0, 0.5)",
+          "$type": "color"
+        }
+      },
       "feedback": {
         "success": {
           "100": {
@@ -762,6 +768,10 @@
       "xxl": {
         "$value": "14px",
         "$type": "dimension"
+      },
+      "full": {
+        "$value": "9999px",
+        "$type": "dimension"
       }
     },
     "shadow": {
@@ -849,15 +859,15 @@
     "color": {
       "text": {
         "primary": {
-          "$value": "#000000",
+          "$value": "{base.color.black}",
           "$type": "color"
         },
         "secondary": {
-          "$value": "#222222",
+          "$value": "{base.color.gray.900}",
           "$type": "color"
         },
         "tertiary": {
-          "$value": "#464646",
+          "$value": "{base.color.gray.700}",
           "$type": "color"
         },
         "subtle": {
@@ -865,15 +875,15 @@
           "$type": "color"
         },
         "disabled": {
-          "$value": "#909090",
+          "$value": "{base.color.gray.500}",
           "$type": "color"
         },
         "inverse": {
-          "$value": "#ffffff",
+          "$value": "{base.color.white}",
           "$type": "color"
         },
         "brand": {
-          "$value": "#111487",
+          "$value": "{brand.cobalt.primary.900}",
           "$type": "color"
         },
         "error": {
@@ -887,24 +897,24 @@
       },
       "background": {
         "primary": {
-          "$value": "#ffffff",
+          "$value": "{base.color.white}",
           "$type": "color"
         },
         "secondary": {
-          "$value": "#f5f5f3",
+          "$value": "{base.color.gray.75}",
           "$type": "color"
         },
         "tertiary": {
-          "$value": "#eeeeec",
+          "$value": "{base.color.gray.100}",
           "$type": "color"
         },
         "brand": {
           "_": {
-            "$value": "#1518a6",
+            "$value": "{brand.cobalt.primary.800}",
             "$type": "color"
           },
           "dark": {
-            "$value": "#111487",
+            "$value": "{brand.cobalt.primary.900}",
             "$type": "color"
           }
         },
@@ -913,21 +923,21 @@
           "$type": "color"
         },
         "inverse": {
-          "$value": "#222222",
+          "$value": "{base.color.gray.900}",
           "$type": "color"
         }
       },
       "border": {
         "default": {
-          "$value": "#d5d5d5",
+          "$value": "{base.color.gray.300}",
           "$type": "color"
         },
         "active": {
-          "$value": "#1c21dc",
+          "$value": "{base.color.blue.600}",
           "$type": "color"
         },
         "disabled": {
-          "$value": "#b1b1b1",
+          "$value": "{base.color.gray.400}",
           "$type": "color"
         },
         "brand": {
@@ -951,25 +961,25 @@
           "$type": "color"
         },
         "subtle": {
-          "$value": "#e3e3e0",
+          "$value": "{base.color.gray.200}",
           "$type": "color"
         }
       },
       "icon": {
         "primary": {
-          "$value": "#222222",
+          "$value": "{base.color.gray.900}",
           "$type": "color"
         },
         "secondary": {
-          "$value": "#464646",
+          "$value": "{base.color.gray.700}",
           "$type": "color"
         },
         "disabled": {
-          "$value": "#b1b1b1",
+          "$value": "{base.color.gray.400}",
           "$type": "color"
         },
         "brand": {
-          "$value": "#171cbe",
+          "$value": "{brand.cobalt.primary.700}",
           "$type": "color"
         }
       },
@@ -1071,7 +1081,7 @@
       },
       "overlay": {
         "default": {
-          "$value": "rgba(0, 0, 0, 0.5)",
+          "$value": "{base.color.overlay.scrim}",
           "$type": "color"
         }
       },
@@ -1087,7 +1097,7 @@
               "$type": "color"
             },
             "active": {
-              "$value": "#7f1d1d",
+              "$value": "{base.color.feedback.error.900}",
               "$type": "color"
             }
           }
@@ -1098,21 +1108,21 @@
       "heading1": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "3rem",
+            "$value": "{base.font.size.900}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "700",
+            "$value": "{base.font.weight.bold}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1120,21 +1130,21 @@
       "heading2": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "2.625rem",
+            "$value": "{base.font.size.800}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "700",
+            "$value": "{base.font.weight.bold}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1142,21 +1152,21 @@
       "heading3": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "2.25rem",
+            "$value": "{base.font.size.700}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "700",
+            "$value": "{base.font.weight.bold}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1164,21 +1174,21 @@
       "heading4": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "2rem",
+            "$value": "{base.font.size.600}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "700",
+            "$value": "{base.font.weight.bold}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1186,21 +1196,21 @@
       "heading5": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "1.875rem",
+            "$value": "{base.font.size.500}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "700",
+            "$value": "{base.font.weight.bold}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1208,21 +1218,21 @@
       "heading6": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "1.875rem",
+            "$value": "{base.font.size.500}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "600",
+            "$value": "{base.font.weight.semibold}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1230,21 +1240,21 @@
       "subheading1": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "1rem",
+            "$value": "{base.font.size.400}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "400",
+            "$value": "{base.font.weight.regular}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1252,21 +1262,21 @@
       "subheading2": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "0.875rem",
+            "$value": "{base.font.size.300}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "500",
+            "$value": "{base.font.weight.medium}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.5rem",
+            "$value": "{base.font.line.height.relaxed}",
             "$type": "dimension"
           }
         }
@@ -1315,21 +1325,21 @@
         "text1": {
           "font": {
             "family": {
-              "$value": "'Open Sans', sans-serif",
+              "$value": "{base.font.family.primary}",
               "$type": "fontFamily"
             },
             "size": {
-              "$value": "1rem",
+              "$value": "{base.font.size.400}",
               "$type": "dimension"
             },
             "weight": {
-              "$value": "400",
+              "$value": "{base.font.weight.regular}",
               "$type": "fontWeight"
             }
           },
           "line": {
             "height": {
-              "$value": "1.5rem",
+              "$value": "{base.font.line.height.relaxed}",
               "$type": "dimension"
             }
           }
@@ -1337,21 +1347,21 @@
         "text2": {
           "font": {
             "family": {
-              "$value": "'Open Sans', sans-serif",
+              "$value": "{base.font.family.primary}",
               "$type": "fontFamily"
             },
             "size": {
-              "$value": "0.875rem",
+              "$value": "{base.font.size.300}",
               "$type": "dimension"
             },
             "weight": {
-              "$value": "400",
+              "$value": "{base.font.weight.regular}",
               "$type": "fontWeight"
             }
           },
           "line": {
             "height": {
-              "$value": "1.5rem",
+              "$value": "{base.font.line.height.relaxed}",
               "$type": "dimension"
             }
           }
@@ -1359,21 +1369,21 @@
         "text3": {
           "font": {
             "family": {
-              "$value": "'Open Sans', sans-serif",
+              "$value": "{base.font.family.primary}",
               "$type": "fontFamily"
             },
             "size": {
-              "$value": "0.75rem",
+              "$value": "{base.font.size.200}",
               "$type": "dimension"
             },
             "weight": {
-              "$value": "400",
+              "$value": "{base.font.weight.regular}",
               "$type": "fontWeight"
             }
           },
           "line": {
             "height": {
-              "$value": "1.5rem",
+              "$value": "{base.font.line.height.relaxed}",
               "$type": "dimension"
             }
           }
@@ -1382,21 +1392,21 @@
       "button": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "0.875rem",
+            "$value": "{base.font.size.300}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "500",
+            "$value": "{base.font.weight.medium}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.25rem",
+            "$value": "{base.font.line.height.tight}",
             "$type": "dimension"
           }
         },
@@ -1416,21 +1426,21 @@
       "caption1": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "0.75rem",
+            "$value": "{base.font.size.200}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "400",
+            "$value": "{base.font.weight.regular}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.25rem",
+            "$value": "{base.font.line.height.tight}",
             "$type": "dimension"
           }
         }
@@ -1438,21 +1448,21 @@
       "caption2": {
         "font": {
           "family": {
-            "$value": "'Open Sans', sans-serif",
+            "$value": "{base.font.family.primary}",
             "$type": "fontFamily"
           },
           "size": {
-            "$value": "0.625rem",
+            "$value": "{base.font.size.100}",
             "$type": "dimension"
           },
           "weight": {
-            "$value": "400",
+            "$value": "{base.font.weight.regular}",
             "$type": "fontWeight"
           }
         },
         "line": {
           "height": {
-            "$value": "1.25rem",
+            "$value": "{base.font.line.height.tight}",
             "$type": "dimension"
           }
         }
@@ -1587,71 +1597,71 @@
     "spacing": {
       "inline": {
         "xs": {
-          "$value": "0.25rem",
+          "$value": "{base.spacing.1}",
           "$type": "dimension"
         },
         "sm": {
-          "$value": "0.5rem",
+          "$value": "{base.spacing.2}",
           "$type": "dimension"
         },
         "md": {
-          "$value": "0.75rem",
+          "$value": "{base.spacing.3}",
           "$type": "dimension"
         }
       },
       "stack": {
         "xs": {
-          "$value": "0.5rem",
+          "$value": "{base.spacing.2}",
           "$type": "dimension"
         },
         "sm": {
-          "$value": "0.75rem",
+          "$value": "{base.spacing.3}",
           "$type": "dimension"
         },
         "md": {
-          "$value": "1rem",
+          "$value": "{base.spacing.4}",
           "$type": "dimension"
         },
         "lg": {
-          "$value": "1.5rem",
+          "$value": "{base.spacing.5}",
           "$type": "dimension"
         }
       },
       "padding": {
         "xs": {
-          "$value": "0.5rem",
+          "$value": "{base.spacing.2}",
           "$type": "dimension"
         },
         "sm": {
-          "$value": "0.75rem",
+          "$value": "{base.spacing.3}",
           "$type": "dimension"
         },
         "md": {
-          "$value": "1rem",
+          "$value": "{base.spacing.4}",
           "$type": "dimension"
         },
         "lg": {
-          "$value": "1.5rem",
+          "$value": "{base.spacing.5}",
           "$type": "dimension"
         }
       },
       "section": {
         "md": {
-          "$value": "2rem",
+          "$value": "{base.spacing.6}",
           "$type": "dimension"
         },
         "lg": {
-          "$value": "3rem",
+          "$value": "{base.spacing.8}",
           "$type": "dimension"
         }
       },
       "page": {
         "md": {
-          "$value": "4rem",
+          "$value": "{base.spacing.9}",
           "$type": "dimension"
         },
         "lg": {
-          "$value": "5rem",
+          "$value": "{base.spacing.10}",
           "$type": "dimension"
         }
       }
@@ -1678,7 +1688,7 @@
         "$type": "dimension"
       },
       "full": {
-        "$value": "9999px",
+        "$value": "{base.radius.full}",
         "$type": "dimension"
       }
     },
@@ -1719,18 +1729,22 @@
           "$type": "color"
         },
         "offset": {
-          "$value": "2px",
+          "$value": "{base.radius.xs}",
+          "$type": "dimension"
+        },
+        "width": {
+          "$value": "3px",
           "$type": "dimension"
         },
         "_": {
-          "$value": "0 0 0 3px rgba(28, 33, 220, 0.25)",
+          "$value": "0 0 0 var(--alias-focus-ring-width) color-mix(in srgb, var(--base-color-blue-600) 25%, transparent)",
           "$type": "other"
         }
       }
     },
     "border": {
       "width": {
-        "$value": "1px",
+        "$value": "{base.border.width}",
         "$type": "dimension"
       }
     },

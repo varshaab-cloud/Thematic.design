@@ -5,7 +5,7 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-[var(--alias-spacing-inline-xs)] overflow-hidden rounded-full border border-transparent px-[var(--alias-spacing-padding-xs)] py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] whitespace-nowrap [transition:var(--alias-motion-transition-normal)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-[3px] focus-visible:ring-[var(--alias-color-border-active)]/50 [&>svg]:pointer-events-none [&>svg]:size-3!",
+  "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-[var(--alias-spacing-inline-xs)] overflow-hidden rounded-full border border-transparent px-[var(--alias-spacing-padding-xs)] py-0.5 text-[length:var(--alias-typography-caption1-font-size)] font-[number:var(--alias-typography-weight-medium)] whitespace-nowrap [transition:var(--alias-motion-transition-normal)] focus-visible:border-[var(--alias-color-border-active)] focus-visible:ring-[var(--alias-focus-ring-width)] focus-visible:ring-[var(--alias-color-border-active)]/50 [&>svg]:pointer-events-none [&>svg]:size-3!",
   {
     variants: {
       variant: {
