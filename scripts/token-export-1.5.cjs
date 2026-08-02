@@ -35,10 +35,82 @@ for (const m of css.matchAll(/^\s*(--[a-z0-9-]+)\s*:\s*([^;]+);/gim)) {
 }
 const flat = Object.fromEntries(defs);
 
-// Optional sidecar. Absent for now — descriptions are the next piece of work — but the
-// exporter reads it so adding the file is the only step needed to light them up.
+// Hand-written descriptions, for tokens whose purpose is not evident from their name.
 let descriptions = {};
-if (fs.existsSync(DESCRIPTIONS)) descriptions = JSON.parse(fs.readFileSync(DESCRIPTIONS, "utf8"));
+if (fs.existsSync(DESCRIPTIONS)) {
+  descriptions = JSON.parse(fs.readFileSync(DESCRIPTIONS, "utf8"));
+  delete descriptions.$schema;
+}
+
+// ---------------------------------------------------------------- described
+// Everything not hand-written gets a templated description. The component tier is 1,149
+// tokens following a handful of suffix patterns — writing those by hand would produce
+// 1,100 lines of near-identical prose that nobody would keep current, and a stale
+// description is worse than none. Templating them keeps the sidecar to the ~100 tokens
+// where a human actually has something to say.
+const TITLE = (s) => s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+const ROLE = {
+  bg: "Background colour", text: "Text colour",
+  stroke: "Border colour", border: "Border colour", icon: "Icon colour", fill: "Fill colour",
+  radius: "Corner radius", "padding-x": "Horizontal padding", "padding-y": "Vertical padding",
+  padding: "Padding", gap: "Gap between elements", "icon-size": "Icon size",
+  "min-height": "Minimum height", "max-width": "Maximum width", width: "Width", height: "Height",
+  size: "Size", "stroke-width": "Border width", family: "Font family", weight: "Font weight",
+  "line-height": "Line height", "font-size": "Font size", elevation: "Shadow",
+};
+const STATE = {
+  default: "in its resting state", hover: "on hover", active: "while pressed",
+  focus: "while focused", disabled: "while disabled", checked: "when checked",
+  selected: "when selected", error: "in its error state", open: "while open",
+};
+
+function templated(name) {
+  const segs = rawPath(name);
+  const set = segs[0];
+  const tail = segs.slice(1);
+  const tier = set.split("-")[0];
+
+  if (tier === "base") {
+    // Name the ramp, not the category: "Blue 800", not "Color 800". The category is
+    // already obvious from the set the token sits in.
+    const label = /^\d+$/.test(tail.join(""))
+      ? `${TITLE(set.replace("base-", ""))} step ${tail.join(" ")}`
+      : TITLE(tail.join(" "));
+    return label.trim() +
+      ". Raw palette value — reference an alias or brand token rather than using this directly.";
+  }
+  if (tier === "brand") {
+    return `${TITLE(set.replace("brand-", ""))} ${tail.join(" ")}`.trim() +
+      ". Part of a brand ramp; swapping brands replaces this tier without touching components.";
+  }
+  // The alias tier is mostly hand-written, because that is where meaning lives. Two
+  // groups are exceptions: typography styles are 92 tokens across a fixed set of text
+  // styles x four properties, and a handful of colour roles follow the same shape as
+  // ones already described. Templating those keeps the sidecar to what needs judgement.
+  if (tier === "alias" && set === "alias-typography") {
+    const prop = ["font-size", "font-weight", "font-family", "line-height"].find((p) => name.endsWith(p));
+    const style = tail.join("-").replace(new RegExp(`-?${prop}$`), "");
+    const label = { "font-size": "Font size", "font-weight": "Font weight", "font-family": "Font family", "line-height": "Line height" }[prop] || TITLE(tail.join(" "));
+    return `${label} for the ${TITLE(style)} text style.`;
+  }
+  if (tier === "alias") {
+    return `${TITLE(tail.join(" "))}. Semantic role — reference this rather than the value beneath it.`;
+  }
+  if (tier === "component") {
+    const component = TITLE(set.replace("component-", ""));
+    const state = tail.find((t) => STATE[t]);
+    // Longest matching role wins, so "icon-size" beats "size" and "padding-x" beats "padding".
+    const key = Object.keys(ROLE).sort((a, b) => b.length - a.length)
+      .find((r) => tail.join("-").includes(r));
+    const role = key ? ROLE[key] : TITLE(tail.join(" "));
+    const variant = tail.find((t) => ["primary", "secondary", "ghost", "destructive", "outline", "sm", "lg", "user", "assistant", "system"].includes(t));
+    return [role, "for the", component, variant || "", state ? STATE[state] : ""]
+      .filter(Boolean).join(" ").replace(/\s+/g, " ") + ".";
+  }
+  return null;
+}
+
+const describe = (name) => descriptions[name] || templated(name);
 
 // ---------------------------------------------------------------- helpers
 function resolve(v, depth = 0) {
@@ -166,7 +238,8 @@ const dtcg = {};
 for (const [name, value] of defs) {
   const type = inferType(value);
   const entry = { $value: type === "boxShadow" ? parseShadow(value) || toRef(value) : toRef(value), $type: type };
-  if (descriptions[name]) entry.$description = String(descriptions[name]);
+  const desc = describe(name);
+  if (desc) entry.$description = String(desc);
   nest(dtcg, name, entry);
 }
 
@@ -177,7 +250,8 @@ const studio = {};
 for (const [name, value] of defs) {
   const type = inferType(value);
   const entry = { $value: type === "boxShadow" ? parseShadow(value) || toRef(value) : toRef(value), $type: type };
-  if (descriptions[name]) entry.$description = String(descriptions[name]);
+  const desc = describe(name);
+  if (desc) entry.$description = String(desc);
   nest(studio, name, entry);
 }
 // A token set is the top-level group — `alias-color`, `base-easing` — which toPath
@@ -197,6 +271,16 @@ const files = {
   "tokens.studio.json": JSON.stringify(studioOut, null, 2) + "\n",
 };
 
+// A description whose token no longer exists is worse than a missing one: it reads as
+// current, and the rename that orphaned it is exactly when someone would trust it. Cheap
+// to detect, so it fails the check rather than warning.
+const orphans = Object.keys(descriptions).filter((k) => !(k in flat));
+if (orphans.length) {
+  console.error(`✖ ${orphans.length} description(s) in token-descriptions.json reference tokens that no longer exist:`);
+  for (const o of orphans) console.error(`    ${o}`);
+  process.exit(1);
+}
+
 if (process.argv.includes("--check")) {
   const stale = Object.entries(files).filter(([f, content]) => {
     const p = path.join(OUT, f);
@@ -213,9 +297,10 @@ if (process.argv.includes("--check")) {
 fs.mkdirSync(OUT, { recursive: true });
 for (const [f, content] of Object.entries(files)) fs.writeFileSync(path.join(OUT, f), content);
 
-const described = defs.filter(([n]) => descriptions[n]).length;
+const hand = defs.filter(([n]) => descriptions[n]).length;
+const auto = defs.filter(([n]) => !descriptions[n] && templated(n)).length;
 console.log(`✓ Exported ${defs.length} tokens → tokens 1.5/`);
 console.log(`    tokens.json         flat`);
 console.log(`    tokens.dtcg.json    W3C DTCG`);
 console.log(`    tokens.studio.json  Tokens Studio · ${setOrder.length} sets`);
-console.log(`  descriptions: ${described}/${defs.length}` + (described ? "" : "  (token-descriptions.json not present yet)"));
+console.log(`  descriptions: ${hand + auto}/${defs.length}  (${hand} hand-written, ${auto} templated)`);
