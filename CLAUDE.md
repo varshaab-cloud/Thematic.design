@@ -30,6 +30,13 @@ Instructions for any AI assistant working in this repo. Read this first.
    section describing required ARIA, keyboard behaviour, and developer responsibilities.
    Honour it.
 
+## Agents
+
+`.claude/agents/token-auditor.md` defines a project agent that runs the audit loop
+autonomously: verify → fix → regenerate → re-verify until zero errors, deferring
+design decisions to a human. In Claude Code, delegate with "run the token auditor",
+or it triggers on its own after edits to `components/ui/` or `tokens.css`.
+
 ## Before committing
 
 ```bash
