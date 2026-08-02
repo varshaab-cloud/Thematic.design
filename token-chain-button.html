@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button — token chains · Thematic.design</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Open Sans', system-ui, sans-serif; background: #fff; color: #111; padding: 40px 32px 80px; }
+  .wrap { max-width: 1240px; margin: 0 auto; }
+  .kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #909090; margin-bottom: 8px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+  .intro { font-size: 14px; line-height: 1.7; color: #464646; max-width: 640px; margin-bottom: 20px; }
+  .preview { display: flex; gap: 12px; align-items: center; padding: 18px 20px; margin-bottom: 26px; background: #f5f5f3; border-radius: 8px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 7px 16px; border-radius: 6px; font-size: 14px; font-weight: 500; font-family: inherit; border: 1px solid transparent; cursor: default; }
+  .toolbar { display: flex; gap: 6px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .toolbar .lbl { font-size: 11px; color: #909090; margin-right: 4px; }
+  .toolbar .hint { font-size: 11px; color: #909090; margin-left: auto; }
+  .pill { font-size: 11px; padding: 3px 12px; border-radius: 999px; cursor: pointer; border: 1px solid #d5d5d5; background: #fff; font-family: inherit; color: #111; }
+  .pill.on { border-color: #1c21dc; background: #eef0ff; }
+  .stage { position: relative; display: grid; grid-template-columns: 1.5fr 1.2fr 0.9fr 1fr; gap: 30px; }
+  svg.wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .colhead { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #464646; margin-bottom: 4px; }
+  .colhead .n { font-family: Menlo, Consolas, monospace; font-weight: 400; text-transform: none; letter-spacing: 0; color: #909090; margin-left: 6px; }
+  .colblurb { font-size: 10.5px; color: #909090; line-height: 1.45; margin-bottom: 10px; min-height: 30px; }
+  .col { min-width: 0; display: flex; flex-direction: column; }
+  .chips { display: flex; flex-direction: column; gap: 5px; }
+  .chip { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 4px; cursor: pointer; border: 1px solid #d5d5d5; background: #fff; transition: opacity .12s, border-color .12s; }
+  .chip:hover { border-color: #909090; }
+  .chip.on { border-color: #1c21dc; background: #eef0ff; }
+  .chip.dim { opacity: 0.22; }
+  .chip .sw { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.12); }
+  .chip .name { font-family: Menlo, Consolas, monospace; font-size: 10.5px; word-break: break-all; }
+  .chip .val { font-family: Menlo, Consolas, monospace; font-size: 10px; color: #909090; margin-left: auto; white-space: nowrap; }
+  .empty { font-size: 11px; color: #909090; font-style: italic; }
+  .detail { position: sticky; bottom: 0; margin-top: 26px; padding: 12px 16px; background: #f8f8ff; border: 1px solid #d0d2f5; border-radius: 8px; font-size: 12px; color: #333; min-height: 44px; line-height: 1.6; }
+  .detail b { color: #1518a6; }
+  .detail .chain { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .detail .cchip { background: #fff; border: 1px solid #d0d2f5; border-radius: 4px; padding: 2px 7px; font-family: Menlo, Consolas, monospace; font-size: 10.5px; }
+  .detail .arr { color: #b1b1b1; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Thematic.design · Foundation · Token chains</p>
+  <h1>Button</h1>
+  <p class="intro">
+    Every visual decision in this component, traced to its raw value. Chains flow left to
+    right: the component references a role, the role references the palette. The live
+    buttons below are styled from exactly the tokens in the graph.
+  </p>
+
+  <div class="preview" id="preview"></div>
+
+  <div class="toolbar" id="toolbar">
+    <span class="lbl">Variant</span>
+    <span class="hint">click any token to trace its chain · click again to clear</span>
+  </div>
+
+  <div class="stage" id="stage">
+    <svg class="wires" id="wires"></svg>
+  </div>
+
+  <div class="detail" id="detail">Click any token to trace its full chain from component slot to raw value.</div>
+</div>
+
+<script>
+const TOKENS = {"--component-button-primary-color-stroke-default": "transparent", "--component-button-secondary-typography-line-height": "var(--alias-typography-button-line-height)", "--component-button-ghost-color-text-default": "var(--alias-color-text-brand)", "--component-button-primary-color-bg-hover": "var(--alias-color-background-brand-dark)", "--base-radius-md": "6px", "--component-button-ghost-color-stroke-focus": "var(--alias-focus-ring-color)", "--component-button-secondary-dimension-radius": "var(--alias-radius-md)", "--base-color-gray-400": "#b1b1b1", "--base-color-white": "#ffffff", "--component-button-secondary-color-bg-disabled": "transparent", "--component-button-ghost-color-bg-active": "var(--alias-color-background-tertiary)", "--component-button-ghost-dimension-padding-x": "var(--alias-spacing-padding-lg)", "--base-color-blue-900": "#111487", "--component-button-primary-color-bg-disabled": "var(--alias-color-background-tertiary)", "--component-button-primary-color-stroke-focus": "var(--alias-focus-ring-color)", "--component-button-ghost-elevation-default": "none", "--component-button-destructive-color-stroke-focus": "var(--alias-focus-ring-color)", "--component-button-secondary-typography-weight": "var(--alias-typography-button-weight)", "--component-button-ghost-dimension-padding-y": "var(--alias-spacing-padding-sm)", "--component-button-secondary-color-text-default": "var(--alias-color-text-brand)", "--component-button-ghost-typography-size": "var(--alias-typography-button-size)", "--base-color-feedback-error-700": "#b91c1c", "--component-button-primary-typography-family": "var(--alias-typography-button-family)", "--component-button-primary-typography-size": "var(--alias-typography-button-size)", "--base-font-size-300": "0.875rem", "--alias-color-action-destructive-bg-active": "var(--base-color-feedback-error-900)", "--component-button-ghost-dimension-radius": "var(--alias-radius-md)", "--component-button-ghost-color-bg-hover": "var(--alias-color-background-tertiary)", "--alias-color-background-brand": "var(--brand-cobalt-primary-800)", "--component-button-secondary-color-text-disabled": "var(--alias-color-text-disabled)", "--base-color-blue-100": "#c4c5f4", "--base-color-blue-600": "#1c21dc", "--base-font-line-height-tight": "1.25rem", "--component-button-secondary-color-stroke-focus": "var(--alias-focus-ring-color)", "--component-button-primary-dimension-padding-y": "var(--alias-spacing-padding-sm)", "--base-color-feedback-error-800": "#991b1b", "--component-button-primary-elevation-default": "none", "--component-button-destructive-typography-size": "var(--alias-typography-button-size)", "--component-button-destructive-dimension-padding-x": "var(--alias-spacing-padding-lg)", "--component-button-ghost-color-bg-disabled": "transparent", "--alias-color-action-destructive-bg-hover": "var(--base-color-feedback-error-800)", "--component-button-ghost-typography-line-height": "var(--alias-typography-button-line-height)", "--alias-spacing-padding-lg": "var(--base-spacing-5)", "--alias-typography-button-weight": "var(--alias-typography-button-font-weight)", "--component-button-ghost-typography-weight": "var(--alias-typography-button-weight)", "--alias-typography-button-font-family": "var(--base-font-family-primary)", "--component-button-secondary-dimension-padding-y": "var(--alias-spacing-padding-sm)", "--alias-color-background-brand-dark": "var(--brand-cobalt-primary-900)", "--component-button-primary-dimension-radius": "var(--alias-radius-md)", "--component-button-destructive-elevation-default": "none", "--component-button-destructive-color-bg-disabled": "var(--alias-color-background-tertiary)", "--component-button-destructive-typography-line-height": "var(--alias-typography-button-line-height)", "--alias-color-stroke-disabled": "var(--alias-color-border-disabled)", "--component-button-secondary-color-bg-default": "transparent", "--component-button-destructive-dimension-padding-y": "var(--alias-spacing-padding-sm)", "--component-button-secondary-elevation-default": "none", "--alias-typography-button-family": "var(--alias-typography-button-font-family)", "--alias-color-text-brand": "var(--brand-cobalt-primary-900)", "--alias-radius-md": "var(--base-radius-md)", "--component-button-primary-color-text-disabled": "var(--alias-color-text-disabled)", "--alias-color-stroke-brand": "var(--alias-color-border-brand)", "--alias-typography-button-size": "var(--alias-typography-button-font-size)", "--component-button-destructive-typography-weight": "var(--alias-typography-button-weight)", "--component-button-primary-color-bg-active": "var(--alias-color-background-brand-dark)", "--base-color-gray-500": "#909090", "--component-button-primary-typography-line-height": "var(--alias-typography-button-line-height)", "--alias-typography-button-font-size": "var(--base-font-size-300)", "--component-button-secondary-color-stroke-disabled": "var(--alias-color-stroke-disabled)", "--component-button-secondary-dimension-padding-x": "var(--alias-spacing-padding-lg)", "--alias-color-background-hover": "var(--base-color-blue-100)", "--base-font-family-primary": "'Open Sans', sans-serif", "--component-button-destructive-typography-family": "var(--alias-typography-button-family)", "--component-button-secondary-typography-family": "var(--alias-typography-button-family)", "--component-button-ghost-color-stroke-default": "transparent", "--base-color-feedback-error-900": "#7f1d1d", "--alias-color-action-destructive-bg-default": "var(--base-color-feedback-error-700)", "--component-button-secondary-color-bg-hover": "var(--alias-color-background-hover)", "--alias-typography-button-font-weight": "var(--base-font-weight-medium)", "--base-font-weight-medium": "500", "--base-color-blue-800": "#1518a6", "--component-button-ghost-color-bg-default": "transparent", "--base-spacing-3": "0.75rem", "--alias-focus-ring-color": "var(--alias-color-border-active)", "--component-button-primary-dimension-padding-x": "var(--alias-spacing-padding-lg)", "--component-button-ghost-typography-family": "var(--alias-typography-button-family)", "--component-button-destructive-color-bg-default": "var(--alias-color-action-destructive-bg-default)", "--component-button-destructive-color-text-disabled": "var(--alias-color-text-disabled)", "--component-button-secondary-color-bg-active": "var(--alias-color-background-hover)", "--component-button-primary-color-bg-default": "var(--alias-color-background-brand)", "--component-button-ghost-color-text-disabled": "var(--alias-color-text-disabled)", "--alias-color-text-disabled": "var(--base-color-gray-500)", "--component-button-secondary-color-stroke-default": "var(--alias-color-stroke-brand)", "--alias-color-border-brand": "var(--base-color-blue-800)", "--component-button-primary-color-text-default": "var(--alias-color-text-inverse)", "--component-button-destructive-color-stroke-default": "transparent", "--alias-color-border-disabled": "var(--base-color-gray-400)", "--alias-spacing-padding-sm": "var(--base-spacing-3)", "--component-button-primary-typography-weight": "var(--alias-typography-button-weight)", "--base-spacing-5": "1.5rem", "--alias-typography-button-line-height": "var(--base-font-line-height-tight)", "--alias-color-border-active": "var(--base-color-blue-600)", "--brand-cobalt-primary-900": "var(--base-color-blue-900)", "--component-button-secondary-typography-size": "var(--alias-typography-button-size)", "--alias-color-text-inverse": "var(--base-color-white)", "--base-color-gray-100": "#eeeeec", "--component-button-destructive-color-bg-active": "var(--alias-color-action-destructive-bg-active)", "--component-button-destructive-dimension-radius": "var(--alias-radius-md)", "--brand-cobalt-primary-800": "var(--base-color-blue-800)", "--component-button-destructive-color-text-default": "var(--alias-color-text-inverse)", "--alias-color-background-tertiary": "var(--base-color-gray-100)", "--component-button-destructive-color-bg-hover": "var(--alias-color-action-destructive-bg-hover)"};
+
+const REF = /var\((--[a-z0-9-]+)\)/g;
+const refsOf = v => [...String(v).matchAll(REF)].map(m => m[1]);
+function resolve(name, d = 0) {
+  const v = TOKENS[name];
+  if (v === undefined || d > 12) return name;
+  const rs = refsOf(v);
+  if (rs.length === 1 && v.trim() === `var(${rs[0]})`) return resolve(rs[0], d + 1);
+  return v;
+}
+const isColor = v => /^#|^rgba?\(|^hsla?\(/.test(String(v).trim());
+const tierOf = n => n.startsWith('--component-') ? 'component' : n.startsWith('--alias-') ? 'alias' : n.startsWith('--brand-') ? 'brand' : 'base';
+
+const TIERS = [
+  ['component', 'Component', "What the component's CSS references. Never holds a value."],
+  ['alias', 'Alias', 'Semantic roles — what each value is for.'],
+  ['brand', 'Brand', 'Which base values are ours. Swap this tier to rebrand.'],
+  ['base', 'Base', 'Raw values. The only tier allowed to hold literals.'],
+];
+const VARIANTS = ['primary', 'secondary', 'ghost', 'destructive'];
+let filter = null, selected = null;
+
+// live preview styled from the data itself
+function paintPreview() {
+  const g = n => resolve(n);
+  const mk = (label, bg, fg, bd) => {
+    const b = document.createElement('span');
+    b.className = 'btn'; b.textContent = label;
+    b.style.background = bg; b.style.color = fg; if (bd) b.style.borderColor = bd;
+    return b;
+  };
+  const p = document.getElementById('preview');
+  p.append(
+    mk('Primary', g('--component-button-primary-color-bg-default'), g('--component-button-primary-color-text-default')),
+    mk('Secondary', g('--alias-color-background-secondary'), g('--alias-color-text-primary'), g('--alias-color-border-default')),
+    mk('Ghost', 'transparent', g('--component-button-ghost-color-text-default')),
+    mk('Destructive', g('--component-button-destructive-color-bg-default'), g('--component-button-destructive-color-text-default')),
+    mk('Disabled', g('--component-button-primary-color-bg-disabled'), g('--component-button-primary-color-text-disabled')),
+  );
+}
+
+function buildGraph() {
+  const comp = Object.keys(TOKENS)
+    .filter(k => k.startsWith('--component-button-'))
+    .filter(k => !filter || k.includes(`-${filter}-`));
+  const tiers = { component: new Set(comp), alias: new Set(), brand: new Set(), base: new Set() };
+  const edges = [];
+  const q = [...comp], seen = new Set(comp);
+  while (q.length) {
+    const t = q.shift();
+    for (const r of refsOf(TOKENS[t] ?? '')) {
+      edges.push([t, r]);
+      tiers[tierOf(r)].add(r);
+      if (!seen.has(r)) { seen.add(r); q.push(r); }
+    }
+  }
+  return { tiers, edges };
+}
+
+function connectedSet(start, edges) {
+  const out = new Set([start]);
+  let grew = true;
+  while (grew) {
+    grew = false;
+    for (const [a, b] of edges) {
+      if (out.has(a) && !out.has(b)) { out.add(b); grew = true; }
+      if (out.has(b) && !out.has(a)) { out.add(a); grew = true; }
+    }
+  }
+  return out;
+}
+
+const chipEls = new Map();
+let currentEdges = [];
+
+function render() {
+  const { tiers, edges } = buildGraph();
+  currentEdges = edges;
+  const stage = document.getElementById('stage');
+  stage.querySelectorAll('.col').forEach(c => c.remove());
+  chipEls.clear();
+
+  for (const [tier, label, blurb] of TIERS) {
+    const col = document.createElement('div'); col.className = 'col';
+    col.innerHTML = `<div class="colhead">${label}<span class="n">${tiers[tier].size}</span></div><div class="colblurb">${blurb}</div>`;
+    const chips = document.createElement('div'); chips.className = 'chips';
+    const names = [...tiers[tier]].sort();
+    if (!names.length) chips.innerHTML = `<div class="empty">no ${tier} tokens in this chain</div>`;
+    for (const name of names) {
+      const el = document.createElement('div'); el.className = 'chip'; el.dataset.name = name;
+      const fin = resolve(name);
+      const short = name.replace(/^--(component|alias|brand|base)-/, '');
+      el.title = `${name}\n= ${TOKENS[name] ?? ''}`;
+      el.innerHTML =
+        (isColor(fin) ? `<span class="sw" style="background:${fin}"></span>` : '') +
+        `<span class="name">${short}</span>` +
+        (!isColor(fin) && refsOf(TOKENS[name] ?? '').length === 0
+          ? `<span class="val">${fin.length > 14 ? fin.slice(0, 13) + '…' : fin}</span>` : '');
+      el.onclick = () => { selected = selected === name ? null : name; applyHighlight(); };
+      chips.append(el);
+      chipEls.set(name, el);
+    }
+    col.append(chips);
+    stage.append(col);
+  }
+  requestAnimationFrame(() => setTimeout(drawWires, 40));
+  applyHighlight(false);
+}
+
+function drawWires() {
+  const stage = document.getElementById('stage');
+  const svg = document.getElementById('wires');
+  const sr = stage.getBoundingClientRect();
+  svg.setAttribute('width', stage.offsetWidth);
+  svg.setAttribute('height', stage.offsetHeight);
+  svg.innerHTML = '';
+  const lit = selected ? connectedSet(selected, currentEdges) : null;
+  for (const [a, b] of currentEdges) {
+    const ea = chipEls.get(a), eb = chipEls.get(b);
+    if (!ea || !eb) continue;
+    const ra = ea.getBoundingClientRect(), rb = eb.getBoundingClientRect();
+    const x1 = ra.right - sr.left, y1 = ra.top + ra.height / 2 - sr.top;
+    const x2 = rb.left - sr.left, y2 = rb.top + rb.height / 2 - sr.top;
+    const mid = (x1 + x2) / 2;
+    const on = lit ? lit.has(a) && lit.has(b) : false;
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', `M ${x1} ${y1} C ${mid} ${y1}, ${mid} ${y2}, ${x2} ${y2}`);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', on ? '#1c21dc' : '#8a8a8a');
+    p.setAttribute('stroke-width', on ? 1.8 : 1.1);
+    p.setAttribute('opacity', lit && !on ? 0.08 : on ? 1 : 0.55);
+    svg.append(p);
+  }
+}
+
+function applyHighlight(redraw = true) {
+  const lit = selected ? connectedSet(selected, currentEdges) : null;
+  for (const [name, el] of chipEls) {
+    el.classList.toggle('on', name === selected);
+    el.classList.toggle('dim', !!lit && !lit.has(name));
+  }
+  const d = document.getElementById('detail');
+  if (!selected) {
+    d.innerHTML = 'Click any token to trace its full chain from component slot to raw value.';
+  } else {
+    // walk downstream: selected → … → literal
+    const hops = [selected];
+    let cur = selected;
+    for (let i = 0; i < 12; i++) {
+      const rs = refsOf(TOKENS[cur] ?? '');
+      if (rs.length !== 1 || (TOKENS[cur] ?? '').trim() !== `var(${rs[0]})`) break;
+      cur = rs[0]; hops.push(cur);
+    }
+    const fin = resolve(selected);
+    d.innerHTML = `<b>${selected}</b> resolves to <b>${fin}</b>` +
+      `<div class="chain">` +
+      hops.map(h => `<span class="cchip">${h}</span>`).join('<span class="arr">→</span>') +
+      (refsOf(TOKENS[cur] ?? '').length === 0 && hops.length > 0 ? `<span class="arr">→</span><span class="cchip">${TOKENS[cur] ?? fin}</span>` : '') +
+      `</div>`;
+  }
+  if (redraw) drawWires();
+}
+
+// variant pills
+const toolbar = document.getElementById('toolbar');
+const hint = toolbar.querySelector('.hint');
+for (const v of [null, ...VARIANTS]) {
+  const b = document.createElement('button');
+  b.className = 'pill' + (filter === v ? ' on' : '');
+  b.textContent = v ?? 'all';
+  b.onclick = () => {
+    filter = v; selected = null;
+    toolbar.querySelectorAll('.pill').forEach(p => p.classList.toggle('on', p.textContent === (v ?? 'all')));
+    render();
+  };
+  toolbar.insertBefore(b, hint);
+}
+toolbar.querySelector('.pill').classList.add('on');
+
+paintPreview();
+render();
+window.addEventListener('resize', () => drawWires());
+</script>
+</body>
+</html>
