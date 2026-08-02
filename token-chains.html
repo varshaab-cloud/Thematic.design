@@ -205,10 +205,27 @@ function renderGraph() {
     const chips = document.createElement('div'); chips.className = 'chips';
     const names = [...tiers[tier]].sort();
     if (!names.length) chips.innerHTML = `<div class="empty">no ${tier} tokens in this chain</div>`;
+    // Brand tokens are stops on a ramp, not peers: cobalt-primary-800 and -900 are two
+    // intensities of one brand colour. Listed flat they read as two separate brands, so
+    // the column groups by <brand>-<ramp> with a header, and chips show only the stop.
+    let lastGroup = null;
     for (const name of names) {
+      if (tier === 'brand') {
+        const parts = name.replace('--brand-', '').split('-');
+        const group = parts.slice(0, -1).join(' · ');
+        if (group !== lastGroup) {
+          lastGroup = group;
+          const h = document.createElement('div');
+          h.style.cssText = 'font-size:9.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#909090;margin:6px 0 1px;';
+          h.textContent = group + ' ramp';
+          chips.append(h);
+        }
+      }
       const el = document.createElement('div'); el.className = 'chip';
       const fin = resolve(name);
-      const short = name.replace(/^--(component|alias|brand|base)-/, '');
+      const short = tier === 'brand'
+        ? 'stop ' + name.split('-').pop()
+        : name.replace(/^--(component|alias|brand|base)-/, '');
       el.title = `${name}\n= ${TOKENS[name] ?? ''}`;
       el.innerHTML =
         (isColor(fin) ? `<span class="sw" style="background:${fin}"></span>` : '') +
