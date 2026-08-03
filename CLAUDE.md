@@ -61,9 +61,12 @@ component built this session that is *not* in `DESIGN.generated.md` gets its own
   with its spec: name, tier, location, purpose, composed-from, tokens used, audit
   result, and whether it's a candidate for promotion.
 
-Recipes reach Storybook only after human review: the NOTES.md entry is the
-acceptance gate, and on approval a story is added at
-`src/stories/recipes/<Name>.stories.tsx`. Never add a recipe story unprompted.
+Recipes and snowflakes each have their own Storybook section, separate from the
+library: `src/stories/recipes/` ("Recipes/…" titles) and `src/stories/snowflakes/`
+("Snowflakes/…" titles). Both reach Storybook only after human review: the NOTES.md
+entry is the acceptance gate, and on approval the component gets its `.mdx` (and a
+story for recipes) in its section. Never add one unprompted. These sections are
+deliberately outside `DESIGN.generated.md` — the AI build index stays library-only.
 
 ## Agents
 

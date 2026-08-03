@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Recipes/Overview" />
+
+# Recipes
+
+Product-level compositions of design-system components — reusable within this
+product, but not agnostic enough for the component library. `ProductCard`,
+`AddressField`, `NameField` are the canonical examples. Organisms, in
+atomic-design terms.
+
+Every recipe here has passed the same token audit as the library (zero errors,
+enforced by `npm run verify`) and composes from `components/ui/` primitives —
+recipes never invent primitives of their own.
+
+## How a recipe gets here
+
+1. Built during a page task, audit-clean, spec recorded in that task's `NOTES.md`
+   (purpose, composed-from, tokens used, audit result).
+2. A human reviews the NOTES.md entry — this is the acceptance gate.
+3. On approval, the recipe gets its `.mdx` documentation and story in this
+   section.
+
+Nothing appears in this section without human sign-off. The code lives in
+`components/recipes/`.

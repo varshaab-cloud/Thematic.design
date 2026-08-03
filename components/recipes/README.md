@@ -27,7 +27,9 @@ A recipe does **not** get a story the moment it's built. The sequence is:
    it visible in Storybook under a "Recipes" section.
 
 Unreviewed recipes exist in code but not in the catalogue — Storybook only ever
-shows what a human has signed off. Snowflakes never get stories.
+shows what a human has signed off. Snowflakes follow the same gate but land in
+their own section, `src/stories/snowflakes/` — documented as a registry of
+one-offs, not offered for reuse.
 
 One-off components ("snowflakes" — used once, tied to a single use case, like a
 `Seat` picker for one airline flow) do **not** belong here. They live in the task

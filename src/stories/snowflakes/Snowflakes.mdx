@@ -1,0 +1,28 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Snowflakes/Overview" />
+
+# Snowflakes
+
+One-off components tied to a single use case — an airline's `Seat` picker only
+makes sense inside "select your seat". They are needed to ship a product but do
+not get reused beyond their first home, so they never join the library or the
+recipe tier.
+
+A snowflake's code lives in the task folder that needs it (`app/<task>/`), not in
+`components/`. It is still held to the system's standards: audited for hardcoded
+values and phantom tokens (`node scripts/token-audit.cjs app/<task>`), composed
+from `components/ui/` primitives where possible, and specced in the task's
+`NOTES.md`.
+
+## How a snowflake gets documented here
+
+1. Built during a page task, audited clean, spec recorded in `NOTES.md`
+   (purpose, composed-from, tokens used, audit result).
+2. A human reviews the entry — same acceptance gate as recipes.
+3. On approval, it gets an `.mdx` in this section documenting what it is, where
+   it lives, and why it stayed a one-off.
+
+This section is a registry, not a shopping catalogue: it exists so one-offs are
+visible and accounted for, not so they get reused. If you're tempted to reuse a
+snowflake, that's the signal it should be promoted to a recipe.
