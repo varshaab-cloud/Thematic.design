@@ -1,42 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 170" font-family="'Open Sans', system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 310" font-family="'Open Sans', system-ui, sans-serif">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"/>
     </marker>
   </defs>
 
-  <rect x="12" y="12" width="1396" height="146" rx="12" fill="#ffffff" stroke="#d5d5d5" stroke-width="1.5"/>
+  <rect x="12" y="12" width="1396" height="286" rx="12" fill="#ffffff" stroke="#d5d5d5" stroke-width="1.5"/>
 
   <rect x="36" y="60" width="130" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="101" y="90" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">CLAUDE.md</text>
+  <text x="101" y="128" font-size="9" fill="#909090" text-anchor="middle">rules · auto-loads</text>
 
   <path d="M166,85 L194,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
   <rect x="196" y="60" width="110" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="251" y="90" font-size="12" font-weight="700" fill="#111" text-anchor="middle">prompt</text>
+  <text x="251" y="128" font-size="9" fill="#909090" text-anchor="middle">content only</text>
 
   <path d="M306,85 L334,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
   <rect x="336" y="60" width="200" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="436" y="90" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">DESIGN.generated.md</text>
+  <text x="436" y="128" font-size="9" fill="#909090" text-anchor="middle">choose · token metadata</text>
 
   <path d="M536,85 L564,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
   <rect x="566" y="60" width="180" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="656" y="90" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">&lt;Component&gt;.mdx</text>
+  <text x="656" y="128" font-size="9" fill="#909090" text-anchor="middle">contract · token roles</text>
 
   <path d="M746,85 L774,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
   <rect x="776" y="60" width="230" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="891" y="90" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">app/dashboard/&lt;page&gt;.tsx</text>
+  <text x="891" y="128" font-size="9" fill="#909090" text-anchor="middle">build · tokens inherited</text>
 
   <path d="M1006,85 L1034,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
   <rect x="1036" y="60" width="170" height="50" rx="6" fill="#f8f8ff" stroke="#1518a6" stroke-width="1.8"/>
   <text x="1121" y="90" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#1518a6" text-anchor="middle">npm run verify</text>
+  <text x="1121" y="128" font-size="9" fill="#909090" text-anchor="middle">gate · all tokens checked</text>
 
   <path d="M1206,85 L1234,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
   <rect x="1236" y="60" width="150" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="1311" y="90" font-size="12" font-weight="700" fill="#111" text-anchor="middle">commit · deploy</text>
+  <text x="1311" y="128" font-size="9" fill="#909090" text-anchor="middle">resolved at render</text>
+
+  <path d="M985,206 L985,166 L891,166 L891,140" fill="none" stroke="#111" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="944" y="160" font-size="9" fill="#464646" text-anchor="middle">lookup</text>
+  <path d="M1027,206 L1027,166 L1121,166 L1121,140" fill="none" stroke="#111" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="1078" y="160" font-size="9" fill="#464646" text-anchor="middle">audit</text>
+
+  <path d="M926,216 L926,262 A80,10 0 0 0 1086,262 L1086,216" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+  <ellipse cx="1006" cy="216" rx="80" ry="10" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
+  <text x="1006" y="246" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">tokens.css</text>
 </svg>
