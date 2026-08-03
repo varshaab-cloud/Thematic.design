@@ -17,6 +17,7 @@
 - **Name:**
   - **Tier:** recipe / snowflake
   - **Location:** `components/recipes/<Name>.tsx` or `app/<task>/…`
+  - **Where on the page:** (route · what section of the layout it sits in · `file:line` where it's rendered — e.g. `/checkout · payment step, below the address form · app/checkout/page.tsx:112`)
   - **Purpose:** (the use case that required it)
   - **Composed from:** (which `components/ui/` components)
   - **Tokens used:** (the `var(--…)` roles it relies on)

@@ -93,7 +93,9 @@ not in `DESIGN.generated.md`. For each one: classify it (recipe → must live in
 `components/recipes/`, covered by `npm run verify` at zero errors; snowflake → stays
 in `app/<task>/`, audit it with `node scripts/token-audit.cjs app/<task>`), run the
 same fix loop until clean, and confirm it composes from `components/ui/` rather than
-re-inventing a primitive. Record each one in the task's NOTES.md under "Components
-built beyond the library" with name, tier, location, purpose, composed-from, tokens
-used, audit result, and promotion-candidate yes/no. Promotion to the library is
+re-inventing a primitive. Confirm its root element carries
+`data-tier` and `data-component` attributes. Record each one in the task's NOTES.md
+under "Components built beyond the library" with name, tier, location, where on the
+page (route · layout section · file:line where it is rendered), purpose,
+composed-from, tokens used, audit result, and promotion-candidate yes/no. Promotion to the library is
 always deferred to a human.

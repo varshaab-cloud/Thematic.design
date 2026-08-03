@@ -57,8 +57,13 @@ component built this session that is *not* in `DESIGN.generated.md` gets its own
   `npm run verify`; run the audit on the task folder for snowflakes:
   `node scripts/token-audit.cjs app/<task>`) and fix until clean;
 - confirm it composes from `components/ui/` rather than re-inventing primitives;
+- give its root element `data-tier="recipe"` (or `"snowflake"`) and
+  `data-component="<Name>"` so it can be located in the rendered page with
+  DevTools — these attributes are inert, ship to production, and are the ground
+  truth for "where is this component actually used";
 - record it in the task's `NOTES.md` under **Components built beyond the library**
-  with its spec: name, tier, location, purpose, composed-from, tokens used, audit
+  with its spec: name, tier, location, where on the page (route · layout section ·
+  `file:line` where it's rendered), purpose, composed-from, tokens used, audit
   result, and whether it's a candidate for promotion.
 
 Recipes and snowflakes each have their own Storybook section, separate from the
