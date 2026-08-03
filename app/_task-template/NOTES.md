@@ -1,6 +1,6 @@
 # Task notes — <name>
 
-- **Date / session:**
+- **Date / time:** (when the session ran)
 - **Prompt used:**
 - **Components chosen (from DESIGN.generated.md):**
 - **Specs read (.mdx):**

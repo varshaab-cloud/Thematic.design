@@ -43,6 +43,7 @@ When building or materially editing a page under `app/<task>/`, keep a `NOTES.md
 that folder (template: `app/_task-template/NOTES.md`) and fill it in before finishing
 the session:
 
+- **Date / time** — when the session ran.
 - **Prompt used** — the user's request, verbatim or lightly trimmed.
 - **Components chosen** — which components you picked from `DESIGN.generated.md`.
 - **Specs read** — every `.mdx` you opened.
