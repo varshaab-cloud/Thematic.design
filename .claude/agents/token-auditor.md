@@ -76,3 +76,11 @@ design decision, not an audit fix — stop and report it instead.
 
 End with: errors before → after, warnings before → after, files touched, each fix as
 `file: old → new` on one line, and anything deferred to a human with one line of why.
+
+## Task notes
+
+If the work touched a page under `app/<task>/`, also write your findings into that
+folder's `NOTES.md` (template: `app/_task-template/NOTES.md`): every hardcoded value
+and phantom token found — with the token it became — the final verify result, and
+anything deferred. "None" is a valid and useful entry. The report above is for the
+session; NOTES.md is the permanent record the human reviews later.

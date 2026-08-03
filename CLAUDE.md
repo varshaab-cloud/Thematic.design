@@ -37,6 +37,26 @@ autonomously: verify → fix → regenerate → re-verify until zero errors, def
 design decisions to a human. In Claude Code, delegate with "run the token auditor",
 or it triggers on its own after edits to `components/ui/` or `tokens.css`.
 
+## Task notes — required for every page build
+
+When building or materially editing a page under `app/<task>/`, keep a `NOTES.md` in
+that folder (template: `app/_task-template/NOTES.md`) and fill it in before finishing
+the session:
+
+- **Prompt used** — the user's request, verbatim or lightly trimmed.
+- **Components chosen** — which components you picked from `DESIGN.generated.md`.
+- **Specs read** — every `.mdx` you opened.
+- **Verify result** — errors/warnings from the final `npm run verify`.
+- **Hardcoded values found** — every raw value the audit (or you) caught during the
+  session and the token it was replaced with. Write "none" if the first pass was clean.
+- **Phantom tokens found** — every undefined `var()` reference caught, and the real
+  token used instead. Write "none" if clean.
+- **Deferred to human** — anything you didn't decide alone.
+
+Record findings even though they're fixed by commit time — the notes are the record of
+what went wrong on the way, which is what the human reviews. An empty or missing
+NOTES.md means the session isn't finished.
+
 ## Before committing
 
 ```bash
