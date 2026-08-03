@@ -51,6 +51,9 @@ the session:
   session and the token it was replaced with. Write "none" if the first pass was clean.
 - **Phantom tokens found** — every undefined `var()` reference caught, and the real
   token used instead. Write "none" if clean.
+- **Drift** — every place the rendered value changed from what was there before, with
+  the exact location: file, token, old value → new value. Fixes are meant to be
+  value-identical, so "none" is the expected entry; anything else needs human sign-off.
 - **Deferred to human** — anything you didn't decide alone.
 
 Record findings even though they're fixed by commit time — the notes are the record of

@@ -81,6 +81,7 @@ End with: errors before → after, warnings before → after, files touched, eac
 
 If the work touched a page under `app/<task>/`, also write your findings into that
 folder's `NOTES.md` (template: `app/_task-template/NOTES.md`): every hardcoded value
-and phantom token found — with the token it became — the final verify result, and
+and phantom token found — with the token it became — any drift (file, token,
+old value → new value; expected "none"), the final verify result, and
 anything deferred. "None" is a valid and useful entry. The report above is for the
 session; NOTES.md is the permanent record the human reviews later.
