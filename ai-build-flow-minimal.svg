@@ -39,7 +39,7 @@
 
   <rect x="1036" y="60" width="170" height="50" rx="6" fill="#f8f8ff" stroke="#1518a6" stroke-width="1.8"/>
   <text x="1121" y="90" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#1518a6" text-anchor="middle">npm run verify</text>
-  <text x="1121" y="128" font-size="9" fill="#909090" text-anchor="middle">gate · all tokens checked</text>
+  <text x="1121" y="128" font-size="9" fill="#909090" text-anchor="middle">gate · ui + recipes + page</text>
 
   <path d="M1206,85 L1234,85" fill="none" stroke="#111" stroke-width="1.4" marker-end="url(#arr)"/>
 
@@ -56,10 +56,19 @@
   <ellipse cx="1006" cy="216" rx="80" ry="10" fill="#ffffff" stroke="#111" stroke-width="1.5"/>
   <text x="1006" y="246" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">tokens.css</text>
 
+  <path d="M790,110 L790,192" fill="none" stroke="#111" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <text x="782" y="155" font-size="9" fill="#464646" text-anchor="end">not in library?</text>
+  <path d="M830,196 L830,114" fill="none" stroke="#111" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <rect x="616" y="196" width="230" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <text x="731" y="226" font-size="12" font-weight="700" fill="#111" text-anchor="middle">recipe / snowflake</text>
+  <text x="731" y="262" font-size="9" fill="#909090" text-anchor="middle">recipe &#8594; components/recipes/ &#183; snowflake &#8594; app/&lt;task&gt;/</text>
+  <text x="731" y="276" font-size="9" fill="#909090" text-anchor="middle">same audit · story only after human approval</text>
+
   <path d="M1180,110 L1180,231 L1232,231" fill="none" stroke="#111" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr)"/>
   <text x="1205" y="180" font-size="9" fill="#464646" text-anchor="middle">findings</text>
   <rect x="1236" y="206" width="150" height="50" rx="6" fill="#ffffff" stroke="#111" stroke-width="1.3" stroke-dasharray="4 3"/>
   <text x="1311" y="236" font-size="12" font-weight="700" font-family="Menlo, monospace" fill="#111" text-anchor="middle">NOTES.md</text>
-  <text x="1311" y="274" font-size="9" fill="#909090" text-anchor="middle">prompt · specs · findings · drift · time</text>
+  <text x="1311" y="272" font-size="9" fill="#909090" text-anchor="middle">prompt · specs · findings · drift</text>
+  <text x="1311" y="285" font-size="9" fill="#909090" text-anchor="middle">components · time</text>
   <path d="M1250,204 L1250,140" fill="none" stroke="#111" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arr)"/>
 </svg>

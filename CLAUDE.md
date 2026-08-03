@@ -61,6 +61,10 @@ component built this session that is *not* in `DESIGN.generated.md` gets its own
   with its spec: name, tier, location, purpose, composed-from, tokens used, audit
   result, and whether it's a candidate for promotion.
 
+Recipes reach Storybook only after human review: the NOTES.md entry is the
+acceptance gate, and on approval a story is added at
+`src/stories/recipes/<Name>.stories.tsx`. Never add a recipe story unprompted.
+
 ## Agents
 
 `.claude/agents/token-auditor.md` defines a project agent that runs the audit loop
