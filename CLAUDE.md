@@ -30,6 +30,37 @@ Instructions for any AI assistant working in this repo. Read this first.
    section describing required ARIA, keyboard behaviour, and developer responsibilities.
    Honour it.
 
+## Component tiers — when the library doesn't have what a page needs
+
+Every component in a built page belongs to exactly one tier:
+
+1. **Component** — lives in `components/ui/`, has a spec in `src/stories/<Component>.mdx`.
+   Content-agnostic, context-agnostic, cross-product. This is the default: compose
+   pages from these.
+2. **Recipe** — a reusable *composition* of library components, specific to this
+   product: `ProductCard`, `AddressField`, `NameField`. Lives in
+   `components/recipes/<Name>.tsx`. Gated by the token audit at zero errors, same as
+   the library. See `components/recipes/README.md`.
+3. **Snowflake** — a one-off tied to a single use case (an airline's `Seat` picker).
+   Lives in the task folder that needs it, `app/<task>/`, and stays there.
+
+When a prompt requires something the library doesn't have, do not silently improvise
+it inline. Build it deliberately, classify it (recipe if it would plausibly be reused
+in this product, snowflake if not), place it in the tier's location, and run the
+improvised-component verification below. Promoting anything to the library tier
+(a new primitive + `.mdx` spec) is a human decision — propose it, don't ship it.
+
+**Improvised-component verification** — after the page passes its own audit, every
+component built this session that is *not* in `DESIGN.generated.md` gets its own loop:
+
+- audit it for hardcoded values and phantom tokens (recipes are covered by
+  `npm run verify`; run the audit on the task folder for snowflakes:
+  `node scripts/token-audit.cjs app/<task>`) and fix until clean;
+- confirm it composes from `components/ui/` rather than re-inventing primitives;
+- record it in the task's `NOTES.md` under **Components built beyond the library**
+  with its spec: name, tier, location, purpose, composed-from, tokens used, audit
+  result, and whether it's a candidate for promotion.
+
 ## Agents
 
 `.claude/agents/token-auditor.md` defines a project agent that runs the audit loop
@@ -55,6 +86,11 @@ the session:
 - **Drift** — every place the rendered value changed from what was there before, with
   the exact location: file, token, old value → new value. Fixes are meant to be
   value-identical, so "none" is the expected entry; anything else needs human sign-off.
+- **Components built beyond the library** — every component improvised this session
+  that is not in `DESIGN.generated.md`, with its spec: name, tier (recipe /
+  snowflake), location, purpose, composed-from, tokens used, audit result, and
+  whether it's a promotion candidate. Write "none" if the page used only library
+  components.
 - **Deferred to human** — anything you didn't decide alone.
 
 Record findings even though they're fixed by commit time — the notes are the record of

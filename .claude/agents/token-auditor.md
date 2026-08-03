@@ -85,3 +85,15 @@ and phantom token found — with the token it became — any drift (file, token,
 old value → new value; expected "none"), the final verify result, and
 anything deferred. "None" is a valid and useful entry. The report above is for the
 session; NOTES.md is the permanent record the human reviews later.
+
+## Second loop — improvised components
+
+After the page itself passes, check whether the session built any component that is
+not in `DESIGN.generated.md`. For each one: classify it (recipe → must live in
+`components/recipes/`, covered by `npm run verify` at zero errors; snowflake → stays
+in `app/<task>/`, audit it with `node scripts/token-audit.cjs app/<task>`), run the
+same fix loop until clean, and confirm it composes from `components/ui/` rather than
+re-inventing a primitive. Record each one in the task's NOTES.md under "Components
+built beyond the library" with name, tier, location, purpose, composed-from, tokens
+used, audit result, and promotion-candidate yes/no. Promotion to the library is
+always deferred to a human.
