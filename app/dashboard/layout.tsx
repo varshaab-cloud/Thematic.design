@@ -18,6 +18,7 @@ import {
   Car,
   AlertCircle,
   Receipt,
+  FileText,
   User,
   LogOut,
   Menu,
@@ -39,6 +40,12 @@ const NAV = [
       { label: "Leaves & Att.", icon: <Plane />,         href: "/dashboard/leaves",  badge: 2 },
       { label: "Shifts",        icon: <CalendarClock />, href: "/dashboard/shifts" },
       { label: "Roster",        icon: <CalendarDays />,  href: "/dashboard/roster" },
+    ],
+  },
+  {
+    title: "Finance",
+    items: [
+      { label: "Invoices", icon: <FileText />, href: "/dashboard/invoices" },
     ],
   },
   {
